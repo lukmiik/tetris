@@ -18,20 +18,25 @@ class Tetromino:
             if self.grid[i[0]+1][i[1]] != 0 and [(i[0]+1),i[1]] not in self.pos:
                 return True 
             
+    def put_on_grid(self):
+        self.main_pos = self.pos[1]
+        for i in self.pos:
+            self.grid[i[0]][i[1]] = self.tag
+            
     def clear(self):
         for i in self.pos:
             self.grid[i[0]][i[1]] = 0
 
-    def check_if_any_on_col0(self):
+    def check_move_left(self):
         for i in self.pos:
-            if i[1] == 0:
+            if i[1] == 0 or ([(i[0]),( i[1]-1)] not in self.pos and self.grid[i[0]][i[1]-1] !=0):
                 return True
             
-    def check_if_any_on_last_col(self):
+    def check_move_right(self):
         for i in self.pos:
-            if i[1] == self.n:
+            if i[1] == self.n or ([(i[0]),( i[1]+1)] not in self.pos and self.grid[i[0]][ i[1]+1]!=0) :
                 return True
-            
+    
     def rotate_left(self):
         self.clear()
         if self.current_rot == 0 and self.main_pos[0] != self.settings.n_of_rows -1:
@@ -63,14 +68,14 @@ class Tetromino:
             self.current_rot = 0
 
     def move_right(self):
-        if self.check_if_any_on_last_col():
+        if self.check_move_right():
             return
         self.clear()
         for i in self.pos:
             i[1] += 1
 
     def move_left(self):
-        if self.check_if_any_on_col0():
+        if self.check_move_left():
             return
         self.clear()
         for i in self.pos:
@@ -84,129 +89,205 @@ class Tetromino:
 class Itetromino(Tetromino):
     def __init__(self,g):
         super().__init__(g)
-        self.color = self.settings.I_color
+        # self.color = self.settings.I_color
+        self.tag = "I"
         self.spawn()
         self.put_on_grid()
 
     def spawn(self):
         self.pos = [[1, self.n//2-1],[1, self.n//2],[1, self.n//2+1],[1, self.n//2+2]]
 
-    def put_on_grid(self):
-        for i in self.pos:
-            self.grid[i[0]][i[1]] = "I"
-
     def rotate_right(self):
         self.clear()
         if self.current_rot == 0 and self.pos[0][0]<self.settings.n_of_rows-2:
-            self.pos[0][0] -= 1
-            self.pos[0][1] += 2
-            self.pos[1][0] += 1
-            self.pos[1][1] += 1
-            self.pos[3][0] += 2
-            self.pos[3][1] -= 1
+            new0 = [self.pos[0][0] - 1, self.pos[0][1] + 2]
+            if self.grid[new0[0]][new0[1]] == "t" and new0 not in self.pos:
+                print("new0")
+                return
+            new1 = [self.pos[1][0] +1, self.pos[1][1] + 1]
+            if self.grid[new1[0]][new1[1]] == "t" and new1 not in self.pos:
+                print("new1")
+                return
+            new3 = [self.pos[3][0] +2, self.pos[3][1] -1]
+            if self.grid[new3[0]][new3[1]] == "t" and new3 not in self.pos:
+                print("new3")
+                return
+            # self.pos[0][0] -= 1
+            # self.pos[0][1] += 2
+            # self.pos[1][0] += 1
+            # self.pos[1][1] += 1
+            # self.pos[3][0] += 2
+            # self.pos[3][1] -= 1
+            self.pos[0] = new0
+            self.pos[1] = new1
+            self.pos[3] = new3
             self.current_rot = 1
         elif self.current_rot == 1 and self.pos[0][1]<self.n and self.pos[0][1]>1:
-            self.pos[0][0] += 2
-            self.pos[0][1] -= 2
-            self.pos[2][0] += 1
-            self.pos[2][1] -= 1
-            self.pos[3][0] -= 1
-            self.pos[3][1] += 1
+            new0 = [self.pos[0][0] +2, self.pos[0][1] - 2]
+            if self.grid[new0[0]][new0[1]] == 't' and new0 not in self.pos:
+                return
+            new2 = [self.pos[2][0] +1, self.pos[2][1] - 1]
+            if self.grid[new2[0]][new2[1]] == 't' and new2 not in self.pos:
+                return
+            new3 = [self.pos[3][0] -1, self.pos[3][1] +1]
+            if self.grid[new3[0]][new3[1]] == 't' and new3 not in self.pos:
+                return
+            # self.pos[0][0] += 2
+            # self.pos[0][1] -= 2
+            # self.pos[2][0] += 1
+            # self.pos[2][1] -= 1
+            # self.pos[3][0] -= 1
+            # self.pos[3][1] += 1
+            self.pos[0] = new0
+            self.pos[2] = new2
+            self.pos[3] = new3
             self.current_rot = 2
         elif self.current_rot == 2 and self.pos[0][0]<self.settings.n_of_rows-1:
-            self.pos[0][0] -= 2
-            self.pos[0][1] += 1
-            self.pos[1][0] -= 1
-            self.pos[1][1] -= 1
-            self.pos[3][0] += 1
-            self.pos[3][1] -= 2
+            new0 = [self.pos[0][0] - 2, self.pos[0][1] + 1]
+            if self.grid[new0[0]][new0[1]] == 't' and new0 not in self.pos:
+                return
+            new1 = [self.pos[1][0] -1, self.pos[1][1]- 1]
+            if self.grid[new1[0]][new1[1]] == 't' and new1 not in self.pos:
+                return
+            new3 = [self.pos[3][0] +1, self.pos[3][1] -2]
+            if self.grid[new3[0]][new3[1]] == 't' and new3 not in self.pos:
+                return
+            # self.pos[0][0] -= 2
+            # self.pos[0][1] += 1
+            # self.pos[1][0] -= 1
+            # self.pos[1][1] -= 1
+            # self.pos[3][0] += 1
+            # self.pos[3][1] -= 2
+            self.pos[0] = new0
+            self.pos[1] = new1
+            self.pos[3] = new3
             self.current_rot = 3
         elif self.current_rot == 3  and self.pos[0][1]<self.n -1 and self.pos[0][1]>0:
-            self.pos[0][0] += 1
-            self.pos[0][1] -= 1
-            self.pos[2][0] -= 1
-            self.pos[2][1] += 1
-            self.pos[3][0] -= 2
-            self.pos[3][1] += 2
+            new0 = [self.pos[0][0] + 1, self.pos[0][1] -1]
+            if self.grid[new0[0]][new0[1]] == 't' and new0 not in self.pos:
+                return
+            new2 = [self.pos[2][0] -1, self.pos[2][1] + 1]
+            if self.grid[new2[0]][new2[1]] == 't' and new2 not in self.pos:
+                return
+            new3 = [self.pos[3][0] -2, self.pos[3][1] +2]
+            if self.grid[new3[0]][new3[1]] == 't' and new3 not in self.pos:
+                return
+            # self.pos[0][0] += 1
+            # self.pos[0][1] -= 1
+            # self.pos[2][0] -= 1
+            # self.pos[2][1] += 1
+            # self.pos[3][0] -= 2
+            # self.pos[3][1] += 2
+            self.pos[0] = new0
+            self.pos[2] = new2
+            self.pos[3] = new3
             self.current_rot = 0
 
     def rotate_left(self):
         self.clear()
         if self.current_rot == 0 and self.pos[0][0]<self.settings.n_of_rows-2:
-            self.pos[0][0] -= 1
-            self.pos[0][1] += 1
-            self.pos[2][0] += 1
-            self.pos[2][1] -= 1
-            self.pos[3][0] += 2
-            self.pos[3][1] -= 2
+            new0 = [self.pos[0][0] - 1, self.pos[0][1] +1]
+            if self.grid[new0[0]][new0[1]] == 't' and new0 not in self.pos:
+                return
+            new2 = [self.pos[2][0] +1, self.pos[2][1] - 1]
+            if self.grid[new2[0]][new2[1]] == 't' and new2 not in self.pos:
+                return
+            new3 = [self.pos[3][0] +2, self.pos[3][1] -2]
+            if self.grid[new3[0]][new3[1]] == 't' and new3 not in self.pos:
+                return
+            # self.pos[0][0] -= 1
+            # self.pos[0][1] += 1
+            # self.pos[2][0] += 1
+            # self.pos[2][1] -= 1
+            # self.pos[3][0] += 2
+            # self.pos[3][1] -= 2
+            self.pos[0] = new0
+            self.pos[2] = new2
+            self.pos[3] = new3
             self.current_rot = 3
         elif self.current_rot == 1  and self.pos[0][1]<self.n and self.pos[0][1]>1:
-            self.pos[0][0] += 1
-            self.pos[0][1] -= 2
-            self.pos[1][0] -= 1
-            self.pos[1][1] -= 1
-            self.pos[3][0] -= 2
-            self.pos[3][1] += 1
+            new0 = [self.pos[0][0] + 1, self.pos[0][1] - 2]
+            if self.grid[new0[0]][new0[1]] == 't' and new0 not in self.pos:
+                return
+            new1 = [self.pos[1][0] -1, self.pos[1][1] - 1]
+            if self.grid[new1[0]][new1[1]] == 't' and new1 not in self.pos:
+                return
+            new3 = [self.pos[3][0] -2, self.pos[3][1] +1]
+            if self.grid[new3[0]][new3[1]] == 't' and new3 not in self.pos:
+                return
+            # self.pos[0][0] += 1
+            # self.pos[0][1] -= 2
+            # self.pos[1][0] -= 1
+            # self.pos[1][1] -= 1
+            # self.pos[3][0] -= 2
+            # self.pos[3][1] += 1
+            self.pos[0] = new0
+            self.pos[1] = new1
+            self.pos[3] = new3
             self.current_rot = 0
         elif self.current_rot == 2 and self.pos[0][0]<self.settings.n_of_rows-1:
-            self.pos[0][0] -= 2
-            self.pos[0][1] += 2
-            self.pos[2][0] -= 1
-            self.pos[2][1] += 1
-            self.pos[3][0] += 1
-            self.pos[3][1] -= 1
+            new0 = [self.pos[0][0] - 2, self.pos[0][1] +2]
+            if self.grid[new0[0]][new0[1]] == 't' and new0 not in self.pos:
+                return
+            new2 = [self.pos[2][0] -1, self.pos[2][1] + 1]
+            if self.grid[new2[0]][new2[1]] == 't' and new2 not in self.pos:
+                return
+            new3 = [self.pos[3][0] +1, self.pos[3][1] -1]
+            if self.grid[new3[0]][new3[1]] == 't' and new3 not in self.pos:
+                return
+            # self.pos[0][0] -= 2
+            # self.pos[0][1] += 2
+            # self.pos[2][0] -= 1
+            # self.pos[2][1] += 1
+            # self.pos[3][0] += 1
+            # self.pos[3][1] -= 1
+            self.pos[0] = new0
+            self.pos[2] = new2
+            self.pos[3] = new3
             self.current_rot = 1
         elif self.current_rot == 3 and self.pos[0][1]<self.n -1 and self.pos[0][1]>0:
-            self.pos[0][0] += 2
-            self.pos[0][1] -= 1
-            self.pos[1][0] += 1
-            self.pos[1][1] += 1
-            self.pos[3][0] -= 1
-            self.pos[3][1] += 2
+            new0 = [self.pos[0][0] +2, self.pos[0][1] -1]
+            if self.grid[new0[0]][new0[1]] == 't' and new0 not in self.pos:
+                return
+            new1 = [self.pos[1][0] +1, self.pos[1][1] + 1]
+            if self.grid[new1[0]][new1[1]] == 't' and new1 not in self.pos:
+                return
+            new3 = [self.pos[3][0] -1, self.pos[3][1] +2]
+            if self.grid[new3[0]][new3[1]] == 't' and new3 not in self.pos:
+                return
+            # self.pos[0][0] += 2
+            # self.pos[0][1] -= 1
+            # self.pos[1][0] += 1
+            # self.pos[1][1] += 1
+            # self.pos[3][0] -= 1
+            # self.pos[3][1] += 2
+            self.pos[0] = new0
+            self.pos[1] = new1
+            self.pos[3] = new3
             self.current_rot = 2
 
 class Otetromino(Tetromino):
     def __init__(self,g):
         super().__init__(g)
-        self.color = self.settings.O_color
+        # self.color = self.settings.O_color
+        self.tag = "O"
         self.spawn()
         self.put_on_grid()
 
     def spawn(self):
-        self.pos = [[1, self.n//2-1],[1, self.n//2],[1, self.n//2+1],[1, self.n//2+2]]
+        self.pos = [[1, self.n//2],[1, self.n//2+1],[0, self.n//2],[0, self.n//2+1]]
 
-    def put_on_grid(self):
-        for i in self.pos:
-            self.grid[i[0]][i[1]] = "I"
+    def rotate_right(self):
+        pass
 
-    def pos0(self, dir):
-        if dir == "left":
-            pass
-        elif dir == "right":
-            pass
-
-    def pos0(self, dir):
-        if dir == "left":
-            pass
-        elif dir == "right":
-            pass
-
-    def pos0(self, dir):
-        if dir == "left":
-            pass
-        elif dir == "right":
-            pass
-
-    def pos0(self, dir):
-        if dir == "left":
-            pass
-        elif dir == "right":
-            pass
+    def rotate_left(self):
+        pass
 
 class Ttetromino(Tetromino):
     def __init__(self,g):
         super().__init__(g)
-        self.color = self.settings.T_color
+        # self.color = self.settings.T_color
+        self.tag = "T"
         self.spawn()
         self.put_on_grid()
         self.main_pos = self.pos[1]
@@ -214,39 +295,450 @@ class Ttetromino(Tetromino):
     def spawn(self):
         self.pos = [[1, self.n//2-2],[1, self.n//2-1],[1, self.n//2],[0, self.n//2-1]]
 
-    def put_on_grid(self):
-        self.main_pos = self.pos[1]
-        for i in self.pos:
-            self.grid[i[0]][i[1]] = "T"
-
     def pos0(self):
-        self.pos[0][0] = self.main_pos[0]-1
-        self.pos[0][1] = self.main_pos[1]
-        self.pos[2][0] = self.main_pos[0]
-        self.pos[2][1] = self.main_pos[1]+1
-        self.pos[3][0] = self.main_pos[0]
-        self.pos[3][1] = self.main_pos[1]-1
+        new0 = [self.main_pos[0] -1, self.main_pos[1] ]
+        if self.grid[new0[0]][new0[1]] == 't' and new0 not in self.pos:
+            return
+        new2 = [self.main_pos[0] , self.main_pos[1] + 1]
+        if self.grid[new2[0]][new2[1]] == 't' and new2 not in self.pos:
+            return
+        new3 = [self.main_pos[0] , self.main_pos[1]-1]
+        if self.grid[new3[0]][new3[1]] == 't' and new3 not in self.pos:
+            return
+        # self.pos[0][0] = self.main_pos[0]-1
+        # self.pos[0][1] = self.main_pos[1]
+        # self.pos[2][0] = self.main_pos[0]
+        # self.pos[2][1] = self.main_pos[1]+1
+        # self.pos[3][0] = self.main_pos[0]
+        # self.pos[3][1] = self.main_pos[1]-1
+        self.pos[0] = new0
+        self.pos[2] = new2
+        self.pos[3] = new3
 
     def pos1(self):
-        self.pos[0][0] = self.main_pos[0]-1
-        self.pos[0][1] = self.main_pos[1]
-        self.pos[2][0] = self.main_pos[0]+1
-        self.pos[2][1] = self.main_pos[1]
-        self.pos[3][0] = self.main_pos[0]
-        self.pos[3][1] = self.main_pos[1]+1
+        new0 = [self.main_pos[0]-1, self.main_pos[1] ]
+        if self.grid[new0[0]][new0[1]] == 't' and new0 not in self.pos:
+            return
+        new2 = [self.main_pos[0] +1, self.main_pos[1] ]
+        if self.grid[new2[0]][new2[1]] == 't' and new2 not in self.pos:
+            return
+        new3 = [self.main_pos[0] , self.main_pos[1]+1]
+        if self.grid[new3[0]][new3[1]] == 't' and new3 not in self.pos:
+            return
+        # self.pos[0][0] = self.main_pos[0]-1
+        # self.pos[0][1] = self.main_pos[1]
+        # self.pos[2][0] = self.main_pos[0]+1
+        # self.pos[2][1] = self.main_pos[1]
+        # self.pos[3][0] = self.main_pos[0]
+        # self.pos[3][1] = self.main_pos[1]+1
+        self.pos[0] = new0
+        self.pos[2] = new2
+        self.pos[3] = new3
 
     def pos2(self):
-        self.pos[0][0] = self.main_pos[0]
-        self.pos[0][1] = self.main_pos[1]-1
-        self.pos[2][0] = self.main_pos[0]+1
-        self.pos[2][1] = self.main_pos[1]
-        self.pos[3][0] = self.main_pos[0]
-        self.pos[3][1] = self.main_pos[1]+1
+        new0 = [self.main_pos[0] , self.main_pos[1] -1]
+        if self.grid[new0[0]][new0[1]] == 't' and new0 not in self.pos:
+            return
+        new2 = [self.main_pos[0]+ 1 , self.main_pos[1] ]
+        if self.grid[new2[0]][new2[1]] == 't' and new2 not in self.pos:
+            return
+        new3 = [self.main_pos[0] , self.main_pos[1]+1]
+        if self.grid[new3[0]][new3[1]] == 't' and new3 not in self.pos:
+            return
+        # self.pos[0][0] = self.main_pos[0]
+        # self.pos[0][1] = self.main_pos[1]-1
+        # self.pos[2][0] = self.main_pos[0]+1
+        # self.pos[2][1] = self.main_pos[1]
+        # self.pos[3][0] = self.main_pos[0]
+        # self.pos[3][1] = self.main_pos[1]+1
+        self.pos[0] = new0
+        self.pos[2] = new2
+        self.pos[3] = new3
 
     def pos3(self):
-        self.pos[0][0] = self.main_pos[0]-1
-        self.pos[0][1] = self.main_pos[1]
-        self.pos[2][0] = self.main_pos[0]+1
-        self.pos[2][1] = self.main_pos[1]
-        self.pos[3][0] = self.main_pos[0]
-        self.pos[3][1] = self.main_pos[1]-1
+        new0 = [self.main_pos[0] -1, self.main_pos[1] ]
+        if self.grid[new0[0]][new0[1]] == 't' and new0 not in self.pos:
+            return
+        new2 = [self.main_pos[0]+ 1 , self.main_pos[1] ]
+        if self.grid[new2[0]][new2[1]] == 't' and new2 not in self.pos:
+            return
+        new3 = [self.main_pos[0] , self.main_pos[1]-1]
+        if self.grid[new3[0]][new3[1]] == 't' and new3 not in self.pos:
+            return
+        # self.pos[0][0] = self.main_pos[0]-1
+        # self.pos[0][1] = self.main_pos[1]
+        # self.pos[2][0] = self.main_pos[0]+1
+        # self.pos[2][1] = self.main_pos[1]
+        # self.pos[3][0] = self.main_pos[0]
+        # self.pos[3][1] = self.main_pos[1]-1
+        self.pos[0] = new0
+        self.pos[2] = new2
+        self.pos[3] = new3
+
+class Stetromino(Tetromino):
+    def __init__(self, g):
+        super().__init__(g)
+        # self.color = self.settings.S_color
+        self.tag = "S"
+        self.spawn()
+        self.put_on_grid()
+        self.main_pos = self.pos[1]
+
+    def spawn(self):
+        self.pos = [[1, self.n//2-1],[1, self.n//2],[0, self.n//2],[0, self.n//2+1]]
+
+    def pos0(self):       
+        new0 = [self.main_pos[0] , self.main_pos[1] -1]
+        if self.grid[new0[0]][new0[1]] == 't' and new0 not in self.pos:
+            return
+        new2 = [self.main_pos[0]- 1 , self.main_pos[1] ]
+        if self.grid[new2[0]][new2[1]] == 't' and new2 not in self.pos:
+            return
+        new3 = [self.main_pos[0] -1, self.main_pos[1]+1]
+        if self.grid[new3[0]][new3[1]] == 't' and new3 not in self.pos:
+            return
+        # self.pos[0][0] = self.main_pos[0]
+        # self.pos[0][1] = self.main_pos[1]-1
+        # self.pos[2][0] = self.main_pos[0]-1
+        # self.pos[2][1] = self.main_pos[1]
+        # self.pos[3][0] = self.main_pos[0]-1
+        # self.pos[3][1] = self.main_pos[1]+1
+        self.pos[0] = new0
+        self.pos[2] = new2
+        self.pos[3] = new3
+
+    def pos1(self):
+        new0 = [self.main_pos[0] -1, self.main_pos[1] ]
+        if self.grid[new0[0]][new0[1]] == 't' and new0 not in self.pos:
+            return
+        new2 = [self.main_pos[0] , self.main_pos[1]+ 1 ]
+        if self.grid[new2[0]][new2[1]] == 't' and new2 not in self.pos:
+            return
+        new3 = [self.main_pos[0] +1, self.main_pos[1]+1]
+        if self.grid[new3[0]][new3[1]] == 't' and new3 not in self.pos:
+            return
+        # self.pos[0][0] = self.main_pos[0]-1
+        # self.pos[0][1] = self.main_pos[1]
+        # self.pos[2][0] = self.main_pos[0]
+        # self.pos[2][1] = self.main_pos[1]+1
+        # self.pos[3][0] = self.main_pos[0]+1
+        # self.pos[3][1] = self.main_pos[1]+1
+        self.pos[0] = new0
+        self.pos[2] = new2
+        self.pos[3] = new3
+
+    def pos2(self):
+        new0 = [self.main_pos[0] +1, self.main_pos[1] -1]
+        if self.grid[new0[0]][new0[1]] == 't' and new0 not in self.pos:
+            return
+        new2 = [self.main_pos[0]+ 1 , self.main_pos[1] ]
+        if self.grid[new2[0]][new2[1]] == 't' and new2 not in self.pos:
+            return
+        new3 = [self.main_pos[0] , self.main_pos[1]+1]
+        if self.grid[new3[0]][new3[1]] == 't' and new3 not in self.pos:
+            return
+        # self.pos[0][0] = self.main_pos[0]+1
+        # self.pos[0][1] = self.main_pos[1]-1
+        # self.pos[2][0] = self.main_pos[0]+1
+        # self.pos[2][1] = self.main_pos[1]
+        # self.pos[3][0] = self.main_pos[0]
+        # self.pos[3][1] = self.main_pos[1]+1
+        self.pos[0] = new0
+        self.pos[2] = new2
+        self.pos[3] = new3
+
+    def pos3(self):
+        new0 = [self.main_pos[0] , self.main_pos[1] -1]
+        if self.grid[new0[0]][new0[1]] == 't' and new0 not in self.pos:
+            return
+        new2 = [self.main_pos[0]- 1 , self.main_pos[1] -1]
+        if self.grid[new2[0]][new2[1]] == 't' and new2 not in self.pos:
+            return
+        new3 = [self.main_pos[0] +1, self.main_pos[1]]
+        if self.grid[new3[0]][new3[1]] == 't' and new3 not in self.pos:
+            return
+        # self.pos[0][0] = self.main_pos[0]
+        # self.pos[0][1] = self.main_pos[1]-1
+        # self.pos[2][0] = self.main_pos[0]-1
+        # self.pos[2][1] = self.main_pos[1]-1
+        # self.pos[3][0] = self.main_pos[0]+1
+        # self.pos[3][1] = self.main_pos[1]
+        self.pos[0] = new0
+        self.pos[2] = new2
+        self.pos[3] = new3
+
+class Ztetromino(Tetromino):
+    def __init__(self, g):
+        super().__init__(g)
+        # self.color = self.settings.Z_color
+        self.tag = "Z"
+        self.spawn()
+        self.put_on_grid()
+        self.main_pos = self.pos[1]
+
+    def spawn(self):
+        self.pos = [[0, self.n//2-1],[1, self.n//2],[0, self.n//2],[1, self.n//2+1]]
+
+    def pos0(self):
+        new0 = [self.main_pos[0] -1, self.main_pos[1] -1]
+        if self.grid[new0[0]][new0[1]] == 't' and new0 not in self.pos:
+            return
+        new2 = [self.main_pos[0]- 1 , self.main_pos[1] ]
+        if self.grid[new2[0]][new2[1]] == 't' and new2 not in self.pos:
+            return
+        new3 = [self.main_pos[0] , self.main_pos[1]+1]
+        if self.grid[new3[0]][new3[1]] == 't' and new3 not in self.pos:
+            return
+        # self.pos[0][0] = self.main_pos[0]-1
+        # self.pos[0][1] = self.main_pos[1]-1
+        # self.pos[2][0] = self.main_pos[0]-1
+        # self.pos[2][1] = self.main_pos[1]
+        # self.pos[3][0] = self.main_pos[0]
+        # self.pos[3][1] = self.main_pos[1]+1
+        self.pos[0] = new0
+        self.pos[2] = new2
+        self.pos[3] = new3
+
+    def pos1(self):
+        new0 = [self.main_pos[0] +1, self.main_pos[1] ]
+        if self.grid[new0[0]][new0[1]] == 't' and new0 not in self.pos:
+            return
+        new2 = [self.main_pos[0], self.main_pos[1] +1]
+        if self.grid[new2[0]][new2[1]] == 't' and new2 not in self.pos:
+            return
+        new3 = [self.main_pos[0] -1, self.main_pos[1]+1]
+        if self.grid[new3[0]][new3[1]] == 't' and new3 not in self.pos:
+            return
+        # self.pos[0][0] = self.main_pos[0]+1
+        # self.pos[0][1] = self.main_pos[1]
+        # self.pos[2][0] = self.main_pos[0]
+        # self.pos[2][1] = self.main_pos[1]+1
+        # self.pos[3][0] = self.main_pos[0]-1
+        # self.pos[3][1] = self.main_pos[1]+1
+        self.pos[0] = new0
+        self.pos[2] = new2
+        self.pos[3] = new3
+
+    def pos2(self):
+        new0 = [self.main_pos[0] , self.main_pos[1] -1]
+        if self.grid[new0[0]][new0[1]] == 't' and new0 not in self.pos:
+            return
+        new2 = [self.main_pos[0]+ 1 , self.main_pos[1] ]
+        if self.grid[new2[0]][new2[1]] == 't' and new2 not in self.pos:
+            return
+        new3 = [self.main_pos[0] +1, self.main_pos[1]+1]
+        if self.grid[new3[0]][new3[1]] == 't' and new3 not in self.pos:
+            return
+        # self.pos[0][0] = self.main_pos[0]
+        # self.pos[0][1] = self.main_pos[1]-1
+        # self.pos[2][0] = self.main_pos[0]+1
+        # self.pos[2][1] = self.main_pos[1]
+        # self.pos[3][0] = self.main_pos[0]+1
+        # self.pos[3][1] = self.main_pos[1]+1
+        self.pos[0] = new0
+        self.pos[2] = new2
+        self.pos[3] = new3
+
+    def pos3(self):
+        new0 = [self.main_pos[0] , self.main_pos[1] -1]
+        if self.grid[new0[0]][new0[1]] == 't' and new0 not in self.pos:
+            return
+        new2 = [self.main_pos[0]- 1 , self.main_pos[1] ]
+        if self.grid[new2[0]][new2[1]] == 't' and new2 not in self.pos:
+            return
+        new3 = [self.main_pos[0] +1, self.main_pos[1]-1]
+        if self.grid[new3[0]][new3[1]] == 't' and new3 not in self.pos:
+            return
+        # self.pos[0][0] = self.main_pos[0]
+        # self.pos[0][1] = self.main_pos[1]-1
+        # self.pos[2][0] = self.main_pos[0]-1
+        # self.pos[2][1] = self.main_pos[1]
+        # self.pos[3][0] = self.main_pos[0]+1
+        # self.pos[3][1] = self.main_pos[1]-1
+        self.pos[0] = new0
+        self.pos[2] = new2
+        self.pos[3] = new3
+
+class Jtetromino(Tetromino):
+    def __init__(self, g):
+        super().__init__(g)
+        # self.color = self.settings.J_color
+        self.tag = "J"
+        self.spawn()
+        self.put_on_grid()
+        self.main_pos = self.pos[1]
+
+    def spawn(self):
+        self.pos = [[0, self.n//2-1],[1, self.n//2],[1, self.n//2-1],[1, self.n//2+1]]
+
+    def pos0(self):
+        new0 = [self.main_pos[0] -1, self.main_pos[1] -1]
+        if self.grid[new0[0]][new0[1]] == 't' and new0 not in self.pos:
+            return
+        new2 = [self.main_pos[0] , self.main_pos[1] -1]
+        if self.grid[new2[0]][new2[1]] == 't' and new2 not in self.pos:
+            return
+        new3 = [self.main_pos[0] , self.main_pos[1]+1]
+        if self.grid[new3[0]][new3[1]] == 't' and new3 not in self.pos:
+            return
+        # self.pos[0][0] = self.main_pos[0]-1
+        # self.pos[0][1] = self.main_pos[1]-1
+        # self.pos[2][0] = self.main_pos[0]
+        # self.pos[2][1] = self.main_pos[1]-1
+        # self.pos[3][0] = self.main_pos[0]
+        # self.pos[3][1] = self.main_pos[1]+1
+        self.pos[0] = new0
+        self.pos[2] = new2
+        self.pos[3] = new3
+
+    def pos1(self):
+        new0 = [self.main_pos[0] -1, self.main_pos[1] ]
+        if self.grid[new0[0]][new0[1]] == 't' and new0 not in self.pos:
+            return
+        new2 = [self.main_pos[0]+ 1 , self.main_pos[1] ]
+        if self.grid[new2[0]][new2[1]] == 't' and new2 not in self.pos:
+            return
+        new3 = [self.main_pos[0] -1, self.main_pos[1]+1]
+        if self.grid[new3[0]][new3[1]] == 't' and new3 not in self.pos:
+            return
+        # self.pos[0][0] = self.main_pos[0]-1
+        # self.pos[0][1] = self.main_pos[1]
+        # self.pos[2][0] = self.main_pos[0]+1
+        # self.pos[2][1] = self.main_pos[1]
+        # self.pos[3][0] = self.main_pos[0]-1
+        # self.pos[3][1] = self.main_pos[1]+1
+        self.pos[0] = new0
+        self.pos[2] = new2
+        self.pos[3] = new3
+
+    def pos2(self):
+        new0 = [self.main_pos[0] , self.main_pos[1] -1]
+        if self.grid[new0[0]][new0[1]] == 't' and new0 not in self.pos:
+            return
+        new2 = [self.main_pos[0] , self.main_pos[1] +1]
+        if self.grid[new2[0]][new2[1]] == 't' and new2 not in self.pos:
+            return
+        new3 = [self.main_pos[0] +1, self.main_pos[1]+1]
+        if self.grid[new3[0]][new3[1]] == 't' and new3 not in self.pos:
+            return
+        # self.pos[0][0] = self.main_pos[0]
+        # self.pos[0][1] = self.main_pos[1]-1
+        # self.pos[2][0] = self.main_pos[0]
+        # self.pos[2][1] = self.main_pos[1]+1
+        # self.pos[3][0] = self.main_pos[0]+1
+        # self.pos[3][1] = self.main_pos[1]+1
+        self.pos[0] = new0
+        self.pos[2] = new2
+        self.pos[3] = new3
+
+    def pos3(self):
+        new0 = [self.main_pos[0] -1, self.main_pos[1] ]
+        if self.grid[new0[0]][new0[1]] == 't' and new0 not in self.pos:
+            return
+        new2 = [self.main_pos[0]+ 1 , self.main_pos[1] ]
+        if self.grid[new2[0]][new2[1]] == 't' and new2 not in self.pos:
+            return
+        new3 = [self.main_pos[0] +1, self.main_pos[1]-1]
+        if self.grid[new3[0]][new3[1]] == 't' and new3 not in self.pos:
+            return
+        # self.pos[0][0] = self.main_pos[0]-1
+        # self.pos[0][1] = self.main_pos[1]
+        # self.pos[2][0] = self.main_pos[0]+1
+        # self.pos[2][1] = self.main_pos[1]
+        # self.pos[3][0] = self.main_pos[0]+1
+        # self.pos[3][1] = self.main_pos[1]-1
+        self.pos[0] = new0
+        self.pos[2] = new2
+        self.pos[3] = new3
+
+class Ltetromino(Tetromino):
+    def __init__(self, g):
+        super().__init__(g)
+        # self.color = self.settings.L_color
+        self.tag = "L"
+        self.spawn()
+        self.put_on_grid()
+        self.main_pos = self.pos[1]
+
+    def spawn(self):
+        self.pos = [[1, self.n//2-1],[1, self.n//2],[1, self.n//2+1],[0, self.n//2+1]]
+
+    def pos0(self):
+        new0 = [self.main_pos[0] , self.main_pos[1] -1]
+        if self.grid[new0[0]][new0[1]] == 't' and new0 not in self.pos:
+            return
+        new2 = [self.main_pos[0] , self.main_pos[1] +1]
+        if self.grid[new2[0]][new2[1]] == 't' and new2 not in self.pos:
+            return
+        new3 = [self.main_pos[0] -1, self.main_pos[1]+1]
+        if self.grid[new3[0]][new3[1]] == 't' and new3 not in self.pos:
+            return
+        # self.pos[0][0] = self.main_pos[0]
+        # self.pos[0][1] = self.main_pos[1]-1
+        # self.pos[2][0] = self.main_pos[0]
+        # self.pos[2][1] = self.main_pos[1]+1
+        # self.pos[3][0] = self.main_pos[0]-1
+        # self.pos[3][1] = self.main_pos[1]+1
+        self.pos[0] = new0
+        self.pos[2] = new2
+        self.pos[3] = new3
+
+    def pos1(self):
+        new0 = [self.main_pos[0] -1, self.main_pos[1] ]
+        if self.grid[new0[0]][new0[1]] == 't' and new0 not in self.pos:
+            return
+        new2 = [self.main_pos[0]+ 1 , self.main_pos[1] ]
+        if self.grid[new2[0]][new2[1]] == 't' and new2 not in self.pos:
+            return
+        new3 = [self.main_pos[0] +1, self.main_pos[1]+1]
+        if self.grid[new3[0]][new3[1]] == 't' and new3 not in self.pos:
+            return
+        # self.pos[0][0] = self.main_pos[0]-1
+        # self.pos[0][1] = self.main_pos[1]
+        # self.pos[2][0] = self.main_pos[0]+1
+        # self.pos[2][1] = self.main_pos[1]
+        # self.pos[3][0] = self.main_pos[0]+1
+        # self.pos[3][1] = self.main_pos[1]+1
+        self.pos[0] = new0
+        self.pos[2] = new2
+        self.pos[3] = new3
+
+    def pos2(self):
+        new0 = [self.main_pos[0] , self.main_pos[1] -1]
+        if self.grid[new0[0]][new0[1]] == 't' and new0 not in self.pos:
+            return
+        new2 = [self.main_pos[0] , self.main_pos[1] +1]
+        if self.grid[new2[0]][new2[1]] == 't' and new2 not in self.pos:
+            return
+        new3 = [self.main_pos[0] +1, self.main_pos[1]-1]
+        if self.grid[new3[0]][new3[1]] == 't' and new3 not in self.pos:
+            return
+        # self.pos[0][0] = self.main_pos[0]
+        # self.pos[0][1] = self.main_pos[1]-1
+        # self.pos[2][0] = self.main_pos[0]
+        # self.pos[2][1] = self.main_pos[1]+1
+        # self.pos[3][0] = self.main_pos[0]+1
+        # self.pos[3][1] = self.main_pos[1]-1
+        self.pos[0] = new0
+        self.pos[2] = new2
+        self.pos[3] = new3
+
+    def pos3(self):
+        new0 = [self.main_pos[0] -1, self.main_pos[1] ]
+        if self.grid[new0[0]][new0[1]] == 't' and new0 not in self.pos:
+            return
+        new2 = [self.main_pos[0]- 1 , self.main_pos[1]-1 ]
+        if self.grid[new2[0]][new2[1]] == 't' and new2 not in self.pos:
+            return
+        new3 = [self.main_pos[0] +1, self.main_pos[1]]
+        if self.grid[new3[0]][new3[1]] == 't' and new3 not in self.pos:
+            return
+        # self.pos[0][0] = self.main_pos[0]-1
+        # self.pos[0][1] = self.main_pos[1]
+        # self.pos[2][0] = self.main_pos[0]-1
+        # self.pos[2][1] = self.main_pos[1]-1
+        # self.pos[3][0] = self.main_pos[0]+1
+        # self.pos[3][1] = self.main_pos[1]
+        self.pos[0] = new0
+        self.pos[2] = new2
+        self.pos[3] = new3

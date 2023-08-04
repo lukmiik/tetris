@@ -25,13 +25,13 @@ class Settings:
         self.cell_width = self.game_w_width//self.n_of_col
         self.cell_height = self.game_w_height//(self.n_of_rows-2)
         #tetrominos
-        self.I_color = (0, 255, 255)
-        self.O_color = (255, 255, 0)
-        self.T_color = (128, 0, 128)
-        self.S_color = (0, 255, 0)
-        self.Z_color = (255, 0, 0)
-        self.J_color = (0, 0, 255)
-        self.L_color = (255, 165, 0)
+        self.I = (0, 255, 255)#cyan
+        self.O = (255, 255, 0)#żółty
+        self.T = (128, 0, 128)#fioletowy
+        self.S = (0, 255, 0)#zielony
+        self.Z = (255, 0, 0)#czerowmy
+        self.J = (0, 0, 255)#niebieski
+        self.L = (255, 165, 0)#pomarańczowy
         #next and score windows
         self.info_w_width = 100
         self.info_w_height = 200
