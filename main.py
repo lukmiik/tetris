@@ -1,13 +1,16 @@
-from game import Game
-from menu import Menu
 import time
+
+from settings import Settings
+from menu import Menu
+from game import Game
 
 
 def main():
-    menu = Menu()
+    settings = Settings()
+    menu = Menu(settings)
+    game = Game(settings)
     while True:
         menu.main()
-        game = Game()
         game.main()
         time.sleep(5)
 

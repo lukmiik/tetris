@@ -1,41 +1,44 @@
-import pygame, sys, time, random
+import pygame
+import sys
+import time
+import random
+
 from settings import Settings
 from tetrominos import Tetromino, Itetromino, Ttetromino, Otetromino, Stetromino, Ztetromino, Jtetromino, Ltetromino
 
 
 class Game:
-    def __init__(self):
-        self.settings = Settings()
+    def __init__(self, settings):
+        self.settings = settings
         self.screen = self.settings.screen
-        self.screen.fill(self.settings.bg_color)
-        self.game_window = pygame.Surface((self.settings.game_window_width, self.settings.game_window_height))
+        self.game_window = pygame.Surface((self.settings.GAME_WINDOW_WIDTH, self.settings.GAME_WINDOW_HEIGHT))
         self.game_window_rect = self.game_window.get_rect()
         self.next_tetromino_window = pygame.Surface(
-            (self.settings.score_next_window_width, self.settings.score_next_window_height)
+            (self.settings.SCORE_NEXT_WINDOW_WIDTH, self.settings.SCORE_NEXT_WINDOW_HEIGHT)
         )
         self.next_tetromino_window_rect = self.next_tetromino_window.get_rect()
         self.grid = [
-            [self.settings.empty_cell_tag for col in range(self.settings.grid_n_of_col)]
-            for row in range(self.settings.grid_n_of_rows)
+            [self.settings.EMPTY_CELL_TAG for col in range(self.settings.GRID_N_OF_COL)]
+            for row in range(self.settings.GRID_N_OF_ROWS)
         ]
         self.next_tetromino_grid = [
-            [self.settings.empty_cell_tag for col in range(self.settings.next_tetromino_n_of_col)]
-            for row in range(self.settings.next_tetromino_n_of_rows)
+            [self.settings.EMPTY_CELL_TAG for col in range(self.settings.NEXT_TETROMINO_N_OF_COL)]
+            for row in range(self.settings.NEXT_TETROMINO_N_OF_ROWS)
         ]
 
     def draw_grid(self):
-        self.game_window.fill(self.settings.second_bg_color)
+        self.game_window.fill(self.settings.SECOND_BG_COLOR)
         for row, list in enumerate(self.grid[2:], 0):
             for col, value in enumerate(list):
-                if value == self.settings.empty_cell_tag:
+                if value == self.settings.EMPTY_CELL_TAG:
                     pygame.draw.rect(
                         self.game_window,
-                        self.settings.cell_border_color,
+                        self.settings.CELL_BORDER_COLOR,
                         (
-                            col * self.settings.grid_cell_width,
-                            row * self.settings.grid_cell_height,
-                            self.settings.grid_cell_width,
-                            self.settings.grid_cell_height,
+                            col * self.settings.GRID_CELL_WIDTH,
+                            row * self.settings.GRID_CELL_HEIGHT,
+                            self.settings.GRID_CELL_WIDTH,
+                            self.settings.GRID_CELL_HEIGHT,
                         ),
                         1,
                     )
@@ -45,26 +48,26 @@ class Game:
                         self.game_window,
                         x,
                         (
-                            col * self.settings.grid_cell_width,
-                            row * self.settings.grid_cell_height,
-                            self.settings.grid_cell_width,
-                            self.settings.grid_cell_height,
+                            col * self.settings.GRID_CELL_WIDTH,
+                            row * self.settings.GRID_CELL_HEIGHT,
+                            self.settings.GRID_CELL_WIDTH,
+                            self.settings.GRID_CELL_HEIGHT,
                         ),
                     )
 
     def draw_next_tetromino(self):
-        self.next_tetromino_window.fill(self.settings.second_bg_color)
+        self.next_tetromino_window.fill(self.settings.SECOND_BG_COLOR)
         for row, list in enumerate(self.next_tetromino_grid):
             for col, value in enumerate(list):
-                if value == self.settings.empty_cell_tag:
+                if value == self.settings.EMPTY_CELL_TAG:
                     pygame.draw.rect(
                         self.next_tetromino_window,
-                        self.settings.second_bg_color,
+                        self.settings.SECOND_BG_COLOR,
                         (
-                            col * self.settings.next_tetromino_cell_width,
-                            row * self.settings.next_tetromino_cell_height,
-                            self.settings.next_tetromino_cell_width,
-                            self.settings.next_tetromino_cell_height,
+                            col * self.settings.NEXT_TETROMINO_CELL_WIDTH,
+                            row * self.settings.NEXT_TETROMINO_CELL_HEIGHT,
+                            self.settings.NEXT_TETROMINO_CELL_WIDTH,
+                            self.settings.NEXT_TETROMINO_CELL_HEIGHT,
                         ),
                     )
                 else:
@@ -73,30 +76,30 @@ class Game:
                         self.next_tetromino_window,
                         x,
                         (
-                            col * self.settings.next_tetromino_cell_width,
-                            row * self.settings.next_tetromino_cell_height,
-                            self.settings.next_tetromino_cell_width,
-                            self.settings.next_tetromino_cell_height,
+                            col * self.settings.NEXT_TETROMINO_CELL_WIDTH,
+                            row * self.settings.NEXT_TETROMINO_CELL_HEIGHT,
+                            self.settings.NEXT_TETROMINO_CELL_WIDTH,
+                            self.settings.NEXT_TETROMINO_CELL_HEIGHT,
                         ),
                     )
 
     def draw_game_window(self):
-        pygame.draw.rect(self.game_window, self.settings.border_color, self.game_window_rect, 5)
+        pygame.draw.rect(self.game_window, self.settings.BORDER_COLOR, self.game_window_rect, 5)
         self.screen.blit(
             self.game_window,
             (
-                self.settings.screen_width / 2 - self.settings.game_window_width / 2,
-                self.settings.screen_height - self.settings.game_window_height,
+                self.settings.SCREEN_WIDTH / 2 - self.settings.GAME_WINDOW_WIDTH / 2,
+                self.settings.SCREEN_HEIGHT - self.settings.GAME_WINDOW_HEIGHT,
             ),
         )
 
     def draw_next_tetromino_window(self):
-        pygame.draw.rect(self.next_tetromino_window, self.settings.border_color, self.next_tetromino_window_rect, 2)
+        pygame.draw.rect(self.next_tetromino_window, self.settings.BORDER_COLOR, self.next_tetromino_window_rect, 2)
         self.screen.blit(
             self.next_tetromino_window,
             (
-                self.settings.next_window_x,
-                self.settings.next_window_y,
+                self.settings.NEXT_WINDOW_X,
+                self.settings.NEXT_WINDOW_Y,
             ),
         )
 
@@ -115,7 +118,7 @@ class Game:
             self.grid[r] = self.grid[r - 1].copy()
 
     def check_tetromino_above_top(self):
-        for x in range(self.settings.grid_n_of_col):
+        for x in range(self.settings.GRID_N_OF_COL):
             if self.grid[1][x] != 0:
                 return True
 
@@ -159,6 +162,14 @@ class Game:
         for row in self.grid:
             print(row)
 
+    def reset_grids(self) -> None:
+        for row in range(self.settings.GRID_N_OF_ROWS):
+            for col in range(self.settings.GRID_N_OF_COL):
+                self.grid[row][col] = self.settings.EMPTY_CELL_TAG
+        for row in range(self.settings.NEXT_TETROMINO_N_OF_ROWS):
+            for col in range(self.settings.NEXT_TETROMINO_N_OF_COL):
+                self.next_tetromino_grid[row][col] = self.settings.EMPTY_CELL_TAG
+
     def main(self):
         clock = pygame.time.Clock()
         self.current_tetromino = self.random_tetromino()
@@ -166,35 +177,33 @@ class Game:
         self.next_tetromino = self.random_tetromino()
         self.next_tetromino.put_on_next_tetromino_window()
         self.draw_next_tetromino()
-        # move current down every second
-        pygame.time.set_timer(pygame.USEREVENT, 1000)
-        pygame.time.set_timer(pygame.USEREVENT + 1, 50)
-        pygame.time.set_timer(pygame.USEREVENT + 2, 150)
+        pygame.time.set_timer(pygame.USEREVENT, self.settings.MOVE_DOWN_TIME)
+        pygame.time.set_timer(pygame.USEREVENT + 1, self.settings.CHECK_KEYS_PRESSED_MOVEMENT_TIME)
+        pygame.time.set_timer(pygame.USEREVENT + 2, self.settings.CHECK_KEYS_PRESSED_ROTATION_TIME)
         self.down = False
         while True:
-            clock.tick(self.settings.fps)
+            clock.tick(self.settings.FPS)
             self.check_events()
-            self.settings.draw_tetris_title()
             self.draw_grid()
             self.draw_game_window()
             self.draw_next_tetromino_window()
-            # self.print_grid()
             if self.current_tetromino.check_down() or self.current_tetromino.check_touch():
                 self.current_tetromino.update_on_grid()
                 self.check_line()
                 # game lost
                 if self.check_tetromino_above_top():
                     print("game lost")
-                    self.screen.fill(self.settings.bg_color)
-                    self.settings.draw_tetris_title()
                     self.draw_grid()
                     self.draw_game_window()
                     self.draw_next_tetromino_window()
                     pygame.display.update()
+                    self.reset_grids()
                     break
                 self.current_tetromino = self.next_tetromino
+                self.current_tetromino.update_on_grid()
                 self.next_tetromino = self.random_tetromino()
                 self.next_tetromino.put_on_next_tetromino_window()
                 self.draw_next_tetromino()
-            self.current_tetromino.update_on_grid()
+            else:
+                self.current_tetromino.update_on_grid()
             pygame.display.update()

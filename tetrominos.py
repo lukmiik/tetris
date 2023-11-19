@@ -1,34 +1,35 @@
 import pygame
+import copy
 
 from settings import Settings
 
 
 class Tetromino:
-    tag: str = ''
-    pos: list = []
-    next_tetromino_grid_pos: list = []
+    LAST_COL_IDX = Settings.GRID_N_OF_COL - 1
 
-    def __init__(self, game):
+    def __init__(self, game, pos, tag, next_tetromino_grid_pos):
         self.settings = game.settings
         self.grid = game.grid
         self.next_tetromino_grid = game.next_tetromino_grid
-        self.last_col_idx = self.settings.grid_n_of_col - 1
+        self.pos = pos
+        self.tag = tag
+        self.next_tetromino_grid_pos = next_tetromino_grid_pos
         self.current_rotation = 0
 
     def check_down(self):
-        for i in self.pos:
-            if i[0] == self.settings.grid_n_of_rows - 1:
+        for cell in self.pos:
+            if cell[0] == self.settings.GRID_N_OF_ROWS - 1:
                 return True
 
     def check_touch(self):
-        for i in self.pos:
-            if self.grid[i[0] + 1][i[1]] != 0 and [(i[0] + 1), i[1]] not in self.pos:
+        for cell in self.pos:
+            if self.grid[cell[0] + 1][cell[1]] != 0 and [(cell[0] + 1), cell[1]] not in self.pos:
                 return True
 
     def update_on_grid(self):
-        self.main_pos = self.pos[1]
-        for i in self.pos:
-            self.grid[i[0]][i[1]] = self.tag
+        self.main_pos = self.pos[1]  # ?
+        for cell in self.pos:
+            self.grid[cell[0]][cell[1]] = self.tag
 
     def put_on_next_tetromino_window(self):
         self.clear_next_tetromino_window()
@@ -36,9 +37,9 @@ class Tetromino:
             self.next_tetromino_grid[cell[0]][cell[1]] = self.tag
 
     def clear_next_tetromino_window(self):
-        for row in range(self.settings.next_tetromino_n_of_rows):
-            for col in range(self.settings.next_tetromino_n_of_col):
-                self.next_tetromino_grid[row][col] = self.settings.empty_cell_tag
+        for row in range(self.settings.NEXT_TETROMINO_N_OF_ROWS):
+            for col in range(self.settings.NEXT_TETROMINO_N_OF_COL):
+                self.next_tetromino_grid[row][col] = self.settings.EMPTY_CELL_TAG
 
     def clear(self):
         for cell in self.pos:
@@ -51,14 +52,14 @@ class Tetromino:
 
     def check_move_right(self):
         for cell in self.pos:
-            if cell[1] == self.last_col_idx or (
+            if cell[1] == self.LAST_COL_IDX or (
                 [(cell[0]), (cell[1] + 1)] not in self.pos and self.grid[cell[0]][cell[1] + 1] != 0
             ):
                 return True
 
     def rotate_left(self):
         self.clear()
-        if self.current_rotation == 0 and self.main_pos[0] != self.settings.grid_n_of_rows - 1:
+        if self.current_rotation == 0 and self.main_pos[0] != self.settings.GRID_N_OF_ROWS - 1:
             self.pos3()
             self.current_rotation = 3
         elif self.current_rotation == 1 and self.main_pos[1] != 0:
@@ -67,13 +68,13 @@ class Tetromino:
         elif self.current_rotation == 2:
             self.pos1()
             self.current_rotation = 1
-        elif self.current_rotation == 3 and self.main_pos[1] != self.last_col_idx:
+        elif self.current_rotation == 3 and self.main_pos[1] != self.LAST_COL_IDX:
             self.pos2()
             self.current_rotation = 2
 
     def rotate_right(self):
         self.clear()
-        if self.current_rotation == 0 and self.main_pos[0] != self.settings.grid_n_of_rows - 1:
+        if self.current_rotation == 0 and self.main_pos[0] != self.settings.GRID_N_OF_ROWS - 1:
             self.pos1()
             self.current_rotation = 1
         elif self.current_rotation == 1 and self.main_pos[1] != 0:
@@ -82,7 +83,7 @@ class Tetromino:
         elif self.current_rotation == 2:
             self.pos3()
             self.current_rotation = 3
-        elif self.current_rotation == 3 and self.main_pos[1] != self.last_col_idx:
+        elif self.current_rotation == 3 and self.main_pos[1] != self.LAST_COL_IDX:
             self.pos0()
             self.current_rotation = 0
 
@@ -119,79 +120,80 @@ class Tetromino:
 
 
 class Itetromino(Tetromino):
-    tag = 'I'
-    next_tetromino_grid_pos = [
+    TAG: str = 'I'
+    NEXT_TETROMINO_GRID_POS: list[list] = [
         [1, 0],
         [1, 1],
         [1, 2],
         [1, 3],
     ]
+    SPAWN_POS: list[list] = [
+        [1, Tetromino.LAST_COL_IDX // 2 - 1],
+        [1, Tetromino.LAST_COL_IDX // 2],
+        [1, Tetromino.LAST_COL_IDX // 2 + 1],
+        [1, Tetromino.LAST_COL_IDX // 2 + 2],
+    ]
 
     def __init__(self, game):
-        super().__init__(game)
         self.spawn()
+        super().__init__(game, self.pos, self.TAG, self.NEXT_TETROMINO_GRID_POS)
 
     def spawn(self):
-        self.pos = [
-            [1, self.last_col_idx // 2 - 1],
-            [1, self.last_col_idx // 2],
-            [1, self.last_col_idx // 2 + 1],
-            [1, self.last_col_idx // 2 + 2],
-        ]
+        self.pos = copy.deepcopy(self.SPAWN_POS)
 
     def rotate_right(self):
         self.clear()
-        if self.current_rotation == 0 and self.pos[0][0] < self.settings.grid_n_of_rows - 2:
+        if self.current_rotation == 0 and self.pos[0][0] < self.settings.GRID_N_OF_ROWS - 2:
             new0 = [self.pos[0][0] - 1, self.pos[0][1] + 2]
-            if self.grid[new0[0]][new0[1]] != self.settings.empty_cell_tag and new0 not in self.pos:
+            if self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG and new0 not in self.pos:
                 return
             new1 = [self.pos[1][0] + 1, self.pos[1][1] + 1]
-            if self.grid[new1[0]][new1[1]] != self.settings.empty_cell_tag and new1 not in self.pos:
+            if self.grid[new1[0]][new1[1]] != self.settings.EMPTY_CELL_TAG and new1 not in self.pos:
                 return
             new3 = [self.pos[3][0] + 2, self.pos[3][1] - 1]
-            if self.grid[new3[0]][new3[1]] != self.settings.empty_cell_tag and new3 not in self.pos:
+            if self.grid[new3[0]][new3[1]] != self.settings.EMPTY_CELL_TAG and new3 not in self.pos:
                 return
             self.pos[0] = new0
             self.pos[1] = new1
             self.pos[3] = new3
             self.current_rotation = 1
-        elif self.current_rotation == 1 and self.pos[0][1] < self.last_col_idx and self.pos[0][1] > 1:
+        elif self.current_rotation == 1 and self.pos[0][1] < self.LAST_COL_IDX and self.pos[0][1] > 1:
             new0 = [self.pos[0][0] + 2, self.pos[0][1] - 2]
-            if self.grid[new0[0]][new0[1]] != self.settings.empty_cell_tag and new0 not in self.pos:
+            if self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG and new0 not in self.pos:
                 return
             new2 = [self.pos[2][0] + 1, self.pos[2][1] - 1]
-            if self.grid[new2[0]][new2[1]] != self.settings.empty_cell_tag and new2 not in self.pos:
+            if self.grid[new2[0]][new2[1]] != self.settings.EMPTY_CELL_TAG and new2 not in self.pos:
                 return
             new3 = [self.pos[3][0] - 1, self.pos[3][1] + 1]
-            if self.grid[new3[0]][new3[1]] != self.settings.empty_cell_tag and new3 not in self.pos:
+            if self.grid[new3[0]][new3[1]] != self.settings.EMPTY_CELL_TAG and new3 not in self.pos:
                 return
             self.pos[0] = new0
             self.pos[2] = new2
             self.pos[3] = new3
             self.current_rotation = 2
-        elif self.current_rotation == 2 and self.pos[0][0] < self.settings.grid_n_of_rows - 1:
+        elif self.current_rotation == 2 and self.pos[0][0] < self.settings.GRID_N_OF_ROWS - 1:
             new0 = [self.pos[0][0] - 2, self.pos[0][1] + 1]
-            if self.grid[new0[0]][new0[1]] != self.settings.empty_cell_tag and new0 not in self.pos:
+            if self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG and new0 not in self.pos:
                 return
             new1 = [self.pos[1][0] - 1, self.pos[1][1] - 1]
-            if self.grid[new1[0]][new1[1]] != self.settings.empty_cell_tag and new1 not in self.pos:
+            if self.grid[new1[0]][new1[1]] != self.settings.EMPTY_CELL_TAG and new1 not in self.pos:
                 return
             new3 = [self.pos[3][0] + 1, self.pos[3][1] - 2]
-            if self.grid[new3[0]][new3[1]] != self.settings.empty_cell_tag and new3 not in self.pos:
+            if self.grid[new3[0]][new3[1]] != self.settings.EMPTY_CELL_TAG and new3 not in self.pos:
                 return
             self.pos[0] = new0
             self.pos[1] = new1
             self.pos[3] = new3
             self.current_rotation = 3
-        elif self.current_rotation == 3 and self.pos[0][1] < self.last_col_idx - 1 and self.pos[0][1] > 0:
+        elif self.current_rotation == 3 and self.pos[0][1] < self.LAST_COL_IDX - 1 and self.pos[0][1] > 0:
             new0 = [self.pos[0][0] + 1, self.pos[0][1] - 1]
-            if self.grid[new0[0]][new0[1]] != self.settings.empty_cell_tag and new0 not in self.pos:
+            if self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG and new0 not in self.pos:
                 return
             new2 = [self.pos[2][0] - 1, self.pos[2][1] + 1]
-            if self.grid[new2[0]][new2[1]] != self.settings.empty_cell_tag and new2 not in self.pos:
+            if self.grid[new2[0]][new2[1]] != self.settings.EMPTY_CELL_TAG and new2 not in self.pos:
                 return
             new3 = [self.pos[3][0] - 2, self.pos[3][1] + 2]
-            if self.grid[new3[0]][new3[1]] != self.settings.empty_cell_tag and new3 not in self.pos:
+            if self.grid[new3[0]][new3[1]] != self.settings.EMPTY_CELL_TAG and new3 not in self.pos:
                 return
             self.pos[0] = new0
             self.pos[2] = new2
@@ -200,12 +202,12 @@ class Itetromino(Tetromino):
 
     def rotate_left(self):
         self.clear()
-        if self.current_rotation == 0 and self.pos[0][0] < self.settings.grid_n_of_rows - 2:
+        if self.current_rotation == 0 and self.pos[0][0] < self.settings.GRID_N_OF_ROWS - 2:
             new0 = [self.pos[0][0] - 1, self.pos[0][1] + 1]
-            if self.grid[new0[0]][new0[1]] != self.settings.empty_cell_tag and new0 not in self.pos:
+            if self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG and new0 not in self.pos:
                 return
             new2 = [self.pos[2][0] + 1, self.pos[2][1] - 1]
-            if self.grid[new2[0]][new2[1]] != self.settings.empty_cell_tag and new2 not in self.pos:
+            if self.grid[new2[0]][new2[1]] != self.settings.EMPTY_CELL_TAG and new2 not in self.pos:
                 return
             new3 = [self.pos[3][0] + 2, self.pos[3][1] - 2]
             if self.grid[new3[0]][new3[1]] != self.settings.empty_cell_ta and new3 not in self.pos:
@@ -214,43 +216,43 @@ class Itetromino(Tetromino):
             self.pos[2] = new2
             self.pos[3] = new3
             self.current_rotation = 3
-        elif self.current_rotation == 1 and self.pos[0][1] < self.last_col_idx and self.pos[0][1] > 1:
+        elif self.current_rotation == 1 and self.pos[0][1] < self.LAST_COL_IDX and self.pos[0][1] > 1:
             new0 = [self.pos[0][0] + 1, self.pos[0][1] - 2]
-            if self.grid[new0[0]][new0[1]] != self.settings.empty_cell_tag and new0 not in self.pos:
+            if self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG and new0 not in self.pos:
                 return
             new1 = [self.pos[1][0] - 1, self.pos[1][1] - 1]
-            if self.grid[new1[0]][new1[1]] != self.settings.empty_cell_tag and new1 not in self.pos:
+            if self.grid[new1[0]][new1[1]] != self.settings.EMPTY_CELL_TAG and new1 not in self.pos:
                 return
             new3 = [self.pos[3][0] - 2, self.pos[3][1] + 1]
-            if self.grid[new3[0]][new3[1]] != self.settings.empty_cell_tag and new3 not in self.pos:
+            if self.grid[new3[0]][new3[1]] != self.settings.EMPTY_CELL_TAG and new3 not in self.pos:
                 return
             self.pos[0] = new0
             self.pos[1] = new1
             self.pos[3] = new3
             self.current_rotation = 0
-        elif self.current_rotation == 2 and self.pos[0][0] < self.settings.grid_n_of_rows - 1:
+        elif self.current_rotation == 2 and self.pos[0][0] < self.settings.GRID_N_OF_ROWS - 1:
             new0 = [self.pos[0][0] - 2, self.pos[0][1] + 2]
-            if self.grid[new0[0]][new0[1]] != self.settings.empty_cell_tag and new0 not in self.pos:
+            if self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG and new0 not in self.pos:
                 return
             new2 = [self.pos[2][0] - 1, self.pos[2][1] + 1]
-            if self.grid[new2[0]][new2[1]] != self.settings.empty_cell_tag and new2 not in self.pos:
+            if self.grid[new2[0]][new2[1]] != self.settings.EMPTY_CELL_TAG and new2 not in self.pos:
                 return
             new3 = [self.pos[3][0] + 1, self.pos[3][1] - 1]
-            if self.grid[new3[0]][new3[1]] != self.settings.empty_cell_tag and new3 not in self.pos:
+            if self.grid[new3[0]][new3[1]] != self.settings.EMPTY_CELL_TAG and new3 not in self.pos:
                 return
             self.pos[0] = new0
             self.pos[2] = new2
             self.pos[3] = new3
             self.current_rotation = 1
-        elif self.current_rotation == 3 and self.pos[0][1] < self.last_col_idx - 1 and self.pos[0][1] > 0:
+        elif self.current_rotation == 3 and self.pos[0][1] < self.LAST_COL_IDX - 1 and self.pos[0][1] > 0:
             new0 = [self.pos[0][0] + 2, self.pos[0][1] - 1]
-            if self.grid[new0[0]][new0[1]] != self.settings.empty_cell_tag and new0 not in self.pos:
+            if self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG and new0 not in self.pos:
                 return
             new1 = [self.pos[1][0] + 1, self.pos[1][1] + 1]
-            if self.grid[new1[0]][new1[1]] != self.settings.empty_cell_tag and new1 not in self.pos:
+            if self.grid[new1[0]][new1[1]] != self.settings.EMPTY_CELL_TAG and new1 not in self.pos:
                 return
             new3 = [self.pos[3][0] - 1, self.pos[3][1] + 2]
-            if self.grid[new3[0]][new3[1]] != self.settings.empty_cell_tag and new3 not in self.pos:
+            if self.grid[new3[0]][new3[1]] != self.settings.EMPTY_CELL_TAG and new3 not in self.pos:
                 return
             self.pos[0] = new0
             self.pos[1] = new1
@@ -259,25 +261,26 @@ class Itetromino(Tetromino):
 
 
 class Otetromino(Tetromino):
-    tag = 'O'
-    next_tetromino_grid_pos = [
+    TAG: str = 'O'
+    NEXT_TETROMINO_GRID_POS: list[list] = [
         [1, 1],
         [2, 1],
         [1, 2],
         [2, 2],
     ]
+    SPAWN_POS: list[list] = [
+        [1, Tetromino.LAST_COL_IDX // 2],
+        [1, Tetromino.LAST_COL_IDX // 2 + 1],
+        [0, Tetromino.LAST_COL_IDX // 2],
+        [0, Tetromino.LAST_COL_IDX // 2 + 1],
+    ]
 
     def __init__(self, game):
-        super().__init__(game)
         self.spawn()
+        super().__init__(game, self.pos, self.TAG, self.NEXT_TETROMINO_GRID_POS)
 
     def spawn(self):
-        self.pos = [
-            [1, self.last_col_idx // 2],
-            [1, self.last_col_idx // 2 + 1],
-            [0, self.last_col_idx // 2],
-            [0, self.last_col_idx // 2 + 1],
-        ]
+        self.pos = copy.deepcopy(self.SPAWN_POS)
 
     def rotate_right(self):
         pass
@@ -287,36 +290,37 @@ class Otetromino(Tetromino):
 
 
 class Ttetromino(Tetromino):
-    tag = 'T'
-    next_tetromino_grid_pos = [
+    TAG: str = 'T'
+    NEXT_TETROMINO_GRID_POS: list[list] = [
         [2, 0],
         [2, 1],
         [2, 2],
         [1, 1],
     ]
+    SPAWN_POS: list[list] = [
+        [1, Tetromino.LAST_COL_IDX // 2 - 2],
+        [1, Tetromino.LAST_COL_IDX // 2 - 1],
+        [1, Tetromino.LAST_COL_IDX // 2],
+        [0, Tetromino.LAST_COL_IDX // 2 - 1],
+    ]
 
     def __init__(self, game):
-        super().__init__(game)
         self.spawn()
         self.main_pos = self.pos[1]
+        super().__init__(game, self.pos, self.TAG, self.NEXT_TETROMINO_GRID_POS)
 
     def spawn(self):
-        self.pos = [
-            [1, self.last_col_idx // 2 - 2],
-            [1, self.last_col_idx // 2 - 1],
-            [1, self.last_col_idx // 2],
-            [0, self.last_col_idx // 2 - 1],
-        ]
+        self.pos = copy.deepcopy(self.SPAWN_POS)
 
     def pos0(self):
         new0 = [self.main_pos[0] - 1, self.main_pos[1]]
-        if self.grid[new0[0]][new0[1]] != self.settings.empty_cell_tag and new0 not in self.pos:
+        if self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG and new0 not in self.pos:
             return
         new2 = [self.main_pos[0], self.main_pos[1] + 1]
-        if self.grid[new2[0]][new2[1]] != self.settings.empty_cell_tag and new2 not in self.pos:
+        if self.grid[new2[0]][new2[1]] != self.settings.EMPTY_CELL_TAG and new2 not in self.pos:
             return
         new3 = [self.main_pos[0], self.main_pos[1] - 1]
-        if self.grid[new3[0]][new3[1]] != self.settings.empty_cell_tag and new3 not in self.pos:
+        if self.grid[new3[0]][new3[1]] != self.settings.EMPTY_CELL_TAG and new3 not in self.pos:
             return
         self.pos[0] = new0
         self.pos[2] = new2
@@ -324,13 +328,13 @@ class Ttetromino(Tetromino):
 
     def pos1(self):
         new0 = [self.main_pos[0] - 1, self.main_pos[1]]
-        if self.grid[new0[0]][new0[1]] != self.settings.empty_cell_tag and new0 not in self.pos:
+        if self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG and new0 not in self.pos:
             return
         new2 = [self.main_pos[0] + 1, self.main_pos[1]]
-        if self.grid[new2[0]][new2[1]] != self.settings.empty_cell_tag and new2 not in self.pos:
+        if self.grid[new2[0]][new2[1]] != self.settings.EMPTY_CELL_TAG and new2 not in self.pos:
             return
         new3 = [self.main_pos[0], self.main_pos[1] + 1]
-        if self.grid[new3[0]][new3[1]] != self.settings.empty_cell_tag and new3 not in self.pos:
+        if self.grid[new3[0]][new3[1]] != self.settings.EMPTY_CELL_TAG and new3 not in self.pos:
             return
         self.pos[0] = new0
         self.pos[2] = new2
@@ -338,13 +342,13 @@ class Ttetromino(Tetromino):
 
     def pos2(self):
         new0 = [self.main_pos[0], self.main_pos[1] - 1]
-        if self.grid[new0[0]][new0[1]] != self.settings.empty_cell_tag and new0 not in self.pos:
+        if self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG and new0 not in self.pos:
             return
         new2 = [self.main_pos[0] + 1, self.main_pos[1]]
-        if self.grid[new2[0]][new2[1]] != self.settings.empty_cell_tag and new2 not in self.pos:
+        if self.grid[new2[0]][new2[1]] != self.settings.EMPTY_CELL_TAG and new2 not in self.pos:
             return
         new3 = [self.main_pos[0], self.main_pos[1] + 1]
-        if self.grid[new3[0]][new3[1]] != self.settings.empty_cell_tag and new3 not in self.pos:
+        if self.grid[new3[0]][new3[1]] != self.settings.EMPTY_CELL_TAG and new3 not in self.pos:
             return
         self.pos[0] = new0
         self.pos[2] = new2
@@ -352,13 +356,13 @@ class Ttetromino(Tetromino):
 
     def pos3(self):
         new0 = [self.main_pos[0] - 1, self.main_pos[1]]
-        if self.grid[new0[0]][new0[1]] != self.settings.empty_cell_tag and new0 not in self.pos:
+        if self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG and new0 not in self.pos:
             return
         new2 = [self.main_pos[0] + 1, self.main_pos[1]]
-        if self.grid[new2[0]][new2[1]] != self.settings.empty_cell_tag and new2 not in self.pos:
+        if self.grid[new2[0]][new2[1]] != self.settings.EMPTY_CELL_TAG and new2 not in self.pos:
             return
         new3 = [self.main_pos[0], self.main_pos[1] - 1]
-        if self.grid[new3[0]][new3[1]] != self.settings.empty_cell_tag and new3 not in self.pos:
+        if self.grid[new3[0]][new3[1]] != self.settings.EMPTY_CELL_TAG and new3 not in self.pos:
             return
         self.pos[0] = new0
         self.pos[2] = new2
@@ -366,36 +370,37 @@ class Ttetromino(Tetromino):
 
 
 class Stetromino(Tetromino):
-    tag = 'S'
-    next_tetromino_grid_pos = [
+    TAG: str = 'S'
+    NEXT_TETROMINO_GRID_POS: list[list] = [
         [2, 0],
         [2, 1],
         [1, 1],
         [1, 2],
     ]
+    SPAWN_POS: list[list] = [
+        [1, Tetromino.LAST_COL_IDX // 2 - 1],
+        [1, Tetromino.LAST_COL_IDX // 2],
+        [0, Tetromino.LAST_COL_IDX // 2],
+        [0, Tetromino.LAST_COL_IDX // 2 + 1],
+    ]
 
     def __init__(self, game):
-        super().__init__(game)
         self.spawn()
         self.main_pos = self.pos[1]
+        super().__init__(game, self.pos, self.TAG, self.NEXT_TETROMINO_GRID_POS)
 
     def spawn(self):
-        self.pos = [
-            [1, self.last_col_idx // 2 - 1],
-            [1, self.last_col_idx // 2],
-            [0, self.last_col_idx // 2],
-            [0, self.last_col_idx // 2 + 1],
-        ]
+        self.pos = copy.deepcopy(self.SPAWN_POS)
 
     def pos0(self):
         new0 = [self.main_pos[0], self.main_pos[1] - 1]
-        if self.grid[new0[0]][new0[1]] != self.settings.empty_cell_tag and new0 not in self.pos:
+        if self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG and new0 not in self.pos:
             return
         new2 = [self.main_pos[0] - 1, self.main_pos[1]]
-        if self.grid[new2[0]][new2[1]] != self.settings.empty_cell_tag and new2 not in self.pos:
+        if self.grid[new2[0]][new2[1]] != self.settings.EMPTY_CELL_TAG and new2 not in self.pos:
             return
         new3 = [self.main_pos[0] - 1, self.main_pos[1] + 1]
-        if self.grid[new3[0]][new3[1]] != self.settings.empty_cell_tag and new3 not in self.pos:
+        if self.grid[new3[0]][new3[1]] != self.settings.EMPTY_CELL_TAG and new3 not in self.pos:
             return
         self.pos[0] = new0
         self.pos[2] = new2
@@ -403,13 +408,13 @@ class Stetromino(Tetromino):
 
     def pos1(self):
         new0 = [self.main_pos[0] - 1, self.main_pos[1]]
-        if self.grid[new0[0]][new0[1]] != self.settings.empty_cell_tag and new0 not in self.pos:
+        if self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG and new0 not in self.pos:
             return
         new2 = [self.main_pos[0], self.main_pos[1] + 1]
-        if self.grid[new2[0]][new2[1]] != self.settings.empty_cell_tag and new2 not in self.pos:
+        if self.grid[new2[0]][new2[1]] != self.settings.EMPTY_CELL_TAG and new2 not in self.pos:
             return
         new3 = [self.main_pos[0] + 1, self.main_pos[1] + 1]
-        if self.grid[new3[0]][new3[1]] != self.settings.empty_cell_tag and new3 not in self.pos:
+        if self.grid[new3[0]][new3[1]] != self.settings.EMPTY_CELL_TAG and new3 not in self.pos:
             return
         self.pos[0] = new0
         self.pos[2] = new2
@@ -417,13 +422,13 @@ class Stetromino(Tetromino):
 
     def pos2(self):
         new0 = [self.main_pos[0] + 1, self.main_pos[1] - 1]
-        if self.grid[new0[0]][new0[1]] != self.settings.empty_cell_tag and new0 not in self.pos:
+        if self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG and new0 not in self.pos:
             return
         new2 = [self.main_pos[0] + 1, self.main_pos[1]]
-        if self.grid[new2[0]][new2[1]] != self.settings.empty_cell_tag and new2 not in self.pos:
+        if self.grid[new2[0]][new2[1]] != self.settings.EMPTY_CELL_TAG and new2 not in self.pos:
             return
         new3 = [self.main_pos[0], self.main_pos[1] + 1]
-        if self.grid[new3[0]][new3[1]] != self.settings.empty_cell_tag and new3 not in self.pos:
+        if self.grid[new3[0]][new3[1]] != self.settings.EMPTY_CELL_TAG and new3 not in self.pos:
             return
         self.pos[0] = new0
         self.pos[2] = new2
@@ -431,13 +436,13 @@ class Stetromino(Tetromino):
 
     def pos3(self):
         new0 = [self.main_pos[0], self.main_pos[1] - 1]
-        if self.grid[new0[0]][new0[1]] != self.settings.empty_cell_tag and new0 not in self.pos:
+        if self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG and new0 not in self.pos:
             return
         new2 = [self.main_pos[0] - 1, self.main_pos[1] - 1]
-        if self.grid[new2[0]][new2[1]] != self.settings.empty_cell_tag and new2 not in self.pos:
+        if self.grid[new2[0]][new2[1]] != self.settings.EMPTY_CELL_TAG and new2 not in self.pos:
             return
         new3 = [self.main_pos[0] + 1, self.main_pos[1]]
-        if self.grid[new3[0]][new3[1]] != self.settings.empty_cell_tag and new3 not in self.pos:
+        if self.grid[new3[0]][new3[1]] != self.settings.EMPTY_CELL_TAG and new3 not in self.pos:
             return
         self.pos[0] = new0
         self.pos[2] = new2
@@ -445,36 +450,37 @@ class Stetromino(Tetromino):
 
 
 class Ztetromino(Tetromino):
-    tag = 'Z'
-    next_tetromino_grid_pos = [
+    TAG: str = 'Z'
+    NEXT_TETROMINO_GRID_POS: list[list] = [
         [1, 0],
         [1, 1],
         [2, 1],
         [2, 2],
     ]
+    SPAWN_POS: list[list] = [
+        [0, Tetromino.LAST_COL_IDX // 2 - 1],
+        [1, Tetromino.LAST_COL_IDX // 2],
+        [0, Tetromino.LAST_COL_IDX // 2],
+        [1, Tetromino.LAST_COL_IDX // 2 + 1],
+    ]
 
     def __init__(self, game):
-        super().__init__(game)
         self.spawn()
         self.main_pos = self.pos[1]
+        super().__init__(game, self.pos, self.TAG, self.NEXT_TETROMINO_GRID_POS)
 
     def spawn(self):
-        self.pos = [
-            [0, self.last_col_idx // 2 - 1],
-            [1, self.last_col_idx // 2],
-            [0, self.last_col_idx // 2],
-            [1, self.last_col_idx // 2 + 1],
-        ]
+        self.pos = copy.deepcopy(self.SPAWN_POS)
 
     def pos0(self):
         new0 = [self.main_pos[0] - 1, self.main_pos[1] - 1]
-        if self.grid[new0[0]][new0[1]] != self.settings.empty_cell_tag and new0 not in self.pos:
+        if self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG and new0 not in self.pos:
             return
         new2 = [self.main_pos[0] - 1, self.main_pos[1]]
-        if self.grid[new2[0]][new2[1]] != self.settings.empty_cell_tag and new2 not in self.pos:
+        if self.grid[new2[0]][new2[1]] != self.settings.EMPTY_CELL_TAG and new2 not in self.pos:
             return
         new3 = [self.main_pos[0], self.main_pos[1] + 1]
-        if self.grid[new3[0]][new3[1]] != self.settings.empty_cell_tag and new3 not in self.pos:
+        if self.grid[new3[0]][new3[1]] != self.settings.EMPTY_CELL_TAG and new3 not in self.pos:
             return
         self.pos[0] = new0
         self.pos[2] = new2
@@ -482,13 +488,13 @@ class Ztetromino(Tetromino):
 
     def pos1(self):
         new0 = [self.main_pos[0] + 1, self.main_pos[1]]
-        if self.grid[new0[0]][new0[1]] != self.settings.empty_cell_tag and new0 not in self.pos:
+        if self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG and new0 not in self.pos:
             return
         new2 = [self.main_pos[0], self.main_pos[1] + 1]
-        if self.grid[new2[0]][new2[1]] != self.settings.empty_cell_tag and new2 not in self.pos:
+        if self.grid[new2[0]][new2[1]] != self.settings.EMPTY_CELL_TAG and new2 not in self.pos:
             return
         new3 = [self.main_pos[0] - 1, self.main_pos[1] + 1]
-        if self.grid[new3[0]][new3[1]] != self.settings.empty_cell_tag and new3 not in self.pos:
+        if self.grid[new3[0]][new3[1]] != self.settings.EMPTY_CELL_TAG and new3 not in self.pos:
             return
         self.pos[0] = new0
         self.pos[2] = new2
@@ -496,13 +502,13 @@ class Ztetromino(Tetromino):
 
     def pos2(self):
         new0 = [self.main_pos[0], self.main_pos[1] - 1]
-        if self.grid[new0[0]][new0[1]] != self.settings.empty_cell_tag and new0 not in self.pos:
+        if self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG and new0 not in self.pos:
             return
         new2 = [self.main_pos[0] + 1, self.main_pos[1]]
-        if self.grid[new2[0]][new2[1]] != self.settings.empty_cell_tag and new2 not in self.pos:
+        if self.grid[new2[0]][new2[1]] != self.settings.EMPTY_CELL_TAG and new2 not in self.pos:
             return
         new3 = [self.main_pos[0] + 1, self.main_pos[1] + 1]
-        if self.grid[new3[0]][new3[1]] != self.settings.empty_cell_tag and new3 not in self.pos:
+        if self.grid[new3[0]][new3[1]] != self.settings.EMPTY_CELL_TAG and new3 not in self.pos:
             return
         self.pos[0] = new0
         self.pos[2] = new2
@@ -510,13 +516,13 @@ class Ztetromino(Tetromino):
 
     def pos3(self):
         new0 = [self.main_pos[0], self.main_pos[1] - 1]
-        if self.grid[new0[0]][new0[1]] != self.settings.empty_cell_tag and new0 not in self.pos:
+        if self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG and new0 not in self.pos:
             return
         new2 = [self.main_pos[0] - 1, self.main_pos[1]]
-        if self.grid[new2[0]][new2[1]] != self.settings.empty_cell_tag and new2 not in self.pos:
+        if self.grid[new2[0]][new2[1]] != self.settings.EMPTY_CELL_TAG and new2 not in self.pos:
             return
         new3 = [self.main_pos[0] + 1, self.main_pos[1] - 1]
-        if self.grid[new3[0]][new3[1]] != self.settings.empty_cell_tag and new3 not in self.pos:
+        if self.grid[new3[0]][new3[1]] != self.settings.EMPTY_CELL_TAG and new3 not in self.pos:
             return
         self.pos[0] = new0
         self.pos[2] = new2
@@ -524,36 +530,37 @@ class Ztetromino(Tetromino):
 
 
 class Jtetromino(Tetromino):
-    tag = 'J'
-    next_tetromino_grid_pos = [
+    TAG: str = 'J'
+    NEXT_TETROMINO_GRID_POS: list[list] = [
         [1, 0],
         [2, 0],
         [2, 1],
         [2, 2],
     ]
+    SPAWN_POS: list[list] = [
+        [0, Tetromino.LAST_COL_IDX // 2 - 1],
+        [1, Tetromino.LAST_COL_IDX // 2],
+        [1, Tetromino.LAST_COL_IDX // 2 - 1],
+        [1, Tetromino.LAST_COL_IDX // 2 + 1],
+    ]
 
     def __init__(self, game):
-        super().__init__(game)
         self.spawn()
         self.main_pos = self.pos[1]
+        super().__init__(game, self.pos, self.TAG, self.NEXT_TETROMINO_GRID_POS)
 
     def spawn(self):
-        self.pos = [
-            [0, self.last_col_idx // 2 - 1],
-            [1, self.last_col_idx // 2],
-            [1, self.last_col_idx // 2 - 1],
-            [1, self.last_col_idx // 2 + 1],
-        ]
+        self.pos = copy.deepcopy(self.SPAWN_POS)
 
     def pos0(self):
         new0 = [self.main_pos[0] - 1, self.main_pos[1] - 1]
-        if self.grid[new0[0]][new0[1]] != self.settings.empty_cell_tag and new0 not in self.pos:
+        if self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG and new0 not in self.pos:
             return
         new2 = [self.main_pos[0], self.main_pos[1] - 1]
-        if self.grid[new2[0]][new2[1]] != self.settings.empty_cell_tag and new2 not in self.pos:
+        if self.grid[new2[0]][new2[1]] != self.settings.EMPTY_CELL_TAG and new2 not in self.pos:
             return
         new3 = [self.main_pos[0], self.main_pos[1] + 1]
-        if self.grid[new3[0]][new3[1]] != self.settings.empty_cell_tag and new3 not in self.pos:
+        if self.grid[new3[0]][new3[1]] != self.settings.EMPTY_CELL_TAG and new3 not in self.pos:
             return
         self.pos[0] = new0
         self.pos[2] = new2
@@ -561,13 +568,13 @@ class Jtetromino(Tetromino):
 
     def pos1(self):
         new0 = [self.main_pos[0] - 1, self.main_pos[1]]
-        if self.grid[new0[0]][new0[1]] != self.settings.empty_cell_tag and new0 not in self.pos:
+        if self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG and new0 not in self.pos:
             return
         new2 = [self.main_pos[0] + 1, self.main_pos[1]]
-        if self.grid[new2[0]][new2[1]] != self.settings.empty_cell_tag and new2 not in self.pos:
+        if self.grid[new2[0]][new2[1]] != self.settings.EMPTY_CELL_TAG and new2 not in self.pos:
             return
         new3 = [self.main_pos[0] - 1, self.main_pos[1] + 1]
-        if self.grid[new3[0]][new3[1]] != self.settings.empty_cell_tag and new3 not in self.pos:
+        if self.grid[new3[0]][new3[1]] != self.settings.EMPTY_CELL_TAG and new3 not in self.pos:
             return
         self.pos[0] = new0
         self.pos[2] = new2
@@ -575,13 +582,13 @@ class Jtetromino(Tetromino):
 
     def pos2(self):
         new0 = [self.main_pos[0], self.main_pos[1] - 1]
-        if self.grid[new0[0]][new0[1]] != self.settings.empty_cell_tag and new0 not in self.pos:
+        if self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG and new0 not in self.pos:
             return
         new2 = [self.main_pos[0], self.main_pos[1] + 1]
-        if self.grid[new2[0]][new2[1]] != self.settings.empty_cell_tag and new2 not in self.pos:
+        if self.grid[new2[0]][new2[1]] != self.settings.EMPTY_CELL_TAG and new2 not in self.pos:
             return
         new3 = [self.main_pos[0] + 1, self.main_pos[1] + 1]
-        if self.grid[new3[0]][new3[1]] != self.settings.empty_cell_tag and new3 not in self.pos:
+        if self.grid[new3[0]][new3[1]] != self.settings.EMPTY_CELL_TAG and new3 not in self.pos:
             return
         self.pos[0] = new0
         self.pos[2] = new2
@@ -589,49 +596,51 @@ class Jtetromino(Tetromino):
 
     def pos3(self):
         new0 = [self.main_pos[0] - 1, self.main_pos[1]]
-        if self.grid[new0[0]][new0[1]] != self.settings.empty_cell_tag and new0 not in self.pos:
+        if self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG and new0 not in self.pos:
             return
         new2 = [self.main_pos[0] + 1, self.main_pos[1]]
-        if self.grid[new2[0]][new2[1]] != self.settings.empty_cell_tag and new2 not in self.pos:
+        if self.grid[new2[0]][new2[1]] != self.settings.EMPTY_CELL_TAG and new2 not in self.pos:
             return
         new3 = [self.main_pos[0] + 1, self.main_pos[1] - 1]
-        if self.grid[new3[0]][new3[1]] != self.settings.empty_cell_tag and new3 not in self.pos:
+        if self.grid[new3[0]][new3[1]] != self.settings.EMPTY_CELL_TAG and new3 not in self.pos:
             return
         self.pos[0] = new0
         self.pos[2] = new2
         self.pos[3] = new3
 
+
 class Ltetromino(Tetromino):
-    tag = 'L'
-    next_tetromino_grid_pos = [
+    TAG: str = 'L'
+    NEXT_TETROMINO_GRID_POS: list[list] = [
         [2, 0],
         [2, 1],
         [2, 2],
         [1, 2],
     ]
+    SPAWN_POS: list[list] = [
+        [1, Tetromino.LAST_COL_IDX // 2 - 1],
+        [1, Tetromino.LAST_COL_IDX // 2],
+        [1, Tetromino.LAST_COL_IDX // 2 + 1],
+        [0, Tetromino.LAST_COL_IDX // 2 + 1],
+    ]
 
     def __init__(self, game):
-        super().__init__(game)
         self.spawn()
         self.main_pos = self.pos[1]
+        super().__init__(game, self.pos, self.TAG, self.NEXT_TETROMINO_GRID_POS)
 
     def spawn(self):
-        self.pos = [
-            [1, self.last_col_idx // 2 - 1],
-            [1, self.last_col_idx // 2],
-            [1, self.last_col_idx // 2 + 1],
-            [0, self.last_col_idx // 2 + 1],
-        ]
+        self.pos = copy.deepcopy(self.SPAWN_POS)
 
     def pos0(self):
         new0 = [self.main_pos[0], self.main_pos[1] - 1]
-        if self.grid[new0[0]][new0[1]] != self.settings.empty_cell_tag and new0 not in self.pos:
+        if self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG and new0 not in self.pos:
             return
         new2 = [self.main_pos[0], self.main_pos[1] + 1]
-        if self.grid[new2[0]][new2[1]] != self.settings.empty_cell_tag and new2 not in self.pos:
+        if self.grid[new2[0]][new2[1]] != self.settings.EMPTY_CELL_TAG and new2 not in self.pos:
             return
         new3 = [self.main_pos[0] - 1, self.main_pos[1] + 1]
-        if self.grid[new3[0]][new3[1]] != self.settings.empty_cell_tag and new3 not in self.pos:
+        if self.grid[new3[0]][new3[1]] != self.settings.EMPTY_CELL_TAG and new3 not in self.pos:
             return
         self.pos[0] = new0
         self.pos[2] = new2
@@ -639,13 +648,13 @@ class Ltetromino(Tetromino):
 
     def pos1(self):
         new0 = [self.main_pos[0] - 1, self.main_pos[1]]
-        if self.grid[new0[0]][new0[1]] != self.settings.empty_cell_tag and new0 not in self.pos:
+        if self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG and new0 not in self.pos:
             return
         new2 = [self.main_pos[0] + 1, self.main_pos[1]]
-        if self.grid[new2[0]][new2[1]] != self.settings.empty_cell_tag and new2 not in self.pos:
+        if self.grid[new2[0]][new2[1]] != self.settings.EMPTY_CELL_TAG and new2 not in self.pos:
             return
         new3 = [self.main_pos[0] + 1, self.main_pos[1] + 1]
-        if self.grid[new3[0]][new3[1]] != self.settings.empty_cell_tag and new3 not in self.pos:
+        if self.grid[new3[0]][new3[1]] != self.settings.EMPTY_CELL_TAG and new3 not in self.pos:
             return
         self.pos[0] = new0
         self.pos[2] = new2
@@ -653,13 +662,13 @@ class Ltetromino(Tetromino):
 
     def pos2(self):
         new0 = [self.main_pos[0], self.main_pos[1] - 1]
-        if self.grid[new0[0]][new0[1]] != self.settings.empty_cell_tag and new0 not in self.pos:
+        if self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG and new0 not in self.pos:
             return
         new2 = [self.main_pos[0], self.main_pos[1] + 1]
-        if self.grid[new2[0]][new2[1]] != self.settings.empty_cell_tag and new2 not in self.pos:
+        if self.grid[new2[0]][new2[1]] != self.settings.EMPTY_CELL_TAG and new2 not in self.pos:
             return
         new3 = [self.main_pos[0] + 1, self.main_pos[1] - 1]
-        if self.grid[new3[0]][new3[1]] != self.settings.empty_cell_tag and new3 not in self.pos:
+        if self.grid[new3[0]][new3[1]] != self.settings.EMPTY_CELL_TAG and new3 not in self.pos:
             return
         self.pos[0] = new0
         self.pos[2] = new2
@@ -667,13 +676,13 @@ class Ltetromino(Tetromino):
 
     def pos3(self):
         new0 = [self.main_pos[0] - 1, self.main_pos[1]]
-        if self.grid[new0[0]][new0[1]] != self.settings.empty_cell_tag and new0 not in self.pos:
+        if self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG and new0 not in self.pos:
             return
         new2 = [self.main_pos[0] - 1, self.main_pos[1] - 1]
-        if self.grid[new2[0]][new2[1]] != self.settings.empty_cell_tag and new2 not in self.pos:
+        if self.grid[new2[0]][new2[1]] != self.settings.EMPTY_CELL_TAG and new2 not in self.pos:
             return
         new3 = [self.main_pos[0] + 1, self.main_pos[1]]
-        if self.grid[new3[0]][new3[1]] != self.settings.empty_cell_tag and new3 not in self.pos:
+        if self.grid[new3[0]][new3[1]] != self.settings.EMPTY_CELL_TAG and new3 not in self.pos:
             return
         self.pos[0] = new0
         self.pos[2] = new2
