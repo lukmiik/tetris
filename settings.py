@@ -8,8 +8,11 @@ class Settings:
     SECOND_BG_COLOR: tuple = (0, 0, 0)
     FONT_NAME: str = 'Tahoma'
     FONT_SIZE: int = 80
+    FONT_SIZE_SCORE_NEXT_TITLES = 60
     FONT_COLOR: tuple = (255, 255, 255)
     TETRIS_TITLE: str = "TETRIS"
+    SCORE_TITLE: str = "SCORE"
+    NEXT_TETROMINO_TITLE: str = "NEXT"
     FPS: int = 60
     GAME_WINDOW_WIDTH: int = 400
     GAME_WINDOW_HEIGHT: int = 600
@@ -29,7 +32,9 @@ class Settings:
     L: tuple = (255, 165, 0)  # pomarańczowy
     SCORE_NEXT_WINDOW_WIDTH: int = 220
     SCORE_NEXT_WINDOW_HEIGHT: int = 150
-    NEXT_WINDOW_X: int = 725
+    SCORE_WINDOW_X: int = 40
+    SCORE_WINDOW_Y: int = 200
+    NEXT_WINDOW_X: int = 740
     NEXT_WINDOW_Y: int = 200
     NEXT_TETROMINO_N_OF_COL: int = 4
     NEXT_TETROMINO_N_OF_ROWS: int = 4
@@ -48,9 +53,44 @@ class Settings:
         pygame.font.init()
         self.screen = pygame.display.set_mode((self.SCREEN_WIDTH, self.SCREEN_HEIGHT))
         self.font = pygame.font.SysFont(self.FONT_NAME, self.FONT_SIZE)
+        self.font_score_text = pygame.font.SysFont(self.FONT_NAME, 30)
+        self.font_score_next_titles = pygame.font.SysFont(self.FONT_NAME, 30)
+        self.create_titles_properties()
+
+    def create_titles_properties(self):
+        self.tetris_title_rendered = self.font.render(
+            self.TETRIS_TITLE, True, self.FONT_COLOR
+        )
+        self.tetris_title_rendered_width = self.tetris_title_rendered.get_width()
+        self.tetris_title_coordinates = (
+            self.SCREEN_WIDTH / 2 - self.tetris_title_rendered_width / 2,
+            50,
+        )
+        self.score_title_rendered = self.font_score_next_titles.render(
+            self.SCORE_TITLE, True, self.FONT_COLOR
+        )
+        self.score_title_rendered_width = self.score_title_rendered.get_width()
+        self.score_title_coordinates = (
+            self.SCORE_WINDOW_X
+            + self.SCORE_NEXT_WINDOW_WIDTH / 2
+            - self.score_title_rendered_width / 2,
+            150,
+        )
+        self.next_tetromino_title_rendered = self.font_score_next_titles.render(
+            self.NEXT_TETROMINO_TITLE, True, self.FONT_COLOR
+        )
+        self.next_tetromino_title_rendered_width = (
+            self.next_tetromino_title_rendered.get_width()
+        )
+        self.next_tetromino_title_coordinates = (
+            self.NEXT_WINDOW_X
+            + self.SCORE_NEXT_WINDOW_WIDTH / 2
+            - self.next_tetromino_title_rendered_width / 2,
+            150,
+        )
 
     def draw_tetris_title(self):
-        tetris_title = self.font.render(self.TETRIS_TITLE, True, self.FONT_COLOR)
         self.screen.blit(
-            tetris_title, (self.SCREEN_WIDTH / 2 - tetris_title.get_width() / 2, 50)
+            self.tetris_title_rendered,
+            (self.tetris_title_coordinates),
         )
