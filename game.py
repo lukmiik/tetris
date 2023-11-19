@@ -29,6 +29,13 @@ class Game:
             )
         )
         self.next_tetromino_window_rect = self.next_tetromino_window.get_rect()
+        self.score_window = pygame.Surface(
+            (
+                self.settings.SCORE_NEXT_WINDOW_WIDTH,
+                self.settings.SCORE_NEXT_WINDOW_HEIGHT,
+            )
+        )
+        self.score_window_rect = self.score_window.get_rect()
         self.grid = [
             [self.settings.EMPTY_CELL_TAG for col in range(self.settings.GRID_N_OF_COL)]
             for row in range(self.settings.GRID_N_OF_ROWS)
@@ -40,6 +47,7 @@ class Game:
             ]
             for row in range(self.settings.NEXT_TETROMINO_N_OF_ROWS)
         ]
+        self.score = 0
 
     def draw_grid(self):
         self.game_window.fill(self.settings.SECOND_BG_COLOR)
@@ -97,6 +105,40 @@ class Game:
                             self.settings.NEXT_TETROMINO_CELL_HEIGHT,
                         ),
                     )
+        self.draw_next_tetromino_window()
+
+    def draw_score(self):
+        self.draw_score_window()
+        score_text = self.settings.font_score_text.render(
+            str(self.score), True, self.settings.FONT_COLOR
+        )
+        self.screen.blit(
+            score_text,
+            (
+                (
+                    self.settings.SCORE_WINDOW_X
+                    + self.settings.SCORE_NEXT_WINDOW_WIDTH / 2
+                    - score_text.get_width() / 2
+                ),
+                (
+                    self.settings.SCORE_WINDOW_Y
+                    + self.settings.SCORE_NEXT_WINDOW_HEIGHT / 2
+                    - score_text.get_height() / 2
+                ),
+            ),
+        )
+
+    def draw_score_title(self):
+        self.screen.blit(
+            self.settings.score_title_rendered,
+            (self.settings.score_title_coordinates),
+        )
+
+    def draw_next_tetromino_title(self):
+        self.screen.blit(
+            self.settings.next_tetromino_title_rendered,
+            (self.settings.next_tetromino_title_coordinates),
+        )
 
     def draw_game_window(self):
         pygame.draw.rect(
@@ -125,14 +167,24 @@ class Game:
             ),
         )
 
+    def draw_score_window(self):
+        pygame.draw.rect(
+            self.score_window,
+            self.settings.BORDER_COLOR,
+            self.score_window_rect,
+            2,
+        )
+        self.screen.blit(
+            self.score_window,
+            (
+                self.settings.SCORE_WINDOW_X,
+                self.settings.SCORE_WINDOW_Y,
+            ),
+        )
+
     def check_line(self):
-        for row, list in enumerate(self.grid[2:], 2):
-            line = True
-            for col, value in enumerate(list):
-                if value == 0:
-                    line = False
-                    break
-            if line:
+        for row, line in enumerate(self.grid[2:], 2):
+            if 0 not in line:
                 self.delete_line(row)
 
     def delete_line(self, row):
@@ -192,13 +244,14 @@ class Game:
         for row in self.grid:
             print(row)
 
-    def reset_grids(self) -> None:
+    def reset_properties(self) -> None:
         for row in range(self.settings.GRID_N_OF_ROWS):
             for col in range(self.settings.GRID_N_OF_COL):
                 self.grid[row][col] = self.settings.EMPTY_CELL_TAG
         for row in range(self.settings.NEXT_TETROMINO_N_OF_ROWS):
             for col in range(self.settings.NEXT_TETROMINO_N_OF_COL):
                 self.next_tetromino_grid[row][col] = self.settings.EMPTY_CELL_TAG
+        self.score = 0
 
     def main(self):
         clock = pygame.time.Clock()
@@ -207,6 +260,9 @@ class Game:
         self.next_tetromino = self.random_tetromino()
         self.next_tetromino.put_on_next_tetromino_window()
         self.draw_next_tetromino()
+        self.draw_score()
+        self.draw_score_title()
+        self.draw_next_tetromino_title()
         pygame.time.set_timer(pygame.USEREVENT, self.settings.MOVE_DOWN_TIME)
         pygame.time.set_timer(
             pygame.USEREVENT + 1, self.settings.CHECK_KEYS_PRESSED_MOVEMENT_TIME
@@ -220,21 +276,22 @@ class Game:
             self.check_events()
             self.draw_grid()
             self.draw_game_window()
-            self.draw_next_tetromino_window()
             if (
                 self.current_tetromino.check_down()
                 or self.current_tetromino.check_touch()
             ):
                 self.current_tetromino.update_on_grid()
-                self.check_line()
+                if self.check_line():
+                    self.draw_score()
                 # game lost
                 if self.check_tetromino_above_top():
                     print("game lost")
                     self.draw_grid()
                     self.draw_game_window()
                     self.draw_next_tetromino_window()
+                    self.draw_score_window()
                     pygame.display.update()
-                    self.reset_grids()
+                    self.reset_properties()
                     break
                 self.current_tetromino = self.next_tetromino
                 self.current_tetromino.update_on_grid()
