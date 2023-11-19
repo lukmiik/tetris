@@ -601,7 +601,6 @@ class Jtetromino(Tetromino):
         self.pos[2] = new2
         self.pos[3] = new3
 
-
 class Ltetromino(Tetromino):
     tag = 'L'
     next_tetromino_grid_pos = [
