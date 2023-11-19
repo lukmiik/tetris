@@ -34,7 +34,9 @@ class Settings:
     NEXT_TETROMINO_N_OF_COL: int = 4
     NEXT_TETROMINO_N_OF_ROWS: int = 4
     NEXT_TETROMINO_CELL_WIDTH: int = SCORE_NEXT_WINDOW_WIDTH // NEXT_TETROMINO_N_OF_COL
-    NEXT_TETROMINO_CELL_HEIGHT: int = SCORE_NEXT_WINDOW_HEIGHT // NEXT_TETROMINO_N_OF_ROWS
+    NEXT_TETROMINO_CELL_HEIGHT: int = (
+        SCORE_NEXT_WINDOW_HEIGHT // NEXT_TETROMINO_N_OF_ROWS
+    )
     MOVE_DOWN_TIME: int = 1000
     CHECK_KEYS_PRESSED_MOVEMENT_TIME: int = 50
     CHECK_KEYS_PRESSED_ROTATION_TIME: int = 150
@@ -49,4 +51,6 @@ class Settings:
 
     def draw_tetris_title(self):
         tetris_title = self.font.render(self.TETRIS_TITLE, True, self.FONT_COLOR)
-        self.screen.blit(tetris_title, (self.SCREEN_WIDTH / 2 - tetris_title.get_width() / 2, 50))
+        self.screen.blit(
+            tetris_title, (self.SCREEN_WIDTH / 2 - tetris_title.get_width() / 2, 50)
+        )

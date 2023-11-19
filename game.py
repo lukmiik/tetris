@@ -3,18 +3,30 @@ import sys
 import time
 import random
 
-from settings import Settings
-from tetrominos import Tetromino, Itetromino, Ttetromino, Otetromino, Stetromino, Ztetromino, Jtetromino, Ltetromino
+from tetrominos import (
+    Itetromino,
+    Ttetromino,
+    Otetromino,
+    Stetromino,
+    Ztetromino,
+    Jtetromino,
+    Ltetromino,
+)
 
 
 class Game:
     def __init__(self, settings):
         self.settings = settings
         self.screen = self.settings.screen
-        self.game_window = pygame.Surface((self.settings.GAME_WINDOW_WIDTH, self.settings.GAME_WINDOW_HEIGHT))
+        self.game_window = pygame.Surface(
+            (self.settings.GAME_WINDOW_WIDTH, self.settings.GAME_WINDOW_HEIGHT)
+        )
         self.game_window_rect = self.game_window.get_rect()
         self.next_tetromino_window = pygame.Surface(
-            (self.settings.SCORE_NEXT_WINDOW_WIDTH, self.settings.SCORE_NEXT_WINDOW_HEIGHT)
+            (
+                self.settings.SCORE_NEXT_WINDOW_WIDTH,
+                self.settings.SCORE_NEXT_WINDOW_HEIGHT,
+            )
         )
         self.next_tetromino_window_rect = self.next_tetromino_window.get_rect()
         self.grid = [
@@ -22,7 +34,10 @@ class Game:
             for row in range(self.settings.GRID_N_OF_ROWS)
         ]
         self.next_tetromino_grid = [
-            [self.settings.EMPTY_CELL_TAG for col in range(self.settings.NEXT_TETROMINO_N_OF_COL)]
+            [
+                self.settings.EMPTY_CELL_TAG
+                for col in range(self.settings.NEXT_TETROMINO_N_OF_COL)
+            ]
             for row in range(self.settings.NEXT_TETROMINO_N_OF_ROWS)
         ]
 
@@ -84,7 +99,9 @@ class Game:
                     )
 
     def draw_game_window(self):
-        pygame.draw.rect(self.game_window, self.settings.BORDER_COLOR, self.game_window_rect, 5)
+        pygame.draw.rect(
+            self.game_window, self.settings.BORDER_COLOR, self.game_window_rect, 5
+        )
         self.screen.blit(
             self.game_window,
             (
@@ -94,7 +111,12 @@ class Game:
         )
 
     def draw_next_tetromino_window(self):
-        pygame.draw.rect(self.next_tetromino_window, self.settings.BORDER_COLOR, self.next_tetromino_window_rect, 2)
+        pygame.draw.rect(
+            self.next_tetromino_window,
+            self.settings.BORDER_COLOR,
+            self.next_tetromino_window_rect,
+            2,
+        )
         self.screen.blit(
             self.next_tetromino_window,
             (
@@ -154,7 +176,15 @@ class Game:
             self.current_tetromino.rotate_left()
 
     def random_tetromino(self):
-        tetrominos = [Itetromino, Ttetromino, Otetromino, Stetromino, Ztetromino, Jtetromino, Ltetromino]
+        tetrominos = [
+            Itetromino,
+            Ttetromino,
+            Otetromino,
+            Stetromino,
+            Ztetromino,
+            Jtetromino,
+            Ltetromino,
+        ]
         random_tetromino = random.choice(tetrominos)
         return random_tetromino(self)
 
@@ -178,8 +208,12 @@ class Game:
         self.next_tetromino.put_on_next_tetromino_window()
         self.draw_next_tetromino()
         pygame.time.set_timer(pygame.USEREVENT, self.settings.MOVE_DOWN_TIME)
-        pygame.time.set_timer(pygame.USEREVENT + 1, self.settings.CHECK_KEYS_PRESSED_MOVEMENT_TIME)
-        pygame.time.set_timer(pygame.USEREVENT + 2, self.settings.CHECK_KEYS_PRESSED_ROTATION_TIME)
+        pygame.time.set_timer(
+            pygame.USEREVENT + 1, self.settings.CHECK_KEYS_PRESSED_MOVEMENT_TIME
+        )
+        pygame.time.set_timer(
+            pygame.USEREVENT + 2, self.settings.CHECK_KEYS_PRESSED_ROTATION_TIME
+        )
         self.down = False
         while True:
             clock.tick(self.settings.FPS)
@@ -187,7 +221,10 @@ class Game:
             self.draw_grid()
             self.draw_game_window()
             self.draw_next_tetromino_window()
-            if self.current_tetromino.check_down() or self.current_tetromino.check_touch():
+            if (
+                self.current_tetromino.check_down()
+                or self.current_tetromino.check_touch()
+            ):
                 self.current_tetromino.update_on_grid()
                 self.check_line()
                 # game lost

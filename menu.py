@@ -10,10 +10,18 @@ class Menu:
 
     def create_buttons(self):
         # text
-        self.start_text = self.settings.font.render("Start game", True, self.settings.FONT_COLOR)
-        self.controls_text = self.settings.font.render("Controls", True, self.settings.FONT_COLOR)
-        self.rules_text = self.settings.font.render("Rules", True, self.settings.FONT_COLOR)
-        self.quit_text = self.settings.font.render("Quit", True, self.settings.FONT_COLOR)
+        self.start_text = self.settings.font.render(
+            "Start game", True, self.settings.FONT_COLOR
+        )
+        self.controls_text = self.settings.font.render(
+            "Controls", True, self.settings.FONT_COLOR
+        )
+        self.rules_text = self.settings.font.render(
+            "Rules", True, self.settings.FONT_COLOR
+        )
+        self.quit_text = self.settings.font.render(
+            "Quit", True, self.settings.FONT_COLOR
+        )
         # btn
         btn_height = 100
         gap = 20
