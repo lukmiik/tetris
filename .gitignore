@@ -3,3 +3,4 @@ dev_assets/
 __pycache__/
 plan.txt
 test.py
+venv/

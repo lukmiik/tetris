@@ -2,49 +2,51 @@ import pygame
 
 
 class Settings:
+    SCREEN_WIDTH: int = 1000
+    SCREEN_HEIGHT: int = 800
+    BG_COLOR: tuple = (0, 0, 100)
+    SECOND_BG_COLOR: tuple = (0, 0, 0)
+    FONT_NAME: str = 'Tahoma'
+    FONT_SIZE: int = 80
+    FONT_COLOR: tuple = (255, 255, 255)
+    TETRIS_TITLE: str = "TETRIS"
+    FPS: int = 60
+    GAME_WINDOW_WIDTH: int = 400
+    GAME_WINDOW_HEIGHT: int = 600
+    BORDER_COLOR: tuple = (255, 0, 0)
+    CELL_BORDER_COLOR: tuple = (119, 136, 153)
+    GRID_N_OF_COL: int = 10
+    GRID_N_OF_ROWS: int = 22
+    GRID_CELL_WIDTH: int = GAME_WINDOW_WIDTH // GRID_N_OF_COL
+    GRID_CELL_HEIGHT: int = GAME_WINDOW_HEIGHT // (GRID_N_OF_ROWS - 2)
+    EMPTY_CELL_TAG: int = 0
+    I: tuple = (0, 255, 255)  # cyan
+    O: tuple = (255, 255, 0)  # żółty
+    T: tuple = (128, 0, 128)  # fioletowy
+    S: tuple = (0, 255, 0)  # zielony
+    Z: tuple = (255, 0, 0)  # czerwony
+    J: tuple = (0, 0, 255)  # niebieski
+    L: tuple = (255, 165, 0)  # pomarańczowy
+    SCORE_NEXT_WINDOW_WIDTH: int = 220
+    SCORE_NEXT_WINDOW_HEIGHT: int = 150
+    NEXT_WINDOW_X: int = 725
+    NEXT_WINDOW_Y: int = 200
+    NEXT_TETROMINO_N_OF_COL: int = 4
+    NEXT_TETROMINO_N_OF_ROWS: int = 4
+    NEXT_TETROMINO_CELL_WIDTH: int = SCORE_NEXT_WINDOW_WIDTH // NEXT_TETROMINO_N_OF_COL
+    NEXT_TETROMINO_CELL_HEIGHT: int = SCORE_NEXT_WINDOW_HEIGHT // NEXT_TETROMINO_N_OF_ROWS
+    MOVE_DOWN_TIME: int = 1000
+    CHECK_KEYS_PRESSED_MOVEMENT_TIME: int = 50
+    CHECK_KEYS_PRESSED_ROTATION_TIME: int = 150
+
     def __init__(self):
         # necessary inits
         pygame.init()
         pygame.display.init()
         pygame.font.init()
-        # screen
-        self.screen_width = 1000
-        self.screen_height = 800
-        self.bg_color = (0, 0, 100)
-        self.second_bg_color = (0, 0, 0)
-        self.screen = pygame.display.set_mode((self.screen_width, self.screen_height))
-        # font
-        self.font = pygame.font.SysFont('Tahoma', 80)
-        self.font_color = (255, 255, 255)
-        # game window
-        self.fps = 60
-        self.game_window_width = 400
-        self.game_window_height = 600
-        self.border_color = (255, 0, 0)
-        self.cell_border_color = (119, 136, 153)
-        self.grid_n_of_col = 10
-        self.grid_n_of_rows = 22
-        self.grid_cell_width = self.game_window_width // self.grid_n_of_col
-        self.grid_cell_height = self.game_window_height // (self.grid_n_of_rows - 2)
-        self.empty_cell_tag = 0
-        # tetrominos
-        self.I = (0, 255, 255)  # cyan
-        self.O = (255, 255, 0)  # żółty
-        self.T = (128, 0, 128)  # fioletowy
-        self.S = (0, 255, 0)  # zielony
-        self.Z = (255, 0, 0)  # czerwony
-        self.J = (0, 0, 255)  # niebieski
-        self.L = (255, 165, 0)  # pomarańczowy
-        # next and score windows
-        self.score_next_window_width = 220
-        self.score_next_window_height = 150
-        self.next_window_x = 725
-        self.next_window_y = 200
-        self.next_tetromino_n_of_col = 4
-        self.next_tetromino_n_of_rows = 4
-        self.next_tetromino_cell_width = self.score_next_window_width // self.next_tetromino_n_of_col
-        self.next_tetromino_cell_height = self.score_next_window_height // self.next_tetromino_n_of_rows
+        self.screen = pygame.display.set_mode((self.SCREEN_WIDTH, self.SCREEN_HEIGHT))
+        self.font = pygame.font.SysFont(self.FONT_NAME, self.FONT_SIZE)
 
     def draw_tetris_title(self):
-        text = self.font.render("TETRIS", True, self.font_color)
-        self.screen.blit(text, (self.screen_width / 2 - text.get_width() / 2, 50))
+        tetris_title = self.font.render(self.TETRIS_TITLE, True, self.FONT_COLOR)
+        self.screen.blit(tetris_title, (self.SCREEN_WIDTH / 2 - tetris_title.get_width() / 2, 50))
