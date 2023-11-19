@@ -1,14 +1,16 @@
 import pygame
 import sys
 
+from settings import Settings
+
 
 class Menu:
-    def __init__(self, settings):
+    def __init__(self, settings: Settings) -> None:
         self.settings = settings
         self.screen = self.settings.screen
         self.create_buttons()
 
-    def create_buttons(self):
+    def create_buttons(self) -> None:
         # text
         self.start_text = self.settings.font.render(
             "Start game", True, self.settings.FONT_COLOR
@@ -51,7 +53,7 @@ class Menu:
             btn_height,
         )
 
-    def draw_buttons(self):
+    def draw_buttons(self) -> None:
         pygame.draw.rect(self.screen, self.settings.BG_COLOR, self.start_btn)
         self.screen.blit(
             self.start_text,
@@ -85,7 +87,7 @@ class Menu:
             ),
         )
 
-    def controls(self):
+    def controls(self) -> None:
         while True:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -97,7 +99,7 @@ class Menu:
             self.screen.fill('red')
             pygame.display.update()
 
-    def rules(self):
+    def rules(self) -> None:
         while True:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -109,7 +111,7 @@ class Menu:
             self.screen.fill('green')
             pygame.display.update()
 
-    def check_events(self):
+    def check_events(self) -> bool | None:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
@@ -125,7 +127,7 @@ class Menu:
                     pygame.quit()
                     sys.exit()
 
-    def check_hover(self):
+    def check_hover(self) -> None:
         if self.start_btn.collidepoint(pygame.mouse.get_pos()):
             pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_HAND)
         elif self.controls_btn.collidepoint(pygame.mouse.get_pos()):
@@ -137,7 +139,7 @@ class Menu:
         else:
             pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_ARROW)
 
-    def main(self):
+    def main(self) -> None:
         self.screen.fill(self.settings.BG_COLOR)
         self.settings.draw_tetris_title()
         while True:

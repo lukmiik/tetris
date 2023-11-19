@@ -5,7 +5,7 @@ from menu import Menu
 from game import Game
 
 
-def main():
+def main() -> None:
     settings = Settings()
     menu = Menu(settings)
     game = Game(settings)
