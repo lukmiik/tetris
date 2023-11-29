@@ -8,6 +8,8 @@ from settings import Settings
 
 
 class Tetromino:
+    '''Tetromino class for the game'''
+
     LAST_COL_IDX: int = Settings.GRID_N_OF_COL - 1
 
     def __init__(
@@ -17,6 +19,7 @@ class Tetromino:
         tag: str,
         next_tetromino_grid_pos: list[list],
     ) -> None:
+        '''Initialize Tetromino object with the Game object and child class attributes'''
         self.settings = game.settings
         self.grid = game.grid
         self.next_tetromino_grid = game.next_tetromino_grid
@@ -26,12 +29,24 @@ class Tetromino:
         self.current_rotation = 0
 
     def check_down(self) -> bool:
+        '''
+        Checks if the tetromino is at the bottom of the grid
+
+        Returns:
+            (bool): True if the tetromino is at the bottom of the grid, False otherwise
+        '''
         for cell in self.pos:
             if cell[0] == self.settings.GRID_N_OF_ROWS - 1:
                 return True
         return False
 
     def check_touch(self) -> bool:
+        '''
+        Check if the bottom of the tetromino is touching another tetromino
+
+        Returns:
+            (bool): True if the bottom of the tetromino is touching another tetromino, False otherwise
+        '''
         for cell in self.pos:
             if (
                 self.grid[cell[0] + 1][cell[1]] != 0
@@ -41,25 +56,35 @@ class Tetromino:
         return False
 
     def update_on_grid(self) -> None:
+        '''Updates the grid with the new position of the tetromino'''
         self.main_pos = self.pos[1]
         for cell in self.pos:
             self.grid[cell[0]][cell[1]] = self.tag
 
     def put_on_next_tetromino_window(self) -> None:
+        '''Puts the next tetromino on the next tetromino window'''
         self.clear_next_tetromino_window()
         for cell in self.next_tetromino_grid_pos:
             self.next_tetromino_grid[cell[0]][cell[1]] = self.tag
 
     def clear_next_tetromino_window(self) -> None:
+        '''Clears the next tetromino window'''
         for row in range(self.settings.NEXT_TETROMINO_N_OF_ROWS):
             for col in range(self.settings.NEXT_TETROMINO_N_OF_COL):
                 self.next_tetromino_grid[row][col] = self.settings.EMPTY_CELL_TAG
 
     def clear(self) -> None:
+        '''Clears the grid from the tetromino'''
         for cell in self.pos:
             self.grid[cell[0]][cell[1]] = 0
 
     def check_move_left(self) -> bool:
+        '''
+        Check if the tetromino can move left by checking if it is at the left edge of the grid or if it is touching another tetromino on the left
+
+        Returns:
+            (bool): True if the tetromino can move left, False otherwise
+        '''
         for cell in self.pos:
             if cell[1] == 0 or (
                 [(cell[0]), (cell[1] - 1)] not in self.pos
@@ -69,6 +94,12 @@ class Tetromino:
         return False
 
     def check_move_right(self) -> bool:
+        '''
+        Check if the tetromino can move right by checking if it is at the right edge of the grid or if it is touching another tetromino on the right
+
+        Returns:
+            (bool): True if the tetromino can move right, False otherwise
+        '''
         for cell in self.pos:
             if cell[1] == self.LAST_COL_IDX or (
                 [(cell[0]), (cell[1] + 1)] not in self.pos
@@ -78,6 +109,7 @@ class Tetromino:
         return False
 
     def rotate_left(self) -> None:
+        '''Rotates the tetromino left'''
         self.clear()
         if (
             self.current_rotation == 0
@@ -96,6 +128,7 @@ class Tetromino:
             self.current_rotation = 2
 
     def rotate_right(self) -> None:
+        '''Rotates the tetromino right'''
         self.clear()
         if (
             self.current_rotation == 0
@@ -114,18 +147,23 @@ class Tetromino:
             self.current_rotation = 0
 
     def pos0(self) -> None:
+        '''Rotates the tetromino to position 0'''
         raise NotImplementedError("Subclasses must implement pos0 method")
 
     def pos1(self) -> None:
+        '''Rotates the tetromino to position 1'''
         raise NotImplementedError("Subclasses must implement pos1 method")
 
     def pos2(self) -> None:
+        '''Rotates the tetromino to position 2'''
         raise NotImplementedError("Subclasses must implement pos2 method")
 
     def pos3(self) -> None:
+        '''Rotates the tetromino to position 3'''
         raise NotImplementedError("Subclasses must implement pos3 method")
 
     def move_right(self) -> None:
+        '''Moves the tetromino right'''
         if self.check_move_right():
             return
         self.clear()
@@ -133,6 +171,7 @@ class Tetromino:
             i[1] += 1
 
     def move_left(self) -> None:
+        '''Moves the tetromino left'''
         if self.check_move_left():
             return
         self.clear()
@@ -140,6 +179,7 @@ class Tetromino:
             cell[1] -= 1
 
     def move_down(self) -> None:
+        '''Moves the tetromino down'''
         self.clear()
         for cell in self.pos:
             cell[0] += 1
@@ -161,13 +201,21 @@ class Itetromino(Tetromino):
     ]
 
     def __init__(self, game: 'Game') -> None:
+        '''
+        Calls spawn method and the parent class constructor
+
+        Args:
+            game (Game): Game object
+        '''
         self.spawn()
         super().__init__(game, self.pos, self.TAG, self.NEXT_TETROMINO_GRID_POS)
 
     def spawn(self) -> None:
+        '''Sets the spawn position'''
         self.pos = copy.deepcopy(self.SPAWN_POS)
 
     def rotate_right(self) -> None:
+        '''Rotates the tetromino right'''
         self.clear()
         if (
             self.current_rotation == 0
@@ -277,6 +325,7 @@ class Itetromino(Tetromino):
             self.current_rotation = 0
 
     def rotate_left(self) -> None:
+        '''Rotates the tetromino left'''
         self.clear()
         if (
             self.current_rotation == 0
@@ -402,16 +451,20 @@ class Otetromino(Tetromino):
     ]
 
     def __init__(self, game: 'Game') -> None:
+        '''Calls spawn method and the parent class constructor'''
         self.spawn()
         super().__init__(game, self.pos, self.TAG, self.NEXT_TETROMINO_GRID_POS)
 
     def spawn(self) -> None:
+        '''Sets the spawn position'''
         self.pos = copy.deepcopy(self.SPAWN_POS)
 
     def rotate_right(self) -> None:
+        '''Do nothing because the tetromino is a square'''
         pass
 
     def rotate_left(self) -> None:
+        '''Do nothing because the tetromino is a square'''
         pass
 
 
@@ -431,14 +484,17 @@ class Ttetromino(Tetromino):
     ]
 
     def __init__(self, game: 'Game') -> None:
+        '''Calls spawn method, parent class constructor and sets main posistion of the tetromino'''
         self.spawn()
         self.main_pos = self.pos[1]
         super().__init__(game, self.pos, self.TAG, self.NEXT_TETROMINO_GRID_POS)
 
     def spawn(self) -> None:
+        '''Sets the spawn position'''
         self.pos = copy.deepcopy(self.SPAWN_POS)
 
     def pos0(self) -> None:
+        '''Set the tetromino to position 0'''
         new0 = [self.main_pos[0] - 1, self.main_pos[1]]
         if (
             self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG
@@ -462,6 +518,7 @@ class Ttetromino(Tetromino):
         self.pos[3] = new3
 
     def pos1(self) -> None:
+        '''Set the tetromino to position 1'''
         new0 = [self.main_pos[0] - 1, self.main_pos[1]]
         if (
             self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG
@@ -485,6 +542,7 @@ class Ttetromino(Tetromino):
         self.pos[3] = new3
 
     def pos2(self) -> None:
+        '''Set the tetromino to position 2'''
         new0 = [self.main_pos[0], self.main_pos[1] - 1]
         if (
             self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG
@@ -508,6 +566,7 @@ class Ttetromino(Tetromino):
         self.pos[3] = new3
 
     def pos3(self) -> None:
+        '''Set the tetromino to position 3'''
         new0 = [self.main_pos[0] - 1, self.main_pos[1]]
         if (
             self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG
@@ -547,14 +606,17 @@ class Stetromino(Tetromino):
     ]
 
     def __init__(self, game: 'Game') -> None:
+        '''Calls spawn method, parent class constructor and sets main posistion of the tetromino'''
         self.spawn()
         self.main_pos = self.pos[1]
         super().__init__(game, self.pos, self.TAG, self.NEXT_TETROMINO_GRID_POS)
 
     def spawn(self) -> None:
+        '''Sets the spawn position'''
         self.pos = copy.deepcopy(self.SPAWN_POS)
 
     def pos0(self) -> None:
+        '''Set the tetromino to position 0'''
         new0 = [self.main_pos[0], self.main_pos[1] - 1]
         if (
             self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG
@@ -578,6 +640,7 @@ class Stetromino(Tetromino):
         self.pos[3] = new3
 
     def pos1(self) -> None:
+        '''Set the tetromino to position 1'''
         new0 = [self.main_pos[0] - 1, self.main_pos[1]]
         if (
             self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG
@@ -601,6 +664,7 @@ class Stetromino(Tetromino):
         self.pos[3] = new3
 
     def pos2(self) -> None:
+        '''Set the tetromino to position 2'''
         new0 = [self.main_pos[0] + 1, self.main_pos[1] - 1]
         if (
             self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG
@@ -624,6 +688,7 @@ class Stetromino(Tetromino):
         self.pos[3] = new3
 
     def pos3(self) -> None:
+        '''Set the tetromino to position 3'''
         new0 = [self.main_pos[0], self.main_pos[1] - 1]
         if (
             self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG
@@ -663,14 +728,17 @@ class Ztetromino(Tetromino):
     ]
 
     def __init__(self, game: 'Game') -> None:
+        '''Calls spawn method, parent class constructor and sets main posistion of the tetromino'''
         self.spawn()
         self.main_pos = self.pos[1]
         super().__init__(game, self.pos, self.TAG, self.NEXT_TETROMINO_GRID_POS)
 
     def spawn(self) -> None:
+        '''Sets the spawn position'''
         self.pos = copy.deepcopy(self.SPAWN_POS)
 
     def pos0(self) -> None:
+        '''Set the tetromino to position 0'''
         new0 = [self.main_pos[0] - 1, self.main_pos[1] - 1]
         if (
             self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG
@@ -694,6 +762,7 @@ class Ztetromino(Tetromino):
         self.pos[3] = new3
 
     def pos1(self) -> None:
+        '''Set the tetromino to position 1'''
         new0 = [self.main_pos[0] + 1, self.main_pos[1]]
         if (
             self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG
@@ -717,6 +786,7 @@ class Ztetromino(Tetromino):
         self.pos[3] = new3
 
     def pos2(self) -> None:
+        '''Set the tetromino to position 2'''
         new0 = [self.main_pos[0], self.main_pos[1] - 1]
         if (
             self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG
@@ -740,6 +810,7 @@ class Ztetromino(Tetromino):
         self.pos[3] = new3
 
     def pos3(self) -> None:
+        '''Set the tetromino to position 3'''
         new0 = [self.main_pos[0], self.main_pos[1] - 1]
         if (
             self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG
@@ -779,14 +850,17 @@ class Jtetromino(Tetromino):
     ]
 
     def __init__(self, game: 'Game') -> None:
+        '''Calls spawn method, parent class constructor and sets main posistion of the tetromino'''
         self.spawn()
         self.main_pos = self.pos[1]
         super().__init__(game, self.pos, self.TAG, self.NEXT_TETROMINO_GRID_POS)
 
     def spawn(self) -> None:
+        '''Sets the spawn position'''
         self.pos = copy.deepcopy(self.SPAWN_POS)
 
     def pos0(self) -> None:
+        '''Set the tetromino to position 0'''
         new0 = [self.main_pos[0] - 1, self.main_pos[1] - 1]
         if (
             self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG
@@ -810,6 +884,7 @@ class Jtetromino(Tetromino):
         self.pos[3] = new3
 
     def pos1(self) -> None:
+        '''Set the tetromino to position 1'''
         new0 = [self.main_pos[0] - 1, self.main_pos[1]]
         if (
             self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG
@@ -833,6 +908,7 @@ class Jtetromino(Tetromino):
         self.pos[3] = new3
 
     def pos2(self) -> None:
+        '''Set the tetromino to position 2'''
         new0 = [self.main_pos[0], self.main_pos[1] - 1]
         if (
             self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG
@@ -856,6 +932,7 @@ class Jtetromino(Tetromino):
         self.pos[3] = new3
 
     def pos3(self) -> None:
+        '''Set the tetromino to position 3'''
         new0 = [self.main_pos[0] - 1, self.main_pos[1]]
         if (
             self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG
@@ -895,14 +972,17 @@ class Ltetromino(Tetromino):
     ]
 
     def __init__(self, game: 'Game') -> None:
+        '''Calls spawn method, parent class constructor and sets main posistion of the tetromino'''
         self.spawn()
         self.main_pos = self.pos[1]
         super().__init__(game, self.pos, self.TAG, self.NEXT_TETROMINO_GRID_POS)
 
     def spawn(self) -> None:
+        '''Sets the spawn position'''
         self.pos = copy.deepcopy(self.SPAWN_POS)
 
     def pos0(self) -> None:
+        '''Set the tetromino to position 0'''
         new0 = [self.main_pos[0], self.main_pos[1] - 1]
         if (
             self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG
@@ -926,6 +1006,7 @@ class Ltetromino(Tetromino):
         self.pos[3] = new3
 
     def pos1(self) -> None:
+        '''Set the tetromino to position 1'''
         new0 = [self.main_pos[0] - 1, self.main_pos[1]]
         if (
             self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG
@@ -949,6 +1030,7 @@ class Ltetromino(Tetromino):
         self.pos[3] = new3
 
     def pos2(self) -> None:
+        '''Set the tetromino to position 2'''
         new0 = [self.main_pos[0], self.main_pos[1] - 1]
         if (
             self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG
@@ -972,6 +1054,7 @@ class Ltetromino(Tetromino):
         self.pos[3] = new3
 
     def pos3(self) -> None:
+        '''Set the tetromino to position 3'''
         new0 = [self.main_pos[0] - 1, self.main_pos[1]]
         if (
             self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG

@@ -6,6 +6,7 @@ from settings import Settings
 
 
 def main() -> None:
+    '''Main function of the game, creates the settings, menu and game objects and runs main functions of them in the loop'''
     settings = Settings()
     menu = Menu(settings)
     game = Game(settings)

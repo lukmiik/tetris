@@ -2,6 +2,8 @@ import pygame
 
 
 class Settings:
+    '''Settings class for the game'''
+
     SCREEN_WIDTH: int = 1000
     SCREEN_HEIGHT: int = 800
     BG_COLOR: tuple = (0, 0, 100)
@@ -47,6 +49,7 @@ class Settings:
     CHECK_KEYS_PRESSED_ROTATION_TIME: int = 150
 
     def __init__(self) -> None:
+        '''Initialize pygame and create the screen and font'''
         pygame.init()
         pygame.display.init()
         pygame.font.init()
@@ -57,6 +60,7 @@ class Settings:
         self.create_titles_properties()
 
     def create_titles_properties(self) -> None:
+        '''Create properties for the titles'''
         self.tetris_title_rendered = self.font.render(
             self.TETRIS_TITLE, True, self.FONT_COLOR
         )
@@ -89,6 +93,7 @@ class Settings:
         )
 
     def draw_tetris_title(self) -> None:
+        '''Draws the tetris title'''
         self.screen.blit(
             self.tetris_title_rendered,
             (self.tetris_title_coordinates),

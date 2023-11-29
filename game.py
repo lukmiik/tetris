@@ -20,7 +20,15 @@ if TYPE_CHECKING:
 
 
 class Game:
+    '''Class contains main game logic and methods to draw game elements'''
+
     def __init__(self, settings: 'Settings') -> None:
+        """
+        Initialize the Game properties
+
+        Args:
+            settings (Settings): The settings object that contains game configurations
+        """
         self.settings = settings
         self.screen = self.settings.screen
         self.game_window = pygame.Surface(
@@ -55,6 +63,7 @@ class Game:
         self.score = 0
 
     def draw_grid(self) -> None:
+        '''Draw grid with tetrominos on game window'''
         self.game_window.fill(self.settings.SECOND_BG_COLOR)
         for row, list in enumerate(self.grid[2:], 0):
             for col, value in enumerate(list):
@@ -84,6 +93,7 @@ class Game:
                     )
 
     def draw_next_tetromino(self) -> None:
+        '''Draw next tetromino on next tetromino window'''
         self.next_tetromino_window.fill(self.settings.SECOND_BG_COLOR)
         for row, list in enumerate(self.next_tetromino_grid):
             for col, value in enumerate(list):
@@ -113,6 +123,7 @@ class Game:
         self.draw_next_tetromino_window()
 
     def draw_score(self) -> None:
+        '''Draw score window and score on'''
         self.draw_score_window()
         score_text = self.settings.font_score_text.render(
             str(self.score), True, self.settings.FONT_COLOR
@@ -134,18 +145,21 @@ class Game:
         )
 
     def draw_score_title(self) -> None:
+        '''Draw score title on screen'''
         self.screen.blit(
             self.settings.score_title_rendered,
             (self.settings.score_title_coordinates),
         )
 
     def draw_next_tetromino_title(self) -> None:
+        '''Draw next tetromino title on screen'''
         self.screen.blit(
             self.settings.next_tetromino_title_rendered,
             (self.settings.next_tetromino_title_coordinates),
         )
 
     def draw_game_window(self) -> None:
+        '''Draw game window on screen'''
         pygame.draw.rect(
             self.game_window, self.settings.BORDER_COLOR, self.game_window_rect, 5
         )
@@ -158,6 +172,7 @@ class Game:
         )
 
     def draw_next_tetromino_window(self) -> None:
+        '''Draw next tetromino window on screen'''
         pygame.draw.rect(
             self.next_tetromino_window,
             self.settings.BORDER_COLOR,
@@ -173,6 +188,7 @@ class Game:
         )
 
     def draw_score_window(self) -> None:
+        '''Draw score window on screen'''
         pygame.draw.rect(
             self.score_window,
             self.settings.BORDER_COLOR,
@@ -188,6 +204,15 @@ class Game:
         )
 
     def check_line(self) -> bool:
+        '''
+        Check if there is a line of tetrominos and delete it
+
+        Args:
+            None
+
+        Returns:
+            (bool): True if there is a line of tetrominos, False otherwise
+        '''
         for row, line in enumerate(self.grid[2:], 2):
             if 0 not in line:
                 self.delete_line(row)
@@ -195,6 +220,7 @@ class Game:
         return False
 
     def delete_line(self, row) -> None:
+        '''Delete line from grid and move all tetrominos above it down'''
         for r in range(row, 0, -1):
             self.grid[r] = self.grid[r - 1].copy()
         self.grid[0] = [
@@ -202,12 +228,14 @@ class Game:
         ]
 
     def check_tetromino_above_top(self) -> bool:
+        '''Check if there is a tetromino above visible top of the grid'''
         for x in range(self.settings.GRID_N_OF_COL):
             if self.grid[1][x] != 0:
                 return True
         return False
 
     def check_events(self) -> None:
+        '''Check pygane events and react to them'''
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
@@ -220,6 +248,7 @@ class Game:
                 self.check_rotate()
 
     def check_pressed(self) -> None:
+        '''Check if movement keys are pressed and react to them'''
         keys_pressed = pygame.key.get_pressed()
         if keys_pressed[pygame.K_s] or keys_pressed[pygame.K_DOWN]:
             self.current_tetromino.move_down()
@@ -232,6 +261,7 @@ class Game:
             self.current_tetromino.move_left()
 
     def check_rotate(self) -> None:
+        '''Check if rotation keys are pressed and react to them'''
         keys_pressed = pygame.key.get_pressed()
         if keys_pressed[pygame.K_w] or keys_pressed[pygame.K_UP]:
             self.current_tetromino.rotate_right()
@@ -239,6 +269,12 @@ class Game:
             self.current_tetromino.rotate_left()
 
     def random_tetromino(self) -> Tetromino:
+        '''
+        Return random tetromino
+
+        Returns:
+            (Tetromino): Random tetromino
+        '''
         tetrominos = [
             Itetromino,
             Ttetromino,
@@ -252,10 +288,12 @@ class Game:
         return random_tetromino(self)
 
     def print_grid(self) -> None:
+        '''Print grid in console'''
         for row in self.grid:
             print(row)
 
     def reset_properties(self) -> None:
+        '''Reset all game properties'''
         for row in range(self.settings.GRID_N_OF_ROWS):
             for col in range(self.settings.GRID_N_OF_COL):
                 self.grid[row][col] = self.settings.EMPTY_CELL_TAG
@@ -265,6 +303,7 @@ class Game:
         self.score = 0
 
     def main(self) -> None:
+        '''Main game loop'''
         clock = pygame.time.Clock()
         self.current_tetromino = self.random_tetromino()
         self.current_tetromino.update_on_grid()

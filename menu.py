@@ -8,13 +8,21 @@ if TYPE_CHECKING:
 
 
 class Menu:
+    '''Menu class for the game'''
+
     def __init__(self, settings: 'Settings') -> None:
+        '''
+        Initializes the menu object and creates the buttons
+
+        Args:
+            settings (Settings): Settings object
+        '''
         self.settings = settings
         self.screen = self.settings.screen
         self.create_buttons()
 
     def create_buttons(self) -> None:
-        # text
+        '''Creates menu buttons and its rects'''
         self.start_text = self.settings.font.render(
             "Start game", True, self.settings.FONT_COLOR
         )
@@ -27,7 +35,6 @@ class Menu:
         self.quit_text = self.settings.font.render(
             "Quit", True, self.settings.FONT_COLOR
         )
-        # btn
         btn_height = 100
         gap = 20
         btn_start_y = 250
@@ -57,6 +64,7 @@ class Menu:
         )
 
     def draw_buttons(self) -> None:
+        '''Draws the buttons on the screen'''
         pygame.draw.rect(self.screen, self.settings.BG_COLOR, self.start_btn)
         self.screen.blit(
             self.start_text,
@@ -91,6 +99,7 @@ class Menu:
         )
 
     def controls(self) -> None:
+        '''Displays controls screen'''
         while True:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -103,6 +112,7 @@ class Menu:
             pygame.display.update()
 
     def rules(self) -> None:
+        '''Displays rules screen'''
         while True:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -115,6 +125,12 @@ class Menu:
             pygame.display.update()
 
     def check_events(self) -> bool | None:
+        '''
+        Checks for pygame events QUIT and MOUSEBUTTONDOWN and reacts to them
+
+        Returns:
+            (bool | None): True if start button is pressed, None otherwise
+        '''
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
@@ -131,6 +147,7 @@ class Menu:
                     sys.exit()
 
     def check_hover(self) -> None:
+        '''Checks if mouse is hovering over the buttons and changes the cursor accordingly'''
         if self.start_btn.collidepoint(pygame.mouse.get_pos()):
             pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_HAND)
         elif self.controls_btn.collidepoint(pygame.mouse.get_pos()):
@@ -143,6 +160,7 @@ class Menu:
             pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_ARROW)
 
     def main(self) -> None:
+        '''Main menu loop'''
         self.screen.fill(self.settings.BG_COLOR)
         self.settings.draw_tetris_title()
         while True:
