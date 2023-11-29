@@ -115,7 +115,7 @@ class TestGame(TestCase):
         tetromino = self.game.random_tetromino()
         self.assertIsInstance(tetromino, Tetromino)
 
-    def test_reset_properties(self) -> None:
+    def test_init_properties(self) -> None:
         self.game.grid = [
             [random.randint(1, 10) for col in range(Settings.GRID_N_OF_COL)]
             for row in range(Settings.GRID_N_OF_ROWS)
@@ -124,6 +124,6 @@ class TestGame(TestCase):
             [random.randint(1, 10) for col in range(Settings.NEXT_TETROMINO_N_OF_COL)]
             for row in range(Settings.NEXT_TETROMINO_N_OF_ROWS)
         ]
-        self.game.reset_properties()
+        self.game.init_properties()
         self.assertEqual(self.game.grid, self.CLEAR_GRID)
         self.assertEqual(self.game.next_tetromino_grid, self.CLEAR_NEXT_TETROMINO_GRID)

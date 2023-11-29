@@ -24,13 +24,18 @@ class Game:
 
     def __init__(self, settings: 'Settings') -> None:
         """
-        Initialize the Game properties
+        Create game windows and initialize the Game properties
 
         Args:
             settings (Settings): The settings object that contains game configurations
         """
         self.settings = settings
         self.screen = self.settings.screen
+        self.create_game_windows()
+        self.init_properties()
+
+    def create_game_windows(self) -> None:
+        '''Create game windows'''
         self.game_window = pygame.Surface(
             (self.settings.GAME_WINDOW_WIDTH, self.settings.GAME_WINDOW_HEIGHT)
         )
@@ -49,6 +54,9 @@ class Game:
             )
         )
         self.score_window_rect = self.score_window.get_rect()
+
+    def init_properties(self) -> None:
+        '''Initialize game properties'''
         self.grid = [
             [self.settings.EMPTY_CELL_TAG for col in range(self.settings.GRID_N_OF_COL)]
             for row in range(self.settings.GRID_N_OF_ROWS)
@@ -284,6 +292,7 @@ class Game:
             Jtetromino,
             Ltetromino,
         ]
+        # tetrominos = [Itetromino]
         random_tetromino = random.choice(tetrominos)
         return random_tetromino(self)
 
@@ -291,16 +300,6 @@ class Game:
         '''Print grid in console'''
         for row in self.grid:
             print(row)
-
-    def reset_properties(self) -> None:
-        '''Reset all game properties'''
-        for row in range(self.settings.GRID_N_OF_ROWS):
-            for col in range(self.settings.GRID_N_OF_COL):
-                self.grid[row][col] = self.settings.EMPTY_CELL_TAG
-        for row in range(self.settings.NEXT_TETROMINO_N_OF_ROWS):
-            for col in range(self.settings.NEXT_TETROMINO_N_OF_COL):
-                self.next_tetromino_grid[row][col] = self.settings.EMPTY_CELL_TAG
-        self.score = 0
 
     def main(self) -> None:
         '''Main game loop'''
@@ -342,7 +341,7 @@ class Game:
                     self.draw_next_tetromino_window()
                     self.draw_score_window()
                     pygame.display.update()
-                    self.reset_properties()
+                    self.init_properties()
                     break
                 self.current_tetromino = self.next_tetromino
                 self.current_tetromino.update_on_grid()

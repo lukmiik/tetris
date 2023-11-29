@@ -1,32 +1,35 @@
 import copy
 from typing import TYPE_CHECKING
 
+from settings import Settings
+
 if TYPE_CHECKING:
     from game import Game
-
-from settings import Settings
 
 
 class Tetromino:
     '''Tetromino class for the game'''
 
     LAST_COL_IDX: int = Settings.GRID_N_OF_COL - 1
+    pos: list[list]
+    TAG: str
+    NEXT_TETROMINO_GRID_POS: list[list]
 
     def __init__(
         self,
         game: 'Game',
-        pos: list[list],
-        tag: str,
-        next_tetromino_grid_pos: list[list],
     ) -> None:
         '''Initialize Tetromino object with the Game object and child class attributes'''
         self.settings = game.settings
         self.grid = game.grid
         self.next_tetromino_grid = game.next_tetromino_grid
-        self.pos = pos
-        self.tag = tag
-        self.next_tetromino_grid_pos = next_tetromino_grid_pos
+        self.spawn()
+        self.main_pos = self.pos[1]
         self.current_rotation = 0
+
+    def spawn(self) -> None:
+        '''Set the spawn position'''
+        raise NotImplementedError("Subclasses must implement pos0 method")
 
     def check_down(self) -> bool:
         '''
@@ -59,13 +62,13 @@ class Tetromino:
         '''Updates the grid with the new position of the tetromino'''
         self.main_pos = self.pos[1]
         for cell in self.pos:
-            self.grid[cell[0]][cell[1]] = self.tag
+            self.grid[cell[0]][cell[1]] = self.TAG
 
     def put_on_next_tetromino_window(self) -> None:
         '''Puts the next tetromino on the next tetromino window'''
         self.clear_next_tetromino_window()
-        for cell in self.next_tetromino_grid_pos:
-            self.next_tetromino_grid[cell[0]][cell[1]] = self.tag
+        for cell in self.NEXT_TETROMINO_GRID_POS:
+            self.next_tetromino_grid[cell[0]][cell[1]] = self.TAG
 
     def clear_next_tetromino_window(self) -> None:
         '''Clears the next tetromino window'''
@@ -162,6 +165,23 @@ class Tetromino:
         '''Rotates the tetromino to position 3'''
         raise NotImplementedError("Subclasses must implement pos3 method")
 
+    def check_cell_available_for_rotation(self, cell: list[int]) -> bool:
+        '''
+        Check if the cell is available for rotation
+
+        Args:
+            cell (list[int]): Cell to check
+
+        REturns:
+            (bool): True if the cell is available for rotation, False otherwise
+        '''
+        if (
+            self.grid[cell[0]][cell[1]] != self.settings.EMPTY_CELL_TAG
+            and cell not in self.pos
+        ):
+            return False
+        return True
+
     def move_right(self) -> None:
         '''Moves the tetromino right'''
         if self.check_move_right():
@@ -180,6 +200,8 @@ class Tetromino:
 
     def move_down(self) -> None:
         '''Moves the tetromino down'''
+        if self.check_down() or self.check_touch():
+            return
         self.clear()
         for cell in self.pos:
             cell[0] += 1
@@ -202,13 +224,12 @@ class Itetromino(Tetromino):
 
     def __init__(self, game: 'Game') -> None:
         '''
-        Calls spawn method and the parent class constructor
+        Calls the parent class constructor
 
         Args:
             game (Game): Game object
         '''
-        self.spawn()
-        super().__init__(game, self.pos, self.TAG, self.NEXT_TETROMINO_GRID_POS)
+        super().__init__(game)
 
     def spawn(self) -> None:
         '''Sets the spawn position'''
@@ -219,109 +240,23 @@ class Itetromino(Tetromino):
         self.clear()
         if (
             self.current_rotation == 0
-            and self.pos[0][0] < self.settings.GRID_N_OF_ROWS - 2
+            and 0 < self.main_pos[0] < self.settings.GRID_N_OF_ROWS - 2
         ):
-            new0 = [self.pos[0][0] - 1, self.pos[0][1] + 2]
-            if (
-                self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG
-                and new0 not in self.pos
-            ):
-                return
-            new1 = [self.pos[1][0] + 1, self.pos[1][1] + 1]
-            if (
-                self.grid[new1[0]][new1[1]] != self.settings.EMPTY_CELL_TAG
-                and new1 not in self.pos
-            ):
-                return
-            new3 = [self.pos[3][0] + 2, self.pos[3][1] - 1]
-            if (
-                self.grid[new3[0]][new3[1]] != self.settings.EMPTY_CELL_TAG
-                and new3 not in self.pos
-            ):
-                return
-            self.pos[0] = new0
-            self.pos[1] = new1
-            self.pos[3] = new3
+            self.pos1()
             self.current_rotation = 1
-        elif (
-            self.current_rotation == 1
-            and self.pos[0][1] < self.LAST_COL_IDX
-            and self.pos[0][1] > 1
-        ):
-            new0 = [self.pos[0][0] + 2, self.pos[0][1] - 2]
-            if (
-                self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG
-                and new0 not in self.pos
-            ):
-                return
-            new2 = [self.pos[2][0] + 1, self.pos[2][1] - 1]
-            if (
-                self.grid[new2[0]][new2[1]] != self.settings.EMPTY_CELL_TAG
-                and new2 not in self.pos
-            ):
-                return
-            new3 = [self.pos[3][0] - 1, self.pos[3][1] + 1]
-            if (
-                self.grid[new3[0]][new3[1]] != self.settings.EMPTY_CELL_TAG
-                and new3 not in self.pos
-            ):
-                return
-            self.pos[0] = new0
-            self.pos[2] = new2
-            self.pos[3] = new3
+        elif self.current_rotation == 1 and 1 < self.main_pos[1] < self.LAST_COL_IDX:
+            self.pos2()
             self.current_rotation = 2
         elif (
             self.current_rotation == 2
-            and self.pos[0][0] < self.settings.GRID_N_OF_ROWS - 1
+            and 1 < self.main_pos[0] < self.settings.GRID_N_OF_ROWS - 1
         ):
-            new0 = [self.pos[0][0] - 2, self.pos[0][1] + 1]
-            if (
-                self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG
-                and new0 not in self.pos
-            ):
-                return
-            new1 = [self.pos[1][0] - 1, self.pos[1][1] - 1]
-            if (
-                self.grid[new1[0]][new1[1]] != self.settings.EMPTY_CELL_TAG
-                and new1 not in self.pos
-            ):
-                return
-            new3 = [self.pos[3][0] + 1, self.pos[3][1] - 2]
-            if (
-                self.grid[new3[0]][new3[1]] != self.settings.EMPTY_CELL_TAG
-                and new3 not in self.pos
-            ):
-                return
-            self.pos[0] = new0
-            self.pos[1] = new1
-            self.pos[3] = new3
+            self.pos3()
             self.current_rotation = 3
         elif (
-            self.current_rotation == 3
-            and self.pos[0][1] < self.LAST_COL_IDX - 1
-            and self.pos[0][1] > 0
+            self.current_rotation == 3 and 0 < self.main_pos[1] < self.LAST_COL_IDX - 1
         ):
-            new0 = [self.pos[0][0] + 1, self.pos[0][1] - 1]
-            if (
-                self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG
-                and new0 not in self.pos
-            ):
-                return
-            new2 = [self.pos[2][0] - 1, self.pos[2][1] + 1]
-            if (
-                self.grid[new2[0]][new2[1]] != self.settings.EMPTY_CELL_TAG
-                and new2 not in self.pos
-            ):
-                return
-            new3 = [self.pos[3][0] - 2, self.pos[3][1] + 2]
-            if (
-                self.grid[new3[0]][new3[1]] != self.settings.EMPTY_CELL_TAG
-                and new3 not in self.pos
-            ):
-                return
-            self.pos[0] = new0
-            self.pos[2] = new2
-            self.pos[3] = new3
+            self.pos0()
             self.current_rotation = 0
 
     def rotate_left(self) -> None:
@@ -329,110 +264,80 @@ class Itetromino(Tetromino):
         self.clear()
         if (
             self.current_rotation == 0
-            and self.pos[0][0] < self.settings.GRID_N_OF_ROWS - 2
+            and 1 < self.main_pos[0] < self.settings.GRID_N_OF_ROWS - 1
         ):
-            new0 = [self.pos[0][0] - 1, self.pos[0][1] + 1]
-            if (
-                self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG
-                and new0 not in self.pos
-            ):
-                return
-            new2 = [self.pos[2][0] + 1, self.pos[2][1] - 1]
-            if (
-                self.grid[new2[0]][new2[1]] != self.settings.EMPTY_CELL_TAG
-                and new2 not in self.pos
-            ):
-                return
-            new3 = [self.pos[3][0] + 2, self.pos[3][1] - 2]
-            if (
-                self.grid[new3[0]][new3[1]] != self.settings.EMPTY_CELL_TAG
-                and new3 not in self.pos
-            ):
-                return
-            self.pos[0] = new0
-            self.pos[2] = new2
-            self.pos[3] = new3
+            self.pos3()
             self.current_rotation = 3
-        elif (
-            self.current_rotation == 1
-            and self.pos[0][1] < self.LAST_COL_IDX
-            and self.pos[0][1] > 1
-        ):
-            new0 = [self.pos[0][0] + 1, self.pos[0][1] - 2]
-            if (
-                self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG
-                and new0 not in self.pos
-            ):
-                return
-            new1 = [self.pos[1][0] - 1, self.pos[1][1] - 1]
-            if (
-                self.grid[new1[0]][new1[1]] != self.settings.EMPTY_CELL_TAG
-                and new1 not in self.pos
-            ):
-                return
-            new3 = [self.pos[3][0] - 2, self.pos[3][1] + 1]
-            if (
-                self.grid[new3[0]][new3[1]] != self.settings.EMPTY_CELL_TAG
-                and new3 not in self.pos
-            ):
-                return
-            self.pos[0] = new0
-            self.pos[1] = new1
-            self.pos[3] = new3
+        elif self.current_rotation == 1 and 1 < self.main_pos[1] < self.LAST_COL_IDX:
+            self.pos2()
             self.current_rotation = 0
         elif (
             self.current_rotation == 2
-            and self.pos[0][0] < self.settings.GRID_N_OF_ROWS - 1
+            and 0 < self.main_pos[0] < self.settings.GRID_N_OF_ROWS - 2
         ):
-            new0 = [self.pos[0][0] - 2, self.pos[0][1] + 2]
-            if (
-                self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG
-                and new0 not in self.pos
-            ):
-                return
-            new2 = [self.pos[2][0] - 1, self.pos[2][1] + 1]
-            if (
-                self.grid[new2[0]][new2[1]] != self.settings.EMPTY_CELL_TAG
-                and new2 not in self.pos
-            ):
-                return
-            new3 = [self.pos[3][0] + 1, self.pos[3][1] - 1]
-            if (
-                self.grid[new3[0]][new3[1]] != self.settings.EMPTY_CELL_TAG
-                and new3 not in self.pos
-            ):
-                return
-            self.pos[0] = new0
-            self.pos[2] = new2
-            self.pos[3] = new3
+            self.pos1()
             self.current_rotation = 1
         elif (
-            self.current_rotation == 3
-            and self.pos[0][1] < self.LAST_COL_IDX - 1
-            and self.pos[0][1] > 0
+            self.current_rotation == 3 and 0 < self.main_pos[1] < self.LAST_COL_IDX - 1
         ):
-            new0 = [self.pos[0][0] + 2, self.pos[0][1] - 1]
-            if (
-                self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG
-                and new0 not in self.pos
-            ):
-                return
-            new1 = [self.pos[1][0] + 1, self.pos[1][1] + 1]
-            if (
-                self.grid[new1[0]][new1[1]] != self.settings.EMPTY_CELL_TAG
-                and new1 not in self.pos
-            ):
-                return
-            new3 = [self.pos[3][0] - 1, self.pos[3][1] + 2]
-            if (
-                self.grid[new3[0]][new3[1]] != self.settings.EMPTY_CELL_TAG
-                and new3 not in self.pos
-            ):
-                return
-            self.pos[0] = new0
-            self.pos[1] = new1
-            self.pos[3] = new3
+            self.pos0()
             self.current_rotation = 2
+
+    def pos0(self) -> None:
+        new0 = [self.main_pos[0], self.main_pos[1] - 1]
+        if not self.check_cell_available_for_rotation(new0):
+            return
+        new2 = [self.main_pos[0], self.main_pos[1] + 1]
+        if not self.check_cell_available_for_rotation(new2):
+            return
+        new3 = [self.main_pos[0], self.main_pos[1] + 2]
+        if not self.check_cell_available_for_rotation(new3):
+            return
+        self.pos[0] = new0
+        self.pos[2] = new2
+        self.pos[3] = new3
+
+    def pos1(self) -> None:
+        new0 = [self.main_pos[0] - 1, self.main_pos[1]]
+        if not self.check_cell_available_for_rotation(new0):
+            return
+        new2 = [self.main_pos[0] + 1, self.main_pos[1]]
+        if not self.check_cell_available_for_rotation(new2):
+            return
+        new3 = [self.main_pos[0] + 2, self.main_pos[1]]
+        if not self.check_cell_available_for_rotation(new3):
+            return
+        self.pos[0] = new0
+        self.pos[2] = new2
+        self.pos[3] = new3
+
+    def pos2(self) -> None:
+        new0 = [self.main_pos[0], self.main_pos[1] + 1]
+        if not self.check_cell_available_for_rotation(new0):
+            return
+        new2 = [self.main_pos[0], self.main_pos[1] - 1]
+        if not self.check_cell_available_for_rotation(new2):
+            return
+        new3 = [self.main_pos[0], self.main_pos[1] - 2]
+        if not self.check_cell_available_for_rotation(new3):
+            return
+        self.pos[0] = new0
+        self.pos[2] = new2
+        self.pos[3] = new3
+
+    def pos3(self) -> None:
+        new0 = [self.main_pos[0] + 1, self.main_pos[1]]
+        if not self.check_cell_available_for_rotation(new0):
+            return
+        new2 = [self.main_pos[0] - 1, self.main_pos[1]]
+        if not self.check_cell_available_for_rotation(new2):
+            return
+        new3 = [self.main_pos[0] - 2, self.main_pos[1]]
+        if not self.check_cell_available_for_rotation(new3):
+            return
+        self.pos[0] = new0
+        self.pos[2] = new2
+        self.pos[3] = new3
 
 
 class Otetromino(Tetromino):
@@ -451,9 +356,13 @@ class Otetromino(Tetromino):
     ]
 
     def __init__(self, game: 'Game') -> None:
-        '''Calls spawn method and the parent class constructor'''
-        self.spawn()
-        super().__init__(game, self.pos, self.TAG, self.NEXT_TETROMINO_GRID_POS)
+        '''
+        Calls the parent class constructor
+
+        Args:
+            game (Game): Game object
+        '''
+        super().__init__(game)
 
     def spawn(self) -> None:
         '''Sets the spawn position'''
@@ -484,10 +393,13 @@ class Ttetromino(Tetromino):
     ]
 
     def __init__(self, game: 'Game') -> None:
-        '''Calls spawn method, parent class constructor and sets main posistion of the tetromino'''
-        self.spawn()
-        self.main_pos = self.pos[1]
-        super().__init__(game, self.pos, self.TAG, self.NEXT_TETROMINO_GRID_POS)
+        '''
+        Calls the parent class constructor
+
+        Args:
+            game (Game): Game object
+        '''
+        super().__init__(game)
 
     def spawn(self) -> None:
         '''Sets the spawn position'''
@@ -496,22 +408,13 @@ class Ttetromino(Tetromino):
     def pos0(self) -> None:
         '''Set the tetromino to position 0'''
         new0 = [self.main_pos[0] - 1, self.main_pos[1]]
-        if (
-            self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG
-            and new0 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new0):
             return
         new2 = [self.main_pos[0], self.main_pos[1] + 1]
-        if (
-            self.grid[new2[0]][new2[1]] != self.settings.EMPTY_CELL_TAG
-            and new2 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new2):
             return
         new3 = [self.main_pos[0], self.main_pos[1] - 1]
-        if (
-            self.grid[new3[0]][new3[1]] != self.settings.EMPTY_CELL_TAG
-            and new3 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new3):
             return
         self.pos[0] = new0
         self.pos[2] = new2
@@ -520,22 +423,13 @@ class Ttetromino(Tetromino):
     def pos1(self) -> None:
         '''Set the tetromino to position 1'''
         new0 = [self.main_pos[0] - 1, self.main_pos[1]]
-        if (
-            self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG
-            and new0 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new0):
             return
         new2 = [self.main_pos[0] + 1, self.main_pos[1]]
-        if (
-            self.grid[new2[0]][new2[1]] != self.settings.EMPTY_CELL_TAG
-            and new2 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new2):
             return
         new3 = [self.main_pos[0], self.main_pos[1] + 1]
-        if (
-            self.grid[new3[0]][new3[1]] != self.settings.EMPTY_CELL_TAG
-            and new3 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new3):
             return
         self.pos[0] = new0
         self.pos[2] = new2
@@ -544,22 +438,13 @@ class Ttetromino(Tetromino):
     def pos2(self) -> None:
         '''Set the tetromino to position 2'''
         new0 = [self.main_pos[0], self.main_pos[1] - 1]
-        if (
-            self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG
-            and new0 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new0):
             return
         new2 = [self.main_pos[0] + 1, self.main_pos[1]]
-        if (
-            self.grid[new2[0]][new2[1]] != self.settings.EMPTY_CELL_TAG
-            and new2 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new2):
             return
         new3 = [self.main_pos[0], self.main_pos[1] + 1]
-        if (
-            self.grid[new3[0]][new3[1]] != self.settings.EMPTY_CELL_TAG
-            and new3 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new3):
             return
         self.pos[0] = new0
         self.pos[2] = new2
@@ -568,22 +453,13 @@ class Ttetromino(Tetromino):
     def pos3(self) -> None:
         '''Set the tetromino to position 3'''
         new0 = [self.main_pos[0] - 1, self.main_pos[1]]
-        if (
-            self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG
-            and new0 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new0):
             return
         new2 = [self.main_pos[0] + 1, self.main_pos[1]]
-        if (
-            self.grid[new2[0]][new2[1]] != self.settings.EMPTY_CELL_TAG
-            and new2 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new2):
             return
         new3 = [self.main_pos[0], self.main_pos[1] - 1]
-        if (
-            self.grid[new3[0]][new3[1]] != self.settings.EMPTY_CELL_TAG
-            and new3 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new3):
             return
         self.pos[0] = new0
         self.pos[2] = new2
@@ -606,10 +482,13 @@ class Stetromino(Tetromino):
     ]
 
     def __init__(self, game: 'Game') -> None:
-        '''Calls spawn method, parent class constructor and sets main posistion of the tetromino'''
-        self.spawn()
-        self.main_pos = self.pos[1]
-        super().__init__(game, self.pos, self.TAG, self.NEXT_TETROMINO_GRID_POS)
+        '''
+        Calls the parent class constructor
+
+        Args:
+            game (Game): Game object
+        '''
+        super().__init__(game)
 
     def spawn(self) -> None:
         '''Sets the spawn position'''
@@ -618,22 +497,13 @@ class Stetromino(Tetromino):
     def pos0(self) -> None:
         '''Set the tetromino to position 0'''
         new0 = [self.main_pos[0], self.main_pos[1] - 1]
-        if (
-            self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG
-            and new0 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new0):
             return
         new2 = [self.main_pos[0] - 1, self.main_pos[1]]
-        if (
-            self.grid[new2[0]][new2[1]] != self.settings.EMPTY_CELL_TAG
-            and new2 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new2):
             return
         new3 = [self.main_pos[0] - 1, self.main_pos[1] + 1]
-        if (
-            self.grid[new3[0]][new3[1]] != self.settings.EMPTY_CELL_TAG
-            and new3 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new3):
             return
         self.pos[0] = new0
         self.pos[2] = new2
@@ -642,22 +512,13 @@ class Stetromino(Tetromino):
     def pos1(self) -> None:
         '''Set the tetromino to position 1'''
         new0 = [self.main_pos[0] - 1, self.main_pos[1]]
-        if (
-            self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG
-            and new0 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new0):
             return
         new2 = [self.main_pos[0], self.main_pos[1] + 1]
-        if (
-            self.grid[new2[0]][new2[1]] != self.settings.EMPTY_CELL_TAG
-            and new2 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new2):
             return
         new3 = [self.main_pos[0] + 1, self.main_pos[1] + 1]
-        if (
-            self.grid[new3[0]][new3[1]] != self.settings.EMPTY_CELL_TAG
-            and new3 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new3):
             return
         self.pos[0] = new0
         self.pos[2] = new2
@@ -666,22 +527,13 @@ class Stetromino(Tetromino):
     def pos2(self) -> None:
         '''Set the tetromino to position 2'''
         new0 = [self.main_pos[0] + 1, self.main_pos[1] - 1]
-        if (
-            self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG
-            and new0 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new0):
             return
         new2 = [self.main_pos[0] + 1, self.main_pos[1]]
-        if (
-            self.grid[new2[0]][new2[1]] != self.settings.EMPTY_CELL_TAG
-            and new2 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new2):
             return
         new3 = [self.main_pos[0], self.main_pos[1] + 1]
-        if (
-            self.grid[new3[0]][new3[1]] != self.settings.EMPTY_CELL_TAG
-            and new3 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new3):
             return
         self.pos[0] = new0
         self.pos[2] = new2
@@ -690,22 +542,13 @@ class Stetromino(Tetromino):
     def pos3(self) -> None:
         '''Set the tetromino to position 3'''
         new0 = [self.main_pos[0], self.main_pos[1] - 1]
-        if (
-            self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG
-            and new0 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new0):
             return
         new2 = [self.main_pos[0] - 1, self.main_pos[1] - 1]
-        if (
-            self.grid[new2[0]][new2[1]] != self.settings.EMPTY_CELL_TAG
-            and new2 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new2):
             return
         new3 = [self.main_pos[0] + 1, self.main_pos[1]]
-        if (
-            self.grid[new3[0]][new3[1]] != self.settings.EMPTY_CELL_TAG
-            and new3 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new3):
             return
         self.pos[0] = new0
         self.pos[2] = new2
@@ -728,10 +571,13 @@ class Ztetromino(Tetromino):
     ]
 
     def __init__(self, game: 'Game') -> None:
-        '''Calls spawn method, parent class constructor and sets main posistion of the tetromino'''
-        self.spawn()
-        self.main_pos = self.pos[1]
-        super().__init__(game, self.pos, self.TAG, self.NEXT_TETROMINO_GRID_POS)
+        '''
+        Calls the parent class constructor
+
+        Args:
+            game (Game): Game object
+        '''
+        super().__init__(game)
 
     def spawn(self) -> None:
         '''Sets the spawn position'''
@@ -740,22 +586,13 @@ class Ztetromino(Tetromino):
     def pos0(self) -> None:
         '''Set the tetromino to position 0'''
         new0 = [self.main_pos[0] - 1, self.main_pos[1] - 1]
-        if (
-            self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG
-            and new0 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new0):
             return
         new2 = [self.main_pos[0] - 1, self.main_pos[1]]
-        if (
-            self.grid[new2[0]][new2[1]] != self.settings.EMPTY_CELL_TAG
-            and new2 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new2):
             return
         new3 = [self.main_pos[0], self.main_pos[1] + 1]
-        if (
-            self.grid[new3[0]][new3[1]] != self.settings.EMPTY_CELL_TAG
-            and new3 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new3):
             return
         self.pos[0] = new0
         self.pos[2] = new2
@@ -764,22 +601,13 @@ class Ztetromino(Tetromino):
     def pos1(self) -> None:
         '''Set the tetromino to position 1'''
         new0 = [self.main_pos[0] + 1, self.main_pos[1]]
-        if (
-            self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG
-            and new0 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new0):
             return
         new2 = [self.main_pos[0], self.main_pos[1] + 1]
-        if (
-            self.grid[new2[0]][new2[1]] != self.settings.EMPTY_CELL_TAG
-            and new2 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new2):
             return
         new3 = [self.main_pos[0] - 1, self.main_pos[1] + 1]
-        if (
-            self.grid[new3[0]][new3[1]] != self.settings.EMPTY_CELL_TAG
-            and new3 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new3):
             return
         self.pos[0] = new0
         self.pos[2] = new2
@@ -788,22 +616,13 @@ class Ztetromino(Tetromino):
     def pos2(self) -> None:
         '''Set the tetromino to position 2'''
         new0 = [self.main_pos[0], self.main_pos[1] - 1]
-        if (
-            self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG
-            and new0 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new0):
             return
         new2 = [self.main_pos[0] + 1, self.main_pos[1]]
-        if (
-            self.grid[new2[0]][new2[1]] != self.settings.EMPTY_CELL_TAG
-            and new2 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new2):
             return
         new3 = [self.main_pos[0] + 1, self.main_pos[1] + 1]
-        if (
-            self.grid[new3[0]][new3[1]] != self.settings.EMPTY_CELL_TAG
-            and new3 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new3):
             return
         self.pos[0] = new0
         self.pos[2] = new2
@@ -812,22 +631,13 @@ class Ztetromino(Tetromino):
     def pos3(self) -> None:
         '''Set the tetromino to position 3'''
         new0 = [self.main_pos[0], self.main_pos[1] - 1]
-        if (
-            self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG
-            and new0 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new0):
             return
         new2 = [self.main_pos[0] - 1, self.main_pos[1]]
-        if (
-            self.grid[new2[0]][new2[1]] != self.settings.EMPTY_CELL_TAG
-            and new2 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new2):
             return
         new3 = [self.main_pos[0] + 1, self.main_pos[1] - 1]
-        if (
-            self.grid[new3[0]][new3[1]] != self.settings.EMPTY_CELL_TAG
-            and new3 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new3):
             return
         self.pos[0] = new0
         self.pos[2] = new2
@@ -850,10 +660,13 @@ class Jtetromino(Tetromino):
     ]
 
     def __init__(self, game: 'Game') -> None:
-        '''Calls spawn method, parent class constructor and sets main posistion of the tetromino'''
-        self.spawn()
-        self.main_pos = self.pos[1]
-        super().__init__(game, self.pos, self.TAG, self.NEXT_TETROMINO_GRID_POS)
+        '''
+        Calls the parent class constructor
+
+        Args:
+            game (Game): Game object
+        '''
+        super().__init__(game)
 
     def spawn(self) -> None:
         '''Sets the spawn position'''
@@ -862,22 +675,13 @@ class Jtetromino(Tetromino):
     def pos0(self) -> None:
         '''Set the tetromino to position 0'''
         new0 = [self.main_pos[0] - 1, self.main_pos[1] - 1]
-        if (
-            self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG
-            and new0 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new0):
             return
         new2 = [self.main_pos[0], self.main_pos[1] - 1]
-        if (
-            self.grid[new2[0]][new2[1]] != self.settings.EMPTY_CELL_TAG
-            and new2 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new2):
             return
         new3 = [self.main_pos[0], self.main_pos[1] + 1]
-        if (
-            self.grid[new3[0]][new3[1]] != self.settings.EMPTY_CELL_TAG
-            and new3 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new3):
             return
         self.pos[0] = new0
         self.pos[2] = new2
@@ -886,22 +690,13 @@ class Jtetromino(Tetromino):
     def pos1(self) -> None:
         '''Set the tetromino to position 1'''
         new0 = [self.main_pos[0] - 1, self.main_pos[1]]
-        if (
-            self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG
-            and new0 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new0):
             return
         new2 = [self.main_pos[0] + 1, self.main_pos[1]]
-        if (
-            self.grid[new2[0]][new2[1]] != self.settings.EMPTY_CELL_TAG
-            and new2 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new2):
             return
         new3 = [self.main_pos[0] - 1, self.main_pos[1] + 1]
-        if (
-            self.grid[new3[0]][new3[1]] != self.settings.EMPTY_CELL_TAG
-            and new3 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new3):
             return
         self.pos[0] = new0
         self.pos[2] = new2
@@ -910,22 +705,13 @@ class Jtetromino(Tetromino):
     def pos2(self) -> None:
         '''Set the tetromino to position 2'''
         new0 = [self.main_pos[0], self.main_pos[1] - 1]
-        if (
-            self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG
-            and new0 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new0):
             return
         new2 = [self.main_pos[0], self.main_pos[1] + 1]
-        if (
-            self.grid[new2[0]][new2[1]] != self.settings.EMPTY_CELL_TAG
-            and new2 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new2):
             return
         new3 = [self.main_pos[0] + 1, self.main_pos[1] + 1]
-        if (
-            self.grid[new3[0]][new3[1]] != self.settings.EMPTY_CELL_TAG
-            and new3 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new3):
             return
         self.pos[0] = new0
         self.pos[2] = new2
@@ -934,22 +720,13 @@ class Jtetromino(Tetromino):
     def pos3(self) -> None:
         '''Set the tetromino to position 3'''
         new0 = [self.main_pos[0] - 1, self.main_pos[1]]
-        if (
-            self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG
-            and new0 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new0):
             return
         new2 = [self.main_pos[0] + 1, self.main_pos[1]]
-        if (
-            self.grid[new2[0]][new2[1]] != self.settings.EMPTY_CELL_TAG
-            and new2 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new2):
             return
         new3 = [self.main_pos[0] + 1, self.main_pos[1] - 1]
-        if (
-            self.grid[new3[0]][new3[1]] != self.settings.EMPTY_CELL_TAG
-            and new3 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new3):
             return
         self.pos[0] = new0
         self.pos[2] = new2
@@ -972,10 +749,13 @@ class Ltetromino(Tetromino):
     ]
 
     def __init__(self, game: 'Game') -> None:
-        '''Calls spawn method, parent class constructor and sets main posistion of the tetromino'''
-        self.spawn()
-        self.main_pos = self.pos[1]
-        super().__init__(game, self.pos, self.TAG, self.NEXT_TETROMINO_GRID_POS)
+        '''
+        Calls the parent class constructor
+
+        Args:
+            game (Game): Game object
+        '''
+        super().__init__(game)
 
     def spawn(self) -> None:
         '''Sets the spawn position'''
@@ -984,22 +764,13 @@ class Ltetromino(Tetromino):
     def pos0(self) -> None:
         '''Set the tetromino to position 0'''
         new0 = [self.main_pos[0], self.main_pos[1] - 1]
-        if (
-            self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG
-            and new0 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new0):
             return
         new2 = [self.main_pos[0], self.main_pos[1] + 1]
-        if (
-            self.grid[new2[0]][new2[1]] != self.settings.EMPTY_CELL_TAG
-            and new2 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new2):
             return
         new3 = [self.main_pos[0] - 1, self.main_pos[1] + 1]
-        if (
-            self.grid[new3[0]][new3[1]] != self.settings.EMPTY_CELL_TAG
-            and new3 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new3):
             return
         self.pos[0] = new0
         self.pos[2] = new2
@@ -1008,22 +779,13 @@ class Ltetromino(Tetromino):
     def pos1(self) -> None:
         '''Set the tetromino to position 1'''
         new0 = [self.main_pos[0] - 1, self.main_pos[1]]
-        if (
-            self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG
-            and new0 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new0):
             return
         new2 = [self.main_pos[0] + 1, self.main_pos[1]]
-        if (
-            self.grid[new2[0]][new2[1]] != self.settings.EMPTY_CELL_TAG
-            and new2 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new2):
             return
         new3 = [self.main_pos[0] + 1, self.main_pos[1] + 1]
-        if (
-            self.grid[new3[0]][new3[1]] != self.settings.EMPTY_CELL_TAG
-            and new3 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new3):
             return
         self.pos[0] = new0
         self.pos[2] = new2
@@ -1032,22 +794,13 @@ class Ltetromino(Tetromino):
     def pos2(self) -> None:
         '''Set the tetromino to position 2'''
         new0 = [self.main_pos[0], self.main_pos[1] - 1]
-        if (
-            self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG
-            and new0 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new0):
             return
         new2 = [self.main_pos[0], self.main_pos[1] + 1]
-        if (
-            self.grid[new2[0]][new2[1]] != self.settings.EMPTY_CELL_TAG
-            and new2 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new2):
             return
         new3 = [self.main_pos[0] + 1, self.main_pos[1] - 1]
-        if (
-            self.grid[new3[0]][new3[1]] != self.settings.EMPTY_CELL_TAG
-            and new3 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new3):
             return
         self.pos[0] = new0
         self.pos[2] = new2
@@ -1056,22 +809,13 @@ class Ltetromino(Tetromino):
     def pos3(self) -> None:
         '''Set the tetromino to position 3'''
         new0 = [self.main_pos[0] - 1, self.main_pos[1]]
-        if (
-            self.grid[new0[0]][new0[1]] != self.settings.EMPTY_CELL_TAG
-            and new0 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new0):
             return
         new2 = [self.main_pos[0] - 1, self.main_pos[1] - 1]
-        if (
-            self.grid[new2[0]][new2[1]] != self.settings.EMPTY_CELL_TAG
-            and new2 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new2):
             return
         new3 = [self.main_pos[0] + 1, self.main_pos[1]]
-        if (
-            self.grid[new3[0]][new3[1]] != self.settings.EMPTY_CELL_TAG
-            and new3 not in self.pos
-        ):
+        if not self.check_cell_available_for_rotation(new3):
             return
         self.pos[0] = new0
         self.pos[2] = new2
