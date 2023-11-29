@@ -18,6 +18,6 @@
             "source.organizeImports": true
         },
 		"editor.wordWrapColumn": 88,
-		// "isort.args": ["--profile", "black"],
+		"isort.args": ["--profile", "black"],
 	}
 }
