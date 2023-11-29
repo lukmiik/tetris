@@ -1,8 +1,8 @@
 import time
 
-from settings import Settings
-from menu import Menu
 from game import Game
+from menu import Menu
+from settings import Settings
 
 
 def main() -> None:
@@ -12,7 +12,7 @@ def main() -> None:
     while True:
         menu.main()
         game.main()
-        time.sleep(5)
+        time.sleep(3)
 
 
 if __name__ == "__main__":

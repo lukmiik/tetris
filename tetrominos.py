@@ -1,6 +1,9 @@
 import copy
+from typing import TYPE_CHECKING
 
-from game import Game
+if TYPE_CHECKING:
+    from game import Game
+
 from settings import Settings
 
 
@@ -8,7 +11,11 @@ class Tetromino:
     LAST_COL_IDX: int = Settings.GRID_N_OF_COL - 1
 
     def __init__(
-        self, game: Game, pos: list[list], tag: str, next_tetromino_grid_pos: list[list]
+        self,
+        game: 'Game',
+        pos: list[list],
+        tag: str,
+        next_tetromino_grid_pos: list[list],
     ) -> None:
         self.settings = game.settings
         self.grid = game.grid
@@ -34,7 +41,7 @@ class Tetromino:
         return False
 
     def update_on_grid(self) -> None:
-        self.main_pos = self.pos[1]  # ?
+        self.main_pos = self.pos[1]
         for cell in self.pos:
             self.grid[cell[0]][cell[1]] = self.tag
 
@@ -153,7 +160,7 @@ class Itetromino(Tetromino):
         [1, Tetromino.LAST_COL_IDX // 2 + 2],
     ]
 
-    def __init__(self, game: Game) -> None:
+    def __init__(self, game: 'Game') -> None:
         self.spawn()
         super().__init__(game, self.pos, self.TAG, self.NEXT_TETROMINO_GRID_POS)
 
@@ -394,7 +401,7 @@ class Otetromino(Tetromino):
         [0, Tetromino.LAST_COL_IDX // 2 + 1],
     ]
 
-    def __init__(self, game: Game) -> None:
+    def __init__(self, game: 'Game') -> None:
         self.spawn()
         super().__init__(game, self.pos, self.TAG, self.NEXT_TETROMINO_GRID_POS)
 
@@ -423,7 +430,7 @@ class Ttetromino(Tetromino):
         [0, Tetromino.LAST_COL_IDX // 2 - 1],
     ]
 
-    def __init__(self, game: Game) -> None:
+    def __init__(self, game: 'Game') -> None:
         self.spawn()
         self.main_pos = self.pos[1]
         super().__init__(game, self.pos, self.TAG, self.NEXT_TETROMINO_GRID_POS)
@@ -539,7 +546,7 @@ class Stetromino(Tetromino):
         [0, Tetromino.LAST_COL_IDX // 2 + 1],
     ]
 
-    def __init__(self, game: Game) -> None:
+    def __init__(self, game: 'Game') -> None:
         self.spawn()
         self.main_pos = self.pos[1]
         super().__init__(game, self.pos, self.TAG, self.NEXT_TETROMINO_GRID_POS)
@@ -655,7 +662,7 @@ class Ztetromino(Tetromino):
         [1, Tetromino.LAST_COL_IDX // 2 + 1],
     ]
 
-    def __init__(self, game: Game) -> None:
+    def __init__(self, game: 'Game') -> None:
         self.spawn()
         self.main_pos = self.pos[1]
         super().__init__(game, self.pos, self.TAG, self.NEXT_TETROMINO_GRID_POS)
@@ -771,7 +778,7 @@ class Jtetromino(Tetromino):
         [1, Tetromino.LAST_COL_IDX // 2 + 1],
     ]
 
-    def __init__(self, game: Game) -> None:
+    def __init__(self, game: 'Game') -> None:
         self.spawn()
         self.main_pos = self.pos[1]
         super().__init__(game, self.pos, self.TAG, self.NEXT_TETROMINO_GRID_POS)
@@ -887,7 +894,7 @@ class Ltetromino(Tetromino):
         [0, Tetromino.LAST_COL_IDX // 2 + 1],
     ]
 
-    def __init__(self, game: Game) -> None:
+    def __init__(self, game: 'Game') -> None:
         self.spawn()
         self.main_pos = self.pos[1]
         super().__init__(game, self.pos, self.TAG, self.NEXT_TETROMINO_GRID_POS)

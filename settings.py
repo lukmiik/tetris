@@ -47,7 +47,6 @@ class Settings:
     CHECK_KEYS_PRESSED_ROTATION_TIME: int = 150
 
     def __init__(self) -> None:
-        # necessary inits
         pygame.init()
         pygame.display.init()
         pygame.font.init()

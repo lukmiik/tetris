@@ -1,11 +1,14 @@
-import pygame
 import sys
+from typing import TYPE_CHECKING
 
-from settings import Settings
+import pygame
+
+if TYPE_CHECKING:
+    from settings import Settings
 
 
 class Menu:
-    def __init__(self, settings: Settings) -> None:
+    def __init__(self, settings: 'Settings') -> None:
         self.settings = settings
         self.screen = self.settings.screen
         self.create_buttons()

@@ -1,23 +1,26 @@
-import pygame
-import sys
-import time
 import random
+import sys
+from typing import TYPE_CHECKING
+
+import pygame
 
 from tetrominos import (
-    Tetromino,
     Itetromino,
-    Ttetromino,
-    Otetromino,
-    Stetromino,
-    Ztetromino,
     Jtetromino,
     Ltetromino,
+    Otetromino,
+    Stetromino,
+    Tetromino,
+    Ttetromino,
+    Ztetromino,
 )
-from settings import Settings
+
+if TYPE_CHECKING:
+    from settings import Settings
 
 
 class Game:
-    def __init__(self, settings: Settings) -> None:
+    def __init__(self, settings: 'Settings') -> None:
         self.settings = settings
         self.screen = self.settings.screen
         self.game_window = pygame.Surface(
@@ -184,14 +187,19 @@ class Game:
             ),
         )
 
-    def check_line(self) -> None:
+    def check_line(self) -> bool:
         for row, line in enumerate(self.grid[2:], 2):
             if 0 not in line:
                 self.delete_line(row)
+                return True
+        return False
 
     def delete_line(self, row) -> None:
-        for r in range(row, 1, -1):
+        for r in range(row, 0, -1):
             self.grid[r] = self.grid[r - 1].copy()
+        self.grid[0] = [
+            self.settings.EMPTY_CELL_TAG for col in range(self.settings.GRID_N_OF_COL)
+        ]
 
     def check_tetromino_above_top(self) -> bool:
         for x in range(self.settings.GRID_N_OF_COL):
@@ -285,6 +293,7 @@ class Game:
             ):
                 self.current_tetromino.update_on_grid()
                 if self.check_line():
+                    self.score += 100
                     self.draw_score()
                 # game lost
                 if self.check_tetromino_above_top():
