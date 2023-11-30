@@ -2,7 +2,7 @@ from unittest import TestCase
 
 from game import Game
 from settings import Settings
-from tetrominos import Tetromino
+from tetrominos import Itetromino, Tetromino
 
 
 class TestTetromino(TestCase):
@@ -22,22 +22,7 @@ class TestTetromino(TestCase):
     def setUpClass(cls) -> None:
         cls.settings = Settings()
         cls.game = Game(cls.settings)
-        cls.pos = [
-            [1, Tetromino.LAST_COL_IDX // 2 - 1],
-            [1, Tetromino.LAST_COL_IDX // 2],
-            [1, Tetromino.LAST_COL_IDX // 2 + 1],
-            [1, Tetromino.LAST_COL_IDX // 2 + 2],
-        ]
-        cls.tag = "tag"
-        cls.next_tetromino_grid_pos = [
-            [1, 0],
-            [1, 1],
-            [1, 2],
-            [1, 3],
-        ]
-        cls.tetromino = Tetromino(
-            cls.game, cls.pos, cls.tag, cls.next_tetromino_grid_pos
-        )
+        cls.tetromino = Itetromino(cls.game)
 
     def test_check_down(self) -> None:
         self.assertFalse(self.tetromino.check_down())

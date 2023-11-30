@@ -45,8 +45,10 @@ class Settings:
         SCORE_NEXT_WINDOW_HEIGHT // NEXT_TETROMINO_N_OF_ROWS
     )
     MOVE_DOWN_TIME: int = 1000
-    CHECK_KEYS_PRESSED_MOVEMENT_TIME: int = 50
+    CHECK_KEYS_PRESSED_MOVEMENT_DOWN_TIME: int = 50
+    CHECK_KEYS_PRESSED_MOVEMENT_SIDE_TIME: int = 80
     CHECK_KEYS_PRESSED_ROTATION_TIME: int = 150
+    HARD_DROP_LOOP_SLEEP_TIME: float = 0.01
 
     def __init__(self) -> None:
         '''Initialize pygame and create the screen and font'''

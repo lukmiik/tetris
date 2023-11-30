@@ -22,6 +22,8 @@ if TYPE_CHECKING:
 class Game:
     '''Class contains main game logic and methods to draw game elements'''
 
+    space_down: bool = False
+
     def __init__(self, settings: 'Settings') -> None:
         """
         Create game windows and initialize the Game properties
@@ -251,24 +253,35 @@ class Game:
             if event.type == pygame.USEREVENT and not self.down:
                 self.current_tetromino.move_down()
             if event.type == pygame.USEREVENT + 1:
-                self.check_pressed()
+                self.check_pressed_down_movement()
             if event.type == pygame.USEREVENT + 2:
-                self.check_rotate()
+                self.check_pressed_side_movement()
+            if event.type == pygame.USEREVENT + 3:
+                self.check_pressed_rotate()
 
-    def check_pressed(self) -> None:
-        '''Check if movement keys are pressed and react to them'''
+    def check_pressed_down_movement(self) -> None:
+        '''Check if down movement keys are pressed and react to them'''
         keys_pressed = pygame.key.get_pressed()
         if keys_pressed[pygame.K_s] or keys_pressed[pygame.K_DOWN]:
             self.current_tetromino.move_down()
             self.down = True
         else:
             self.down = False
+        if keys_pressed[pygame.K_SPACE] and not self.space_down:
+            self.current_tetromino.hard_drop()
+            self.space_down = True
+        if not keys_pressed[pygame.K_SPACE]:
+            self.space_down = False
+
+    def check_pressed_side_movement(self) -> None:
+        '''Check if side movement keys are pressed and react to them'''
+        keys_pressed = pygame.key.get_pressed()
         if keys_pressed[pygame.K_d] or keys_pressed[pygame.K_RIGHT]:
             self.current_tetromino.move_right()
         if keys_pressed[pygame.K_a] or keys_pressed[pygame.K_LEFT]:
             self.current_tetromino.move_left()
 
-    def check_rotate(self) -> None:
+    def check_pressed_rotate(self) -> None:
         '''Check if rotation keys are pressed and react to them'''
         keys_pressed = pygame.key.get_pressed()
         if keys_pressed[pygame.K_w] or keys_pressed[pygame.K_UP]:
@@ -314,10 +327,13 @@ class Game:
         self.draw_next_tetromino_title()
         pygame.time.set_timer(pygame.USEREVENT, self.settings.MOVE_DOWN_TIME)
         pygame.time.set_timer(
-            pygame.USEREVENT + 1, self.settings.CHECK_KEYS_PRESSED_MOVEMENT_TIME
+            pygame.USEREVENT + 1, self.settings.CHECK_KEYS_PRESSED_MOVEMENT_DOWN_TIME
         )
         pygame.time.set_timer(
-            pygame.USEREVENT + 2, self.settings.CHECK_KEYS_PRESSED_ROTATION_TIME
+            pygame.USEREVENT + 2, self.settings.CHECK_KEYS_PRESSED_MOVEMENT_SIDE_TIME
+        )
+        pygame.time.set_timer(
+            pygame.USEREVENT + 3, self.settings.CHECK_KEYS_PRESSED_ROTATION_TIME
         )
         self.down = False
         while True:
