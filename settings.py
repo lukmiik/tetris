@@ -14,6 +14,7 @@ class Settings:
     FONT_COLOR: tuple = (255, 255, 255)
     TETRIS_TITLE: str = "TETRIS"
     SCORE_TITLE: str = "SCORE"
+    LVL_TITLE: str = "LEVEL"
     NEXT_TETROMINO_TITLE: str = "NEXT"
     FPS: int = 60
     GAME_WINDOW_WIDTH: int = 400
@@ -32,23 +33,24 @@ class Settings:
     Z: tuple = (255, 0, 0)  # czerwony
     J: tuple = (0, 0, 255)  # niebieski
     L: tuple = (255, 165, 0)  # pomarańczowy
-    SCORE_NEXT_WINDOW_WIDTH: int = 220
-    SCORE_NEXT_WINDOW_HEIGHT: int = 150
+    INFO_WINDOW_WIDTH: int = 220
+    INFO_WINDOW_HEIGHT: int = 150
     SCORE_WINDOW_X: int = 40
     SCORE_WINDOW_Y: int = 200
+    LVL_WINDOW_X: int = 40
+    LVL_WINDOW_Y: int = 450
     NEXT_WINDOW_X: int = 740
     NEXT_WINDOW_Y: int = 200
     NEXT_TETROMINO_N_OF_COL: int = 4
     NEXT_TETROMINO_N_OF_ROWS: int = 4
-    NEXT_TETROMINO_CELL_WIDTH: int = SCORE_NEXT_WINDOW_WIDTH // NEXT_TETROMINO_N_OF_COL
-    NEXT_TETROMINO_CELL_HEIGHT: int = (
-        SCORE_NEXT_WINDOW_HEIGHT // NEXT_TETROMINO_N_OF_ROWS
-    )
+    NEXT_TETROMINO_CELL_WIDTH: int = INFO_WINDOW_WIDTH // NEXT_TETROMINO_N_OF_COL
+    NEXT_TETROMINO_CELL_HEIGHT: int = INFO_WINDOW_HEIGHT // NEXT_TETROMINO_N_OF_ROWS
     MOVE_DOWN_TIME: int = 1000
+    HARD_DROP_LOOP_SLEEP_TIME: float = 0.01
     CHECK_KEYS_PRESSED_MOVEMENT_DOWN_TIME: int = 50
     CHECK_KEYS_PRESSED_MOVEMENT_SIDE_TIME: int = 80
     CHECK_KEYS_PRESSED_ROTATION_TIME: int = 150
-    HARD_DROP_LOOP_SLEEP_TIME: float = 0.01
+    N_OF_LINES_TO_LVL_UP: int = 2
 
     def __init__(self) -> None:
         '''Initialize pygame and create the screen and font'''
@@ -57,8 +59,8 @@ class Settings:
         pygame.font.init()
         self.screen = pygame.display.set_mode((self.SCREEN_WIDTH, self.SCREEN_HEIGHT))
         self.font = pygame.font.SysFont(self.FONT_NAME, self.FONT_SIZE)
-        self.font_score_text = pygame.font.SysFont(self.FONT_NAME, 30)
-        self.font_score_next_titles = pygame.font.SysFont(self.FONT_NAME, 30)
+        self.font_score_lvl_text = pygame.font.SysFont(self.FONT_NAME, 30)
+        self.font_info_titles = pygame.font.SysFont(self.FONT_NAME, 30)
         self.create_titles_properties()
 
     def create_titles_properties(self) -> None:
@@ -71,17 +73,27 @@ class Settings:
             self.SCREEN_WIDTH / 2 - self.tetris_title_rendered_width / 2,
             50,
         )
-        self.score_title_rendered = self.font_score_next_titles.render(
+        self.score_title_rendered = self.font_info_titles.render(
             self.SCORE_TITLE, True, self.FONT_COLOR
         )
         self.score_title_rendered_width = self.score_title_rendered.get_width()
         self.score_title_coordinates = (
             self.SCORE_WINDOW_X
-            + self.SCORE_NEXT_WINDOW_WIDTH / 2
+            + self.INFO_WINDOW_WIDTH / 2
             - self.score_title_rendered_width / 2,
             150,
         )
-        self.next_tetromino_title_rendered = self.font_score_next_titles.render(
+        self.lvl_title_rendered = self.font_info_titles.render(
+            self.LVL_TITLE, True, self.FONT_COLOR
+        )
+        self.lvl_title_rendered_width = self.lvl_title_rendered.get_width()
+        self.lvl_title_coordinates = (
+            self.LVL_WINDOW_X
+            + self.INFO_WINDOW_WIDTH / 2
+            - self.lvl_title_rendered_width / 2,
+            400,
+        )
+        self.next_tetromino_title_rendered = self.font_info_titles.render(
             self.NEXT_TETROMINO_TITLE, True, self.FONT_COLOR
         )
         self.next_tetromino_title_rendered_width = (
@@ -89,7 +101,7 @@ class Settings:
         )
         self.next_tetromino_title_coordinates = (
             self.NEXT_WINDOW_X
-            + self.SCORE_NEXT_WINDOW_WIDTH / 2
+            + self.INFO_WINDOW_WIDTH / 2
             - self.next_tetromino_title_rendered_width / 2,
             150,
         )

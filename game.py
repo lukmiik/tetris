@@ -22,6 +22,19 @@ if TYPE_CHECKING:
 class Game:
     '''Class contains main game logic and methods to draw game elements'''
 
+    game_window: pygame.Surface
+    game_window_rect: pygame.Rect
+    next_tetromino_window: pygame.Surface
+    next_tetromino_window_rect: pygame.Rect
+    score_window: pygame.Surface
+    score_window_rect: pygame.Rect
+    lvl_window: pygame.Surface
+    lvl_window_rect: pygame.Rect
+    grid: list[list[int]]
+    next_tetromino_grid: list[list[int]]
+    score: int
+    lvl: int
+    lines_cleared: int
     space_down: bool = False
 
     def __init__(self, settings: 'Settings') -> None:
@@ -42,20 +55,27 @@ class Game:
             (self.settings.GAME_WINDOW_WIDTH, self.settings.GAME_WINDOW_HEIGHT)
         )
         self.game_window_rect = self.game_window.get_rect()
-        self.next_tetromino_window = pygame.Surface(
-            (
-                self.settings.SCORE_NEXT_WINDOW_WIDTH,
-                self.settings.SCORE_NEXT_WINDOW_HEIGHT,
-            )
-        )
-        self.next_tetromino_window_rect = self.next_tetromino_window.get_rect()
         self.score_window = pygame.Surface(
             (
-                self.settings.SCORE_NEXT_WINDOW_WIDTH,
-                self.settings.SCORE_NEXT_WINDOW_HEIGHT,
+                self.settings.INFO_WINDOW_WIDTH,
+                self.settings.INFO_WINDOW_HEIGHT,
             )
         )
         self.score_window_rect = self.score_window.get_rect()
+        self.lvl_window = pygame.Surface(
+            (
+                self.settings.INFO_WINDOW_WIDTH,
+                self.settings.INFO_WINDOW_HEIGHT,
+            )
+        )
+        self.lvl_window_rect = self.lvl_window.get_rect()
+        self.next_tetromino_window = pygame.Surface(
+            (
+                self.settings.INFO_WINDOW_WIDTH,
+                self.settings.INFO_WINDOW_HEIGHT,
+            )
+        )
+        self.next_tetromino_window_rect = self.next_tetromino_window.get_rect()
 
     def init_properties(self) -> None:
         '''Initialize game properties'''
@@ -71,6 +91,8 @@ class Game:
             for row in range(self.settings.NEXT_TETROMINO_N_OF_ROWS)
         ]
         self.score = 0
+        self.lvl = 1
+        self.lines_cleared = 0
 
     def draw_grid(self) -> None:
         '''Draw grid with tetrominos on game window'''
@@ -135,7 +157,7 @@ class Game:
     def draw_score(self) -> None:
         '''Draw score window and score on'''
         self.draw_score_window()
-        score_text = self.settings.font_score_text.render(
+        score_text = self.settings.font_score_lvl_text.render(
             str(self.score), True, self.settings.FONT_COLOR
         )
         self.screen.blit(
@@ -143,12 +165,12 @@ class Game:
             (
                 (
                     self.settings.SCORE_WINDOW_X
-                    + self.settings.SCORE_NEXT_WINDOW_WIDTH / 2
+                    + self.settings.INFO_WINDOW_WIDTH / 2
                     - score_text.get_width() / 2
                 ),
                 (
                     self.settings.SCORE_WINDOW_Y
-                    + self.settings.SCORE_NEXT_WINDOW_HEIGHT / 2
+                    + self.settings.INFO_WINDOW_HEIGHT / 2
                     - score_text.get_height() / 2
                 ),
             ),
@@ -159,6 +181,35 @@ class Game:
         self.screen.blit(
             self.settings.score_title_rendered,
             (self.settings.score_title_coordinates),
+        )
+
+    def draw_lvl(self) -> None:
+        '''Draw score window and score on'''
+        self.draw_lvl_window()
+        lvl_text = self.settings.font_score_lvl_text.render(
+            str(self.lvl), True, self.settings.FONT_COLOR
+        )
+        self.screen.blit(
+            lvl_text,
+            (
+                (
+                    self.settings.LVL_WINDOW_X
+                    + self.settings.INFO_WINDOW_WIDTH / 2
+                    - lvl_text.get_width() / 2
+                ),
+                (
+                    self.settings.LVL_WINDOW_Y
+                    + self.settings.INFO_WINDOW_HEIGHT / 2
+                    - lvl_text.get_height() / 2
+                ),
+            ),
+        )
+
+    def draw_lvl_title(self) -> None:
+        '''Draw score title on screen'''
+        self.screen.blit(
+            self.settings.lvl_title_rendered,
+            (self.settings.lvl_title_coordinates),
         )
 
     def draw_next_tetromino_title(self) -> None:
@@ -181,22 +232,6 @@ class Game:
             ),
         )
 
-    def draw_next_tetromino_window(self) -> None:
-        '''Draw next tetromino window on screen'''
-        pygame.draw.rect(
-            self.next_tetromino_window,
-            self.settings.BORDER_COLOR,
-            self.next_tetromino_window_rect,
-            2,
-        )
-        self.screen.blit(
-            self.next_tetromino_window,
-            (
-                self.settings.NEXT_WINDOW_X,
-                self.settings.NEXT_WINDOW_Y,
-            ),
-        )
-
     def draw_score_window(self) -> None:
         '''Draw score window on screen'''
         pygame.draw.rect(
@@ -213,6 +248,38 @@ class Game:
             ),
         )
 
+    def draw_lvl_window(self) -> None:
+        '''Draw score window on screen'''
+        pygame.draw.rect(
+            self.lvl_window,
+            self.settings.BORDER_COLOR,
+            self.lvl_window_rect,
+            2,
+        )
+        self.screen.blit(
+            self.lvl_window,
+            (
+                self.settings.LVL_WINDOW_X,
+                self.settings.LVL_WINDOW_Y,
+            ),
+        )
+
+    def draw_next_tetromino_window(self) -> None:
+        '''Draw next tetromino window on screen'''
+        pygame.draw.rect(
+            self.next_tetromino_window,
+            self.settings.BORDER_COLOR,
+            self.next_tetromino_window_rect,
+            2,
+        )
+        self.screen.blit(
+            self.next_tetromino_window,
+            (
+                self.settings.NEXT_WINDOW_X,
+                self.settings.NEXT_WINDOW_Y,
+            ),
+        )
+
     def check_line(self) -> bool:
         '''
         Check if there is a line of tetrominos and delete it
@@ -224,8 +291,9 @@ class Game:
             (bool): True if there is a line of tetrominos, False otherwise
         '''
         for row, line in enumerate(self.grid[2:], 2):
-            if 0 not in line:
+            if self.settings.EMPTY_CELL_TAG not in line:
                 self.delete_line(row)
+                self.lines_cleared += 1
                 return True
         return False
 
@@ -236,6 +304,14 @@ class Game:
         self.grid[0] = [
             self.settings.EMPTY_CELL_TAG for col in range(self.settings.GRID_N_OF_COL)
         ]
+
+    def check_lvl_up(self) -> None:
+        if self.lines_cleared % self.settings.N_OF_LINES_TO_LVL_UP == 0:
+            self.lvl_up()
+            self.draw_lvl()
+
+    def lvl_up(self) -> None:
+        self.lvl += 1
 
     def check_tetromino_above_top(self) -> bool:
         '''Check if there is a tetromino above visible top of the grid'''
@@ -321,10 +397,12 @@ class Game:
         self.current_tetromino.update_on_grid()
         self.next_tetromino = self.random_tetromino()
         self.next_tetromino.put_on_next_tetromino_window()
-        self.draw_next_tetromino()
-        self.draw_score()
         self.draw_score_title()
+        self.draw_score()
+        self.draw_lvl_title()
+        self.draw_lvl()
         self.draw_next_tetromino_title()
+        self.draw_next_tetromino()
         pygame.time.set_timer(pygame.USEREVENT, self.settings.MOVE_DOWN_TIME)
         pygame.time.set_timer(
             pygame.USEREVENT + 1, self.settings.CHECK_KEYS_PRESSED_MOVEMENT_DOWN_TIME
@@ -349,13 +427,15 @@ class Game:
                 if self.check_line():
                     self.score += 100
                     self.draw_score()
+                    self.check_lvl_up()
                 # game lost
                 if self.check_tetromino_above_top():
                     print("game lost")
                     self.draw_grid()
                     self.draw_game_window()
-                    self.draw_next_tetromino_window()
                     self.draw_score_window()
+                    self.draw_lvl_window()
+                    self.draw_next_tetromino_window()
                     pygame.display.update()
                     self.init_properties()
                     break
