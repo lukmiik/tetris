@@ -210,6 +210,7 @@ class Tetromino:
         self.clear()
         for cell in self.pos:
             cell[0] += 1
+        self.game.score += self.settings.POINTS_FOR_SOFT_DROP
 
     def hard_drop(self) -> None:
         '''Hard drops the tetromino'''
@@ -218,6 +219,7 @@ class Tetromino:
             self.game.draw_grid()
             self.game.draw_game_window()
             pygame.display.update()
+            self.game.score += self.settings.POINTS_FOR_HARD_DROP
             time.sleep(self.settings.HARD_DROP_LOOP_SLEEP_TIME)
 
 
