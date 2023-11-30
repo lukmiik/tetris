@@ -1,5 +1,8 @@
 import copy
+import time
 from typing import TYPE_CHECKING
+
+import pygame
 
 from settings import Settings
 
@@ -14,14 +17,16 @@ class Tetromino:
     pos: list[list]
     TAG: str
     NEXT_TETROMINO_GRID_POS: list[list]
+    SPAWN_POS: list[list]
 
     def __init__(
         self,
         game: 'Game',
     ) -> None:
         '''Initialize Tetromino object with the Game object and child class attributes'''
-        self.settings = game.settings
-        self.grid = game.grid
+        self.game = game
+        self.settings = self.game.settings
+        self.grid = self.game.grid
         self.next_tetromino_grid = game.next_tetromino_grid
         self.spawn()
         self.main_pos = self.pos[1]
@@ -29,7 +34,7 @@ class Tetromino:
 
     def spawn(self) -> None:
         '''Set the spawn position'''
-        raise NotImplementedError("Subclasses must implement pos0 method")
+        self.pos = copy.deepcopy(self.SPAWN_POS)
 
     def check_down(self) -> bool:
         '''
@@ -198,13 +203,22 @@ class Tetromino:
         for cell in self.pos:
             cell[1] -= 1
 
-    def move_down(self) -> None:
+    def move_down(self) -> bool | None:
         '''Moves the tetromino down'''
         if self.check_down() or self.check_touch():
-            return
+            return False
         self.clear()
         for cell in self.pos:
             cell[0] += 1
+
+    def hard_drop(self) -> None:
+        '''Hard drops the tetromino'''
+        while self.move_down() is not False:
+            self.update_on_grid()
+            self.game.draw_grid()
+            self.game.draw_game_window()
+            pygame.display.update()
+            time.sleep(self.settings.HARD_DROP_LOOP_SLEEP_TIME)
 
 
 class Itetromino(Tetromino):
@@ -230,10 +244,6 @@ class Itetromino(Tetromino):
             game (Game): Game object
         '''
         super().__init__(game)
-
-    def spawn(self) -> None:
-        '''Sets the spawn position'''
-        self.pos = copy.deepcopy(self.SPAWN_POS)
 
     def rotate_right(self) -> None:
         '''Rotates the tetromino right'''
@@ -364,10 +374,6 @@ class Otetromino(Tetromino):
         '''
         super().__init__(game)
 
-    def spawn(self) -> None:
-        '''Sets the spawn position'''
-        self.pos = copy.deepcopy(self.SPAWN_POS)
-
     def rotate_right(self) -> None:
         '''Do nothing because the tetromino is a square'''
         pass
@@ -400,10 +406,6 @@ class Ttetromino(Tetromino):
             game (Game): Game object
         '''
         super().__init__(game)
-
-    def spawn(self) -> None:
-        '''Sets the spawn position'''
-        self.pos = copy.deepcopy(self.SPAWN_POS)
 
     def pos0(self) -> None:
         '''Set the tetromino to position 0'''
@@ -490,10 +492,6 @@ class Stetromino(Tetromino):
         '''
         super().__init__(game)
 
-    def spawn(self) -> None:
-        '''Sets the spawn position'''
-        self.pos = copy.deepcopy(self.SPAWN_POS)
-
     def pos0(self) -> None:
         '''Set the tetromino to position 0'''
         new0 = [self.main_pos[0], self.main_pos[1] - 1]
@@ -578,10 +576,6 @@ class Ztetromino(Tetromino):
             game (Game): Game object
         '''
         super().__init__(game)
-
-    def spawn(self) -> None:
-        '''Sets the spawn position'''
-        self.pos = copy.deepcopy(self.SPAWN_POS)
 
     def pos0(self) -> None:
         '''Set the tetromino to position 0'''
@@ -668,10 +662,6 @@ class Jtetromino(Tetromino):
         '''
         super().__init__(game)
 
-    def spawn(self) -> None:
-        '''Sets the spawn position'''
-        self.pos = copy.deepcopy(self.SPAWN_POS)
-
     def pos0(self) -> None:
         '''Set the tetromino to position 0'''
         new0 = [self.main_pos[0] - 1, self.main_pos[1] - 1]
@@ -756,10 +746,6 @@ class Ltetromino(Tetromino):
             game (Game): Game object
         '''
         super().__init__(game)
-
-    def spawn(self) -> None:
-        '''Sets the spawn position'''
-        self.pos = copy.deepcopy(self.SPAWN_POS)
 
     def pos0(self) -> None:
         '''Set the tetromino to position 0'''
