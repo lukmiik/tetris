@@ -320,6 +320,8 @@ class Game:
 
     def lvl_up(self) -> None:
         self.lvl += 1
+        self.settings.move_down_time -= self.settings.MOVE_DOWN_ACCELERATION_PER_LVL
+        pygame.time.set_timer(pygame.USEREVENT, self.settings.move_down_time)
 
     def check_tetromino_above_top(self) -> bool:
         '''Check if there is a tetromino above visible top of the grid'''
@@ -411,7 +413,7 @@ class Game:
         self.draw_lvl()
         self.draw_next_tetromino_title()
         self.draw_next_tetromino()
-        pygame.time.set_timer(pygame.USEREVENT, self.settings.MOVE_DOWN_TIME)
+        pygame.time.set_timer(pygame.USEREVENT, self.settings.move_down_time)
         pygame.time.set_timer(
             pygame.USEREVENT + 1, self.settings.CHECK_KEYS_PRESSED_MOVEMENT_DOWN_TIME
         )
