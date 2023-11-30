@@ -6,25 +6,31 @@ class Settings:
 
     SCREEN_WIDTH: int = 1000
     SCREEN_HEIGHT: int = 800
+    GAME_WINDOW_WIDTH: int = 400
+    GAME_WINDOW_HEIGHT: int = 600
+
     BG_COLOR: tuple = (0, 0, 100)
     SECOND_BG_COLOR: tuple = (0, 0, 0)
+    BORDER_COLOR: tuple = (255, 0, 0)
+    CELL_BORDER_COLOR: tuple = (119, 136, 153)
+
     FONT_NAME: str = 'Tahoma'
     FONT_SIZE: int = 80
     FONT_SIZE_SCORE_NEXT_TITLES = 60
     FONT_COLOR: tuple = (255, 255, 255)
+
     TETRIS_TITLE: str = "TETRIS"
     SCORE_TITLE: str = "SCORE"
     LVL_TITLE: str = "LEVEL"
     NEXT_TETROMINO_TITLE: str = "NEXT"
+
     FPS: int = 60
-    GAME_WINDOW_WIDTH: int = 400
-    GAME_WINDOW_HEIGHT: int = 600
-    BORDER_COLOR: tuple = (255, 0, 0)
-    CELL_BORDER_COLOR: tuple = (119, 136, 153)
+
     GRID_N_OF_COL: int = 10
     GRID_N_OF_ROWS: int = 22
     GRID_CELL_WIDTH: int = GAME_WINDOW_WIDTH // GRID_N_OF_COL
     GRID_CELL_HEIGHT: int = GAME_WINDOW_HEIGHT // (GRID_N_OF_ROWS - 2)
+
     EMPTY_CELL_TAG: int = 0
     I: tuple = (0, 255, 255)  # cyan
     O: tuple = (255, 255, 0)  # żółty
@@ -33,6 +39,7 @@ class Settings:
     Z: tuple = (255, 0, 0)  # czerwony
     J: tuple = (0, 0, 255)  # niebieski
     L: tuple = (255, 165, 0)  # pomarańczowy
+
     INFO_WINDOW_WIDTH: int = 220
     INFO_WINDOW_HEIGHT: int = 150
     SCORE_WINDOW_X: int = 40
@@ -45,12 +52,17 @@ class Settings:
     NEXT_TETROMINO_N_OF_ROWS: int = 4
     NEXT_TETROMINO_CELL_WIDTH: int = INFO_WINDOW_WIDTH // NEXT_TETROMINO_N_OF_COL
     NEXT_TETROMINO_CELL_HEIGHT: int = INFO_WINDOW_HEIGHT // NEXT_TETROMINO_N_OF_ROWS
+
     MOVE_DOWN_TIME: int = 1000
     HARD_DROP_LOOP_SLEEP_TIME: float = 0.01
     CHECK_KEYS_PRESSED_MOVEMENT_DOWN_TIME: int = 50
     CHECK_KEYS_PRESSED_MOVEMENT_SIDE_TIME: int = 80
     CHECK_KEYS_PRESSED_ROTATION_TIME: int = 150
+
     N_OF_LINES_TO_LVL_UP: int = 2
+    POINTS_FOR_SOFT_DROP: int = 1
+    POINTS_FOR_HARD_DROP: int = 2
+    POINTS_PER_LINES: dict = {1: 100, 2: 300, 3: 500, 4: 800}
 
     def __init__(self) -> None:
         '''Initialize pygame and create the screen and font'''

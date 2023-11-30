@@ -290,11 +290,15 @@ class Game:
         Returns:
             (bool): True if there is a line of tetrominos, False otherwise
         '''
+        lines_cleared_now = 0
         for row, line in enumerate(self.grid[2:], 2):
             if self.settings.EMPTY_CELL_TAG not in line:
                 self.delete_line(row)
-                self.lines_cleared += 1
-                return True
+                lines_cleared_now += 1
+        if lines_cleared_now:
+            self.lines_cleared += lines_cleared_now
+            self.add_score(lines_cleared_now)
+            return True
         return False
 
     def delete_line(self, row) -> None:
@@ -305,8 +309,12 @@ class Game:
             self.settings.EMPTY_CELL_TAG for col in range(self.settings.GRID_N_OF_COL)
         ]
 
+    def add_score(self, lines_cleared: int) -> None:
+        '''Add score for cleared lines'''
+        self.score += self.settings.POINTS_PER_LINES[lines_cleared]
+
     def check_lvl_up(self) -> None:
-        if self.lines_cleared % self.settings.N_OF_LINES_TO_LVL_UP == 0:
+        if self.lines_cleared >= self.settings.N_OF_LINES_TO_LVL_UP * self.lvl:
             self.lvl_up()
             self.draw_lvl()
 
@@ -419,14 +427,13 @@ class Game:
             self.check_events()
             self.draw_grid()
             self.draw_game_window()
+            self.draw_score()
             if (
                 self.current_tetromino.check_down()
                 or self.current_tetromino.check_touch()
             ):
                 self.current_tetromino.update_on_grid()
                 if self.check_line():
-                    self.score += 100
-                    self.draw_score()
                     self.check_lvl_up()
                 # game lost
                 if self.check_tetromino_above_top():
