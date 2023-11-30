@@ -53,7 +53,8 @@ class Settings:
     NEXT_TETROMINO_CELL_WIDTH: int = INFO_WINDOW_WIDTH // NEXT_TETROMINO_N_OF_COL
     NEXT_TETROMINO_CELL_HEIGHT: int = INFO_WINDOW_HEIGHT // NEXT_TETROMINO_N_OF_ROWS
 
-    MOVE_DOWN_TIME: int = 1000
+    MOVE_DOWN_START_TIME: int = 1000
+    MOVE_DOWN_ACCELERATION_PER_LVL: int = 19
     HARD_DROP_LOOP_SLEEP_TIME: float = 0.01
     CHECK_KEYS_PRESSED_MOVEMENT_DOWN_TIME: int = 50
     CHECK_KEYS_PRESSED_MOVEMENT_SIDE_TIME: int = 80
@@ -74,6 +75,7 @@ class Settings:
         self.font_score_lvl_text = pygame.font.SysFont(self.FONT_NAME, 30)
         self.font_info_titles = pygame.font.SysFont(self.FONT_NAME, 30)
         self.create_titles_properties()
+        self.move_down_time = self.MOVE_DOWN_START_TIME
 
     def create_titles_properties(self) -> None:
         '''Create properties for the titles'''
