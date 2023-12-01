@@ -4,6 +4,7 @@ import time
 from typing import TYPE_CHECKING
 
 import pygame
+import pygame_gui
 
 from tetrominos import (
     Itetromino,
@@ -33,6 +34,7 @@ class Game:
     lvl_window_rect: pygame.Rect
     grid: list[list[int]]
     next_tetromino_grid: list[list[int]]
+    username: str
     score: int
     lvl: int
     lines_cleared: int
@@ -97,6 +99,47 @@ class Game:
         self.lines_cleared = 0
         self.move_down_key_pressed = False
         self.space_down = False
+
+    def get_username(self) -> None:
+        self.manager = pygame_gui.UIManager(
+            (self.settings.SCREEN_WIDTH, self.settings.SCREEN_HEIGHT)
+        )
+        self.username_input = pygame_gui.elements.UITextEntryLine(
+            relative_rect=pygame.Rect(
+                (
+                    self.settings.GET_USERNAME_INPUT_BOX_X,
+                    self.settings.GET_USERNAME_INPUT_BOX_Y,
+                ),
+                (
+                    self.settings.GET_USERNAME_INPUT_BOX_WIDTH,
+                    self.settings.GET_USERNAME_INPUT_BOX_HEIGHT,
+                ),
+            ),
+            manager=self.manager,
+            object_id='#u',
+        )
+        clock = pygame.time.Clock()
+        self.screen.fill(self.settings.BG_COLOR)
+        self.screen.blit(
+            self.settings.get_username_text, self.settings.get_username_input_rect
+        )
+        while True:
+            UI_REFRESH_RATE = clock.tick(60) / 1000
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    sys.exit()
+                if (
+                    event.type == pygame_gui.UI_TEXT_ENTRY_FINISHED
+                    and event.ui_object_id == '#u'
+                ):
+                    if event.text:
+                        self.username = event.text
+                        return
+                self.manager.process_events(event)
+            self.manager.update(UI_REFRESH_RATE)
+            self.manager.draw_ui(self.screen)
+            pygame.display.update()
 
     def draw_grid(self) -> None:
         '''Draw grid with tetrominos on game window'''
@@ -368,6 +411,7 @@ class Game:
     def next_game(self) -> bool:
         '''Check if user clicked on next game button or menu button'''
         while True:
+            self.check_hover()
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
@@ -377,6 +421,15 @@ class Game:
                         return False
                     elif self.settings.end_of_game_next_btn.collidepoint(event.pos):
                         return True
+
+    def check_hover(self) -> None:
+        '''Checks if mouse is hovering over the buttons and changes the cursor accordingly'''
+        if self.settings.end_of_game_menu_btn.collidepoint(
+            pygame.mouse.get_pos()
+        ) or self.settings.end_of_game_next_btn.collidepoint(pygame.mouse.get_pos()):
+            pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_HAND)
+        else:
+            pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_ARROW)
 
     def check_events(self) -> None:
         '''Check pygane events and react to them'''
@@ -439,7 +492,6 @@ class Game:
             Jtetromino,
             Ltetromino,
         ]
-        # tetrominos = [Itetromino]
         random_tetromino = random.choice(tetrominos)
         return random_tetromino(self)
 
@@ -450,11 +502,14 @@ class Game:
 
     def main(self) -> None:
         '''Main game loop'''
+        self.get_username()
+        self.screen.fill(self.settings.BG_COLOR)
         clock = pygame.time.Clock()
         self.current_tetromino = self.random_tetromino()
         self.current_tetromino.update_on_grid()
         self.next_tetromino = self.random_tetromino()
         self.next_tetromino.put_on_next_tetromino_window()
+        self.settings.draw_tetris_title()
         self.draw_score_title()
         self.draw_score()
         self.draw_lvl_title()

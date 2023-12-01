@@ -148,13 +148,12 @@ class Menu:
 
     def check_hover(self) -> None:
         '''Checks if mouse is hovering over the buttons and changes the cursor accordingly'''
-        if self.start_btn.collidepoint(pygame.mouse.get_pos()):
-            pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_HAND)
-        elif self.controls_btn.collidepoint(pygame.mouse.get_pos()):
-            pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_HAND)
-        elif self.rules_btn.collidepoint(pygame.mouse.get_pos()):
-            pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_HAND)
-        elif self.quit_btn.collidepoint(pygame.mouse.get_pos()):
+        if (
+            self.start_btn.collidepoint(pygame.mouse.get_pos())
+            or self.controls_btn.collidepoint(pygame.mouse.get_pos())
+            or self.rules_btn.collidepoint(pygame.mouse.get_pos())
+            or self.quit_btn.collidepoint(pygame.mouse.get_pos())
+        ):
             pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_HAND)
         else:
             pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_ARROW)
