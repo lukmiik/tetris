@@ -19,6 +19,7 @@ class Settings:
     FONT_SIZE_INFO_TITLES = 30
     FONT_SIZE_SCORE_LVL = 30
     FONT_SIZE_END_OF_GAME_BTNS = 20
+    FONT_SIZE_GET_USERNAME = 23
     FONT_COLOR: tuple = (255, 255, 255)
 
     TETRIS_TITLE: str = "TETRIS"
@@ -64,6 +65,12 @@ class Settings:
     END_OF_GAME_MENU_BTN_TEXT: str = "Menu"
     END_OF_GAME_NEXT_BTN_TEXT: str = "Next"
 
+    GET_USERNAME_INPUT_BOX_WIDTH: int = SCREEN_WIDTH // 4
+    GET_USERNAME_INPUT_BOX_HEIGHT: int = SCREEN_HEIGHT // 20
+    GET_USERNAME_INPUT_BOX_X: float = SCREEN_WIDTH / 1.7
+    GET_USERNAME_INPUT_BOX_Y: float = SCREEN_HEIGHT / 2 - 8
+    GET_USERNAME_TEXT: str = "ENTER YOUR USERNAME (ENTER)"
+
     MOVE_DOWN_START_TIME: int = 1000
     MOVE_DOWN_ACCELERATION_PER_LVL: int = 19
     HARD_DROP_LOOP_SLEEP_TIME: float = 0.01
@@ -92,7 +99,11 @@ class Settings:
         self.font_end_of_game_btns = pygame.font.SysFont(
             self.FONT_NAME, self.FONT_SIZE_END_OF_GAME_BTNS
         )
+        self.font_get_username = pygame.font.SysFont(
+            self.FONT_NAME, self.FONT_SIZE_GET_USERNAME, bold=True
+        )
         self.create_titles_properties()
+        self.create_get_username_text()
         self.create_end_of_game_btns()
         self.move_down_time = self.MOVE_DOWN_START_TIME
 
@@ -144,6 +155,18 @@ class Settings:
         self.screen.blit(
             self.tetris_title_rendered,
             (self.tetris_title_coordinates),
+        )
+
+    def create_get_username_text(self) -> None:
+        '''Creates the input box for the username'''
+        self.get_username_text = self.font_get_username.render(
+            self.GET_USERNAME_TEXT, True, self.FONT_COLOR
+        )
+        self.get_username_input_rect = self.get_username_text.get_rect(
+            topleft=(
+                self.SCREEN_WIDTH / 6,
+                self.SCREEN_HEIGHT / 2,
+            )
         )
 
     def create_end_of_game_btns(self) -> None:
