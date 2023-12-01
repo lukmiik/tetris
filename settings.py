@@ -16,7 +16,9 @@ class Settings:
 
     FONT_NAME: str = 'Tahoma'
     FONT_SIZE: int = 80
-    FONT_SIZE_SCORE_NEXT_TITLES = 60
+    FONT_SIZE_INFO_TITLES = 30
+    FONT_SIZE_SCORE_LVL = 30
+    FONT_SIZE_END_OF_GAME_BTNS = 20
     FONT_COLOR: tuple = (255, 255, 255)
 
     TETRIS_TITLE: str = "TETRIS"
@@ -53,6 +55,15 @@ class Settings:
     NEXT_TETROMINO_CELL_WIDTH: int = INFO_WINDOW_WIDTH // NEXT_TETROMINO_N_OF_COL
     NEXT_TETROMINO_CELL_HEIGHT: int = INFO_WINDOW_HEIGHT // NEXT_TETROMINO_N_OF_ROWS
 
+    END_OF_GAME_BTNS_WIDTH: int = SCREEN_WIDTH // 8
+    END_OF_GAME_BTNS_HEIGHT: int = SCREEN_HEIGHT // 18
+    END_OF_GAME_BTNS_Y: int = SCREEN_HEIGHT // 2
+    END_OF_GAME_MENU_BTN_X: int = SCREEN_WIDTH // 2 - END_OF_GAME_BTNS_WIDTH - 30
+    END_OF_GAME_NEXT_BTN_X: int = SCREEN_WIDTH // 2 + 30
+    END_OF_BTNS_COLOR: tuple = (218, 165, 32)
+    END_OF_GAME_MENU_BTN_TEXT: str = "Menu"
+    END_OF_GAME_NEXT_BTN_TEXT: str = "Next"
+
     MOVE_DOWN_START_TIME: int = 1000
     MOVE_DOWN_ACCELERATION_PER_LVL: int = 19
     HARD_DROP_LOOP_SLEEP_TIME: float = 0.01
@@ -72,9 +83,17 @@ class Settings:
         pygame.font.init()
         self.screen = pygame.display.set_mode((self.SCREEN_WIDTH, self.SCREEN_HEIGHT))
         self.font = pygame.font.SysFont(self.FONT_NAME, self.FONT_SIZE)
-        self.font_score_lvl_text = pygame.font.SysFont(self.FONT_NAME, 30)
-        self.font_info_titles = pygame.font.SysFont(self.FONT_NAME, 30)
+        self.font_score_lvl_text = pygame.font.SysFont(
+            self.FONT_NAME, self.FONT_SIZE_SCORE_LVL
+        )
+        self.font_info_titles = pygame.font.SysFont(
+            self.FONT_NAME, self.FONT_SIZE_INFO_TITLES
+        )
+        self.font_end_of_game_btns = pygame.font.SysFont(
+            self.FONT_NAME, self.FONT_SIZE_END_OF_GAME_BTNS
+        )
         self.create_titles_properties()
+        self.create_end_of_game_btns()
         self.move_down_time = self.MOVE_DOWN_START_TIME
 
     def create_titles_properties(self) -> None:
@@ -125,4 +144,25 @@ class Settings:
         self.screen.blit(
             self.tetris_title_rendered,
             (self.tetris_title_coordinates),
+        )
+
+    def create_end_of_game_btns(self) -> None:
+        '''Creates buttons displayed after the game is lost'''
+        self.end_of_game_menu_btn = pygame.Rect(
+            self.END_OF_GAME_MENU_BTN_X,
+            self.END_OF_GAME_BTNS_Y,
+            self.END_OF_GAME_BTNS_WIDTH,
+            self.END_OF_GAME_BTNS_HEIGHT,
+        )
+        self.end_of_game_next_btn = pygame.Rect(
+            self.END_OF_GAME_NEXT_BTN_X,
+            self.END_OF_GAME_BTNS_Y,
+            self.END_OF_GAME_BTNS_WIDTH,
+            self.END_OF_GAME_BTNS_HEIGHT,
+        )
+        self.end_of_game_menu_btn_text = self.font_end_of_game_btns.render(
+            self.END_OF_GAME_MENU_BTN_TEXT, True, self.FONT_COLOR
+        )
+        self.end_of_game_next_btn_text = self.font_end_of_game_btns.render(
+            self.END_OF_GAME_NEXT_BTN_TEXT, True, self.FONT_COLOR
         )
