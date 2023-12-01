@@ -1,5 +1,6 @@
 import random
 import sys
+import time
 from typing import TYPE_CHECKING
 
 import pygame
@@ -35,6 +36,7 @@ class Game:
     score: int
     lvl: int
     lines_cleared: int
+    move_down_key_pressed: bool = False
     space_down: bool = False
 
     def __init__(self, settings: 'Settings') -> None:
@@ -93,6 +95,8 @@ class Game:
         self.score = 0
         self.lvl = 1
         self.lines_cleared = 0
+        self.move_down_key_pressed = False
+        self.space_down = False
 
     def draw_grid(self) -> None:
         '''Draw grid with tetrominos on game window'''
@@ -330,13 +334,57 @@ class Game:
                 return True
         return False
 
+    def draw_end_of_game_btns(self) -> None:
+        '''Draw buttons displayed at the end of the game, after loss'''
+        pygame.draw.rect(
+            self.screen,
+            self.settings.END_OF_BTNS_COLOR,
+            self.settings.end_of_game_menu_btn,
+        )
+        self.screen.blit(
+            self.settings.end_of_game_menu_btn_text,
+            (
+                self.settings.end_of_game_menu_btn.centerx
+                - self.settings.end_of_game_menu_btn_text.get_width() / 2,
+                self.settings.end_of_game_menu_btn.centery
+                - self.settings.end_of_game_menu_btn_text.get_height() / 2,
+            ),
+        )
+        pygame.draw.rect(
+            self.screen,
+            self.settings.END_OF_BTNS_COLOR,
+            self.settings.end_of_game_next_btn,
+        )
+        self.screen.blit(
+            self.settings.end_of_game_next_btn_text,
+            (
+                self.settings.end_of_game_next_btn.centerx
+                - self.settings.end_of_game_next_btn_text.get_width() / 2,
+                self.settings.end_of_game_next_btn.centery
+                - self.settings.end_of_game_next_btn_text.get_height() / 2,
+            ),
+        )
+
+    def next_game(self) -> bool:
+        '''Check if user clicked on next game button or menu button'''
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    sys.exit()
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    if self.settings.end_of_game_menu_btn.collidepoint(event.pos):
+                        return False
+                    elif self.settings.end_of_game_next_btn.collidepoint(event.pos):
+                        return True
+
     def check_events(self) -> None:
         '''Check pygane events and react to them'''
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit()
-            if event.type == pygame.USEREVENT and not self.down:
+            if event.type == pygame.USEREVENT and not self.move_down_key_pressed:
                 self.current_tetromino.move_down()
             if event.type == pygame.USEREVENT + 1:
                 self.check_pressed_down_movement()
@@ -350,9 +398,9 @@ class Game:
         keys_pressed = pygame.key.get_pressed()
         if keys_pressed[pygame.K_s] or keys_pressed[pygame.K_DOWN]:
             self.current_tetromino.move_down()
-            self.down = True
+            self.move_down_key_pressed = True
         else:
-            self.down = False
+            self.move_down_key_pressed = False
         if keys_pressed[pygame.K_SPACE] and not self.space_down:
             self.current_tetromino.hard_drop()
             self.space_down = True
@@ -423,7 +471,6 @@ class Game:
         pygame.time.set_timer(
             pygame.USEREVENT + 3, self.settings.CHECK_KEYS_PRESSED_ROTATION_TIME
         )
-        self.down = False
         while True:
             clock.tick(self.settings.FPS)
             self.check_events()
@@ -442,12 +489,15 @@ class Game:
                     print("game lost")
                     self.draw_grid()
                     self.draw_game_window()
-                    self.draw_score_window()
-                    self.draw_lvl_window()
-                    self.draw_next_tetromino_window()
                     pygame.display.update()
                     self.init_properties()
-                    break
+                    time.sleep(3)
+                    self.draw_end_of_game_btns()
+                    pygame.display.update()
+                    if self.next_game():
+                        continue
+                    else:
+                        break
                 self.current_tetromino = self.next_tetromino
                 self.current_tetromino.update_on_grid()
                 self.next_tetromino = self.random_tetromino()
