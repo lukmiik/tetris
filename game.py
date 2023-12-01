@@ -6,6 +6,7 @@ from typing import TYPE_CHECKING
 import pygame
 import pygame_gui
 
+from db.models.user import User, user_exists
 from tetrominos import (
     Itetromino,
     Jtetromino,
@@ -431,6 +432,21 @@ class Game:
         else:
             pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_ARROW)
 
+    def db_insert_user(self) -> None:
+        '''Insert user into database'''
+        if user_exists(self.username):
+            user = User.get(User.username == self.username)
+            if self.score > user.highest_score:
+                user.highest_score = self.score
+            if self.lvl > user.highest_lvl:
+                user.highest_lvl = self.lvl
+            user.save()
+        else:
+            user = User(
+                username=self.username, highest_score=self.score, highest_lvl=self.lvl
+            )
+            user.save()
+
     def check_events(self) -> None:
         '''Check pygane events and react to them'''
         for event in pygame.event.get():
@@ -545,6 +561,7 @@ class Game:
                     self.draw_grid()
                     self.draw_game_window()
                     pygame.display.update()
+                    self.db_insert_user()
                     self.init_properties()
                     time.sleep(3)
                     self.draw_end_of_game_btns()
