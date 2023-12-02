@@ -438,13 +438,10 @@ class Game:
             user = User.get(User.username == self.username)
             if self.score > user.highest_score:
                 user.highest_score = self.score
-            if self.lvl > user.highest_lvl:
-                user.highest_lvl = self.lvl
+                user.lvl = self.lvl
             user.save()
         else:
-            user = User(
-                username=self.username, highest_score=self.score, highest_lvl=self.lvl
-            )
+            user = User(username=self.username, highest_score=self.score, lvl=self.lvl)
             user.save()
 
     def check_events(self) -> None:
