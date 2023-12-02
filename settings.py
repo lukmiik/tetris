@@ -26,6 +26,8 @@ class Settings:
     FONT_SIZE_LEADERBOARD: int = 15
     FONT_SIZE_CONTROLS_TITLE: int = 40
     FONT_SIZE_CONTROLS: int = 30
+    FONT_SIZE_RULES_TITLE: int = 40
+    FONT_SIZE_RULES: int = 30
     FONT_COLOR: tuple = (255, 255, 255)
 
     TETRIS_TITLE: str = "TETRIS"
@@ -41,12 +43,15 @@ class Settings:
         "GAMES PLAYED",
     ]
     CONTROLS_TITLE: str = "CONTROLS"
+    RULES_TITLE: str = "RULES"
 
     TETRIS_TITLE_Y: int = 50
     SCORE_NEXT_TITLE_Y: int = 150
     LVL_TITLE_Y: int = 400
     LEADERBOARD_TITLE_Y: int = 150
     CONTROLS_TITLE_Y: int = 150
+    RULES_TITLE_Y: int = 150
+    RULES_TEXT_Y: int = 300
 
     FPS: int = 60
 
@@ -126,7 +131,7 @@ class Settings:
     CHECK_KEYS_PRESSED_MOVEMENT_SIDE_TIME: int = 80
     CHECK_KEYS_PRESSED_ROTATION_TIME: int = 150
 
-    N_OF_LINES_TO_LVL_UP: int = 2
+    N_OF_LINES_TO_LVL_UP: int = 10
     POINTS_FOR_SOFT_DROP: int = 1
     POINTS_FOR_HARD_DROP: int = 2
     POINTS_PER_LINES: dict = {1: 100, 2: 300, 3: 500, 4: 800}
@@ -197,6 +202,10 @@ class Settings:
         self.font_controls = pygame.font.SysFont(
             self.FONT_NAME, self.FONT_SIZE_CONTROLS
         )
+        self.font_rules_title = pygame.font.SysFont(
+            self.FONT_NAME, self.FONT_SIZE_RULES_TITLE
+        )
+        self.font_rules = pygame.font.SysFont(self.FONT_NAME, self.FONT_SIZE_RULES)
         self.create_titles_properties()
         self.create_get_username_text()
         self.create_end_of_game_btns()

@@ -259,14 +259,14 @@ class Controls:
                 return True
 
     def main(self) -> None:
-        '''Main method for the controls screen'''
+        '''Main method for the controls screen, draws everything and checks for events'''
         self.screen.fill(self.settings.BG_COLOR)
         self.settings.draw_tetris_title()
         self.draw_title()
         self.draw_controls()
         self.settings.draw_go_back_btn()
+        pygame.display.update()
         while True:
             if self.check_events():
                 return
             self.settings.check_go_back_btn_hover()
-            pygame.display.update()
