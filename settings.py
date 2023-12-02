@@ -15,6 +15,22 @@ class Settings:
     CELL_BORDER_COLOR: tuple = (119, 136, 153)
     LEADERBOARD_BORDER_COLOR: tuple = (128, 128, 128)
 
+    FPS: int = 60
+
+    GRID_N_OF_COL: int = 10
+    GRID_N_OF_ROWS: int = 22
+    GRID_CELL_WIDTH: int = GAME_WINDOW_WIDTH // GRID_N_OF_COL
+    GRID_CELL_HEIGHT: int = GAME_WINDOW_HEIGHT // (GRID_N_OF_ROWS - 2)
+
+    EMPTY_CELL_TAG: int = 0
+    I: tuple = (0, 255, 255)  # cyan
+    O: tuple = (255, 255, 0)  # żółty
+    T: tuple = (128, 0, 128)  # fioletowy
+    S: tuple = (0, 255, 0)  # zielony
+    Z: tuple = (255, 0, 0)  # czerwony
+    J: tuple = (0, 0, 255)  # niebieski
+    L: tuple = (255, 165, 0)  # pomarańczowy
+
     FONT_NAME: str = 'Tahoma'
     FONT_SIZE_TETRIS_TITLE: int = 80
     FONT_SIZE_INFO_TITLES: int = 30
@@ -45,38 +61,32 @@ class Settings:
     CONTROLS_TITLE: str = "CONTROLS"
     RULES_TITLE: str = "RULES"
 
-    TETRIS_TITLE_Y: int = 50
-    SCORE_NEXT_TITLE_Y: int = 150
-    LVL_TITLE_Y: int = 400
-    LEADERBOARD_TITLE_Y: int = 150
-    CONTROLS_TITLE_Y: int = 150
-    RULES_TITLE_Y: int = 150
-    RULES_TEXT_Y: int = 300
+    TETRIS_TITLE_Y: int = SCREEN_HEIGHT // 16
+    SCORE_NEXT_TITLE_Y: int = SCREEN_HEIGHT // 5
+    LVL_TITLE_Y: float = SCREEN_HEIGHT / 1.95
+    LEADERBOARD_TITLE_Y: int = SCREEN_HEIGHT // 5
+    CONTROLS_TITLE_Y: int = SCREEN_HEIGHT // 5
+    RULES_TITLE_Y: int = SCREEN_HEIGHT // 5
+    RULES_TEXT_Y: float = SCREEN_HEIGHT / 2.5
 
-    FPS: int = 60
+    MENU_START_GAME_TEXT = "Start game"
+    MENU_LEADERBOARD_TEXT = "Leaderboard"
+    MENU_CONTROLS_TEXT = "Controls"
+    MENU_RULES_TEXT = "Rules"
+    MENU_QUIT_TEXT = "Quit"
 
-    GRID_N_OF_COL: int = 10
-    GRID_N_OF_ROWS: int = 22
-    GRID_CELL_WIDTH: int = GAME_WINDOW_WIDTH // GRID_N_OF_COL
-    GRID_CELL_HEIGHT: int = GAME_WINDOW_HEIGHT // (GRID_N_OF_ROWS - 2)
+    MENU_BTNS_FIRST_Y: int = SCREEN_HEIGHT // 4
+    MENU_BTNS_HEIGHT: int = SCREEN_HEIGHT // 8
+    MENU_BTN_GAP: int = SCREEN_HEIGHT // 40
 
-    EMPTY_CELL_TAG: int = 0
-    I: tuple = (0, 255, 255)  # cyan
-    O: tuple = (255, 255, 0)  # żółty
-    T: tuple = (128, 0, 128)  # fioletowy
-    S: tuple = (0, 255, 0)  # zielony
-    Z: tuple = (255, 0, 0)  # czerwony
-    J: tuple = (0, 0, 255)  # niebieski
-    L: tuple = (255, 165, 0)  # pomarańczowy
-
-    INFO_WINDOW_WIDTH: int = 220
-    INFO_WINDOW_HEIGHT: int = 150
-    SCORE_WINDOW_X: int = 40
-    SCORE_WINDOW_Y: int = 200
-    LVL_WINDOW_X: int = 40
-    LVL_WINDOW_Y: int = 450
-    NEXT_WINDOW_X: int = 740
-    NEXT_WINDOW_Y: int = 200
+    INFO_WINDOW_WIDTH: int = int(SCREEN_WIDTH / 4.55)
+    INFO_WINDOW_HEIGHT: int = int(SCREEN_HEIGHT / 5.3)
+    SCORE_WINDOW_X: int = SCREEN_WIDTH // 25
+    SCORE_WINDOW_Y: int = SCREEN_HEIGHT // 4
+    LVL_WINDOW_X: int = SCREEN_WIDTH // 25
+    LVL_WINDOW_Y: float = SCREEN_HEIGHT / 1.8
+    NEXT_WINDOW_X: float = SCREEN_WIDTH / 1.35
+    NEXT_WINDOW_Y: int = SCREEN_HEIGHT // 4
     NEXT_TETROMINO_N_OF_COL: int = 4
     NEXT_TETROMINO_N_OF_ROWS: int = 4
     NEXT_TETROMINO_CELL_WIDTH: int = INFO_WINDOW_WIDTH // NEXT_TETROMINO_N_OF_COL

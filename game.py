@@ -554,7 +554,6 @@ class Game:
                     self.check_lvl_up()
                 # game lost
                 if self.check_tetromino_above_top():
-                    print("game lost")
                     self.draw_grid()
                     self.draw_game_window()
                     pygame.display.update()
