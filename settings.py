@@ -24,6 +24,8 @@ class Settings:
     FONT_SIZE_LEADERBOARD_TITLE: int = 40
     FONT_SIZE_LEADERBOARD_HEADER: int = 20
     FONT_SIZE_LEADERBOARD: int = 15
+    FONT_SIZE_CONTROLS_TITLE: int = 40
+    FONT_SIZE_CONTROLS: int = 30
     FONT_COLOR: tuple = (255, 255, 255)
 
     TETRIS_TITLE: str = "TETRIS"
@@ -38,11 +40,13 @@ class Settings:
         "LVL",
         "GAMES PLAYED",
     ]
+    CONTROLS_TITLE: str = "CONTROLS"
 
     TETRIS_TITLE_Y: int = 50
     SCORE_NEXT_TITLE_Y: int = 150
     LVL_TITLE_Y: int = 400
     LEADERBOARD_TITLE_Y: int = 150
+    CONTROLS_TITLE_Y: int = 150
 
     FPS: int = 60
 
@@ -91,8 +95,6 @@ class Settings:
     GO_BACK_ICON_FILENAME: str = 'assets/arrow_back.png'
     GO_BACK_BTN_X: int = 30
     GO_BACK_BTN_Y: int = 40
-    GO_BACK_BTN_WIDTH: int = 50
-    GO_BACK_BTN_HEIGHT: int = 50
 
     LEADERBOARD_WIDTH: float = SCREEN_WIDTH / 16 * 14
     LEADERBOARD_BORDER_X: float = SCREEN_WIDTH / 16
@@ -129,6 +131,36 @@ class Settings:
     POINTS_FOR_HARD_DROP: int = 2
     POINTS_PER_LINES: dict = {1: 100, 2: 300, 3: 500, 4: 800}
 
+    CONTROLS_TEXTS: list[str] = [
+        "move down",
+        "move left",
+        "move right",
+        "hard drop",
+        "rotate left",
+        "rotate right",
+    ]
+    CONTROLS_TEXTS_X: float = SCREEN_WIDTH / 3
+    CONTROLS_TEXTS_Y: list[float] = [
+        SCREEN_HEIGHT * 4 / 10,
+        SCREEN_HEIGHT * 5 / 10,
+        SCREEN_HEIGHT * 6 / 10,
+        SCREEN_HEIGHT * 7 / 10,
+        SCREEN_HEIGHT * 8 / 10,
+        SCREEN_HEIGHT * 9 / 10,
+    ]
+    CONTROLS_ONE_KEY_X: float = SCREEN_WIDTH * 0.65
+    CONTROLS_TWO_KEYS_X: list[float] = [SCREEN_WIDTH * 0.6, SCREEN_WIDTH * 0.7]
+    MOVING_DOWN_KEY_1_FILENAME: str = 'assets/s_key.png'
+    MOVING_DOWN_KEY_2_FILENAME: str = 'assets/down_key.png'
+    MOVING_LEFT_KEY_1_FILENAME: str = 'assets/a_key.png'
+    MOVING_LEFT_KEY_2_FILENAME: str = 'assets/left_key.png'
+    MOVING_RIGHT_KEY_1_FILENAME: str = 'assets/d_key.png'
+    MOVING_RIGHT_KEY_2_FILENAME: str = 'assets/right_key.png'
+    HARD_DROP_KEY_FILENAME: str = 'assets/space_key.png'
+    ROTATE_LEFT_KEY_FILENAME: str = 'assets/z_key.png'
+    ROTATE_RIGHT_KEY_1_FILENAME: str = 'assets/w_key.png'
+    ROTATE_RIGHT_KEY_2_FILENAME: str = 'assets/up_key.png'
+
     def __init__(self) -> None:
         '''Initialize pygame and create the screen and font'''
         pygame.init()
@@ -158,6 +190,12 @@ class Settings:
         )
         self.font_leaderboard = pygame.font.SysFont(
             self.FONT_NAME, self.FONT_SIZE_LEADERBOARD
+        )
+        self.font_controls_title = pygame.font.SysFont(
+            self.FONT_NAME, self.FONT_SIZE_CONTROLS_TITLE
+        )
+        self.font_controls = pygame.font.SysFont(
+            self.FONT_NAME, self.FONT_SIZE_CONTROLS
         )
         self.create_titles_properties()
         self.create_get_username_text()
@@ -254,8 +292,8 @@ class Settings:
         self.go_back_btn_rect = pygame.Rect(
             self.GO_BACK_BTN_X,
             self.GO_BACK_BTN_Y,
-            self.GO_BACK_BTN_WIDTH,
-            self.GO_BACK_BTN_HEIGHT,
+            self.go_back_icon.get_width(),
+            self.go_back_icon.get_height(),
         )
 
     def draw_go_back_btn(self) -> None:
@@ -264,3 +302,10 @@ class Settings:
             self.go_back_icon,
             self.go_back_icon.get_rect(center=self.go_back_btn_rect.center),
         )
+
+    def check_go_back_btn_hover(self) -> None:
+        '''Checks if mouse is hovering over the go_back button and changes the cursor accordingly'''
+        if self.go_back_btn_rect.collidepoint(pygame.mouse.get_pos()):
+            pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_HAND)
+        else:
+            pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_ARROW)
