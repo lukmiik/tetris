@@ -31,52 +31,57 @@ class Menu:
     def create_buttons(self) -> None:
         '''Creates menu buttons and its rects'''
         self.start_text = self.settings.font_tetris_title.render(
-            "Start game", True, self.settings.FONT_COLOR
+            self.settings.MENU_START_GAME_TEXT, True, self.settings.FONT_COLOR
         )
         self.leaderboard_text = self.settings.font_tetris_title.render(
-            "Leaderboard", True, self.settings.FONT_COLOR
+            self.settings.MENU_LEADERBOARD_TEXT, True, self.settings.FONT_COLOR
         )
         self.controls_text = self.settings.font_tetris_title.render(
-            "Controls", True, self.settings.FONT_COLOR
+            self.settings.MENU_CONTROLS_TEXT, True, self.settings.FONT_COLOR
         )
         self.rules_text = self.settings.font_tetris_title.render(
-            "Rules", True, self.settings.FONT_COLOR
+            self.settings.MENU_RULES_TEXT, True, self.settings.FONT_COLOR
         )
         self.quit_text = self.settings.font_tetris_title.render(
-            "Quit", True, self.settings.FONT_COLOR
+            self.settings.MENU_QUIT_TEXT, True, self.settings.FONT_COLOR
         )
-        btn_height = 100
-        gap = 20
-        btn_start_y = 200
         self.start_btn = pygame.Rect(
             self.settings.SCREEN_WIDTH / 2 - self.start_text.get_width() / 2 - 10,
-            btn_start_y,
+            self.settings.MENU_BTNS_FIRST_Y,
             self.start_text.get_width() + 20,
-            btn_height,
+            self.settings.MENU_BTNS_HEIGHT,
         )
         self.leaderboard_btn = pygame.Rect(
             self.settings.SCREEN_WIDTH / 2 - self.leaderboard_text.get_width() / 2 - 10,
-            btn_start_y + btn_height + gap,
+            self.settings.MENU_BTNS_FIRST_Y
+            + self.settings.MENU_BTNS_HEIGHT
+            + self.settings.MENU_BTN_GAP,
             self.leaderboard_text.get_width() + 20,
-            btn_height,
+            self.settings.MENU_BTNS_HEIGHT,
         )
         self.controls_btn = pygame.Rect(
             self.settings.SCREEN_WIDTH / 2 - self.controls_text.get_width() / 2 - 10,
-            btn_start_y + 2 * btn_height + 2 * gap,
+            self.settings.MENU_BTNS_FIRST_Y
+            + 2 * self.settings.MENU_BTNS_HEIGHT
+            + 2 * self.settings.MENU_BTN_GAP,
             self.controls_text.get_width() + 20,
-            btn_height,
+            self.settings.MENU_BTNS_HEIGHT,
         )
         self.rules_btn = pygame.Rect(
             self.settings.SCREEN_WIDTH / 2 - self.rules_text.get_width() / 2 - 1,
-            btn_start_y + 3 * btn_height + 3 * gap,
+            self.settings.MENU_BTNS_FIRST_Y
+            + 3 * self.settings.MENU_BTNS_HEIGHT
+            + 3 * self.settings.MENU_BTN_GAP,
             self.rules_text.get_width() + 20,
-            btn_height,
+            self.settings.MENU_BTNS_HEIGHT,
         )
         self.quit_btn = pygame.Rect(
             self.settings.SCREEN_WIDTH / 2 - self.quit_text.get_width() / 2 - 10,
-            btn_start_y + 4 * btn_height + 4 * gap,
+            self.settings.MENU_BTNS_FIRST_Y
+            + 4 * self.settings.MENU_BTNS_HEIGHT
+            + 4 * self.settings.MENU_BTN_GAP,
             self.quit_text.get_width() + 20,
-            btn_height,
+            self.settings.MENU_BTNS_HEIGHT,
         )
 
     def draw_buttons(self) -> None:
