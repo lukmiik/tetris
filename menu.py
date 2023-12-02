@@ -122,19 +122,6 @@ class Menu:
             ),
         )
 
-    def controls(self) -> None:
-        '''Displays controls screen'''
-        while True:
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    pygame.quit()
-                    sys.exit()
-                if event.type == pygame.KEYDOWN:
-                    if pygame.K_ESCAPE:
-                        return
-            self.screen.fill('red')
-            pygame.display.update()
-
     def rules(self) -> None:
         '''Displays rules screen'''
         while True:
@@ -167,7 +154,6 @@ class Menu:
                     self.choice = self.LEADERBOARD_CHOICE
                     return True
                 elif self.controls_btn.collidepoint(event.pos):
-                    self.controls()
                     self.choice = self.CONTROLS_CHOICE
                     return True
                 elif self.rules_btn.collidepoint(event.pos):

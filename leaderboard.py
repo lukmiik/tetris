@@ -10,6 +10,8 @@ if TYPE_CHECKING:
 
 
 class Leaderboard:
+    '''Class for the leaderboard screen'''
+
     def __init__(self, settings: 'Settings') -> None:
         '''Initializes the leaderboard object'''
         self.settings = settings
@@ -18,6 +20,7 @@ class Leaderboard:
         self.create_header()
 
     def create_title(self) -> None:
+        '''Creates the title of the leaderboard'''
         self.title_rendered = self.settings.font_leaderboard_title.render(
             self.settings.LEADERBOARD_TITLE, True, self.settings.FONT_COLOR
         )
@@ -198,26 +201,17 @@ class Leaderboard:
             ),
         )
 
-    def check_hover(self) -> None:
-        '''Checks if mouse is hovering over the go_back button and changes the cursor accordingly'''
-        if self.settings.go_back_btn_rect.collidepoint(pygame.mouse.get_pos()):
-            pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_HAND)
-        else:
-            pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_ARROW)
-
     def check_events(self) -> bool | None:
         '''
         Checks for events
 
         Returns:
-            (bool | None): True if go back button or escape is pressed, None otherwise
+            (bool | None): True if go back button is pressed, None otherwise
         '''
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit()
-            if event.type == pygame.KEYDOWN and pygame.K_ESCAPE:
-                return True
             if (
                 event.type == pygame.MOUSEBUTTONDOWN
                 and self.settings.go_back_btn_rect.collidepoint(event.pos)
@@ -225,6 +219,7 @@ class Leaderboard:
                 return True
 
     def main(self) -> None:
+        '''Main function of the leaderboard screen that draws everything and checks for events'''
         self.users = User.select().order_by(User.highest_score.desc()).limit(10)
         self.screen.fill(self.settings.BG_COLOR)
         self.settings.draw_tetris_title()
@@ -235,5 +230,5 @@ class Leaderboard:
         while True:
             if self.check_events():
                 return
-            self.check_hover()
+            self.settings.check_go_back_btn_hover()
             pygame.display.update()
