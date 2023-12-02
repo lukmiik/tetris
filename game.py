@@ -160,10 +160,10 @@ class Game:
                         1,
                     )
                 else:
-                    x = getattr(self.settings, str(value))
+                    tetromino_color = getattr(self.settings, str(value))
                     pygame.draw.rect(
                         self.game_window,
-                        x,
+                        tetromino_color,
                         (
                             col * self.settings.GRID_CELL_WIDTH,
                             row * self.settings.GRID_CELL_HEIGHT,
@@ -270,7 +270,7 @@ class Game:
     def draw_game_window(self) -> None:
         '''Draw game window on screen'''
         pygame.draw.rect(
-            self.game_window, self.settings.BORDER_COLOR, self.game_window_rect, 5
+            self.game_window, self.settings.GAME_BORDER_COLOR, self.game_window_rect, 5
         )
         self.screen.blit(
             self.game_window,
@@ -284,7 +284,7 @@ class Game:
         '''Draw score window on screen'''
         pygame.draw.rect(
             self.score_window,
-            self.settings.BORDER_COLOR,
+            self.settings.GAME_BORDER_COLOR,
             self.score_window_rect,
             2,
         )
@@ -300,7 +300,7 @@ class Game:
         '''Draw score window on screen'''
         pygame.draw.rect(
             self.lvl_window,
-            self.settings.BORDER_COLOR,
+            self.settings.GAME_BORDER_COLOR,
             self.lvl_window_rect,
             2,
         )
@@ -316,7 +316,7 @@ class Game:
         '''Draw next tetromino window on screen'''
         pygame.draw.rect(
             self.next_tetromino_window,
-            self.settings.BORDER_COLOR,
+            self.settings.GAME_BORDER_COLOR,
             self.next_tetromino_window_rect,
             2,
         )

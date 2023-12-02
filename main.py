@@ -1,4 +1,5 @@
 from game import Game
+from leaderboard import Leaderboard
 from menu import Menu
 from settings import Settings
 
@@ -8,9 +9,17 @@ def main() -> None:
     settings = Settings()
     menu = Menu(settings)
     game = Game(settings)
+    leaderboard = Leaderboard(settings)
     while True:
-        menu.main()
-        game.main()
+        choice = menu.main()
+        if choice == Menu.GAME_CHOICE:
+            game.main()
+        elif choice == Menu.LEADERBOARD_CHOICE:
+            leaderboard.main()
+        elif choice == Menu.CONTROLS_CHOICE:
+            pass
+        elif choice == Menu.RULES_CHOICE:
+            pass
 
 
 if __name__ == "__main__":
