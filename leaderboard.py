@@ -227,8 +227,8 @@ class Leaderboard:
         self.draw_header()
         self.create_leaderboard()
         self.settings.draw_go_back_btn()
+        pygame.display.update()
         while True:
             if self.check_events():
                 return
             self.settings.check_go_back_btn_hover()
-            pygame.display.update()

@@ -2,6 +2,7 @@ from controls import Controls
 from game import Game
 from leaderboard import Leaderboard
 from menu import Menu
+from rules import Rules
 from settings import Settings
 
 
@@ -12,6 +13,7 @@ def main() -> None:
     game = Game(settings)
     leaderboard = Leaderboard(settings)
     controls = Controls(settings)
+    rules = Rules(settings)
     while True:
         choice = menu.main()
         if choice == Menu.GAME_CHOICE:
@@ -21,7 +23,7 @@ def main() -> None:
         elif choice == Menu.CONTROLS_CHOICE:
             controls.main()
         elif choice == Menu.RULES_CHOICE:
-            pass
+            rules.main()
 
 
 if __name__ == "__main__":

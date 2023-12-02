@@ -122,19 +122,6 @@ class Menu:
             ),
         )
 
-    def rules(self) -> None:
-        '''Displays rules screen'''
-        while True:
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    pygame.quit()
-                    sys.exit()
-                if event.type == pygame.KEYDOWN:
-                    if pygame.K_ESCAPE:
-                        return
-            self.screen.fill('green')
-            pygame.display.update()
-
     def check_events(self) -> bool | None:
         '''
         Checks for pygame events QUIT and MOUSEBUTTONDOWN and reacts to them
@@ -157,7 +144,6 @@ class Menu:
                     self.choice = self.CONTROLS_CHOICE
                     return True
                 elif self.rules_btn.collidepoint(event.pos):
-                    self.rules()
                     self.choice = self.RULES_CHOICE
                     return True
                 elif self.quit_btn.collidepoint(event.pos):
