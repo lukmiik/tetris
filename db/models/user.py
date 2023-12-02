@@ -5,10 +5,12 @@ from db.settings import db
 
 
 class User(Model):
+    '''Model for user table'''
+
     username = CharField(unique=True)
     games_played = IntegerField(default=0)
     highest_score = IntegerField(default=0)
-    highest_lvl = IntegerField(default=1)
+    lvl = IntegerField(default=1)
 
     class Meta:
         database = db
