@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>&lt;no title&gt; &#8212; tetris-pygame 0.0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=039e1c02" />
+    <script src="_static/documentation_options.js?v=d45e8c67"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Welcome to tetris-pygame’s documentation!" href="index.html" />
+
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+
+
+          <div class="body" role="main">
+
+  <dl class="py class" id="module-tetrominos">
+<dt class="sig sig-object py" id="tetrominos.Itetromino">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tetrominos.</span></span><span class="sig-name descname"><span class="pre">Itetromino</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">game</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Game</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tetrominos.Itetromino" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#tetrominos.Tetromino" title="tetrominos.Tetromino"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tetromino</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="tetrominos.Itetromino.pos0">
+<span class="sig-name descname"><span class="pre">pos0</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetrominos.Itetromino.pos0" title="Link to this definition">¶</a></dt>
+<dd><p>Rotates the tetromino to position 0</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetrominos.Itetromino.pos1">
+<span class="sig-name descname"><span class="pre">pos1</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetrominos.Itetromino.pos1" title="Link to this definition">¶</a></dt>
+<dd><p>Rotates the tetromino to position 1</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetrominos.Itetromino.pos2">
+<span class="sig-name descname"><span class="pre">pos2</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetrominos.Itetromino.pos2" title="Link to this definition">¶</a></dt>
+<dd><p>Rotates the tetromino to position 2</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetrominos.Itetromino.pos3">
+<span class="sig-name descname"><span class="pre">pos3</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetrominos.Itetromino.pos3" title="Link to this definition">¶</a></dt>
+<dd><p>Rotates the tetromino to position 3</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetrominos.Itetromino.rotate_left">
+<span class="sig-name descname"><span class="pre">rotate_left</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetrominos.Itetromino.rotate_left" title="Link to this definition">¶</a></dt>
+<dd><p>Rotates the tetromino left</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetrominos.Itetromino.rotate_right">
+<span class="sig-name descname"><span class="pre">rotate_right</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetrominos.Itetromino.rotate_right" title="Link to this definition">¶</a></dt>
+<dd><p>Rotates the tetromino right</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="tetrominos.Jtetromino">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tetrominos.</span></span><span class="sig-name descname"><span class="pre">Jtetromino</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">game</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Game</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tetrominos.Jtetromino" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#tetrominos.Tetromino" title="tetrominos.Tetromino"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tetromino</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="tetrominos.Jtetromino.pos0">
+<span class="sig-name descname"><span class="pre">pos0</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetrominos.Jtetromino.pos0" title="Link to this definition">¶</a></dt>
+<dd><p>Set the tetromino to position 0</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetrominos.Jtetromino.pos1">
+<span class="sig-name descname"><span class="pre">pos1</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetrominos.Jtetromino.pos1" title="Link to this definition">¶</a></dt>
+<dd><p>Set the tetromino to position 1</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetrominos.Jtetromino.pos2">
+<span class="sig-name descname"><span class="pre">pos2</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetrominos.Jtetromino.pos2" title="Link to this definition">¶</a></dt>
+<dd><p>Set the tetromino to position 2</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetrominos.Jtetromino.pos3">
+<span class="sig-name descname"><span class="pre">pos3</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetrominos.Jtetromino.pos3" title="Link to this definition">¶</a></dt>
+<dd><p>Set the tetromino to position 3</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="tetrominos.Ltetromino">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tetrominos.</span></span><span class="sig-name descname"><span class="pre">Ltetromino</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">game</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Game</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tetrominos.Ltetromino" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#tetrominos.Tetromino" title="tetrominos.Tetromino"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tetromino</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="tetrominos.Ltetromino.pos0">
+<span class="sig-name descname"><span class="pre">pos0</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetrominos.Ltetromino.pos0" title="Link to this definition">¶</a></dt>
+<dd><p>Set the tetromino to position 0</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetrominos.Ltetromino.pos1">
+<span class="sig-name descname"><span class="pre">pos1</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetrominos.Ltetromino.pos1" title="Link to this definition">¶</a></dt>
+<dd><p>Set the tetromino to position 1</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetrominos.Ltetromino.pos2">
+<span class="sig-name descname"><span class="pre">pos2</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetrominos.Ltetromino.pos2" title="Link to this definition">¶</a></dt>
+<dd><p>Set the tetromino to position 2</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetrominos.Ltetromino.pos3">
+<span class="sig-name descname"><span class="pre">pos3</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetrominos.Ltetromino.pos3" title="Link to this definition">¶</a></dt>
+<dd><p>Set the tetromino to position 3</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="tetrominos.Otetromino">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tetrominos.</span></span><span class="sig-name descname"><span class="pre">Otetromino</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">game</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Game</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tetrominos.Otetromino" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#tetrominos.Tetromino" title="tetrominos.Tetromino"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tetromino</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="tetrominos.Otetromino.rotate_left">
+<span class="sig-name descname"><span class="pre">rotate_left</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetrominos.Otetromino.rotate_left" title="Link to this definition">¶</a></dt>
+<dd><p>Do nothing because the tetromino is a square</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetrominos.Otetromino.rotate_right">
+<span class="sig-name descname"><span class="pre">rotate_right</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetrominos.Otetromino.rotate_right" title="Link to this definition">¶</a></dt>
+<dd><p>Do nothing because the tetromino is a square</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="tetrominos.Stetromino">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tetrominos.</span></span><span class="sig-name descname"><span class="pre">Stetromino</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">game</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Game</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tetrominos.Stetromino" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#tetrominos.Tetromino" title="tetrominos.Tetromino"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tetromino</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="tetrominos.Stetromino.pos0">
+<span class="sig-name descname"><span class="pre">pos0</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetrominos.Stetromino.pos0" title="Link to this definition">¶</a></dt>
+<dd><p>Set the tetromino to position 0</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetrominos.Stetromino.pos1">
+<span class="sig-name descname"><span class="pre">pos1</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetrominos.Stetromino.pos1" title="Link to this definition">¶</a></dt>
+<dd><p>Set the tetromino to position 1</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetrominos.Stetromino.pos2">
+<span class="sig-name descname"><span class="pre">pos2</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetrominos.Stetromino.pos2" title="Link to this definition">¶</a></dt>
+<dd><p>Set the tetromino to position 2</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetrominos.Stetromino.pos3">
+<span class="sig-name descname"><span class="pre">pos3</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetrominos.Stetromino.pos3" title="Link to this definition">¶</a></dt>
+<dd><p>Set the tetromino to position 3</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="tetrominos.Tetromino">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tetrominos.</span></span><span class="sig-name descname"><span class="pre">Tetromino</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">game</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Game</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tetrominos.Tetromino" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Tetromino class for the game</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="tetrominos.Tetromino.check_cell_available_for_rotation">
+<span class="sig-name descname"><span class="pre">check_cell_available_for_rotation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cell</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#tetrominos.Tetromino.check_cell_available_for_rotation" title="Link to this definition">¶</a></dt>
+<dd><p>Check if the cell is available for rotation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>cell</strong> (<em>list</em><em>[</em><em>int</em><em>]</em>) – Cell to check</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the cell is available for rotation, False otherwise</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(bool)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetrominos.Tetromino.check_down">
+<span class="sig-name descname"><span class="pre">check_down</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#tetrominos.Tetromino.check_down" title="Link to this definition">¶</a></dt>
+<dd><p>Checks if the tetromino is at the bottom of the grid</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the tetromino is at the bottom of the grid, False otherwise</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>(bool)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetrominos.Tetromino.check_move_left">
+<span class="sig-name descname"><span class="pre">check_move_left</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#tetrominos.Tetromino.check_move_left" title="Link to this definition">¶</a></dt>
+<dd><p>Check if the tetromino can move left by checking if it is at the left edge of the grid or if it is touching another tetromino on the left</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the tetromino can move left, False otherwise</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>(bool)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetrominos.Tetromino.check_move_right">
+<span class="sig-name descname"><span class="pre">check_move_right</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#tetrominos.Tetromino.check_move_right" title="Link to this definition">¶</a></dt>
+<dd><p>Check if the tetromino can move right by checking if it is at the right edge of the grid or if it is touching another tetromino on the right</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the tetromino can move right, False otherwise</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>(bool)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetrominos.Tetromino.check_touch">
+<span class="sig-name descname"><span class="pre">check_touch</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#tetrominos.Tetromino.check_touch" title="Link to this definition">¶</a></dt>
+<dd><p>Check if the bottom of the tetromino is touching another tetromino</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the bottom of the tetromino is touching another tetromino, False otherwise</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>(bool)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetrominos.Tetromino.clear">
+<span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetrominos.Tetromino.clear" title="Link to this definition">¶</a></dt>
+<dd><p>Clears the grid from the tetromino</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetrominos.Tetromino.clear_next_tetromino_window">
+<span class="sig-name descname"><span class="pre">clear_next_tetromino_window</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetrominos.Tetromino.clear_next_tetromino_window" title="Link to this definition">¶</a></dt>
+<dd><p>Clears the next tetromino window</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetrominos.Tetromino.hard_drop">
+<span class="sig-name descname"><span class="pre">hard_drop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetrominos.Tetromino.hard_drop" title="Link to this definition">¶</a></dt>
+<dd><p>Hard drops the tetromino</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetrominos.Tetromino.move_down">
+<span class="sig-name descname"><span class="pre">move_down</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#tetrominos.Tetromino.move_down" title="Link to this definition">¶</a></dt>
+<dd><p>Moves the tetromino down</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetrominos.Tetromino.move_left">
+<span class="sig-name descname"><span class="pre">move_left</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetrominos.Tetromino.move_left" title="Link to this definition">¶</a></dt>
+<dd><p>Moves the tetromino left</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetrominos.Tetromino.move_right">
+<span class="sig-name descname"><span class="pre">move_right</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetrominos.Tetromino.move_right" title="Link to this definition">¶</a></dt>
+<dd><p>Moves the tetromino right</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetrominos.Tetromino.pos0">
+<span class="sig-name descname"><span class="pre">pos0</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetrominos.Tetromino.pos0" title="Link to this definition">¶</a></dt>
+<dd><p>Rotates the tetromino to position 0</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetrominos.Tetromino.pos1">
+<span class="sig-name descname"><span class="pre">pos1</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetrominos.Tetromino.pos1" title="Link to this definition">¶</a></dt>
+<dd><p>Rotates the tetromino to position 1</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetrominos.Tetromino.pos2">
+<span class="sig-name descname"><span class="pre">pos2</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetrominos.Tetromino.pos2" title="Link to this definition">¶</a></dt>
+<dd><p>Rotates the tetromino to position 2</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetrominos.Tetromino.pos3">
+<span class="sig-name descname"><span class="pre">pos3</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetrominos.Tetromino.pos3" title="Link to this definition">¶</a></dt>
+<dd><p>Rotates the tetromino to position 3</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetrominos.Tetromino.put_on_next_tetromino_window">
+<span class="sig-name descname"><span class="pre">put_on_next_tetromino_window</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetrominos.Tetromino.put_on_next_tetromino_window" title="Link to this definition">¶</a></dt>
+<dd><p>Puts the next tetromino on the next tetromino window</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetrominos.Tetromino.rotate_left">
+<span class="sig-name descname"><span class="pre">rotate_left</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetrominos.Tetromino.rotate_left" title="Link to this definition">¶</a></dt>
+<dd><p>Rotates the tetromino left</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetrominos.Tetromino.rotate_right">
+<span class="sig-name descname"><span class="pre">rotate_right</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetrominos.Tetromino.rotate_right" title="Link to this definition">¶</a></dt>
+<dd><p>Rotates the tetromino right</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetrominos.Tetromino.spawn">
+<span class="sig-name descname"><span class="pre">spawn</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetrominos.Tetromino.spawn" title="Link to this definition">¶</a></dt>
+<dd><p>Set the spawn position</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetrominos.Tetromino.update_on_grid">
+<span class="sig-name descname"><span class="pre">update_on_grid</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetrominos.Tetromino.update_on_grid" title="Link to this definition">¶</a></dt>
+<dd><p>Updates the grid with the new position of the tetromino</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="tetrominos.Ttetromino">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tetrominos.</span></span><span class="sig-name descname"><span class="pre">Ttetromino</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">game</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Game</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tetrominos.Ttetromino" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#tetrominos.Tetromino" title="tetrominos.Tetromino"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tetromino</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="tetrominos.Ttetromino.pos0">
+<span class="sig-name descname"><span class="pre">pos0</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetrominos.Ttetromino.pos0" title="Link to this definition">¶</a></dt>
+<dd><p>Set the tetromino to position 0</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetrominos.Ttetromino.pos1">
+<span class="sig-name descname"><span class="pre">pos1</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetrominos.Ttetromino.pos1" title="Link to this definition">¶</a></dt>
+<dd><p>Set the tetromino to position 1</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetrominos.Ttetromino.pos2">
+<span class="sig-name descname"><span class="pre">pos2</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetrominos.Ttetromino.pos2" title="Link to this definition">¶</a></dt>
+<dd><p>Set the tetromino to position 2</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetrominos.Ttetromino.pos3">
+<span class="sig-name descname"><span class="pre">pos3</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetrominos.Ttetromino.pos3" title="Link to this definition">¶</a></dt>
+<dd><p>Set the tetromino to position 3</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="tetrominos.Ztetromino">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tetrominos.</span></span><span class="sig-name descname"><span class="pre">Ztetromino</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">game</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Game</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tetrominos.Ztetromino" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#tetrominos.Tetromino" title="tetrominos.Tetromino"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tetromino</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="tetrominos.Ztetromino.pos0">
+<span class="sig-name descname"><span class="pre">pos0</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetrominos.Ztetromino.pos0" title="Link to this definition">¶</a></dt>
+<dd><p>Set the tetromino to position 0</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetrominos.Ztetromino.pos1">
+<span class="sig-name descname"><span class="pre">pos1</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetrominos.Ztetromino.pos1" title="Link to this definition">¶</a></dt>
+<dd><p>Set the tetromino to position 1</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetrominos.Ztetromino.pos2">
+<span class="sig-name descname"><span class="pre">pos2</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetrominos.Ztetromino.pos2" title="Link to this definition">¶</a></dt>
+<dd><p>Set the tetromino to position 2</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetrominos.Ztetromino.pos3">
+<span class="sig-name descname"><span class="pre">pos3</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetrominos.Ztetromino.pos3" title="Link to this definition">¶</a></dt>
+<dd><p>Set the tetromino to position 3</p>
+</dd></dl>
+
+</dd></dl>
+
+
+
+          </div>
+
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">tetris-pygame</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Home</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">Itetromino</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#tetrominos.Itetromino.pos0"><code class="docutils literal notranslate"><span class="pre">Itetromino.pos0()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tetrominos.Itetromino.pos1"><code class="docutils literal notranslate"><span class="pre">Itetromino.pos1()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tetrominos.Itetromino.pos2"><code class="docutils literal notranslate"><span class="pre">Itetromino.pos2()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tetrominos.Itetromino.pos3"><code class="docutils literal notranslate"><span class="pre">Itetromino.pos3()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tetrominos.Itetromino.rotate_left"><code class="docutils literal notranslate"><span class="pre">Itetromino.rotate_left()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tetrominos.Itetromino.rotate_right"><code class="docutils literal notranslate"><span class="pre">Itetromino.rotate_right()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#tetrominos.Jtetromino"><code class="docutils literal notranslate"><span class="pre">Jtetromino</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#tetrominos.Jtetromino.pos0"><code class="docutils literal notranslate"><span class="pre">Jtetromino.pos0()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tetrominos.Jtetromino.pos1"><code class="docutils literal notranslate"><span class="pre">Jtetromino.pos1()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tetrominos.Jtetromino.pos2"><code class="docutils literal notranslate"><span class="pre">Jtetromino.pos2()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tetrominos.Jtetromino.pos3"><code class="docutils literal notranslate"><span class="pre">Jtetromino.pos3()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#tetrominos.Ltetromino"><code class="docutils literal notranslate"><span class="pre">Ltetromino</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#tetrominos.Ltetromino.pos0"><code class="docutils literal notranslate"><span class="pre">Ltetromino.pos0()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tetrominos.Ltetromino.pos1"><code class="docutils literal notranslate"><span class="pre">Ltetromino.pos1()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tetrominos.Ltetromino.pos2"><code class="docutils literal notranslate"><span class="pre">Ltetromino.pos2()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tetrominos.Ltetromino.pos3"><code class="docutils literal notranslate"><span class="pre">Ltetromino.pos3()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#tetrominos.Otetromino"><code class="docutils literal notranslate"><span class="pre">Otetromino</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#tetrominos.Otetromino.rotate_left"><code class="docutils literal notranslate"><span class="pre">Otetromino.rotate_left()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tetrominos.Otetromino.rotate_right"><code class="docutils literal notranslate"><span class="pre">Otetromino.rotate_right()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#tetrominos.Stetromino"><code class="docutils literal notranslate"><span class="pre">Stetromino</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#tetrominos.Stetromino.pos0"><code class="docutils literal notranslate"><span class="pre">Stetromino.pos0()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tetrominos.Stetromino.pos1"><code class="docutils literal notranslate"><span class="pre">Stetromino.pos1()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tetrominos.Stetromino.pos2"><code class="docutils literal notranslate"><span class="pre">Stetromino.pos2()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tetrominos.Stetromino.pos3"><code class="docutils literal notranslate"><span class="pre">Stetromino.pos3()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#tetrominos.Tetromino"><code class="docutils literal notranslate"><span class="pre">Tetromino</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#tetrominos.Tetromino.check_cell_available_for_rotation"><code class="docutils literal notranslate"><span class="pre">Tetromino.check_cell_available_for_rotation()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tetrominos.Tetromino.check_down"><code class="docutils literal notranslate"><span class="pre">Tetromino.check_down()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tetrominos.Tetromino.check_move_left"><code class="docutils literal notranslate"><span class="pre">Tetromino.check_move_left()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tetrominos.Tetromino.check_move_right"><code class="docutils literal notranslate"><span class="pre">Tetromino.check_move_right()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tetrominos.Tetromino.check_touch"><code class="docutils literal notranslate"><span class="pre">Tetromino.check_touch()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tetrominos.Tetromino.clear"><code class="docutils literal notranslate"><span class="pre">Tetromino.clear()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tetrominos.Tetromino.clear_next_tetromino_window"><code class="docutils literal notranslate"><span class="pre">Tetromino.clear_next_tetromino_window()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tetrominos.Tetromino.hard_drop"><code class="docutils literal notranslate"><span class="pre">Tetromino.hard_drop()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tetrominos.Tetromino.move_down"><code class="docutils literal notranslate"><span class="pre">Tetromino.move_down()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tetrominos.Tetromino.move_left"><code class="docutils literal notranslate"><span class="pre">Tetromino.move_left()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tetrominos.Tetromino.move_right"><code class="docutils literal notranslate"><span class="pre">Tetromino.move_right()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tetrominos.Tetromino.pos0"><code class="docutils literal notranslate"><span class="pre">Tetromino.pos0()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tetrominos.Tetromino.pos1"><code class="docutils literal notranslate"><span class="pre">Tetromino.pos1()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tetrominos.Tetromino.pos2"><code class="docutils literal notranslate"><span class="pre">Tetromino.pos2()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tetrominos.Tetromino.pos3"><code class="docutils literal notranslate"><span class="pre">Tetromino.pos3()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tetrominos.Tetromino.put_on_next_tetromino_window"><code class="docutils literal notranslate"><span class="pre">Tetromino.put_on_next_tetromino_window()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tetrominos.Tetromino.rotate_left"><code class="docutils literal notranslate"><span class="pre">Tetromino.rotate_left()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tetrominos.Tetromino.rotate_right"><code class="docutils literal notranslate"><span class="pre">Tetromino.rotate_right()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tetrominos.Tetromino.spawn"><code class="docutils literal notranslate"><span class="pre">Tetromino.spawn()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tetrominos.Tetromino.update_on_grid"><code class="docutils literal notranslate"><span class="pre">Tetromino.update_on_grid()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#tetrominos.Ttetromino"><code class="docutils literal notranslate"><span class="pre">Ttetromino</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#tetrominos.Ttetromino.pos0"><code class="docutils literal notranslate"><span class="pre">Ttetromino.pos0()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tetrominos.Ttetromino.pos1"><code class="docutils literal notranslate"><span class="pre">Ttetromino.pos1()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tetrominos.Ttetromino.pos2"><code class="docutils literal notranslate"><span class="pre">Ttetromino.pos2()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tetrominos.Ttetromino.pos3"><code class="docutils literal notranslate"><span class="pre">Ttetromino.pos3()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#tetrominos.Ztetromino"><code class="docutils literal notranslate"><span class="pre">Ztetromino</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#tetrominos.Ztetromino.pos0"><code class="docutils literal notranslate"><span class="pre">Ztetromino.pos0()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tetrominos.Ztetromino.pos1"><code class="docutils literal notranslate"><span class="pre">Ztetromino.pos1()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tetrominos.Ztetromino.pos2"><code class="docutils literal notranslate"><span class="pre">Ztetromino.pos2()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tetrominos.Ztetromino.pos3"><code class="docutils literal notranslate"><span class="pre">Ztetromino.pos3()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to tetris-pygame’s documentation!</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Łukasz Łukaszewski.
+
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+
+      |
+      <a href="_sources/tetris.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+
+
+
+  </body>
+</html>
