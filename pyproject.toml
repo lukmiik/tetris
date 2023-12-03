@@ -1,0 +1,38 @@
+[project]
+name = "tetris-pygame"
+version = "0.2.7"
+authors = [
+  { name="Łukasz Łukaszewski", email="lulkaszmlukaszewski@gmail.com" },
+]
+description = "Tetris game made with pygame"
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "pygame>=2.5.2",
+    "pygame_gui>=0.6.9",
+    "peewee>=3.17.0",
+    "peewee-migrate>=1.12.2",
+]
+
+[project.urls]
+Homepage = "https://github.com/lukmiik/tetris"
+Issues = "https://github.com/lukmiik/tetris/issues"
+
+[project.scripts]
+tetris = "tetris.main:main"
+leaderboard = "tetris.db.scripts.migration:reset_db"
+
+[tool.setuptools.packages.find]
+where = [""]
+
+[tool.setuptools.package-data]
+tetris = ["assets/*.png"]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"

@@ -1,0 +1,4 @@
+pygame>=2.5.2
+pygame_gui>=0.6.9
+peewee>=3.17.0
+peewee-migrate>=1.12.2

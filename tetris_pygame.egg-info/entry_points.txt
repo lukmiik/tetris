@@ -1,0 +1,3 @@
+[console_scripts]
+leaderboard = tetris.db.scripts.migration:reset_db
+tetris = tetris.main:main
