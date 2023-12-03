@@ -1,3 +1,6 @@
+import glob
+import subprocess
+
 from controls import Controls
 from game import Game
 from leaderboard import Leaderboard
@@ -9,6 +12,8 @@ from settings import Settings
 def main() -> None:
     '''Main function of the game, creates the settings, menu and game objects and runs main functions of them in the loop'''
     settings = Settings()
+    if not glob.glob("db.sqlite3"):
+        subprocess.run(settings.MIGRATION_COMMAND, shell=True)
     menu = Menu(settings)
     game = Game(settings)
     leaderboard = Leaderboard(settings)

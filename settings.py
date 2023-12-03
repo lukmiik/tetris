@@ -4,6 +4,8 @@ import pygame
 class Settings:
     '''Settings class for the game'''
 
+    MIGRATION_COMMAND: str = 'python db/scripts/migration.py migrate'
+
     SCREEN_WIDTH: int = 1000
     SCREEN_HEIGHT: int = 800
     GAME_WINDOW_WIDTH: int = 400
