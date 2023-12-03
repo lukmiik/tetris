@@ -67,7 +67,8 @@ class Settings:
     LEADERBOARD_TITLE_Y: int = SCREEN_HEIGHT // 5
     CONTROLS_TITLE_Y: int = SCREEN_HEIGHT // 5
     RULES_TITLE_Y: int = SCREEN_HEIGHT // 5
-    RULES_TEXT_Y: float = SCREEN_HEIGHT / 2.5
+    RULES_TEXT_Y: float = SCREEN_HEIGHT / 3
+    RULES_LINE_HEIGHT: int = SCREEN_HEIGHT // 20
 
     MENU_START_GAME_TEXT = "Start game"
     MENU_LEADERBOARD_TEXT = "Leaderboard"
@@ -115,20 +116,15 @@ class Settings:
     LEADERBOARD_BORDER_X: float = SCREEN_WIDTH / 16
     LEADERBOARD_HEADER_Y: float = SCREEN_HEIGHT / 3.6
     LEADERBOARD_HEADER_HEIGHT: int = SCREEN_HEIGHT // 8
-    LEADERBOARD_FIRST_ROW_Y: float = (
-        LEADERBOARD_HEADER_Y + LEADERBOARD_HEADER_HEIGHT + 30
-    )
+    LEADERBOARD_FIRST_ROW_Y: float = LEADERBOARD_HEADER_Y + LEADERBOARD_HEADER_HEIGHT + 30
     LEADERBOARD_ROW_HEIGHT: float = SCREEN_HEIGHT / 20
     LEADERBOARD_HEADER_BORDER_WIDTH: int = 3
     LEADERBOARD_BORDER_WIDTH: int = 1
-    LEADERBOARD_HEADER_TEXT_Y: float = (
-        LEADERBOARD_HEADER_Y + LEADERBOARD_HEADER_HEIGHT / 2
-    )
+    LEADERBOARD_HEADER_TEXT_Y: float = LEADERBOARD_HEADER_Y + LEADERBOARD_HEADER_HEIGHT / 2
     LEADERBOARD_TEXT_WIDTH: float = LEADERBOARD_WIDTH // 5
     LEADERBOARD_TEXT_X: list[float] = [
         (LEADERBOARD_BORDER_X + LEADERBOARD_TEXT_WIDTH / 2) / 1.4,
-        (LEADERBOARD_BORDER_X + LEADERBOARD_TEXT_WIDTH / 2) / 1.4
-        + LEADERBOARD_TEXT_WIDTH,
+        (LEADERBOARD_BORDER_X + LEADERBOARD_TEXT_WIDTH / 2) / 1.4 + LEADERBOARD_TEXT_WIDTH,
         LEADERBOARD_BORDER_X + LEADERBOARD_TEXT_WIDTH / 2 + LEADERBOARD_TEXT_WIDTH * 2,
         LEADERBOARD_BORDER_X + LEADERBOARD_TEXT_WIDTH / 2 + LEADERBOARD_TEXT_WIDTH * 3,
         LEADERBOARD_BORDER_X + LEADERBOARD_TEXT_WIDTH / 2 + LEADERBOARD_TEXT_WIDTH * 4,
@@ -182,39 +178,17 @@ class Settings:
         pygame.display.init()
         pygame.font.init()
         self.screen = pygame.display.set_mode((self.SCREEN_WIDTH, self.SCREEN_HEIGHT))
-        self.font_tetris_title = pygame.font.SysFont(
-            self.FONT_NAME, self.FONT_SIZE_TETRIS_TITLE
-        )
-        self.font_score_lvl_text = pygame.font.SysFont(
-            self.FONT_NAME, self.FONT_SIZE_SCORE_LVL
-        )
-        self.font_info_titles = pygame.font.SysFont(
-            self.FONT_NAME, self.FONT_SIZE_INFO_TITLES
-        )
-        self.font_end_of_game_btns = pygame.font.SysFont(
-            self.FONT_NAME, self.FONT_SIZE_END_OF_GAME_BTNS
-        )
-        self.font_get_username = pygame.font.SysFont(
-            self.FONT_NAME, self.FONT_SIZE_GET_USERNAME, bold=True
-        )
-        self.font_leaderboard_title = pygame.font.SysFont(
-            self.FONT_NAME, self.FONT_SIZE_LEADERBOARD_TITLE
-        )
-        self.font_leaderboard_header = pygame.font.SysFont(
-            self.FONT_NAME, self.FONT_SIZE_LEADERBOARD_HEADER
-        )
-        self.font_leaderboard = pygame.font.SysFont(
-            self.FONT_NAME, self.FONT_SIZE_LEADERBOARD
-        )
-        self.font_controls_title = pygame.font.SysFont(
-            self.FONT_NAME, self.FONT_SIZE_CONTROLS_TITLE
-        )
-        self.font_controls = pygame.font.SysFont(
-            self.FONT_NAME, self.FONT_SIZE_CONTROLS
-        )
-        self.font_rules_title = pygame.font.SysFont(
-            self.FONT_NAME, self.FONT_SIZE_RULES_TITLE
-        )
+        self.font_tetris_title = pygame.font.SysFont(self.FONT_NAME, self.FONT_SIZE_TETRIS_TITLE)
+        self.font_score_lvl_text = pygame.font.SysFont(self.FONT_NAME, self.FONT_SIZE_SCORE_LVL)
+        self.font_info_titles = pygame.font.SysFont(self.FONT_NAME, self.FONT_SIZE_INFO_TITLES)
+        self.font_end_of_game_btns = pygame.font.SysFont(self.FONT_NAME, self.FONT_SIZE_END_OF_GAME_BTNS)
+        self.font_get_username = pygame.font.SysFont(self.FONT_NAME, self.FONT_SIZE_GET_USERNAME, bold=True)
+        self.font_leaderboard_title = pygame.font.SysFont(self.FONT_NAME, self.FONT_SIZE_LEADERBOARD_TITLE)
+        self.font_leaderboard_header = pygame.font.SysFont(self.FONT_NAME, self.FONT_SIZE_LEADERBOARD_HEADER)
+        self.font_leaderboard = pygame.font.SysFont(self.FONT_NAME, self.FONT_SIZE_LEADERBOARD)
+        self.font_controls_title = pygame.font.SysFont(self.FONT_NAME, self.FONT_SIZE_CONTROLS_TITLE)
+        self.font_controls = pygame.font.SysFont(self.FONT_NAME, self.FONT_SIZE_CONTROLS)
+        self.font_rules_title = pygame.font.SysFont(self.FONT_NAME, self.FONT_SIZE_RULES_TITLE)
         self.font_rules = pygame.font.SysFont(self.FONT_NAME, self.FONT_SIZE_RULES)
         self.create_titles_properties()
         self.create_get_username_text()
@@ -225,44 +199,30 @@ class Settings:
 
     def create_titles_properties(self) -> None:
         '''Create properties for the titles'''
-        self.tetris_title_rendered = self.font_tetris_title.render(
-            self.TETRIS_TITLE, True, self.FONT_COLOR
-        )
+        self.tetris_title_rendered = self.font_tetris_title.render(self.TETRIS_TITLE, True, self.FONT_COLOR)
         self.tetris_title_rendered_width = self.tetris_title_rendered.get_width()
         self.tetris_title_coordinates = (
             self.SCREEN_WIDTH / 2 - self.tetris_title_rendered_width / 2,
             self.TETRIS_TITLE_Y,
         )
-        self.score_title_rendered = self.font_info_titles.render(
-            self.SCORE_TITLE, True, self.FONT_COLOR
-        )
+        self.score_title_rendered = self.font_info_titles.render(self.SCORE_TITLE, True, self.FONT_COLOR)
         self.score_title_rendered_width = self.score_title_rendered.get_width()
         self.score_title_coordinates = (
-            self.SCORE_WINDOW_X
-            + self.INFO_WINDOW_WIDTH / 2
-            - self.score_title_rendered_width / 2,
+            self.SCORE_WINDOW_X + self.INFO_WINDOW_WIDTH / 2 - self.score_title_rendered_width / 2,
             self.SCORE_NEXT_TITLE_Y,
         )
-        self.lvl_title_rendered = self.font_info_titles.render(
-            self.LVL_TITLE, True, self.FONT_COLOR
-        )
+        self.lvl_title_rendered = self.font_info_titles.render(self.LVL_TITLE, True, self.FONT_COLOR)
         self.lvl_title_rendered_width = self.lvl_title_rendered.get_width()
         self.lvl_title_coordinates = (
-            self.LVL_WINDOW_X
-            + self.INFO_WINDOW_WIDTH / 2
-            - self.lvl_title_rendered_width / 2,
+            self.LVL_WINDOW_X + self.INFO_WINDOW_WIDTH / 2 - self.lvl_title_rendered_width / 2,
             self.LVL_TITLE_Y,
         )
         self.next_tetromino_title_rendered = self.font_info_titles.render(
             self.NEXT_TETROMINO_TITLE, True, self.FONT_COLOR
         )
-        self.next_tetromino_title_rendered_width = (
-            self.next_tetromino_title_rendered.get_width()
-        )
+        self.next_tetromino_title_rendered_width = self.next_tetromino_title_rendered.get_width()
         self.next_tetromino_title_coordinates = (
-            self.NEXT_WINDOW_X
-            + self.INFO_WINDOW_WIDTH / 2
-            - self.next_tetromino_title_rendered_width / 2,
+            self.NEXT_WINDOW_X + self.INFO_WINDOW_WIDTH / 2 - self.next_tetromino_title_rendered_width / 2,
             self.SCORE_NEXT_TITLE_Y,
         )
 
@@ -275,9 +235,7 @@ class Settings:
 
     def create_get_username_text(self) -> None:
         '''Creates the input box for the username'''
-        self.get_username_text = self.font_get_username.render(
-            self.GET_USERNAME_TEXT, True, self.FONT_COLOR
-        )
+        self.get_username_text = self.font_get_username.render(self.GET_USERNAME_TEXT, True, self.FONT_COLOR)
         self.get_username_input_rect = self.get_username_text.get_rect(
             topleft=(
                 self.SCREEN_WIDTH / 6,
