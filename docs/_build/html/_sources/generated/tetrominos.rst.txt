@@ -1,0 +1,27 @@
+﻿tetrominos
+==========
+
+.. automodule:: tetrominos
+
+
+
+
+
+
+
+
+
+
+
+   .. rubric:: Classes
+
+   .. autosummary::
+
+      Itetromino
+      Jtetromino
+      Ltetromino
+      Otetromino
+      Stetromino
+      Tetromino
+      Ttetromino
+      Ztetromino

@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>settings module &#8212; tetris-pygame 0.0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/agogo.css?v=47acb022" />
+    <script src="_static/documentation_options.js?v=d45e8c67"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  </head><body>
+    <div class="header-wrapper" role="banner">
+      <div class="header">
+        <div class="headertitle"><a
+          href="index.html">tetris-pygame 0.0.1 documentation</a></div>
+        <div class="rel" role="navigation" aria-label="related navigation">
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a>
+        </div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+
+  <section id="module-settings">
+<span id="settings-module"></span><h1>settings module<a class="headerlink" href="#module-settings" title="Link to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="settings.Settings">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">settings.</span></span><span class="sig-name descname"><span class="pre">Settings</span></span><a class="headerlink" href="#settings.Settings" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Settings class for the game</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.BG_COLOR">
+<span class="sig-name descname"><span class="pre">BG_COLOR</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(0,</span> <span class="pre">0,</span> <span class="pre">100)</span></em><a class="headerlink" href="#settings.Settings.BG_COLOR" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.CELL_BORDER_COLOR">
+<span class="sig-name descname"><span class="pre">CELL_BORDER_COLOR</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(119,</span> <span class="pre">136,</span> <span class="pre">153)</span></em><a class="headerlink" href="#settings.Settings.CELL_BORDER_COLOR" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.CHECK_KEYS_PRESSED_MOVEMENT_DOWN_TIME">
+<span class="sig-name descname"><span class="pre">CHECK_KEYS_PRESSED_MOVEMENT_DOWN_TIME</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">50</span></em><a class="headerlink" href="#settings.Settings.CHECK_KEYS_PRESSED_MOVEMENT_DOWN_TIME" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.CHECK_KEYS_PRESSED_MOVEMENT_SIDE_TIME">
+<span class="sig-name descname"><span class="pre">CHECK_KEYS_PRESSED_MOVEMENT_SIDE_TIME</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">80</span></em><a class="headerlink" href="#settings.Settings.CHECK_KEYS_PRESSED_MOVEMENT_SIDE_TIME" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.CHECK_KEYS_PRESSED_ROTATION_TIME">
+<span class="sig-name descname"><span class="pre">CHECK_KEYS_PRESSED_ROTATION_TIME</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">150</span></em><a class="headerlink" href="#settings.Settings.CHECK_KEYS_PRESSED_ROTATION_TIME" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.CONTROLS_ONE_KEY_X">
+<span class="sig-name descname"><span class="pre">CONTROLS_ONE_KEY_X</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">650.0</span></em><a class="headerlink" href="#settings.Settings.CONTROLS_ONE_KEY_X" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.CONTROLS_TEXTS">
+<span class="sig-name descname"><span class="pre">CONTROLS_TEXTS</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['move</span> <span class="pre">down',</span> <span class="pre">'move</span> <span class="pre">left',</span> <span class="pre">'move</span> <span class="pre">right',</span> <span class="pre">'hard</span> <span class="pre">drop',</span> <span class="pre">'rotate</span> <span class="pre">left',</span> <span class="pre">'rotate</span> <span class="pre">right']</span></em><a class="headerlink" href="#settings.Settings.CONTROLS_TEXTS" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.CONTROLS_TEXTS_X">
+<span class="sig-name descname"><span class="pre">CONTROLS_TEXTS_X</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">333.3333333333333</span></em><a class="headerlink" href="#settings.Settings.CONTROLS_TEXTS_X" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.CONTROLS_TEXTS_Y">
+<span class="sig-name descname"><span class="pre">CONTROLS_TEXTS_Y</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[320.0,</span> <span class="pre">400.0,</span> <span class="pre">480.0,</span> <span class="pre">560.0,</span> <span class="pre">640.0,</span> <span class="pre">720.0]</span></em><a class="headerlink" href="#settings.Settings.CONTROLS_TEXTS_Y" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.CONTROLS_TITLE">
+<span class="sig-name descname"><span class="pre">CONTROLS_TITLE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'CONTROLS'</span></em><a class="headerlink" href="#settings.Settings.CONTROLS_TITLE" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.CONTROLS_TITLE_Y">
+<span class="sig-name descname"><span class="pre">CONTROLS_TITLE_Y</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">160</span></em><a class="headerlink" href="#settings.Settings.CONTROLS_TITLE_Y" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.CONTROLS_TWO_KEYS_X">
+<span class="sig-name descname"><span class="pre">CONTROLS_TWO_KEYS_X</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[600.0,</span> <span class="pre">700.0]</span></em><a class="headerlink" href="#settings.Settings.CONTROLS_TWO_KEYS_X" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.EMPTY_CELL_TAG">
+<span class="sig-name descname"><span class="pre">EMPTY_CELL_TAG</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#settings.Settings.EMPTY_CELL_TAG" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.END_OF_BTNS_COLOR">
+<span class="sig-name descname"><span class="pre">END_OF_BTNS_COLOR</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(218,</span> <span class="pre">165,</span> <span class="pre">32)</span></em><a class="headerlink" href="#settings.Settings.END_OF_BTNS_COLOR" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.END_OF_GAME_BTNS_HEIGHT">
+<span class="sig-name descname"><span class="pre">END_OF_GAME_BTNS_HEIGHT</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">44</span></em><a class="headerlink" href="#settings.Settings.END_OF_GAME_BTNS_HEIGHT" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.END_OF_GAME_BTNS_WIDTH">
+<span class="sig-name descname"><span class="pre">END_OF_GAME_BTNS_WIDTH</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">125</span></em><a class="headerlink" href="#settings.Settings.END_OF_GAME_BTNS_WIDTH" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.END_OF_GAME_BTNS_Y">
+<span class="sig-name descname"><span class="pre">END_OF_GAME_BTNS_Y</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">400</span></em><a class="headerlink" href="#settings.Settings.END_OF_GAME_BTNS_Y" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.END_OF_GAME_MENU_BTN_TEXT">
+<span class="sig-name descname"><span class="pre">END_OF_GAME_MENU_BTN_TEXT</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Menu'</span></em><a class="headerlink" href="#settings.Settings.END_OF_GAME_MENU_BTN_TEXT" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.END_OF_GAME_MENU_BTN_X">
+<span class="sig-name descname"><span class="pre">END_OF_GAME_MENU_BTN_X</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">345</span></em><a class="headerlink" href="#settings.Settings.END_OF_GAME_MENU_BTN_X" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.END_OF_GAME_NEXT_BTN_TEXT">
+<span class="sig-name descname"><span class="pre">END_OF_GAME_NEXT_BTN_TEXT</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Next'</span></em><a class="headerlink" href="#settings.Settings.END_OF_GAME_NEXT_BTN_TEXT" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.END_OF_GAME_NEXT_BTN_X">
+<span class="sig-name descname"><span class="pre">END_OF_GAME_NEXT_BTN_X</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">530</span></em><a class="headerlink" href="#settings.Settings.END_OF_GAME_NEXT_BTN_X" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.FONT_COLOR">
+<span class="sig-name descname"><span class="pre">FONT_COLOR</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(255,</span> <span class="pre">255,</span> <span class="pre">255)</span></em><a class="headerlink" href="#settings.Settings.FONT_COLOR" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.FONT_NAME">
+<span class="sig-name descname"><span class="pre">FONT_NAME</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Tahoma'</span></em><a class="headerlink" href="#settings.Settings.FONT_NAME" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.FONT_SIZE_CONTROLS">
+<span class="sig-name descname"><span class="pre">FONT_SIZE_CONTROLS</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">30</span></em><a class="headerlink" href="#settings.Settings.FONT_SIZE_CONTROLS" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.FONT_SIZE_CONTROLS_TITLE">
+<span class="sig-name descname"><span class="pre">FONT_SIZE_CONTROLS_TITLE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">40</span></em><a class="headerlink" href="#settings.Settings.FONT_SIZE_CONTROLS_TITLE" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.FONT_SIZE_END_OF_GAME_BTNS">
+<span class="sig-name descname"><span class="pre">FONT_SIZE_END_OF_GAME_BTNS</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">20</span></em><a class="headerlink" href="#settings.Settings.FONT_SIZE_END_OF_GAME_BTNS" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.FONT_SIZE_GET_USERNAME">
+<span class="sig-name descname"><span class="pre">FONT_SIZE_GET_USERNAME</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">23</span></em><a class="headerlink" href="#settings.Settings.FONT_SIZE_GET_USERNAME" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.FONT_SIZE_INFO_TITLES">
+<span class="sig-name descname"><span class="pre">FONT_SIZE_INFO_TITLES</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">30</span></em><a class="headerlink" href="#settings.Settings.FONT_SIZE_INFO_TITLES" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.FONT_SIZE_LEADERBOARD">
+<span class="sig-name descname"><span class="pre">FONT_SIZE_LEADERBOARD</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">15</span></em><a class="headerlink" href="#settings.Settings.FONT_SIZE_LEADERBOARD" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.FONT_SIZE_LEADERBOARD_HEADER">
+<span class="sig-name descname"><span class="pre">FONT_SIZE_LEADERBOARD_HEADER</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">20</span></em><a class="headerlink" href="#settings.Settings.FONT_SIZE_LEADERBOARD_HEADER" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.FONT_SIZE_LEADERBOARD_TITLE">
+<span class="sig-name descname"><span class="pre">FONT_SIZE_LEADERBOARD_TITLE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">40</span></em><a class="headerlink" href="#settings.Settings.FONT_SIZE_LEADERBOARD_TITLE" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.FONT_SIZE_RULES">
+<span class="sig-name descname"><span class="pre">FONT_SIZE_RULES</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">30</span></em><a class="headerlink" href="#settings.Settings.FONT_SIZE_RULES" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.FONT_SIZE_RULES_TITLE">
+<span class="sig-name descname"><span class="pre">FONT_SIZE_RULES_TITLE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">40</span></em><a class="headerlink" href="#settings.Settings.FONT_SIZE_RULES_TITLE" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.FONT_SIZE_SCORE_LVL">
+<span class="sig-name descname"><span class="pre">FONT_SIZE_SCORE_LVL</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">30</span></em><a class="headerlink" href="#settings.Settings.FONT_SIZE_SCORE_LVL" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.FONT_SIZE_TETRIS_TITLE">
+<span class="sig-name descname"><span class="pre">FONT_SIZE_TETRIS_TITLE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">80</span></em><a class="headerlink" href="#settings.Settings.FONT_SIZE_TETRIS_TITLE" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.FPS">
+<span class="sig-name descname"><span class="pre">FPS</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">60</span></em><a class="headerlink" href="#settings.Settings.FPS" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.GAME_BORDER_COLOR">
+<span class="sig-name descname"><span class="pre">GAME_BORDER_COLOR</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(255,</span> <span class="pre">0,</span> <span class="pre">0)</span></em><a class="headerlink" href="#settings.Settings.GAME_BORDER_COLOR" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.GAME_WINDOW_HEIGHT">
+<span class="sig-name descname"><span class="pre">GAME_WINDOW_HEIGHT</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">600</span></em><a class="headerlink" href="#settings.Settings.GAME_WINDOW_HEIGHT" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.GAME_WINDOW_WIDTH">
+<span class="sig-name descname"><span class="pre">GAME_WINDOW_WIDTH</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">400</span></em><a class="headerlink" href="#settings.Settings.GAME_WINDOW_WIDTH" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.GET_USERNAME_INPUT_BOX_HEIGHT">
+<span class="sig-name descname"><span class="pre">GET_USERNAME_INPUT_BOX_HEIGHT</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">40</span></em><a class="headerlink" href="#settings.Settings.GET_USERNAME_INPUT_BOX_HEIGHT" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.GET_USERNAME_INPUT_BOX_WIDTH">
+<span class="sig-name descname"><span class="pre">GET_USERNAME_INPUT_BOX_WIDTH</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">250</span></em><a class="headerlink" href="#settings.Settings.GET_USERNAME_INPUT_BOX_WIDTH" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.GET_USERNAME_INPUT_BOX_X">
+<span class="sig-name descname"><span class="pre">GET_USERNAME_INPUT_BOX_X</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">588.2352941176471</span></em><a class="headerlink" href="#settings.Settings.GET_USERNAME_INPUT_BOX_X" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.GET_USERNAME_INPUT_BOX_Y">
+<span class="sig-name descname"><span class="pre">GET_USERNAME_INPUT_BOX_Y</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">392.0</span></em><a class="headerlink" href="#settings.Settings.GET_USERNAME_INPUT_BOX_Y" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.GET_USERNAME_TEXT">
+<span class="sig-name descname"><span class="pre">GET_USERNAME_TEXT</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ENTER</span> <span class="pre">YOUR</span> <span class="pre">USERNAME</span> <span class="pre">(ENTER)'</span></em><a class="headerlink" href="#settings.Settings.GET_USERNAME_TEXT" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.GO_BACK_BTN_X">
+<span class="sig-name descname"><span class="pre">GO_BACK_BTN_X</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">30</span></em><a class="headerlink" href="#settings.Settings.GO_BACK_BTN_X" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.GO_BACK_BTN_Y">
+<span class="sig-name descname"><span class="pre">GO_BACK_BTN_Y</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">40</span></em><a class="headerlink" href="#settings.Settings.GO_BACK_BTN_Y" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.GO_BACK_ICON_FILENAME">
+<span class="sig-name descname"><span class="pre">GO_BACK_ICON_FILENAME</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'assets/arrow_back.png'</span></em><a class="headerlink" href="#settings.Settings.GO_BACK_ICON_FILENAME" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.GRID_CELL_HEIGHT">
+<span class="sig-name descname"><span class="pre">GRID_CELL_HEIGHT</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">30</span></em><a class="headerlink" href="#settings.Settings.GRID_CELL_HEIGHT" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.GRID_CELL_WIDTH">
+<span class="sig-name descname"><span class="pre">GRID_CELL_WIDTH</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">40</span></em><a class="headerlink" href="#settings.Settings.GRID_CELL_WIDTH" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.GRID_N_OF_COL">
+<span class="sig-name descname"><span class="pre">GRID_N_OF_COL</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">10</span></em><a class="headerlink" href="#settings.Settings.GRID_N_OF_COL" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.GRID_N_OF_ROWS">
+<span class="sig-name descname"><span class="pre">GRID_N_OF_ROWS</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">22</span></em><a class="headerlink" href="#settings.Settings.GRID_N_OF_ROWS" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.HARD_DROP_KEY_FILENAME">
+<span class="sig-name descname"><span class="pre">HARD_DROP_KEY_FILENAME</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'assets/space_key.png'</span></em><a class="headerlink" href="#settings.Settings.HARD_DROP_KEY_FILENAME" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.HARD_DROP_LOOP_SLEEP_TIME">
+<span class="sig-name descname"><span class="pre">HARD_DROP_LOOP_SLEEP_TIME</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.01</span></em><a class="headerlink" href="#settings.Settings.HARD_DROP_LOOP_SLEEP_TIME" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.I">
+<span class="sig-name descname"><span class="pre">I</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(0,</span> <span class="pre">255,</span> <span class="pre">255)</span></em><a class="headerlink" href="#settings.Settings.I" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.INFO_WINDOW_HEIGHT">
+<span class="sig-name descname"><span class="pre">INFO_WINDOW_HEIGHT</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">150</span></em><a class="headerlink" href="#settings.Settings.INFO_WINDOW_HEIGHT" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.INFO_WINDOW_WIDTH">
+<span class="sig-name descname"><span class="pre">INFO_WINDOW_WIDTH</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">219</span></em><a class="headerlink" href="#settings.Settings.INFO_WINDOW_WIDTH" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.J">
+<span class="sig-name descname"><span class="pre">J</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(0,</span> <span class="pre">0,</span> <span class="pre">255)</span></em><a class="headerlink" href="#settings.Settings.J" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.L">
+<span class="sig-name descname"><span class="pre">L</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(255,</span> <span class="pre">165,</span> <span class="pre">0)</span></em><a class="headerlink" href="#settings.Settings.L" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.LEADERBOARD_BORDER_COLOR">
+<span class="sig-name descname"><span class="pre">LEADERBOARD_BORDER_COLOR</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(128,</span> <span class="pre">128,</span> <span class="pre">128)</span></em><a class="headerlink" href="#settings.Settings.LEADERBOARD_BORDER_COLOR" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.LEADERBOARD_BORDER_WIDTH">
+<span class="sig-name descname"><span class="pre">LEADERBOARD_BORDER_WIDTH</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#settings.Settings.LEADERBOARD_BORDER_WIDTH" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.LEADERBOARD_BORDER_X">
+<span class="sig-name descname"><span class="pre">LEADERBOARD_BORDER_X</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">62.5</span></em><a class="headerlink" href="#settings.Settings.LEADERBOARD_BORDER_X" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.LEADERBOARD_FIRST_ROW_Y">
+<span class="sig-name descname"><span class="pre">LEADERBOARD_FIRST_ROW_Y</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">352.22222222222223</span></em><a class="headerlink" href="#settings.Settings.LEADERBOARD_FIRST_ROW_Y" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.LEADERBOARD_HEADERS_TEXTS">
+<span class="sig-name descname"><span class="pre">LEADERBOARD_HEADERS_TEXTS</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['RANK',</span> <span class="pre">'USERNAME',</span> <span class="pre">'SCORE',</span> <span class="pre">'LVL',</span> <span class="pre">'GAMES</span> <span class="pre">PLAYED']</span></em><a class="headerlink" href="#settings.Settings.LEADERBOARD_HEADERS_TEXTS" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.LEADERBOARD_HEADER_BORDER_WIDTH">
+<span class="sig-name descname"><span class="pre">LEADERBOARD_HEADER_BORDER_WIDTH</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#settings.Settings.LEADERBOARD_HEADER_BORDER_WIDTH" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.LEADERBOARD_HEADER_HEIGHT">
+<span class="sig-name descname"><span class="pre">LEADERBOARD_HEADER_HEIGHT</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">100</span></em><a class="headerlink" href="#settings.Settings.LEADERBOARD_HEADER_HEIGHT" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.LEADERBOARD_HEADER_TEXT_Y">
+<span class="sig-name descname"><span class="pre">LEADERBOARD_HEADER_TEXT_Y</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">272.22222222222223</span></em><a class="headerlink" href="#settings.Settings.LEADERBOARD_HEADER_TEXT_Y" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.LEADERBOARD_HEADER_Y">
+<span class="sig-name descname"><span class="pre">LEADERBOARD_HEADER_Y</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">222.22222222222223</span></em><a class="headerlink" href="#settings.Settings.LEADERBOARD_HEADER_Y" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.LEADERBOARD_ROW_HEIGHT">
+<span class="sig-name descname"><span class="pre">LEADERBOARD_ROW_HEIGHT</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">40.0</span></em><a class="headerlink" href="#settings.Settings.LEADERBOARD_ROW_HEIGHT" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.LEADERBOARD_TEXT_WIDTH">
+<span class="sig-name descname"><span class="pre">LEADERBOARD_TEXT_WIDTH</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">175.0</span></em><a class="headerlink" href="#settings.Settings.LEADERBOARD_TEXT_WIDTH" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.LEADERBOARD_TEXT_X">
+<span class="sig-name descname"><span class="pre">LEADERBOARD_TEXT_X</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[107.14285714285715,</span> <span class="pre">282.14285714285717,</span> <span class="pre">500.0,</span> <span class="pre">675.0,</span> <span class="pre">850.0]</span></em><a class="headerlink" href="#settings.Settings.LEADERBOARD_TEXT_X" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.LEADERBOARD_TITLE">
+<span class="sig-name descname"><span class="pre">LEADERBOARD_TITLE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'LEADERBOARD'</span></em><a class="headerlink" href="#settings.Settings.LEADERBOARD_TITLE" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.LEADERBOARD_TITLE_Y">
+<span class="sig-name descname"><span class="pre">LEADERBOARD_TITLE_Y</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">160</span></em><a class="headerlink" href="#settings.Settings.LEADERBOARD_TITLE_Y" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.LEADERBOARD_WIDTH">
+<span class="sig-name descname"><span class="pre">LEADERBOARD_WIDTH</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">875.0</span></em><a class="headerlink" href="#settings.Settings.LEADERBOARD_WIDTH" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.LVL_TITLE">
+<span class="sig-name descname"><span class="pre">LVL_TITLE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'LEVEL'</span></em><a class="headerlink" href="#settings.Settings.LVL_TITLE" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.LVL_TITLE_Y">
+<span class="sig-name descname"><span class="pre">LVL_TITLE_Y</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">410.2564102564103</span></em><a class="headerlink" href="#settings.Settings.LVL_TITLE_Y" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.LVL_WINDOW_X">
+<span class="sig-name descname"><span class="pre">LVL_WINDOW_X</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">40</span></em><a class="headerlink" href="#settings.Settings.LVL_WINDOW_X" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.LVL_WINDOW_Y">
+<span class="sig-name descname"><span class="pre">LVL_WINDOW_Y</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">444.44444444444446</span></em><a class="headerlink" href="#settings.Settings.LVL_WINDOW_Y" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.MENU_BTNS_FIRST_Y">
+<span class="sig-name descname"><span class="pre">MENU_BTNS_FIRST_Y</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">200</span></em><a class="headerlink" href="#settings.Settings.MENU_BTNS_FIRST_Y" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.MENU_BTNS_HEIGHT">
+<span class="sig-name descname"><span class="pre">MENU_BTNS_HEIGHT</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">100</span></em><a class="headerlink" href="#settings.Settings.MENU_BTNS_HEIGHT" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.MENU_BTN_GAP">
+<span class="sig-name descname"><span class="pre">MENU_BTN_GAP</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">20</span></em><a class="headerlink" href="#settings.Settings.MENU_BTN_GAP" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.MENU_CONTROLS_TEXT">
+<span class="sig-name descname"><span class="pre">MENU_CONTROLS_TEXT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Controls'</span></em><a class="headerlink" href="#settings.Settings.MENU_CONTROLS_TEXT" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.MENU_LEADERBOARD_TEXT">
+<span class="sig-name descname"><span class="pre">MENU_LEADERBOARD_TEXT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Leaderboard'</span></em><a class="headerlink" href="#settings.Settings.MENU_LEADERBOARD_TEXT" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.MENU_QUIT_TEXT">
+<span class="sig-name descname"><span class="pre">MENU_QUIT_TEXT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Quit'</span></em><a class="headerlink" href="#settings.Settings.MENU_QUIT_TEXT" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.MENU_RULES_TEXT">
+<span class="sig-name descname"><span class="pre">MENU_RULES_TEXT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Rules'</span></em><a class="headerlink" href="#settings.Settings.MENU_RULES_TEXT" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.MENU_START_GAME_TEXT">
+<span class="sig-name descname"><span class="pre">MENU_START_GAME_TEXT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Start</span> <span class="pre">game'</span></em><a class="headerlink" href="#settings.Settings.MENU_START_GAME_TEXT" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.MOVE_DOWN_ACCELERATION_PER_LVL">
+<span class="sig-name descname"><span class="pre">MOVE_DOWN_ACCELERATION_PER_LVL</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">19</span></em><a class="headerlink" href="#settings.Settings.MOVE_DOWN_ACCELERATION_PER_LVL" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.MOVE_DOWN_START_TIME">
+<span class="sig-name descname"><span class="pre">MOVE_DOWN_START_TIME</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1000</span></em><a class="headerlink" href="#settings.Settings.MOVE_DOWN_START_TIME" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.MOVING_DOWN_KEY_1_FILENAME">
+<span class="sig-name descname"><span class="pre">MOVING_DOWN_KEY_1_FILENAME</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'assets/s_key.png'</span></em><a class="headerlink" href="#settings.Settings.MOVING_DOWN_KEY_1_FILENAME" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.MOVING_DOWN_KEY_2_FILENAME">
+<span class="sig-name descname"><span class="pre">MOVING_DOWN_KEY_2_FILENAME</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'assets/down_key.png'</span></em><a class="headerlink" href="#settings.Settings.MOVING_DOWN_KEY_2_FILENAME" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.MOVING_LEFT_KEY_1_FILENAME">
+<span class="sig-name descname"><span class="pre">MOVING_LEFT_KEY_1_FILENAME</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'assets/a_key.png'</span></em><a class="headerlink" href="#settings.Settings.MOVING_LEFT_KEY_1_FILENAME" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.MOVING_LEFT_KEY_2_FILENAME">
+<span class="sig-name descname"><span class="pre">MOVING_LEFT_KEY_2_FILENAME</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'assets/left_key.png'</span></em><a class="headerlink" href="#settings.Settings.MOVING_LEFT_KEY_2_FILENAME" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.MOVING_RIGHT_KEY_1_FILENAME">
+<span class="sig-name descname"><span class="pre">MOVING_RIGHT_KEY_1_FILENAME</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'assets/d_key.png'</span></em><a class="headerlink" href="#settings.Settings.MOVING_RIGHT_KEY_1_FILENAME" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.MOVING_RIGHT_KEY_2_FILENAME">
+<span class="sig-name descname"><span class="pre">MOVING_RIGHT_KEY_2_FILENAME</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'assets/right_key.png'</span></em><a class="headerlink" href="#settings.Settings.MOVING_RIGHT_KEY_2_FILENAME" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.NEXT_TETROMINO_CELL_HEIGHT">
+<span class="sig-name descname"><span class="pre">NEXT_TETROMINO_CELL_HEIGHT</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">37</span></em><a class="headerlink" href="#settings.Settings.NEXT_TETROMINO_CELL_HEIGHT" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.NEXT_TETROMINO_CELL_WIDTH">
+<span class="sig-name descname"><span class="pre">NEXT_TETROMINO_CELL_WIDTH</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">54</span></em><a class="headerlink" href="#settings.Settings.NEXT_TETROMINO_CELL_WIDTH" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.NEXT_TETROMINO_N_OF_COL">
+<span class="sig-name descname"><span class="pre">NEXT_TETROMINO_N_OF_COL</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#settings.Settings.NEXT_TETROMINO_N_OF_COL" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.NEXT_TETROMINO_N_OF_ROWS">
+<span class="sig-name descname"><span class="pre">NEXT_TETROMINO_N_OF_ROWS</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#settings.Settings.NEXT_TETROMINO_N_OF_ROWS" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.NEXT_TETROMINO_TITLE">
+<span class="sig-name descname"><span class="pre">NEXT_TETROMINO_TITLE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'NEXT'</span></em><a class="headerlink" href="#settings.Settings.NEXT_TETROMINO_TITLE" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.NEXT_WINDOW_X">
+<span class="sig-name descname"><span class="pre">NEXT_WINDOW_X</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">740.7407407407406</span></em><a class="headerlink" href="#settings.Settings.NEXT_WINDOW_X" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.NEXT_WINDOW_Y">
+<span class="sig-name descname"><span class="pre">NEXT_WINDOW_Y</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">200</span></em><a class="headerlink" href="#settings.Settings.NEXT_WINDOW_Y" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.N_OF_LINES_TO_LVL_UP">
+<span class="sig-name descname"><span class="pre">N_OF_LINES_TO_LVL_UP</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">10</span></em><a class="headerlink" href="#settings.Settings.N_OF_LINES_TO_LVL_UP" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.O">
+<span class="sig-name descname"><span class="pre">O</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(255,</span> <span class="pre">255,</span> <span class="pre">0)</span></em><a class="headerlink" href="#settings.Settings.O" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.POINTS_FOR_HARD_DROP">
+<span class="sig-name descname"><span class="pre">POINTS_FOR_HARD_DROP</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#settings.Settings.POINTS_FOR_HARD_DROP" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.POINTS_FOR_SOFT_DROP">
+<span class="sig-name descname"><span class="pre">POINTS_FOR_SOFT_DROP</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#settings.Settings.POINTS_FOR_SOFT_DROP" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.POINTS_PER_LINES">
+<span class="sig-name descname"><span class="pre">POINTS_PER_LINES</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{1:</span> <span class="pre">100,</span> <span class="pre">2:</span> <span class="pre">300,</span> <span class="pre">3:</span> <span class="pre">500,</span> <span class="pre">4:</span> <span class="pre">800}</span></em><a class="headerlink" href="#settings.Settings.POINTS_PER_LINES" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.ROTATE_LEFT_KEY_FILENAME">
+<span class="sig-name descname"><span class="pre">ROTATE_LEFT_KEY_FILENAME</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'assets/z_key.png'</span></em><a class="headerlink" href="#settings.Settings.ROTATE_LEFT_KEY_FILENAME" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.ROTATE_RIGHT_KEY_1_FILENAME">
+<span class="sig-name descname"><span class="pre">ROTATE_RIGHT_KEY_1_FILENAME</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'assets/w_key.png'</span></em><a class="headerlink" href="#settings.Settings.ROTATE_RIGHT_KEY_1_FILENAME" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.ROTATE_RIGHT_KEY_2_FILENAME">
+<span class="sig-name descname"><span class="pre">ROTATE_RIGHT_KEY_2_FILENAME</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'assets/up_key.png'</span></em><a class="headerlink" href="#settings.Settings.ROTATE_RIGHT_KEY_2_FILENAME" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.RULES_TEXT_Y">
+<span class="sig-name descname"><span class="pre">RULES_TEXT_Y</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">320.0</span></em><a class="headerlink" href="#settings.Settings.RULES_TEXT_Y" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.RULES_TITLE">
+<span class="sig-name descname"><span class="pre">RULES_TITLE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'RULES'</span></em><a class="headerlink" href="#settings.Settings.RULES_TITLE" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.RULES_TITLE_Y">
+<span class="sig-name descname"><span class="pre">RULES_TITLE_Y</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">160</span></em><a class="headerlink" href="#settings.Settings.RULES_TITLE_Y" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.S">
+<span class="sig-name descname"><span class="pre">S</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(0,</span> <span class="pre">255,</span> <span class="pre">0)</span></em><a class="headerlink" href="#settings.Settings.S" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.SCORE_NEXT_TITLE_Y">
+<span class="sig-name descname"><span class="pre">SCORE_NEXT_TITLE_Y</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">160</span></em><a class="headerlink" href="#settings.Settings.SCORE_NEXT_TITLE_Y" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.SCORE_TITLE">
+<span class="sig-name descname"><span class="pre">SCORE_TITLE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'SCORE'</span></em><a class="headerlink" href="#settings.Settings.SCORE_TITLE" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.SCORE_WINDOW_X">
+<span class="sig-name descname"><span class="pre">SCORE_WINDOW_X</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">40</span></em><a class="headerlink" href="#settings.Settings.SCORE_WINDOW_X" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.SCORE_WINDOW_Y">
+<span class="sig-name descname"><span class="pre">SCORE_WINDOW_Y</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">200</span></em><a class="headerlink" href="#settings.Settings.SCORE_WINDOW_Y" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.SCREEN_HEIGHT">
+<span class="sig-name descname"><span class="pre">SCREEN_HEIGHT</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">800</span></em><a class="headerlink" href="#settings.Settings.SCREEN_HEIGHT" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.SCREEN_WIDTH">
+<span class="sig-name descname"><span class="pre">SCREEN_WIDTH</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1000</span></em><a class="headerlink" href="#settings.Settings.SCREEN_WIDTH" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.SECOND_BG_COLOR">
+<span class="sig-name descname"><span class="pre">SECOND_BG_COLOR</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(0,</span> <span class="pre">0,</span> <span class="pre">0)</span></em><a class="headerlink" href="#settings.Settings.SECOND_BG_COLOR" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.T">
+<span class="sig-name descname"><span class="pre">T</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(128,</span> <span class="pre">0,</span> <span class="pre">128)</span></em><a class="headerlink" href="#settings.Settings.T" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.TETRIS_TITLE">
+<span class="sig-name descname"><span class="pre">TETRIS_TITLE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'TETRIS'</span></em><a class="headerlink" href="#settings.Settings.TETRIS_TITLE" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.TETRIS_TITLE_Y">
+<span class="sig-name descname"><span class="pre">TETRIS_TITLE_Y</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">50</span></em><a class="headerlink" href="#settings.Settings.TETRIS_TITLE_Y" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="settings.Settings.Z">
+<span class="sig-name descname"><span class="pre">Z</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(255,</span> <span class="pre">0,</span> <span class="pre">0)</span></em><a class="headerlink" href="#settings.Settings.Z" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="settings.Settings.check_go_back_btn_hover">
+<span class="sig-name descname"><span class="pre">check_go_back_btn_hover</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#settings.Settings.check_go_back_btn_hover" title="Link to this definition">¶</a></dt>
+<dd><p>Checks if mouse is hovering over the go_back button and changes the cursor accordingly</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="settings.Settings.create_end_of_game_btns">
+<span class="sig-name descname"><span class="pre">create_end_of_game_btns</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#settings.Settings.create_end_of_game_btns" title="Link to this definition">¶</a></dt>
+<dd><p>Creates buttons displayed after the game is lost</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="settings.Settings.create_get_username_text">
+<span class="sig-name descname"><span class="pre">create_get_username_text</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#settings.Settings.create_get_username_text" title="Link to this definition">¶</a></dt>
+<dd><p>Creates the input box for the username</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="settings.Settings.create_go_back_btn">
+<span class="sig-name descname"><span class="pre">create_go_back_btn</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#settings.Settings.create_go_back_btn" title="Link to this definition">¶</a></dt>
+<dd><p>Creates the go back button</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="settings.Settings.create_titles_properties">
+<span class="sig-name descname"><span class="pre">create_titles_properties</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#settings.Settings.create_titles_properties" title="Link to this definition">¶</a></dt>
+<dd><p>Create properties for the titles</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="settings.Settings.draw_go_back_btn">
+<span class="sig-name descname"><span class="pre">draw_go_back_btn</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#settings.Settings.draw_go_back_btn" title="Link to this definition">¶</a></dt>
+<dd><p>Draws the go back button</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="settings.Settings.draw_tetris_title">
+<span class="sig-name descname"><span class="pre">draw_tetris_title</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#settings.Settings.draw_tetris_title" title="Link to this definition">¶</a></dt>
+<dd><p>Draws the tetris title</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+
+          <h3>Table of Contents</h3>
+
+          <div role="search">
+            <h3 style="margin-top: 1.5em;">Search</h3>
+            <form class="search" action="search.html" method="get">
+                <input type="text" name="q" />
+                <input type="submit" value="Go" />
+            </form>
+          </div>
+
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <div role="navigation" aria-label="related navigaton">
+            <a href="py-modindex.html" title="Python Module Index"
+              >modules</a> |
+            <a href="genindex.html" title="General Index"
+              >index</a>
+          </div>
+          <div role="note" aria-label="source link">
+              <br/>
+              <a href="_sources/settings.rst.txt"
+                rel="nofollow">Show Source</a>
+          </div>
+        </div>
+
+        <div class="right">
+
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2023, Łukasz Łukaszewski.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>

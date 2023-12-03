@@ -1,0 +1,3 @@
+.. automodule:: tetrominos
+    :members:
+    :show-inheritance:
