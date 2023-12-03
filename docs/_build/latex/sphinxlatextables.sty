@@ -831,7 +831,7 @@
 \def\sphinxnorowcolor{\spx@table@hackCT@norowcolor}%
 
 % \sphinxtoprule (or rather \sphinxtabletoprulehook) will be modified by
-% the colorrows class to execute this one:
+% the colorrows class to execute this one: 
 \def\spx@table@@toprule@rowcolorON{%
         \noalign{%
           % Because of tabulary 2-pass system, the colour set-up at end of table
@@ -1063,7 +1063,7 @@ local use of booktabs table style}%
 
 \def\sphinxthistablewithnocolorrowsstyle{%
     \let\sphinxifthistablewithcolorrowsTF\@secondoftwo
-% rather than trying to remove the code added by 'colorrows' style, we
+% rather than trying to remove the code added by 'colorrows' style, we 
 % simply make it no-op, without even checking if really it was activated.
     \let\spx@table@toprule@rowcolorON\@empty
     \let\spx@table@startbodycolorrows\@empty

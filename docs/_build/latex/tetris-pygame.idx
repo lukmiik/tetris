@@ -1,0 +1,360 @@
+\indexentry{module@\spxentry{module}!main@\spxentry{main}|hyperpage}{1}
+\indexentry{main@\spxentry{main}!module@\spxentry{module}|hyperpage}{1}
+\indexentry{main() (in module main)@\spxentry{main()}\spxextra{in module main}|hyperpage}{1}
+\indexentry{module@\spxentry{module}!settings@\spxentry{settings}|hyperpage}{3}
+\indexentry{settings@\spxentry{settings}!module@\spxentry{module}|hyperpage}{3}
+\indexentry{Settings (class in settings)@\spxentry{Settings}\spxextra{class in settings}|hyperpage}{3}
+\indexentry{BG\_COLOR (settings.Settings attribute)@\spxentry{BG\_COLOR}\spxextra{settings.Settings attribute}|hyperpage}{3}
+\indexentry{CELL\_BORDER\_COLOR (settings.Settings attribute)@\spxentry{CELL\_BORDER\_COLOR}\spxextra{settings.Settings attribute}|hyperpage}{3}
+\indexentry{CHECK\_KEYS\_PRESSED\_MOVEMENT\_DOWN\_TIME (settings.Settings attribute)@\spxentry{CHECK\_KEYS\_PRESSED\_MOVEMENT\_DOWN\_TIME}\spxextra{settings.Settings attribute}|hyperpage}{3}
+\indexentry{CHECK\_KEYS\_PRESSED\_MOVEMENT\_SIDE\_TIME (settings.Settings attribute)@\spxentry{CHECK\_KEYS\_PRESSED\_MOVEMENT\_SIDE\_TIME}\spxextra{settings.Settings attribute}|hyperpage}{3}
+\indexentry{CHECK\_KEYS\_PRESSED\_ROTATION\_TIME (settings.Settings attribute)@\spxentry{CHECK\_KEYS\_PRESSED\_ROTATION\_TIME}\spxextra{settings.Settings attribute}|hyperpage}{3}
+\indexentry{CONTROLS\_ONE\_KEY\_X (settings.Settings attribute)@\spxentry{CONTROLS\_ONE\_KEY\_X}\spxextra{settings.Settings attribute}|hyperpage}{3}
+\indexentry{CONTROLS\_TEXTS (settings.Settings attribute)@\spxentry{CONTROLS\_TEXTS}\spxextra{settings.Settings attribute}|hyperpage}{3}
+\indexentry{CONTROLS\_TEXTS\_X (settings.Settings attribute)@\spxentry{CONTROLS\_TEXTS\_X}\spxextra{settings.Settings attribute}|hyperpage}{3}
+\indexentry{CONTROLS\_TEXTS\_Y (settings.Settings attribute)@\spxentry{CONTROLS\_TEXTS\_Y}\spxextra{settings.Settings attribute}|hyperpage}{3}
+\indexentry{CONTROLS\_TITLE (settings.Settings attribute)@\spxentry{CONTROLS\_TITLE}\spxextra{settings.Settings attribute}|hyperpage}{3}
+\indexentry{CONTROLS\_TITLE\_Y (settings.Settings attribute)@\spxentry{CONTROLS\_TITLE\_Y}\spxextra{settings.Settings attribute}|hyperpage}{3}
+\indexentry{CONTROLS\_TWO\_KEYS\_X (settings.Settings attribute)@\spxentry{CONTROLS\_TWO\_KEYS\_X}\spxextra{settings.Settings attribute}|hyperpage}{3}
+\indexentry{EMPTY\_CELL\_TAG (settings.Settings attribute)@\spxentry{EMPTY\_CELL\_TAG}\spxextra{settings.Settings attribute}|hyperpage}{3}
+\indexentry{END\_OF\_BTNS\_COLOR (settings.Settings attribute)@\spxentry{END\_OF\_BTNS\_COLOR}\spxextra{settings.Settings attribute}|hyperpage}{3}
+\indexentry{END\_OF\_GAME\_BTNS\_HEIGHT (settings.Settings attribute)@\spxentry{END\_OF\_GAME\_BTNS\_HEIGHT}\spxextra{settings.Settings attribute}|hyperpage}{3}
+\indexentry{END\_OF\_GAME\_BTNS\_WIDTH (settings.Settings attribute)@\spxentry{END\_OF\_GAME\_BTNS\_WIDTH}\spxextra{settings.Settings attribute}|hyperpage}{3}
+\indexentry{END\_OF\_GAME\_BTNS\_Y (settings.Settings attribute)@\spxentry{END\_OF\_GAME\_BTNS\_Y}\spxextra{settings.Settings attribute}|hyperpage}{3}
+\indexentry{END\_OF\_GAME\_MENU\_BTN\_TEXT (settings.Settings attribute)@\spxentry{END\_OF\_GAME\_MENU\_BTN\_TEXT}\spxextra{settings.Settings attribute}|hyperpage}{3}
+\indexentry{END\_OF\_GAME\_MENU\_BTN\_X (settings.Settings attribute)@\spxentry{END\_OF\_GAME\_MENU\_BTN\_X}\spxextra{settings.Settings attribute}|hyperpage}{3}
+\indexentry{END\_OF\_GAME\_NEXT\_BTN\_TEXT (settings.Settings attribute)@\spxentry{END\_OF\_GAME\_NEXT\_BTN\_TEXT}\spxextra{settings.Settings attribute}|hyperpage}{3}
+\indexentry{END\_OF\_GAME\_NEXT\_BTN\_X (settings.Settings attribute)@\spxentry{END\_OF\_GAME\_NEXT\_BTN\_X}\spxextra{settings.Settings attribute}|hyperpage}{3}
+\indexentry{FONT\_COLOR (settings.Settings attribute)@\spxentry{FONT\_COLOR}\spxextra{settings.Settings attribute}|hyperpage}{4}
+\indexentry{FONT\_NAME (settings.Settings attribute)@\spxentry{FONT\_NAME}\spxextra{settings.Settings attribute}|hyperpage}{4}
+\indexentry{FONT\_SIZE\_CONTROLS (settings.Settings attribute)@\spxentry{FONT\_SIZE\_CONTROLS}\spxextra{settings.Settings attribute}|hyperpage}{4}
+\indexentry{FONT\_SIZE\_CONTROLS\_TITLE (settings.Settings attribute)@\spxentry{FONT\_SIZE\_CONTROLS\_TITLE}\spxextra{settings.Settings attribute}|hyperpage}{4}
+\indexentry{FONT\_SIZE\_END\_OF\_GAME\_BTNS (settings.Settings attribute)@\spxentry{FONT\_SIZE\_END\_OF\_GAME\_BTNS}\spxextra{settings.Settings attribute}|hyperpage}{4}
+\indexentry{FONT\_SIZE\_GET\_USERNAME (settings.Settings attribute)@\spxentry{FONT\_SIZE\_GET\_USERNAME}\spxextra{settings.Settings attribute}|hyperpage}{4}
+\indexentry{FONT\_SIZE\_INFO\_TITLES (settings.Settings attribute)@\spxentry{FONT\_SIZE\_INFO\_TITLES}\spxextra{settings.Settings attribute}|hyperpage}{4}
+\indexentry{FONT\_SIZE\_LEADERBOARD (settings.Settings attribute)@\spxentry{FONT\_SIZE\_LEADERBOARD}\spxextra{settings.Settings attribute}|hyperpage}{4}
+\indexentry{FONT\_SIZE\_LEADERBOARD\_HEADER (settings.Settings attribute)@\spxentry{FONT\_SIZE\_LEADERBOARD\_HEADER}\spxextra{settings.Settings attribute}|hyperpage}{4}
+\indexentry{FONT\_SIZE\_LEADERBOARD\_TITLE (settings.Settings attribute)@\spxentry{FONT\_SIZE\_LEADERBOARD\_TITLE}\spxextra{settings.Settings attribute}|hyperpage}{4}
+\indexentry{FONT\_SIZE\_RULES (settings.Settings attribute)@\spxentry{FONT\_SIZE\_RULES}\spxextra{settings.Settings attribute}|hyperpage}{4}
+\indexentry{FONT\_SIZE\_RULES\_TITLE (settings.Settings attribute)@\spxentry{FONT\_SIZE\_RULES\_TITLE}\spxextra{settings.Settings attribute}|hyperpage}{4}
+\indexentry{FONT\_SIZE\_SCORE\_LVL (settings.Settings attribute)@\spxentry{FONT\_SIZE\_SCORE\_LVL}\spxextra{settings.Settings attribute}|hyperpage}{4}
+\indexentry{FONT\_SIZE\_TETRIS\_TITLE (settings.Settings attribute)@\spxentry{FONT\_SIZE\_TETRIS\_TITLE}\spxextra{settings.Settings attribute}|hyperpage}{4}
+\indexentry{FPS (settings.Settings attribute)@\spxentry{FPS}\spxextra{settings.Settings attribute}|hyperpage}{4}
+\indexentry{GAME\_BORDER\_COLOR (settings.Settings attribute)@\spxentry{GAME\_BORDER\_COLOR}\spxextra{settings.Settings attribute}|hyperpage}{4}
+\indexentry{GAME\_WINDOW\_HEIGHT (settings.Settings attribute)@\spxentry{GAME\_WINDOW\_HEIGHT}\spxextra{settings.Settings attribute}|hyperpage}{4}
+\indexentry{GAME\_WINDOW\_WIDTH (settings.Settings attribute)@\spxentry{GAME\_WINDOW\_WIDTH}\spxextra{settings.Settings attribute}|hyperpage}{4}
+\indexentry{GET\_USERNAME\_INPUT\_BOX\_HEIGHT (settings.Settings attribute)@\spxentry{GET\_USERNAME\_INPUT\_BOX\_HEIGHT}\spxextra{settings.Settings attribute}|hyperpage}{4}
+\indexentry{GET\_USERNAME\_INPUT\_BOX\_WIDTH (settings.Settings attribute)@\spxentry{GET\_USERNAME\_INPUT\_BOX\_WIDTH}\spxextra{settings.Settings attribute}|hyperpage}{4}
+\indexentry{GET\_USERNAME\_INPUT\_BOX\_X (settings.Settings attribute)@\spxentry{GET\_USERNAME\_INPUT\_BOX\_X}\spxextra{settings.Settings attribute}|hyperpage}{4}
+\indexentry{GET\_USERNAME\_INPUT\_BOX\_Y (settings.Settings attribute)@\spxentry{GET\_USERNAME\_INPUT\_BOX\_Y}\spxextra{settings.Settings attribute}|hyperpage}{4}
+\indexentry{GET\_USERNAME\_TEXT (settings.Settings attribute)@\spxentry{GET\_USERNAME\_TEXT}\spxextra{settings.Settings attribute}|hyperpage}{4}
+\indexentry{GO\_BACK\_BTN\_X (settings.Settings attribute)@\spxentry{GO\_BACK\_BTN\_X}\spxextra{settings.Settings attribute}|hyperpage}{4}
+\indexentry{GO\_BACK\_BTN\_Y (settings.Settings attribute)@\spxentry{GO\_BACK\_BTN\_Y}\spxextra{settings.Settings attribute}|hyperpage}{4}
+\indexentry{GO\_BACK\_ICON\_FILENAME (settings.Settings attribute)@\spxentry{GO\_BACK\_ICON\_FILENAME}\spxextra{settings.Settings attribute}|hyperpage}{4}
+\indexentry{GRID\_CELL\_HEIGHT (settings.Settings attribute)@\spxentry{GRID\_CELL\_HEIGHT}\spxextra{settings.Settings attribute}|hyperpage}{4}
+\indexentry{GRID\_CELL\_WIDTH (settings.Settings attribute)@\spxentry{GRID\_CELL\_WIDTH}\spxextra{settings.Settings attribute}|hyperpage}{4}
+\indexentry{GRID\_N\_OF\_COL (settings.Settings attribute)@\spxentry{GRID\_N\_OF\_COL}\spxextra{settings.Settings attribute}|hyperpage}{4}
+\indexentry{GRID\_N\_OF\_ROWS (settings.Settings attribute)@\spxentry{GRID\_N\_OF\_ROWS}\spxextra{settings.Settings attribute}|hyperpage}{4}
+\indexentry{HARD\_DROP\_KEY\_FILENAME (settings.Settings attribute)@\spxentry{HARD\_DROP\_KEY\_FILENAME}\spxextra{settings.Settings attribute}|hyperpage}{4}
+\indexentry{HARD\_DROP\_LOOP\_SLEEP\_TIME (settings.Settings attribute)@\spxentry{HARD\_DROP\_LOOP\_SLEEP\_TIME}\spxextra{settings.Settings attribute}|hyperpage}{5}
+\indexentry{I (settings.Settings attribute)@\spxentry{I}\spxextra{settings.Settings attribute}|hyperpage}{5}
+\indexentry{INFO\_WINDOW\_HEIGHT (settings.Settings attribute)@\spxentry{INFO\_WINDOW\_HEIGHT}\spxextra{settings.Settings attribute}|hyperpage}{5}
+\indexentry{INFO\_WINDOW\_WIDTH (settings.Settings attribute)@\spxentry{INFO\_WINDOW\_WIDTH}\spxextra{settings.Settings attribute}|hyperpage}{5}
+\indexentry{J (settings.Settings attribute)@\spxentry{J}\spxextra{settings.Settings attribute}|hyperpage}{5}
+\indexentry{L (settings.Settings attribute)@\spxentry{L}\spxextra{settings.Settings attribute}|hyperpage}{5}
+\indexentry{LEADERBOARD\_BORDER\_COLOR (settings.Settings attribute)@\spxentry{LEADERBOARD\_BORDER\_COLOR}\spxextra{settings.Settings attribute}|hyperpage}{5}
+\indexentry{LEADERBOARD\_BORDER\_WIDTH (settings.Settings attribute)@\spxentry{LEADERBOARD\_BORDER\_WIDTH}\spxextra{settings.Settings attribute}|hyperpage}{5}
+\indexentry{LEADERBOARD\_BORDER\_X (settings.Settings attribute)@\spxentry{LEADERBOARD\_BORDER\_X}\spxextra{settings.Settings attribute}|hyperpage}{5}
+\indexentry{LEADERBOARD\_FIRST\_ROW\_Y (settings.Settings attribute)@\spxentry{LEADERBOARD\_FIRST\_ROW\_Y}\spxextra{settings.Settings attribute}|hyperpage}{5}
+\indexentry{LEADERBOARD\_HEADERS\_TEXTS (settings.Settings attribute)@\spxentry{LEADERBOARD\_HEADERS\_TEXTS}\spxextra{settings.Settings attribute}|hyperpage}{5}
+\indexentry{LEADERBOARD\_HEADER\_BORDER\_WIDTH (settings.Settings attribute)@\spxentry{LEADERBOARD\_HEADER\_BORDER\_WIDTH}\spxextra{settings.Settings attribute}|hyperpage}{5}
+\indexentry{LEADERBOARD\_HEADER\_HEIGHT (settings.Settings attribute)@\spxentry{LEADERBOARD\_HEADER\_HEIGHT}\spxextra{settings.Settings attribute}|hyperpage}{5}
+\indexentry{LEADERBOARD\_HEADER\_TEXT\_Y (settings.Settings attribute)@\spxentry{LEADERBOARD\_HEADER\_TEXT\_Y}\spxextra{settings.Settings attribute}|hyperpage}{5}
+\indexentry{LEADERBOARD\_HEADER\_Y (settings.Settings attribute)@\spxentry{LEADERBOARD\_HEADER\_Y}\spxextra{settings.Settings attribute}|hyperpage}{5}
+\indexentry{LEADERBOARD\_ROW\_HEIGHT (settings.Settings attribute)@\spxentry{LEADERBOARD\_ROW\_HEIGHT}\spxextra{settings.Settings attribute}|hyperpage}{5}
+\indexentry{LEADERBOARD\_TEXT\_WIDTH (settings.Settings attribute)@\spxentry{LEADERBOARD\_TEXT\_WIDTH}\spxextra{settings.Settings attribute}|hyperpage}{5}
+\indexentry{LEADERBOARD\_TEXT\_X (settings.Settings attribute)@\spxentry{LEADERBOARD\_TEXT\_X}\spxextra{settings.Settings attribute}|hyperpage}{5}
+\indexentry{LEADERBOARD\_TITLE (settings.Settings attribute)@\spxentry{LEADERBOARD\_TITLE}\spxextra{settings.Settings attribute}|hyperpage}{5}
+\indexentry{LEADERBOARD\_TITLE\_Y (settings.Settings attribute)@\spxentry{LEADERBOARD\_TITLE\_Y}\spxextra{settings.Settings attribute}|hyperpage}{5}
+\indexentry{LEADERBOARD\_WIDTH (settings.Settings attribute)@\spxentry{LEADERBOARD\_WIDTH}\spxextra{settings.Settings attribute}|hyperpage}{5}
+\indexentry{LVL\_TITLE (settings.Settings attribute)@\spxentry{LVL\_TITLE}\spxextra{settings.Settings attribute}|hyperpage}{5}
+\indexentry{LVL\_TITLE\_Y (settings.Settings attribute)@\spxentry{LVL\_TITLE\_Y}\spxextra{settings.Settings attribute}|hyperpage}{5}
+\indexentry{LVL\_WINDOW\_X (settings.Settings attribute)@\spxentry{LVL\_WINDOW\_X}\spxextra{settings.Settings attribute}|hyperpage}{5}
+\indexentry{LVL\_WINDOW\_Y (settings.Settings attribute)@\spxentry{LVL\_WINDOW\_Y}\spxextra{settings.Settings attribute}|hyperpage}{5}
+\indexentry{MENU\_BTNS\_FIRST\_Y (settings.Settings attribute)@\spxentry{MENU\_BTNS\_FIRST\_Y}\spxextra{settings.Settings attribute}|hyperpage}{5}
+\indexentry{MENU\_BTNS\_HEIGHT (settings.Settings attribute)@\spxentry{MENU\_BTNS\_HEIGHT}\spxextra{settings.Settings attribute}|hyperpage}{5}
+\indexentry{MENU\_BTN\_GAP (settings.Settings attribute)@\spxentry{MENU\_BTN\_GAP}\spxextra{settings.Settings attribute}|hyperpage}{5}
+\indexentry{MENU\_CONTROLS\_TEXT (settings.Settings attribute)@\spxentry{MENU\_CONTROLS\_TEXT}\spxextra{settings.Settings attribute}|hyperpage}{5}
+\indexentry{MENU\_LEADERBOARD\_TEXT (settings.Settings attribute)@\spxentry{MENU\_LEADERBOARD\_TEXT}\spxextra{settings.Settings attribute}|hyperpage}{6}
+\indexentry{MENU\_QUIT\_TEXT (settings.Settings attribute)@\spxentry{MENU\_QUIT\_TEXT}\spxextra{settings.Settings attribute}|hyperpage}{6}
+\indexentry{MENU\_RULES\_TEXT (settings.Settings attribute)@\spxentry{MENU\_RULES\_TEXT}\spxextra{settings.Settings attribute}|hyperpage}{6}
+\indexentry{MENU\_START\_GAME\_TEXT (settings.Settings attribute)@\spxentry{MENU\_START\_GAME\_TEXT}\spxextra{settings.Settings attribute}|hyperpage}{6}
+\indexentry{MOVE\_DOWN\_ACCELERATION\_PER\_LVL (settings.Settings attribute)@\spxentry{MOVE\_DOWN\_ACCELERATION\_PER\_LVL}\spxextra{settings.Settings attribute}|hyperpage}{6}
+\indexentry{MOVE\_DOWN\_START\_TIME (settings.Settings attribute)@\spxentry{MOVE\_DOWN\_START\_TIME}\spxextra{settings.Settings attribute}|hyperpage}{6}
+\indexentry{MOVING\_DOWN\_KEY\_1\_FILENAME (settings.Settings attribute)@\spxentry{MOVING\_DOWN\_KEY\_1\_FILENAME}\spxextra{settings.Settings attribute}|hyperpage}{6}
+\indexentry{MOVING\_DOWN\_KEY\_2\_FILENAME (settings.Settings attribute)@\spxentry{MOVING\_DOWN\_KEY\_2\_FILENAME}\spxextra{settings.Settings attribute}|hyperpage}{6}
+\indexentry{MOVING\_LEFT\_KEY\_1\_FILENAME (settings.Settings attribute)@\spxentry{MOVING\_LEFT\_KEY\_1\_FILENAME}\spxextra{settings.Settings attribute}|hyperpage}{6}
+\indexentry{MOVING\_LEFT\_KEY\_2\_FILENAME (settings.Settings attribute)@\spxentry{MOVING\_LEFT\_KEY\_2\_FILENAME}\spxextra{settings.Settings attribute}|hyperpage}{6}
+\indexentry{MOVING\_RIGHT\_KEY\_1\_FILENAME (settings.Settings attribute)@\spxentry{MOVING\_RIGHT\_KEY\_1\_FILENAME}\spxextra{settings.Settings attribute}|hyperpage}{6}
+\indexentry{MOVING\_RIGHT\_KEY\_2\_FILENAME (settings.Settings attribute)@\spxentry{MOVING\_RIGHT\_KEY\_2\_FILENAME}\spxextra{settings.Settings attribute}|hyperpage}{6}
+\indexentry{NEXT\_TETROMINO\_CELL\_HEIGHT (settings.Settings attribute)@\spxentry{NEXT\_TETROMINO\_CELL\_HEIGHT}\spxextra{settings.Settings attribute}|hyperpage}{6}
+\indexentry{NEXT\_TETROMINO\_CELL\_WIDTH (settings.Settings attribute)@\spxentry{NEXT\_TETROMINO\_CELL\_WIDTH}\spxextra{settings.Settings attribute}|hyperpage}{6}
+\indexentry{NEXT\_TETROMINO\_N\_OF\_COL (settings.Settings attribute)@\spxentry{NEXT\_TETROMINO\_N\_OF\_COL}\spxextra{settings.Settings attribute}|hyperpage}{6}
+\indexentry{NEXT\_TETROMINO\_N\_OF\_ROWS (settings.Settings attribute)@\spxentry{NEXT\_TETROMINO\_N\_OF\_ROWS}\spxextra{settings.Settings attribute}|hyperpage}{6}
+\indexentry{NEXT\_TETROMINO\_TITLE (settings.Settings attribute)@\spxentry{NEXT\_TETROMINO\_TITLE}\spxextra{settings.Settings attribute}|hyperpage}{6}
+\indexentry{NEXT\_WINDOW\_X (settings.Settings attribute)@\spxentry{NEXT\_WINDOW\_X}\spxextra{settings.Settings attribute}|hyperpage}{6}
+\indexentry{NEXT\_WINDOW\_Y (settings.Settings attribute)@\spxentry{NEXT\_WINDOW\_Y}\spxextra{settings.Settings attribute}|hyperpage}{6}
+\indexentry{N\_OF\_LINES\_TO\_LVL\_UP (settings.Settings attribute)@\spxentry{N\_OF\_LINES\_TO\_LVL\_UP}\spxextra{settings.Settings attribute}|hyperpage}{6}
+\indexentry{O (settings.Settings attribute)@\spxentry{O}\spxextra{settings.Settings attribute}|hyperpage}{6}
+\indexentry{POINTS\_FOR\_HARD\_DROP (settings.Settings attribute)@\spxentry{POINTS\_FOR\_HARD\_DROP}\spxextra{settings.Settings attribute}|hyperpage}{6}
+\indexentry{POINTS\_FOR\_SOFT\_DROP (settings.Settings attribute)@\spxentry{POINTS\_FOR\_SOFT\_DROP}\spxextra{settings.Settings attribute}|hyperpage}{6}
+\indexentry{POINTS\_PER\_LINES (settings.Settings attribute)@\spxentry{POINTS\_PER\_LINES}\spxextra{settings.Settings attribute}|hyperpage}{6}
+\indexentry{ROTATE\_LEFT\_KEY\_FILENAME (settings.Settings attribute)@\spxentry{ROTATE\_LEFT\_KEY\_FILENAME}\spxextra{settings.Settings attribute}|hyperpage}{6}
+\indexentry{ROTATE\_RIGHT\_KEY\_1\_FILENAME (settings.Settings attribute)@\spxentry{ROTATE\_RIGHT\_KEY\_1\_FILENAME}\spxextra{settings.Settings attribute}|hyperpage}{6}
+\indexentry{ROTATE\_RIGHT\_KEY\_2\_FILENAME (settings.Settings attribute)@\spxentry{ROTATE\_RIGHT\_KEY\_2\_FILENAME}\spxextra{settings.Settings attribute}|hyperpage}{6}
+\indexentry{RULES\_TEXT\_Y (settings.Settings attribute)@\spxentry{RULES\_TEXT\_Y}\spxextra{settings.Settings attribute}|hyperpage}{6}
+\indexentry{RULES\_TITLE (settings.Settings attribute)@\spxentry{RULES\_TITLE}\spxextra{settings.Settings attribute}|hyperpage}{6}
+\indexentry{RULES\_TITLE\_Y (settings.Settings attribute)@\spxentry{RULES\_TITLE\_Y}\spxextra{settings.Settings attribute}|hyperpage}{6}
+\indexentry{S (settings.Settings attribute)@\spxentry{S}\spxextra{settings.Settings attribute}|hyperpage}{6}
+\indexentry{SCORE\_NEXT\_TITLE\_Y (settings.Settings attribute)@\spxentry{SCORE\_NEXT\_TITLE\_Y}\spxextra{settings.Settings attribute}|hyperpage}{7}
+\indexentry{SCORE\_TITLE (settings.Settings attribute)@\spxentry{SCORE\_TITLE}\spxextra{settings.Settings attribute}|hyperpage}{7}
+\indexentry{SCORE\_WINDOW\_X (settings.Settings attribute)@\spxentry{SCORE\_WINDOW\_X}\spxextra{settings.Settings attribute}|hyperpage}{7}
+\indexentry{SCORE\_WINDOW\_Y (settings.Settings attribute)@\spxentry{SCORE\_WINDOW\_Y}\spxextra{settings.Settings attribute}|hyperpage}{7}
+\indexentry{SCREEN\_HEIGHT (settings.Settings attribute)@\spxentry{SCREEN\_HEIGHT}\spxextra{settings.Settings attribute}|hyperpage}{7}
+\indexentry{SCREEN\_WIDTH (settings.Settings attribute)@\spxentry{SCREEN\_WIDTH}\spxextra{settings.Settings attribute}|hyperpage}{7}
+\indexentry{SECOND\_BG\_COLOR (settings.Settings attribute)@\spxentry{SECOND\_BG\_COLOR}\spxextra{settings.Settings attribute}|hyperpage}{7}
+\indexentry{T (settings.Settings attribute)@\spxentry{T}\spxextra{settings.Settings attribute}|hyperpage}{7}
+\indexentry{TETRIS\_TITLE (settings.Settings attribute)@\spxentry{TETRIS\_TITLE}\spxextra{settings.Settings attribute}|hyperpage}{7}
+\indexentry{TETRIS\_TITLE\_Y (settings.Settings attribute)@\spxentry{TETRIS\_TITLE\_Y}\spxextra{settings.Settings attribute}|hyperpage}{7}
+\indexentry{Z (settings.Settings attribute)@\spxentry{Z}\spxextra{settings.Settings attribute}|hyperpage}{7}
+\indexentry{check\_go\_back\_btn\_hover() (settings.Settings method)@\spxentry{check\_go\_back\_btn\_hover()}\spxextra{settings.Settings method}|hyperpage}{7}
+\indexentry{create\_end\_of\_game\_btns() (settings.Settings method)@\spxentry{create\_end\_of\_game\_btns()}\spxextra{settings.Settings method}|hyperpage}{7}
+\indexentry{create\_get\_username\_text() (settings.Settings method)@\spxentry{create\_get\_username\_text()}\spxextra{settings.Settings method}|hyperpage}{7}
+\indexentry{create\_go\_back\_btn() (settings.Settings method)@\spxentry{create\_go\_back\_btn()}\spxextra{settings.Settings method}|hyperpage}{7}
+\indexentry{create\_titles\_properties() (settings.Settings method)@\spxentry{create\_titles\_properties()}\spxextra{settings.Settings method}|hyperpage}{7}
+\indexentry{draw\_go\_back\_btn() (settings.Settings method)@\spxentry{draw\_go\_back\_btn()}\spxextra{settings.Settings method}|hyperpage}{7}
+\indexentry{draw\_tetris\_title() (settings.Settings method)@\spxentry{draw\_tetris\_title()}\spxextra{settings.Settings method}|hyperpage}{7}
+\indexentry{module@\spxentry{module}!menu@\spxentry{menu}|hyperpage}{9}
+\indexentry{menu@\spxentry{menu}!module@\spxentry{module}|hyperpage}{9}
+\indexentry{Menu (class in menu)@\spxentry{Menu}\spxextra{class in menu}|hyperpage}{9}
+\indexentry{CONTROLS\_CHOICE (menu.Menu attribute)@\spxentry{CONTROLS\_CHOICE}\spxextra{menu.Menu attribute}|hyperpage}{9}
+\indexentry{GAME\_CHOICE (menu.Menu attribute)@\spxentry{GAME\_CHOICE}\spxextra{menu.Menu attribute}|hyperpage}{9}
+\indexentry{LEADERBOARD\_CHOICE (menu.Menu attribute)@\spxentry{LEADERBOARD\_CHOICE}\spxextra{menu.Menu attribute}|hyperpage}{9}
+\indexentry{QUIT\_CHOICE (menu.Menu attribute)@\spxentry{QUIT\_CHOICE}\spxextra{menu.Menu attribute}|hyperpage}{9}
+\indexentry{RULES\_CHOICE (menu.Menu attribute)@\spxentry{RULES\_CHOICE}\spxextra{menu.Menu attribute}|hyperpage}{9}
+\indexentry{check\_events() (menu.Menu method)@\spxentry{check\_events()}\spxextra{menu.Menu method}|hyperpage}{9}
+\indexentry{check\_hover() (menu.Menu method)@\spxentry{check\_hover()}\spxextra{menu.Menu method}|hyperpage}{9}
+\indexentry{choice (menu.Menu attribute)@\spxentry{choice}\spxextra{menu.Menu attribute}|hyperpage}{9}
+\indexentry{create\_buttons() (menu.Menu method)@\spxentry{create\_buttons()}\spxextra{menu.Menu method}|hyperpage}{9}
+\indexentry{draw\_buttons() (menu.Menu method)@\spxentry{draw\_buttons()}\spxextra{menu.Menu method}|hyperpage}{9}
+\indexentry{main() (menu.Menu method)@\spxentry{main()}\spxextra{menu.Menu method}|hyperpage}{9}
+\indexentry{module@\spxentry{module}!game@\spxentry{game}|hyperpage}{11}
+\indexentry{game@\spxentry{game}!module@\spxentry{module}|hyperpage}{11}
+\indexentry{Game (class in game)@\spxentry{Game}\spxextra{class in game}|hyperpage}{11}
+\indexentry{add\_score() (game.Game method)@\spxentry{add\_score()}\spxextra{game.Game method}|hyperpage}{11}
+\indexentry{check\_events() (game.Game method)@\spxentry{check\_events()}\spxextra{game.Game method}|hyperpage}{11}
+\indexentry{check\_hover() (game.Game method)@\spxentry{check\_hover()}\spxextra{game.Game method}|hyperpage}{11}
+\indexentry{check\_line() (game.Game method)@\spxentry{check\_line()}\spxextra{game.Game method}|hyperpage}{11}
+\indexentry{check\_lvl\_up() (game.Game method)@\spxentry{check\_lvl\_up()}\spxextra{game.Game method}|hyperpage}{11}
+\indexentry{check\_pressed\_down\_movement() (game.Game method)@\spxentry{check\_pressed\_down\_movement()}\spxextra{game.Game method}|hyperpage}{11}
+\indexentry{check\_pressed\_rotate() (game.Game method)@\spxentry{check\_pressed\_rotate()}\spxextra{game.Game method}|hyperpage}{11}
+\indexentry{check\_pressed\_side\_movement() (game.Game method)@\spxentry{check\_pressed\_side\_movement()}\spxextra{game.Game method}|hyperpage}{11}
+\indexentry{check\_tetromino\_above\_top() (game.Game method)@\spxentry{check\_tetromino\_above\_top()}\spxextra{game.Game method}|hyperpage}{11}
+\indexentry{create\_game\_windows() (game.Game method)@\spxentry{create\_game\_windows()}\spxextra{game.Game method}|hyperpage}{11}
+\indexentry{db\_insert\_user() (game.Game method)@\spxentry{db\_insert\_user()}\spxextra{game.Game method}|hyperpage}{11}
+\indexentry{delete\_line() (game.Game method)@\spxentry{delete\_line()}\spxextra{game.Game method}|hyperpage}{11}
+\indexentry{draw\_end\_of\_game\_btns() (game.Game method)@\spxentry{draw\_end\_of\_game\_btns()}\spxextra{game.Game method}|hyperpage}{12}
+\indexentry{draw\_game\_window() (game.Game method)@\spxentry{draw\_game\_window()}\spxextra{game.Game method}|hyperpage}{12}
+\indexentry{draw\_grid() (game.Game method)@\spxentry{draw\_grid()}\spxextra{game.Game method}|hyperpage}{12}
+\indexentry{draw\_lvl() (game.Game method)@\spxentry{draw\_lvl()}\spxextra{game.Game method}|hyperpage}{12}
+\indexentry{draw\_lvl\_title() (game.Game method)@\spxentry{draw\_lvl\_title()}\spxextra{game.Game method}|hyperpage}{12}
+\indexentry{draw\_lvl\_window() (game.Game method)@\spxentry{draw\_lvl\_window()}\spxextra{game.Game method}|hyperpage}{12}
+\indexentry{draw\_next\_tetromino() (game.Game method)@\spxentry{draw\_next\_tetromino()}\spxextra{game.Game method}|hyperpage}{12}
+\indexentry{draw\_next\_tetromino\_title() (game.Game method)@\spxentry{draw\_next\_tetromino\_title()}\spxextra{game.Game method}|hyperpage}{12}
+\indexentry{draw\_next\_tetromino\_window() (game.Game method)@\spxentry{draw\_next\_tetromino\_window()}\spxextra{game.Game method}|hyperpage}{12}
+\indexentry{draw\_score() (game.Game method)@\spxentry{draw\_score()}\spxextra{game.Game method}|hyperpage}{12}
+\indexentry{draw\_score\_title() (game.Game method)@\spxentry{draw\_score\_title()}\spxextra{game.Game method}|hyperpage}{12}
+\indexentry{draw\_score\_window() (game.Game method)@\spxentry{draw\_score\_window()}\spxextra{game.Game method}|hyperpage}{12}
+\indexentry{game\_window (game.Game attribute)@\spxentry{game\_window}\spxextra{game.Game attribute}|hyperpage}{12}
+\indexentry{game\_window\_rect (game.Game attribute)@\spxentry{game\_window\_rect}\spxextra{game.Game attribute}|hyperpage}{12}
+\indexentry{get\_username() (game.Game method)@\spxentry{get\_username()}\spxextra{game.Game method}|hyperpage}{12}
+\indexentry{grid (game.Game attribute)@\spxentry{grid}\spxextra{game.Game attribute}|hyperpage}{12}
+\indexentry{init\_properties() (game.Game method)@\spxentry{init\_properties()}\spxextra{game.Game method}|hyperpage}{12}
+\indexentry{lines\_cleared (game.Game attribute)@\spxentry{lines\_cleared}\spxextra{game.Game attribute}|hyperpage}{12}
+\indexentry{lvl (game.Game attribute)@\spxentry{lvl}\spxextra{game.Game attribute}|hyperpage}{12}
+\indexentry{lvl\_up() (game.Game method)@\spxentry{lvl\_up()}\spxextra{game.Game method}|hyperpage}{12}
+\indexentry{lvl\_window (game.Game attribute)@\spxentry{lvl\_window}\spxextra{game.Game attribute}|hyperpage}{12}
+\indexentry{lvl\_window\_rect (game.Game attribute)@\spxentry{lvl\_window\_rect}\spxextra{game.Game attribute}|hyperpage}{12}
+\indexentry{main() (game.Game method)@\spxentry{main()}\spxextra{game.Game method}|hyperpage}{12}
+\indexentry{move\_down\_key\_pressed (game.Game attribute)@\spxentry{move\_down\_key\_pressed}\spxextra{game.Game attribute}|hyperpage}{13}
+\indexentry{next\_game() (game.Game method)@\spxentry{next\_game()}\spxextra{game.Game method}|hyperpage}{13}
+\indexentry{next\_tetromino\_grid (game.Game attribute)@\spxentry{next\_tetromino\_grid}\spxextra{game.Game attribute}|hyperpage}{13}
+\indexentry{next\_tetromino\_window (game.Game attribute)@\spxentry{next\_tetromino\_window}\spxextra{game.Game attribute}|hyperpage}{13}
+\indexentry{next\_tetromino\_window\_rect (game.Game attribute)@\spxentry{next\_tetromino\_window\_rect}\spxextra{game.Game attribute}|hyperpage}{13}
+\indexentry{print\_grid() (game.Game method)@\spxentry{print\_grid()}\spxextra{game.Game method}|hyperpage}{13}
+\indexentry{random\_tetromino() (game.Game method)@\spxentry{random\_tetromino()}\spxextra{game.Game method}|hyperpage}{13}
+\indexentry{score (game.Game attribute)@\spxentry{score}\spxextra{game.Game attribute}|hyperpage}{13}
+\indexentry{score\_window (game.Game attribute)@\spxentry{score\_window}\spxextra{game.Game attribute}|hyperpage}{13}
+\indexentry{score\_window\_rect (game.Game attribute)@\spxentry{score\_window\_rect}\spxextra{game.Game attribute}|hyperpage}{13}
+\indexentry{space\_down (game.Game attribute)@\spxentry{space\_down}\spxextra{game.Game attribute}|hyperpage}{13}
+\indexentry{username (game.Game attribute)@\spxentry{username}\spxextra{game.Game attribute}|hyperpage}{13}
+\indexentry{module@\spxentry{module}!tetrominos@\spxentry{tetrominos}|hyperpage}{15}
+\indexentry{tetrominos@\spxentry{tetrominos}!module@\spxentry{module}|hyperpage}{15}
+\indexentry{Itetromino (class in tetrominos)@\spxentry{Itetromino}\spxextra{class in tetrominos}|hyperpage}{15}
+\indexentry{NEXT\_TETROMINO\_GRID\_POS (tetrominos.Itetromino attribute)@\spxentry{NEXT\_TETROMINO\_GRID\_POS}\spxextra{tetrominos.Itetromino attribute}|hyperpage}{15}
+\indexentry{SPAWN\_POS (tetrominos.Itetromino attribute)@\spxentry{SPAWN\_POS}\spxextra{tetrominos.Itetromino attribute}|hyperpage}{15}
+\indexentry{TAG (tetrominos.Itetromino attribute)@\spxentry{TAG}\spxextra{tetrominos.Itetromino attribute}|hyperpage}{15}
+\indexentry{pos0() (tetrominos.Itetromino method)@\spxentry{pos0()}\spxextra{tetrominos.Itetromino method}|hyperpage}{15}
+\indexentry{pos1() (tetrominos.Itetromino method)@\spxentry{pos1()}\spxextra{tetrominos.Itetromino method}|hyperpage}{15}
+\indexentry{pos2() (tetrominos.Itetromino method)@\spxentry{pos2()}\spxextra{tetrominos.Itetromino method}|hyperpage}{15}
+\indexentry{pos3() (tetrominos.Itetromino method)@\spxentry{pos3()}\spxextra{tetrominos.Itetromino method}|hyperpage}{15}
+\indexentry{rotate\_left() (tetrominos.Itetromino method)@\spxentry{rotate\_left()}\spxextra{tetrominos.Itetromino method}|hyperpage}{15}
+\indexentry{rotate\_right() (tetrominos.Itetromino method)@\spxentry{rotate\_right()}\spxextra{tetrominos.Itetromino method}|hyperpage}{15}
+\indexentry{Jtetromino (class in tetrominos)@\spxentry{Jtetromino}\spxextra{class in tetrominos}|hyperpage}{15}
+\indexentry{NEXT\_TETROMINO\_GRID\_POS (tetrominos.Jtetromino attribute)@\spxentry{NEXT\_TETROMINO\_GRID\_POS}\spxextra{tetrominos.Jtetromino attribute}|hyperpage}{15}
+\indexentry{SPAWN\_POS (tetrominos.Jtetromino attribute)@\spxentry{SPAWN\_POS}\spxextra{tetrominos.Jtetromino attribute}|hyperpage}{15}
+\indexentry{TAG (tetrominos.Jtetromino attribute)@\spxentry{TAG}\spxextra{tetrominos.Jtetromino attribute}|hyperpage}{15}
+\indexentry{pos0() (tetrominos.Jtetromino method)@\spxentry{pos0()}\spxextra{tetrominos.Jtetromino method}|hyperpage}{15}
+\indexentry{pos1() (tetrominos.Jtetromino method)@\spxentry{pos1()}\spxextra{tetrominos.Jtetromino method}|hyperpage}{15}
+\indexentry{pos2() (tetrominos.Jtetromino method)@\spxentry{pos2()}\spxextra{tetrominos.Jtetromino method}|hyperpage}{15}
+\indexentry{pos3() (tetrominos.Jtetromino method)@\spxentry{pos3()}\spxextra{tetrominos.Jtetromino method}|hyperpage}{15}
+\indexentry{Ltetromino (class in tetrominos)@\spxentry{Ltetromino}\spxextra{class in tetrominos}|hyperpage}{16}
+\indexentry{NEXT\_TETROMINO\_GRID\_POS (tetrominos.Ltetromino attribute)@\spxentry{NEXT\_TETROMINO\_GRID\_POS}\spxextra{tetrominos.Ltetromino attribute}|hyperpage}{16}
+\indexentry{SPAWN\_POS (tetrominos.Ltetromino attribute)@\spxentry{SPAWN\_POS}\spxextra{tetrominos.Ltetromino attribute}|hyperpage}{16}
+\indexentry{TAG (tetrominos.Ltetromino attribute)@\spxentry{TAG}\spxextra{tetrominos.Ltetromino attribute}|hyperpage}{16}
+\indexentry{pos0() (tetrominos.Ltetromino method)@\spxentry{pos0()}\spxextra{tetrominos.Ltetromino method}|hyperpage}{16}
+\indexentry{pos1() (tetrominos.Ltetromino method)@\spxentry{pos1()}\spxextra{tetrominos.Ltetromino method}|hyperpage}{16}
+\indexentry{pos2() (tetrominos.Ltetromino method)@\spxentry{pos2()}\spxextra{tetrominos.Ltetromino method}|hyperpage}{16}
+\indexentry{pos3() (tetrominos.Ltetromino method)@\spxentry{pos3()}\spxextra{tetrominos.Ltetromino method}|hyperpage}{16}
+\indexentry{Otetromino (class in tetrominos)@\spxentry{Otetromino}\spxextra{class in tetrominos}|hyperpage}{16}
+\indexentry{NEXT\_TETROMINO\_GRID\_POS (tetrominos.Otetromino attribute)@\spxentry{NEXT\_TETROMINO\_GRID\_POS}\spxextra{tetrominos.Otetromino attribute}|hyperpage}{16}
+\indexentry{SPAWN\_POS (tetrominos.Otetromino attribute)@\spxentry{SPAWN\_POS}\spxextra{tetrominos.Otetromino attribute}|hyperpage}{16}
+\indexentry{TAG (tetrominos.Otetromino attribute)@\spxentry{TAG}\spxextra{tetrominos.Otetromino attribute}|hyperpage}{16}
+\indexentry{rotate\_left() (tetrominos.Otetromino method)@\spxentry{rotate\_left()}\spxextra{tetrominos.Otetromino method}|hyperpage}{16}
+\indexentry{rotate\_right() (tetrominos.Otetromino method)@\spxentry{rotate\_right()}\spxextra{tetrominos.Otetromino method}|hyperpage}{16}
+\indexentry{Stetromino (class in tetrominos)@\spxentry{Stetromino}\spxextra{class in tetrominos}|hyperpage}{16}
+\indexentry{NEXT\_TETROMINO\_GRID\_POS (tetrominos.Stetromino attribute)@\spxentry{NEXT\_TETROMINO\_GRID\_POS}\spxextra{tetrominos.Stetromino attribute}|hyperpage}{16}
+\indexentry{SPAWN\_POS (tetrominos.Stetromino attribute)@\spxentry{SPAWN\_POS}\spxextra{tetrominos.Stetromino attribute}|hyperpage}{16}
+\indexentry{TAG (tetrominos.Stetromino attribute)@\spxentry{TAG}\spxextra{tetrominos.Stetromino attribute}|hyperpage}{16}
+\indexentry{pos0() (tetrominos.Stetromino method)@\spxentry{pos0()}\spxextra{tetrominos.Stetromino method}|hyperpage}{16}
+\indexentry{pos1() (tetrominos.Stetromino method)@\spxentry{pos1()}\spxextra{tetrominos.Stetromino method}|hyperpage}{16}
+\indexentry{pos2() (tetrominos.Stetromino method)@\spxentry{pos2()}\spxextra{tetrominos.Stetromino method}|hyperpage}{16}
+\indexentry{pos3() (tetrominos.Stetromino method)@\spxentry{pos3()}\spxextra{tetrominos.Stetromino method}|hyperpage}{16}
+\indexentry{Tetromino (class in tetrominos)@\spxentry{Tetromino}\spxextra{class in tetrominos}|hyperpage}{16}
+\indexentry{LAST\_COL\_IDX (tetrominos.Tetromino attribute)@\spxentry{LAST\_COL\_IDX}\spxextra{tetrominos.Tetromino attribute}|hyperpage}{17}
+\indexentry{NEXT\_TETROMINO\_GRID\_POS (tetrominos.Tetromino attribute)@\spxentry{NEXT\_TETROMINO\_GRID\_POS}\spxextra{tetrominos.Tetromino attribute}|hyperpage}{17}
+\indexentry{SPAWN\_POS (tetrominos.Tetromino attribute)@\spxentry{SPAWN\_POS}\spxextra{tetrominos.Tetromino attribute}|hyperpage}{17}
+\indexentry{TAG (tetrominos.Tetromino attribute)@\spxentry{TAG}\spxextra{tetrominos.Tetromino attribute}|hyperpage}{17}
+\indexentry{check\_cell\_available\_for\_rotation() (tetrominos.Tetromino method)@\spxentry{check\_cell\_available\_for\_rotation()}\spxextra{tetrominos.Tetromino method}|hyperpage}{17}
+\indexentry{check\_down() (tetrominos.Tetromino method)@\spxentry{check\_down()}\spxextra{tetrominos.Tetromino method}|hyperpage}{17}
+\indexentry{check\_move\_left() (tetrominos.Tetromino method)@\spxentry{check\_move\_left()}\spxextra{tetrominos.Tetromino method}|hyperpage}{17}
+\indexentry{check\_move\_right() (tetrominos.Tetromino method)@\spxentry{check\_move\_right()}\spxextra{tetrominos.Tetromino method}|hyperpage}{17}
+\indexentry{check\_touch() (tetrominos.Tetromino method)@\spxentry{check\_touch()}\spxextra{tetrominos.Tetromino method}|hyperpage}{17}
+\indexentry{clear() (tetrominos.Tetromino method)@\spxentry{clear()}\spxextra{tetrominos.Tetromino method}|hyperpage}{17}
+\indexentry{clear\_next\_tetromino\_window() (tetrominos.Tetromino method)@\spxentry{clear\_next\_tetromino\_window()}\spxextra{tetrominos.Tetromino method}|hyperpage}{18}
+\indexentry{hard\_drop() (tetrominos.Tetromino method)@\spxentry{hard\_drop()}\spxextra{tetrominos.Tetromino method}|hyperpage}{18}
+\indexentry{move\_down() (tetrominos.Tetromino method)@\spxentry{move\_down()}\spxextra{tetrominos.Tetromino method}|hyperpage}{18}
+\indexentry{move\_left() (tetrominos.Tetromino method)@\spxentry{move\_left()}\spxextra{tetrominos.Tetromino method}|hyperpage}{18}
+\indexentry{move\_right() (tetrominos.Tetromino method)@\spxentry{move\_right()}\spxextra{tetrominos.Tetromino method}|hyperpage}{18}
+\indexentry{pos (tetrominos.Tetromino attribute)@\spxentry{pos}\spxextra{tetrominos.Tetromino attribute}|hyperpage}{18}
+\indexentry{pos0() (tetrominos.Tetromino method)@\spxentry{pos0()}\spxextra{tetrominos.Tetromino method}|hyperpage}{18}
+\indexentry{pos1() (tetrominos.Tetromino method)@\spxentry{pos1()}\spxextra{tetrominos.Tetromino method}|hyperpage}{18}
+\indexentry{pos2() (tetrominos.Tetromino method)@\spxentry{pos2()}\spxextra{tetrominos.Tetromino method}|hyperpage}{18}
+\indexentry{pos3() (tetrominos.Tetromino method)@\spxentry{pos3()}\spxextra{tetrominos.Tetromino method}|hyperpage}{18}
+\indexentry{put\_on\_next\_tetromino\_window() (tetrominos.Tetromino method)@\spxentry{put\_on\_next\_tetromino\_window()}\spxextra{tetrominos.Tetromino method}|hyperpage}{18}
+\indexentry{rotate\_left() (tetrominos.Tetromino method)@\spxentry{rotate\_left()}\spxextra{tetrominos.Tetromino method}|hyperpage}{18}
+\indexentry{rotate\_right() (tetrominos.Tetromino method)@\spxentry{rotate\_right()}\spxextra{tetrominos.Tetromino method}|hyperpage}{18}
+\indexentry{spawn() (tetrominos.Tetromino method)@\spxentry{spawn()}\spxextra{tetrominos.Tetromino method}|hyperpage}{18}
+\indexentry{update\_on\_grid() (tetrominos.Tetromino method)@\spxentry{update\_on\_grid()}\spxextra{tetrominos.Tetromino method}|hyperpage}{18}
+\indexentry{Ttetromino (class in tetrominos)@\spxentry{Ttetromino}\spxextra{class in tetrominos}|hyperpage}{18}
+\indexentry{NEXT\_TETROMINO\_GRID\_POS (tetrominos.Ttetromino attribute)@\spxentry{NEXT\_TETROMINO\_GRID\_POS}\spxextra{tetrominos.Ttetromino attribute}|hyperpage}{18}
+\indexentry{SPAWN\_POS (tetrominos.Ttetromino attribute)@\spxentry{SPAWN\_POS}\spxextra{tetrominos.Ttetromino attribute}|hyperpage}{18}
+\indexentry{TAG (tetrominos.Ttetromino attribute)@\spxentry{TAG}\spxextra{tetrominos.Ttetromino attribute}|hyperpage}{18}
+\indexentry{pos0() (tetrominos.Ttetromino method)@\spxentry{pos0()}\spxextra{tetrominos.Ttetromino method}|hyperpage}{18}
+\indexentry{pos1() (tetrominos.Ttetromino method)@\spxentry{pos1()}\spxextra{tetrominos.Ttetromino method}|hyperpage}{18}
+\indexentry{pos2() (tetrominos.Ttetromino method)@\spxentry{pos2()}\spxextra{tetrominos.Ttetromino method}|hyperpage}{19}
+\indexentry{pos3() (tetrominos.Ttetromino method)@\spxentry{pos3()}\spxextra{tetrominos.Ttetromino method}|hyperpage}{19}
+\indexentry{Ztetromino (class in tetrominos)@\spxentry{Ztetromino}\spxextra{class in tetrominos}|hyperpage}{19}
+\indexentry{NEXT\_TETROMINO\_GRID\_POS (tetrominos.Ztetromino attribute)@\spxentry{NEXT\_TETROMINO\_GRID\_POS}\spxextra{tetrominos.Ztetromino attribute}|hyperpage}{19}
+\indexentry{SPAWN\_POS (tetrominos.Ztetromino attribute)@\spxentry{SPAWN\_POS}\spxextra{tetrominos.Ztetromino attribute}|hyperpage}{19}
+\indexentry{TAG (tetrominos.Ztetromino attribute)@\spxentry{TAG}\spxextra{tetrominos.Ztetromino attribute}|hyperpage}{19}
+\indexentry{pos0() (tetrominos.Ztetromino method)@\spxentry{pos0()}\spxextra{tetrominos.Ztetromino method}|hyperpage}{19}
+\indexentry{pos1() (tetrominos.Ztetromino method)@\spxentry{pos1()}\spxextra{tetrominos.Ztetromino method}|hyperpage}{19}
+\indexentry{pos2() (tetrominos.Ztetromino method)@\spxentry{pos2()}\spxextra{tetrominos.Ztetromino method}|hyperpage}{19}
+\indexentry{pos3() (tetrominos.Ztetromino method)@\spxentry{pos3()}\spxextra{tetrominos.Ztetromino method}|hyperpage}{19}
+\indexentry{module@\spxentry{module}!leaderboard@\spxentry{leaderboard}|hyperpage}{21}
+\indexentry{leaderboard@\spxentry{leaderboard}!module@\spxentry{module}|hyperpage}{21}
+\indexentry{Leaderboard (class in leaderboard)@\spxentry{Leaderboard}\spxextra{class in leaderboard}|hyperpage}{21}
+\indexentry{check\_events() (leaderboard.Leaderboard method)@\spxentry{check\_events()}\spxextra{leaderboard.Leaderboard method}|hyperpage}{21}
+\indexentry{create\_draw\_row() (leaderboard.Leaderboard method)@\spxentry{create\_draw\_row()}\spxextra{leaderboard.Leaderboard method}|hyperpage}{21}
+\indexentry{create\_header() (leaderboard.Leaderboard method)@\spxentry{create\_header()}\spxextra{leaderboard.Leaderboard method}|hyperpage}{21}
+\indexentry{create\_leaderboard() (leaderboard.Leaderboard method)@\spxentry{create\_leaderboard()}\spxextra{leaderboard.Leaderboard method}|hyperpage}{21}
+\indexentry{create\_title() (leaderboard.Leaderboard method)@\spxentry{create\_title()}\spxextra{leaderboard.Leaderboard method}|hyperpage}{21}
+\indexentry{draw\_header() (leaderboard.Leaderboard method)@\spxentry{draw\_header()}\spxextra{leaderboard.Leaderboard method}|hyperpage}{21}
+\indexentry{draw\_title() (leaderboard.Leaderboard method)@\spxentry{draw\_title()}\spxextra{leaderboard.Leaderboard method}|hyperpage}{21}
+\indexentry{main() (leaderboard.Leaderboard method)@\spxentry{main()}\spxextra{leaderboard.Leaderboard method}|hyperpage}{21}
+\indexentry{module@\spxentry{module}!controls@\spxentry{controls}|hyperpage}{23}
+\indexentry{controls@\spxentry{controls}!module@\spxentry{module}|hyperpage}{23}
+\indexentry{Controls (class in controls)@\spxentry{Controls}\spxextra{class in controls}|hyperpage}{23}
+\indexentry{check\_events() (controls.Controls method)@\spxentry{check\_events()}\spxextra{controls.Controls method}|hyperpage}{23}
+\indexentry{create\_controls() (controls.Controls method)@\spxentry{create\_controls()}\spxextra{controls.Controls method}|hyperpage}{23}
+\indexentry{create\_title() (controls.Controls method)@\spxentry{create\_title()}\spxextra{controls.Controls method}|hyperpage}{23}
+\indexentry{draw\_controls() (controls.Controls method)@\spxentry{draw\_controls()}\spxextra{controls.Controls method}|hyperpage}{23}
+\indexentry{draw\_title() (controls.Controls method)@\spxentry{draw\_title()}\spxextra{controls.Controls method}|hyperpage}{23}
+\indexentry{main() (controls.Controls method)@\spxentry{main()}\spxextra{controls.Controls method}|hyperpage}{23}
+\indexentry{module@\spxentry{module}!rules@\spxentry{rules}|hyperpage}{25}
+\indexentry{rules@\spxentry{rules}!module@\spxentry{module}|hyperpage}{25}
+\indexentry{Rules (class in rules)@\spxentry{Rules}\spxextra{class in rules}|hyperpage}{25}
+\indexentry{TEXT (rules.Rules attribute)@\spxentry{TEXT}\spxextra{rules.Rules attribute}|hyperpage}{25}
+\indexentry{check\_events() (rules.Rules method)@\spxentry{check\_events()}\spxextra{rules.Rules method}|hyperpage}{25}
+\indexentry{create\_text() (rules.Rules method)@\spxentry{create\_text()}\spxextra{rules.Rules method}|hyperpage}{25}
+\indexentry{create\_title() (rules.Rules method)@\spxentry{create\_title()}\spxextra{rules.Rules method}|hyperpage}{25}
+\indexentry{draw\_text() (rules.Rules method)@\spxentry{draw\_text()}\spxextra{rules.Rules method}|hyperpage}{25}
+\indexentry{draw\_title() (rules.Rules method)@\spxentry{draw\_title()}\spxextra{rules.Rules method}|hyperpage}{25}
+\indexentry{main() (rules.Rules method)@\spxentry{main()}\spxextra{rules.Rules method}|hyperpage}{25}
+\indexentry{module@\spxentry{module}!db.models.user@\spxentry{db.models.user}|hyperpage}{27}
+\indexentry{db.models.user@\spxentry{db.models.user}!module@\spxentry{module}|hyperpage}{27}
+\indexentry{User (class in db.models.user)@\spxentry{User}\spxextra{class in db.models.user}|hyperpage}{27}
+\indexentry{DoesNotExist (db.models.user.User attribute)@\spxentry{DoesNotExist}\spxextra{db.models.user.User attribute}|hyperpage}{27}
+\indexentry{games\_played (db.models.user.User attribute)@\spxentry{games\_played}\spxextra{db.models.user.User attribute}|hyperpage}{27}
+\indexentry{highest\_score (db.models.user.User attribute)@\spxentry{highest\_score}\spxextra{db.models.user.User attribute}|hyperpage}{27}
+\indexentry{id (db.models.user.User attribute)@\spxentry{id}\spxextra{db.models.user.User attribute}|hyperpage}{27}
+\indexentry{lvl (db.models.user.User attribute)@\spxentry{lvl}\spxextra{db.models.user.User attribute}|hyperpage}{27}
+\indexentry{username (db.models.user.User attribute)@\spxentry{username}\spxextra{db.models.user.User attribute}|hyperpage}{27}
+\indexentry{on\_save\_handler() (in module db.models.user)@\spxentry{on\_save\_handler()}\spxextra{in module db.models.user}|hyperpage}{27}
+\indexentry{user\_exists() (in module db.models.user)@\spxentry{user\_exists()}\spxextra{in module db.models.user}|hyperpage}{27}
+\indexentry{module@\spxentry{module}!db.scripts.migration@\spxentry{db.scripts.migration}|hyperpage}{27}
+\indexentry{db.scripts.migration@\spxentry{db.scripts.migration}!module@\spxentry{module}|hyperpage}{27}
+\indexentry{create\_user\_table() (in module db.scripts.migration)@\spxentry{create\_user\_table()}\spxextra{in module db.scripts.migration}|hyperpage}{27}
+\indexentry{module@\spxentry{module}!tests.test\_game@\spxentry{tests.test\_game}|hyperpage}{29}
+\indexentry{tests.test\_game@\spxentry{tests.test\_game}!module@\spxentry{module}|hyperpage}{29}
+\indexentry{TestGame (class in tests.test\_game)@\spxentry{TestGame}\spxextra{class in tests.test\_game}|hyperpage}{29}
+\indexentry{CHECK\_LINE\_FALSE\_GRID (tests.test\_game.TestGame attribute)@\spxentry{CHECK\_LINE\_FALSE\_GRID}\spxextra{tests.test\_game.TestGame attribute}|hyperpage}{29}
+\indexentry{CHECK\_LINE\_TRUE\_GRID (tests.test\_game.TestGame attribute)@\spxentry{CHECK\_LINE\_TRUE\_GRID}\spxextra{tests.test\_game.TestGame attribute}|hyperpage}{29}
+\indexentry{CHECK\_TETROMINO\_GRID (tests.test\_game.TestGame attribute)@\spxentry{CHECK\_TETROMINO\_GRID}\spxextra{tests.test\_game.TestGame attribute}|hyperpage}{29}
+\indexentry{CLEAR\_GRID (tests.test\_game.TestGame attribute)@\spxentry{CLEAR\_GRID}\spxextra{tests.test\_game.TestGame attribute}|hyperpage}{29}
+\indexentry{CLEAR\_NEXT\_TETROMINO\_GRID (tests.test\_game.TestGame attribute)@\spxentry{CLEAR\_NEXT\_TETROMINO\_GRID}\spxextra{tests.test\_game.TestGame attribute}|hyperpage}{30}
+\indexentry{DELETE\_LINE\_AFTER\_GRID (tests.test\_game.TestGame attribute)@\spxentry{DELETE\_LINE\_AFTER\_GRID}\spxextra{tests.test\_game.TestGame attribute}|hyperpage}{30}
+\indexentry{DELETE\_LINE\_BEFORE\_GRID (tests.test\_game.TestGame attribute)@\spxentry{DELETE\_LINE\_BEFORE\_GRID}\spxextra{tests.test\_game.TestGame attribute}|hyperpage}{30}
+\indexentry{setUpClass() (tests.test\_game.TestGame class method)@\spxentry{setUpClass()}\spxextra{tests.test\_game.TestGame class method}|hyperpage}{30}
+\indexentry{test\_check\_line() (tests.test\_game.TestGame method)@\spxentry{test\_check\_line()}\spxextra{tests.test\_game.TestGame method}|hyperpage}{30}
+\indexentry{test\_check\_tetromino\_above\_top() (tests.test\_game.TestGame method)@\spxentry{test\_check\_tetromino\_above\_top()}\spxextra{tests.test\_game.TestGame method}|hyperpage}{30}
+\indexentry{test\_delete\_line() (tests.test\_game.TestGame method)@\spxentry{test\_delete\_line()}\spxextra{tests.test\_game.TestGame method}|hyperpage}{30}
+\indexentry{test\_init\_properties() (tests.test\_game.TestGame method)@\spxentry{test\_init\_properties()}\spxextra{tests.test\_game.TestGame method}|hyperpage}{30}
+\indexentry{test\_random\_tetromino() (tests.test\_game.TestGame method)@\spxentry{test\_random\_tetromino()}\spxextra{tests.test\_game.TestGame method}|hyperpage}{30}
+\indexentry{module@\spxentry{module}!tests.test\_menu@\spxentry{tests.test\_menu}|hyperpage}{31}
+\indexentry{tests.test\_menu@\spxentry{tests.test\_menu}!module@\spxentry{module}|hyperpage}{31}
+\indexentry{TestMenu (class in tests.test\_menu)@\spxentry{TestMenu}\spxextra{class in tests.test\_menu}|hyperpage}{31}
+\indexentry{setUp() (tests.test\_menu.TestMenu method)@\spxentry{setUp()}\spxextra{tests.test\_menu.TestMenu method}|hyperpage}{31}
+\indexentry{test\_main() (tests.test\_menu.TestMenu method)@\spxentry{test\_main()}\spxextra{tests.test\_menu.TestMenu method}|hyperpage}{31}
+\indexentry{module@\spxentry{module}!tests.test\_tetrominos@\spxentry{tests.test\_tetrominos}|hyperpage}{31}
+\indexentry{tests.test\_tetrominos@\spxentry{tests.test\_tetrominos}!module@\spxentry{module}|hyperpage}{31}
+\indexentry{TestTetromino (class in tests.test\_tetrominos)@\spxentry{TestTetromino}\spxextra{class in tests.test\_tetrominos}|hyperpage}{31}
+\indexentry{CHECK\_DOWN\_POS (tests.test\_tetrominos.TestTetromino attribute)@\spxentry{CHECK\_DOWN\_POS}\spxextra{tests.test\_tetrominos.TestTetromino attribute}|hyperpage}{31}
+\indexentry{LEFT\_EDGE\_POS (tests.test\_tetrominos.TestTetromino attribute)@\spxentry{LEFT\_EDGE\_POS}\spxextra{tests.test\_tetrominos.TestTetromino attribute}|hyperpage}{31}
+\indexentry{RIGHT\_EDGE\_POS (tests.test\_tetrominos.TestTetromino attribute)@\spxentry{RIGHT\_EDGE\_POS}\spxextra{tests.test\_tetrominos.TestTetromino attribute}|hyperpage}{31}
+\indexentry{setUpClass() (tests.test\_tetrominos.TestTetromino class method)@\spxentry{setUpClass()}\spxextra{tests.test\_tetrominos.TestTetromino class method}|hyperpage}{31}
+\indexentry{test\_check\_down() (tests.test\_tetrominos.TestTetromino method)@\spxentry{test\_check\_down()}\spxextra{tests.test\_tetrominos.TestTetromino method}|hyperpage}{31}
+\indexentry{test\_check\_move\_left() (tests.test\_tetrominos.TestTetromino method)@\spxentry{test\_check\_move\_left()}\spxextra{tests.test\_tetrominos.TestTetromino method}|hyperpage}{31}
+\indexentry{test\_check\_move\_right() (tests.test\_tetrominos.TestTetromino method)@\spxentry{test\_check\_move\_right()}\spxextra{tests.test\_tetrominos.TestTetromino method}|hyperpage}{31}
+\indexentry{test\_check\_touch() (tests.test\_tetrominos.TestTetromino method)@\spxentry{test\_check\_touch()}\spxextra{tests.test\_tetrominos.TestTetromino method}|hyperpage}{31}
