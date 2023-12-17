@@ -5,7 +5,7 @@ authors = [
   { name="Łukasz Łukaszewski", email="lulkaszmlukaszewski@gmail.com" },
 ]
 description = "Tetris game made with pygame"
-readme = "README.md"
+readme = "PyPI-README.md"
 requires-python = ">=3.10"
 classifiers = [
     "Programming Language :: Python :: 3",

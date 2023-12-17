@@ -1,20 +1,31 @@
-**TETRIS**
-<br>
-<br>
+# tetris-pygame
+[![PyPI version](https://badge.fury.io/py/tetris-pygame.svg)](https://pypi.org/project/tetris-pygame/)
+This is a Python implementation of the classic game Tetris, built using the Pygame library. The game includes a leaderboard.
+
+
+***install***
+
+```bash
+pip install tetris-pygame
+```
+
+***usage***
+
+If you installed package with pip:
 Run:
+```bash
+tetris
 ```
-$ tetris
-```
-
 Reset leaderboard:
+```bash
+leaderboard
 ```
-$ leaderboard
+If you cloned the repository:
+Install all requirements:
+```bash
+pip install -r requirements.txt
 ```
-
-Requirements:
-
-pygame>=2.5.2<br>
-pygame_gui>=0.6.9<br>
-peewee>=3.17.0<br>
-peewee-migrate>=1.12.2<br>
-setuptools>=61.0.0
+Run:
+```bash
+python -m tetris.main
+```
