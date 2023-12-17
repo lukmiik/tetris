@@ -10,17 +10,6 @@ if TYPE_CHECKING:
 class Rules:
     '''A class to show the rules of the game'''
 
-    #     TEXT: str = "The goal of the game is to get the highest score\n\
-    # possible. You earn points by moving down tetrominos,\n\
-    # 1 point for soft drop and two points for hard drop.\n\
-    # You can also earn points by clearing lines.\n\
-    # 1 line is 100 points, 2 lines is 300 points,\n\
-    # 3 lines is 500 points, and 4 lines is 800 points.\n\
-    # Each 10 lines cleared, the level increases.\n\
-    # The level increases the speed of the tetrominos.\n\
-    # The game ends when the tetrominos reach\n\
-    # the top of the screen."
-
     TEXT: list[str] = [
         "The goal of the game is to get the highest score",
         "possible. You earn points by moving down tetrominos",
