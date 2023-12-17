@@ -6,6 +6,10 @@ from tetris.settings import Settings
 
 
 class TestMenu(TestCase):
+    '''
+    Test case class for testing the Menu class.
+    '''
+
     def setUp(self) -> None:
         self.settings = Settings()
         self.menu = Menu(self.settings)

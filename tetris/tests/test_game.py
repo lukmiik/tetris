@@ -1,5 +1,4 @@
 import random
-from copy import deepcopy
 from unittest import TestCase
 
 from tetris.game import Game
@@ -8,6 +7,8 @@ from tetris.tetrominos import Itetromino, Tetromino
 
 
 class TestGame(TestCase):
+    '''A test case class for testing the Game class.'''
+
     CHECK_TETROMINO_GRID = [
         [
             Itetromino.TAG if row == 1 else Settings.EMPTY_CELL_TAG
@@ -90,10 +91,12 @@ class TestGame(TestCase):
 
     @classmethod
     def setUpClass(cls) -> None:
+        '''Set up the test class by initializing the settings and game objects.'''
         cls.settings = Settings()
         cls.game = Game(cls.settings)
 
     def test_check_line(self) -> None:
+        '''Test the check_line method of the Game class.'''
         self.assertFalse(self.game.check_line())
         self.game.grid = self.CHECK_LINE_FALSE_GRID  # type: ignore
         self.assertFalse(self.game.check_line())
@@ -102,20 +105,24 @@ class TestGame(TestCase):
         self.assertFalse(self.game.check_line())
 
     def test_delete_line(self) -> None:
+        '''Test the delete_line method of the Game class.'''
         self.game.grid = self.DELETE_LINE_BEFORE_GRID  # type: ignore
         self.game.delete_line(15)
         self.assertEqual(self.game.grid, self.DELETE_LINE_AFTER_GRID)
 
     def test_check_tetromino_above_top(self) -> None:
+        '''Test the check_tetromino_above_top method of the Game class.'''
         self.assertFalse(self.game.check_tetromino_above_top())
         self.game.grid = self.CHECK_TETROMINO_GRID  # type: ignore
         self.assertTrue(self.game.check_tetromino_above_top())
 
     def test_random_tetromino(self) -> None:
+        '''Test the random_tetromino method of the Game class.'''
         tetromino = self.game.random_tetromino()
         self.assertIsInstance(tetromino, Tetromino)
 
     def test_init_properties(self) -> None:
+        '''Test the init_properties method of the Game class.'''
         self.game.grid = [
             [random.randint(1, 10) for col in range(Settings.GRID_N_OF_COL)]
             for row in range(Settings.GRID_N_OF_ROWS)
