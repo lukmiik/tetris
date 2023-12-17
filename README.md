@@ -16,4 +16,5 @@ Requirements:
 pygame>=2.5.2<br>
 pygame_gui>=0.6.9<br>
 peewee>=3.17.0<br>
-peewee-migrate>=1.12.2
+peewee-migrate>=1.12.2<br>
+setuptools>=61.0.0

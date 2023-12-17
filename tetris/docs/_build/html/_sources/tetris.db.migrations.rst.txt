@@ -1,0 +1,18 @@
+tetris.db.migrations package
+============================
+
+.. automodule:: tetris.db.migrations
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+tetris.db.migrations.001\_tetris module
+---------------------------------------
+
+.. automodule:: tetris.db.migrations.001_tetris
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>tetris.menu module &#8212; tetris-pygame 0.0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/agogo.css?v=47acb022" />
+    <script src="_static/documentation_options.js?v=d45e8c67"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head><body>
+    <div class="header-wrapper" role="banner">
+      <div class="header">
+        <div class="headertitle"><a
+          href="index.html">tetris-pygame 0.0.1 documentation</a></div>
+        <div class="rel" role="navigation" aria-label="related navigation">
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a>
+        </div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="module-tetris.menu">
+<span id="tetris-menu-module"></span><h1>tetris.menu module<a class="headerlink" href="#module-tetris.menu" title="Link to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="tetris.menu.Menu">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tetris.menu.</span></span><span class="sig-name descname"><span class="pre">Menu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">settings</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="tetris.settings.html#tetris.settings.Settings" title="tetris.settings.Settings"><span class="pre">Settings</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tetris.menu.Menu" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Menu class for the game</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tetris.menu.Menu.CONTROLS_CHOICE">
+<span class="sig-name descname"><span class="pre">CONTROLS_CHOICE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'controls'</span></em><a class="headerlink" href="#tetris.menu.Menu.CONTROLS_CHOICE" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tetris.menu.Menu.GAME_CHOICE">
+<span class="sig-name descname"><span class="pre">GAME_CHOICE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'game'</span></em><a class="headerlink" href="#tetris.menu.Menu.GAME_CHOICE" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tetris.menu.Menu.LEADERBOARD_CHOICE">
+<span class="sig-name descname"><span class="pre">LEADERBOARD_CHOICE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'leaderboard'</span></em><a class="headerlink" href="#tetris.menu.Menu.LEADERBOARD_CHOICE" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tetris.menu.Menu.QUIT_CHOICE">
+<span class="sig-name descname"><span class="pre">QUIT_CHOICE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'quit'</span></em><a class="headerlink" href="#tetris.menu.Menu.QUIT_CHOICE" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tetris.menu.Menu.RULES_CHOICE">
+<span class="sig-name descname"><span class="pre">RULES_CHOICE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'rules'</span></em><a class="headerlink" href="#tetris.menu.Menu.RULES_CHOICE" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetris.menu.Menu.check_events">
+<span class="sig-name descname"><span class="pre">check_events</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#tetris.menu.Menu.check_events" title="Link to this definition">¶</a></dt>
+<dd><p>Checks for pygame events QUIT and MOUSEBUTTONDOWN and reacts to them</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if game, leaderboard, controls or rules button is pressed, None otherwise</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>(bool | None)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetris.menu.Menu.check_hover">
+<span class="sig-name descname"><span class="pre">check_hover</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetris.menu.Menu.check_hover" title="Link to this definition">¶</a></dt>
+<dd><p>Checks if mouse is hovering over the buttons and changes the cursor accordingly</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tetris.menu.Menu.choice">
+<span class="sig-name descname"><span class="pre">choice</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">''</span></em><a class="headerlink" href="#tetris.menu.Menu.choice" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetris.menu.Menu.create_buttons">
+<span class="sig-name descname"><span class="pre">create_buttons</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetris.menu.Menu.create_buttons" title="Link to this definition">¶</a></dt>
+<dd><p>Creates menu buttons and its rects</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetris.menu.Menu.draw_buttons">
+<span class="sig-name descname"><span class="pre">draw_buttons</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetris.menu.Menu.draw_buttons" title="Link to this definition">¶</a></dt>
+<dd><p>Draws the buttons on the screen</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetris.menu.Menu.main">
+<span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#tetris.menu.Menu.main" title="Link to this definition">¶</a></dt>
+<dd><p>Main menu loop, waits for the user to press a button and returns the choice</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Choice of the user</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>(str)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          
+          <h3>Table of Contents</h3>
+          
+          <div role="search">
+            <h3 style="margin-top: 1.5em;">Search</h3>
+            <form class="search" action="search.html" method="get">
+                <input type="text" name="q" />
+                <input type="submit" value="Go" />
+            </form>
+          </div>
+
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <div role="navigation" aria-label="related navigaton">
+            <a href="py-modindex.html" title="Python Module Index"
+              >modules</a> |
+            <a href="genindex.html" title="General Index"
+              >index</a>
+          </div>
+          <div role="note" aria-label="source link">
+              <br/>
+              <a href="_sources/tetris.menu.rst.txt"
+                rel="nofollow">Show Source</a>
+          </div>
+        </div>
+
+        <div class="right">
+          
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2023, Łukasz Łukaszewski.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>tetris.db.migrations.001_tetris module &#8212; tetris-pygame 0.0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/agogo.css?v=47acb022" />
+    <script src="_static/documentation_options.js?v=d45e8c67"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="tetris.db.models package" href="tetris.db.models.html" />
+    <link rel="prev" title="tetris.db.migrations package" href="tetris.db.migrations.html" /> 
+  </head><body>
+    <div class="header-wrapper" role="banner">
+      <div class="header">
+        <div class="headertitle"><a
+          href="index.html">tetris-pygame 0.0.1 documentation</a></div>
+        <div class="rel" role="navigation" aria-label="related navigation">
+          <a href="tetris.db.migrations.html" title="tetris.db.migrations package"
+             accesskey="P">previous</a> |
+          <a href="tetris.db.models.html" title="tetris.db.models package"
+             accesskey="N">next</a> |
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a>
+        </div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="module-tetris.db.migrations.001_tetris">
+<span id="tetris-db-migrations-001-tetris-module"></span><h1>tetris.db.migrations.001_tetris module<a class="headerlink" href="#module-tetris.db.migrations.001_tetris" title="Link to this heading">¶</a></h1>
+<p>Peewee migrations – 001_tetris.py.</p>
+<p>Some examples (model - class or model name):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">Model</span> <span class="o">=</span> <span class="n">migrator</span><span class="o">.</span><span class="n">orm</span><span class="p">[</span><span class="s1">&#39;table_name&#39;</span><span class="p">]</span>            <span class="c1"># Return model in current state by name</span>
+<span class="o">&gt;</span> <span class="n">Model</span> <span class="o">=</span> <span class="n">migrator</span><span class="o">.</span><span class="n">ModelClass</span>                   <span class="c1"># Return model in current state by name</span>
+
+<span class="o">&gt;</span> <span class="n">migrator</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>                             <span class="c1"># Run custom SQL</span>
+<span class="o">&gt;</span> <span class="n">migrator</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>           <span class="c1"># Run python function with the given args</span>
+<span class="o">&gt;</span> <span class="n">migrator</span><span class="o">.</span><span class="n">create_model</span><span class="p">(</span><span class="n">Model</span><span class="p">)</span>                  <span class="c1"># Create a model (could be used as decorator)</span>
+<span class="o">&gt;</span> <span class="n">migrator</span><span class="o">.</span><span class="n">remove_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">cascade</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>    <span class="c1"># Remove a model</span>
+<span class="o">&gt;</span> <span class="n">migrator</span><span class="o">.</span><span class="n">add_fields</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="o">**</span><span class="n">fields</span><span class="p">)</span>          <span class="c1"># Add fields to a model</span>
+<span class="o">&gt;</span> <span class="n">migrator</span><span class="o">.</span><span class="n">change_fields</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="o">**</span><span class="n">fields</span><span class="p">)</span>       <span class="c1"># Change fields</span>
+<span class="o">&gt;</span> <span class="n">migrator</span><span class="o">.</span><span class="n">remove_fields</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="o">*</span><span class="n">field_names</span><span class="p">,</span> <span class="n">cascade</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="o">&gt;</span> <span class="n">migrator</span><span class="o">.</span><span class="n">rename_field</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">old_field_name</span><span class="p">,</span> <span class="n">new_field_name</span><span class="p">)</span>
+<span class="o">&gt;</span> <span class="n">migrator</span><span class="o">.</span><span class="n">rename_table</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">new_table_name</span><span class="p">)</span>
+<span class="o">&gt;</span> <span class="n">migrator</span><span class="o">.</span><span class="n">add_index</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="o">*</span><span class="n">col_names</span><span class="p">,</span> <span class="n">unique</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="o">&gt;</span> <span class="n">migrator</span><span class="o">.</span><span class="n">add_not_null</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="o">*</span><span class="n">field_names</span><span class="p">)</span>
+<span class="o">&gt;</span> <span class="n">migrator</span><span class="o">.</span><span class="n">add_default</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">field_name</span><span class="p">,</span> <span class="n">default</span><span class="p">)</span>
+<span class="o">&gt;</span> <span class="n">migrator</span><span class="o">.</span><span class="n">add_constraint</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">sql</span><span class="p">)</span>
+<span class="o">&gt;</span> <span class="n">migrator</span><span class="o">.</span><span class="n">drop_index</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="o">*</span><span class="n">col_names</span><span class="p">)</span>
+<span class="o">&gt;</span> <span class="n">migrator</span><span class="o">.</span><span class="n">drop_not_null</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="o">*</span><span class="n">field_names</span><span class="p">)</span>
+<span class="o">&gt;</span> <span class="n">migrator</span><span class="o">.</span><span class="n">drop_constraints</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="o">*</span><span class="n">constraints</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py function">
+<dt class="sig sig-object py" id="tetris.db.migrations.001_tetris.migrate">
+<span class="sig-prename descclassname"><span class="pre">tetris.db.migrations.001_tetris.</span></span><span class="sig-name descname"><span class="pre">migrate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">migrator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Migrator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">database</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Database</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fake</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tetris.db.migrations.001_tetris.migrate" title="Link to this definition">¶</a></dt>
+<dd><p>Write your migrations here.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tetris.db.migrations.001_tetris.rollback">
+<span class="sig-prename descclassname"><span class="pre">tetris.db.migrations.001_tetris.</span></span><span class="sig-name descname"><span class="pre">rollback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">migrator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Migrator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">database</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Database</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fake</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tetris.db.migrations.001_tetris.rollback" title="Link to this definition">¶</a></dt>
+<dd><p>Write your rollback migrations here.</p>
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          
+          <h3>Table of Contents</h3>
+          <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">tetris</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="tetris.html">tetris package</a></li>
+</ul>
+</li>
+</ul>
+
+          <div role="search">
+            <h3 style="margin-top: 1.5em;">Search</h3>
+            <form class="search" action="search.html" method="get">
+                <input type="text" name="q" />
+                <input type="submit" value="Go" />
+            </form>
+          </div>
+
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <div role="navigation" aria-label="related navigaton">
+            <a href="tetris.db.migrations.html" title="tetris.db.migrations package"
+              >previous</a> |
+            <a href="tetris.db.models.html" title="tetris.db.models package"
+              >next</a> |
+            <a href="py-modindex.html" title="Python Module Index"
+              >modules</a> |
+            <a href="genindex.html" title="General Index"
+              >index</a>
+          </div>
+          <div role="note" aria-label="source link">
+              <br/>
+              <a href="_sources/tetris.db.migrations.001_tetris.rst.txt"
+                rel="nofollow">Show Source</a>
+          </div>
+        </div>
+
+        <div class="right">
+          
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2023, Łukasz Łukaszewski.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>

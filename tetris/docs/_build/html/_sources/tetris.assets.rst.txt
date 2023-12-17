@@ -1,0 +1,7 @@
+tetris.assets package
+=====================
+
+.. automodule:: tetris.assets
+   :members:
+   :undoc-members:
+   :show-inheritance:

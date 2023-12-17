@@ -1,6 +1,6 @@
 [project]
 name = "tetris-pygame"
-version = "0.2.7"
+version = "0.0.1"
 authors = [
   { name="Łukasz Łukaszewski", email="lulkaszmlukaszewski@gmail.com" },
 ]
@@ -17,6 +17,7 @@ dependencies = [
     "pygame_gui>=0.6.9",
     "peewee>=3.17.0",
     "peewee-migrate>=1.12.2",
+    "setuptools>=61.0.0",
 ]
 
 [project.urls]

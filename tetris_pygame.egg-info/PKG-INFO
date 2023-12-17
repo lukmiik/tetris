@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: tetris-pygame
-Version: 0.2.7
+Version: 0.0.1
 Summary: Tetris game made with pygame
 Author-email: Łukasz Łukaszewski <lulkaszmlukaszewski@gmail.com>
 Project-URL: Homepage, https://github.com/lukmiik/tetris
@@ -15,6 +15,7 @@ Requires-Dist: pygame>=2.5.2
 Requires-Dist: pygame_gui>=0.6.9
 Requires-Dist: peewee>=3.17.0
 Requires-Dist: peewee-migrate>=1.12.2
+Requires-Dist: setuptools>=61.0.0
 
 **TETRIS**
 <br>
@@ -34,4 +35,5 @@ Requirements:
 pygame>=2.5.2<br>
 pygame_gui>=0.6.9<br>
 peewee>=3.17.0<br>
-peewee-migrate>=1.12.2
+peewee-migrate>=1.12.2<br>
+setuptools>=61.0.0

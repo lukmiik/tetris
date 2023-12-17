@@ -1,0 +1,580 @@
+\begin{sphinxtheindex}
+\let\bigletter\sphinxstyleindexlettergroup
+\let\spxpagem \sphinxstyleindexpagemain
+\let\spxentry \sphinxstyleindexentry
+\let\spxextra \sphinxstyleindexextra
+
+  \bigletter A
+  \item \spxentry{add\_score()}\spxextra{tetris.game.Game method}, \hyperpage{5}
+
+  \indexspace
+  \bigletter B
+  \item \spxentry{BG\_COLOR}\spxextra{tetris.settings.Settings attribute}, \hyperpage{10}
+
+  \indexspace
+  \bigletter C
+  \item \spxentry{CELL\_BORDER\_COLOR}\spxextra{tetris.settings.Settings attribute}, \hyperpage{10}
+  \item \spxentry{check\_cell\_available\_for\_rotation()}\spxextra{tetris.tetrominos.Tetromino method}, 
+		\hyperpage{17}
+  \item \spxentry{check\_down()}\spxextra{tetris.tetrominos.Tetromino method}, \hyperpage{17}
+  \item \spxentry{CHECK\_DOWN\_POS}\spxextra{tetris.tests.test\_tetrominos.TestTetromino attribute}, 
+		\hyperpage{4}
+  \item \spxentry{check\_events()}\spxextra{tetris.controls.Controls method}, \hyperpage{5}
+  \item \spxentry{check\_events()}\spxextra{tetris.game.Game method}, \hyperpage{5}
+  \item \spxentry{check\_events()}\spxextra{tetris.leaderboard.Leaderboard method}, \hyperpage{8}
+  \item \spxentry{check\_events()}\spxextra{tetris.menu.Menu method}, \hyperpage{9}
+  \item \spxentry{check\_events()}\spxextra{tetris.rules.Rules method}, \hyperpage{10}
+  \item \spxentry{check\_go\_back\_btn\_hover()}\spxextra{tetris.settings.Settings method}, 
+		\hyperpage{15}
+  \item \spxentry{check\_hover()}\spxextra{tetris.game.Game method}, \hyperpage{6}
+  \item \spxentry{check\_hover()}\spxextra{tetris.menu.Menu method}, \hyperpage{9}
+  \item \spxentry{CHECK\_KEYS\_PRESSED\_MOVEMENT\_DOWN\_TIME}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{10}
+  \item \spxentry{CHECK\_KEYS\_PRESSED\_MOVEMENT\_SIDE\_TIME}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{10}
+  \item \spxentry{CHECK\_KEYS\_PRESSED\_ROTATION\_TIME}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{10}
+  \item \spxentry{check\_line()}\spxextra{tetris.game.Game method}, \hyperpage{6}
+  \item \spxentry{CHECK\_LINE\_FALSE\_GRID}\spxextra{tetris.tests.test\_game.TestGame attribute}, 
+		\hyperpage{2}
+  \item \spxentry{CHECK\_LINE\_TRUE\_GRID}\spxextra{tetris.tests.test\_game.TestGame attribute}, 
+		\hyperpage{2}
+  \item \spxentry{check\_lvl\_up()}\spxextra{tetris.game.Game method}, \hyperpage{6}
+  \item \spxentry{check\_move\_left()}\spxextra{tetris.tetrominos.Tetromino method}, \hyperpage{17}
+  \item \spxentry{check\_move\_right()}\spxextra{tetris.tetrominos.Tetromino method}, 
+		\hyperpage{17}
+  \item \spxentry{check\_pressed\_down\_movement()}\spxextra{tetris.game.Game method}, 
+		\hyperpage{6}
+  \item \spxentry{check\_pressed\_rotate()}\spxextra{tetris.game.Game method}, \hyperpage{6}
+  \item \spxentry{check\_pressed\_side\_movement()}\spxextra{tetris.game.Game method}, 
+		\hyperpage{6}
+  \item \spxentry{check\_tetromino\_above\_top()}\spxextra{tetris.game.Game method}, \hyperpage{6}
+  \item \spxentry{CHECK\_TETROMINO\_GRID}\spxextra{tetris.tests.test\_game.TestGame attribute}, 
+		\hyperpage{3}
+  \item \spxentry{check\_touch()}\spxextra{tetris.tetrominos.Tetromino method}, \hyperpage{18}
+  \item \spxentry{choice}\spxextra{tetris.menu.Menu attribute}, \hyperpage{9}
+  \item \spxentry{clear()}\spxextra{tetris.tetrominos.Tetromino method}, \hyperpage{18}
+  \item \spxentry{CLEAR\_GRID}\spxextra{tetris.tests.test\_game.TestGame attribute}, \hyperpage{3}
+  \item \spxentry{CLEAR\_NEXT\_TETROMINO\_GRID}\spxextra{tetris.tests.test\_game.TestGame attribute}, 
+		\hyperpage{3}
+  \item \spxentry{clear\_next\_tetromino\_window()}\spxextra{tetris.tetrominos.Tetromino method}, 
+		\hyperpage{18}
+  \item \spxentry{Controls}\spxextra{class in tetris.controls}, \hyperpage{5}
+  \item \spxentry{CONTROLS\_CHOICE}\spxextra{tetris.menu.Menu attribute}, \hyperpage{9}
+  \item \spxentry{CONTROLS\_ONE\_KEY\_X}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{10}
+  \item \spxentry{CONTROLS\_TEXTS}\spxextra{tetris.settings.Settings attribute}, \hyperpage{10}
+  \item \spxentry{CONTROLS\_TEXTS\_X}\spxextra{tetris.settings.Settings attribute}, \hyperpage{10}
+  \item \spxentry{CONTROLS\_TEXTS\_Y}\spxextra{tetris.settings.Settings attribute}, \hyperpage{11}
+  \item \spxentry{CONTROLS\_TITLE}\spxextra{tetris.settings.Settings attribute}, \hyperpage{11}
+  \item \spxentry{CONTROLS\_TITLE\_Y}\spxextra{tetris.settings.Settings attribute}, \hyperpage{11}
+  \item \spxentry{CONTROLS\_TWO\_KEYS\_X}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{11}
+  \item \spxentry{create\_buttons()}\spxextra{tetris.menu.Menu method}, \hyperpage{9}
+  \item \spxentry{create\_controls()}\spxextra{tetris.controls.Controls method}, \hyperpage{5}
+  \item \spxentry{create\_draw\_row()}\spxextra{tetris.leaderboard.Leaderboard method}, 
+		\hyperpage{8}
+  \item \spxentry{create\_draw\_text()}\spxextra{tetris.rules.Rules method}, \hyperpage{10}
+  \item \spxentry{create\_end\_of\_game\_btns()}\spxextra{tetris.settings.Settings method}, 
+		\hyperpage{15}
+  \item \spxentry{create\_game\_windows()}\spxextra{tetris.game.Game method}, \hyperpage{6}
+  \item \spxentry{create\_get\_username\_text()}\spxextra{tetris.settings.Settings method}, 
+		\hyperpage{15}
+  \item \spxentry{create\_go\_back\_btn()}\spxextra{tetris.settings.Settings method}, 
+		\hyperpage{15}
+  \item \spxentry{create\_header()}\spxextra{tetris.leaderboard.Leaderboard method}, \hyperpage{8}
+  \item \spxentry{create\_leaderboard()}\spxextra{tetris.leaderboard.Leaderboard method}, 
+		\hyperpage{8}
+  \item \spxentry{create\_title()}\spxextra{tetris.controls.Controls method}, \hyperpage{5}
+  \item \spxentry{create\_title()}\spxextra{tetris.leaderboard.Leaderboard method}, \hyperpage{8}
+  \item \spxentry{create\_title()}\spxextra{tetris.rules.Rules method}, \hyperpage{10}
+  \item \spxentry{create\_titles\_properties()}\spxextra{tetris.settings.Settings method}, 
+		\hyperpage{15}
+  \item \spxentry{crete\_db()}\spxextra{in module tetris.db.scripts.migration}, \hyperpage{2}
+
+  \indexspace
+  \bigletter D
+  \item \spxentry{db\_insert\_user()}\spxextra{tetris.game.Game method}, \hyperpage{6}
+  \item \spxentry{delete\_line()}\spxextra{tetris.game.Game method}, \hyperpage{6}
+  \item \spxentry{DELETE\_LINE\_AFTER\_GRID}\spxextra{tetris.tests.test\_game.TestGame attribute}, 
+		\hyperpage{3}
+  \item \spxentry{DELETE\_LINE\_BEFORE\_GRID}\spxextra{tetris.tests.test\_game.TestGame attribute}, 
+		\hyperpage{3}
+  \item \spxentry{DoesNotExist}\spxextra{tetris.db.models.user.User attribute}, \hyperpage{1}
+  \item \spxentry{draw\_buttons()}\spxextra{tetris.menu.Menu method}, \hyperpage{9}
+  \item \spxentry{draw\_controls()}\spxextra{tetris.controls.Controls method}, \hyperpage{5}
+  \item \spxentry{draw\_end\_of\_game\_btns()}\spxextra{tetris.game.Game method}, \hyperpage{6}
+  \item \spxentry{draw\_game\_window()}\spxextra{tetris.game.Game method}, \hyperpage{6}
+  \item \spxentry{draw\_go\_back\_btn()}\spxextra{tetris.settings.Settings method}, \hyperpage{15}
+  \item \spxentry{draw\_grid()}\spxextra{tetris.game.Game method}, \hyperpage{6}
+  \item \spxentry{draw\_header()}\spxextra{tetris.leaderboard.Leaderboard method}, \hyperpage{8}
+  \item \spxentry{draw\_lvl()}\spxextra{tetris.game.Game method}, \hyperpage{6}
+  \item \spxentry{draw\_lvl\_title()}\spxextra{tetris.game.Game method}, \hyperpage{6}
+  \item \spxentry{draw\_lvl\_window()}\spxextra{tetris.game.Game method}, \hyperpage{6}
+  \item \spxentry{draw\_next\_tetromino()}\spxextra{tetris.game.Game method}, \hyperpage{6}
+  \item \spxentry{draw\_next\_tetromino\_title()}\spxextra{tetris.game.Game method}, \hyperpage{7}
+  \item \spxentry{draw\_next\_tetromino\_window()}\spxextra{tetris.game.Game method}, \hyperpage{7}
+  \item \spxentry{draw\_score()}\spxextra{tetris.game.Game method}, \hyperpage{7}
+  \item \spxentry{draw\_score\_title()}\spxextra{tetris.game.Game method}, \hyperpage{7}
+  \item \spxentry{draw\_score\_window()}\spxextra{tetris.game.Game method}, \hyperpage{7}
+  \item \spxentry{draw\_tetris\_title()}\spxextra{tetris.settings.Settings method}, \hyperpage{15}
+  \item \spxentry{draw\_title()}\spxextra{tetris.controls.Controls method}, \hyperpage{5}
+  \item \spxentry{draw\_title()}\spxextra{tetris.leaderboard.Leaderboard method}, \hyperpage{8}
+  \item \spxentry{draw\_title()}\spxextra{tetris.rules.Rules method}, \hyperpage{10}
+
+  \indexspace
+  \bigletter E
+  \item \spxentry{EMPTY\_CELL\_TAG}\spxextra{tetris.settings.Settings attribute}, \hyperpage{11}
+  \item \spxentry{END\_OF\_BTNS\_COLOR}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{11}
+  \item \spxentry{END\_OF\_GAME\_BTNS\_HEIGHT}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{11}
+  \item \spxentry{END\_OF\_GAME\_BTNS\_WIDTH}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{11}
+  \item \spxentry{END\_OF\_GAME\_BTNS\_Y}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{11}
+  \item \spxentry{END\_OF\_GAME\_MENU\_BTN\_TEXT}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{11}
+  \item \spxentry{END\_OF\_GAME\_MENU\_BTN\_X}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{11}
+  \item \spxentry{END\_OF\_GAME\_NEXT\_BTN\_TEXT}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{11}
+  \item \spxentry{END\_OF\_GAME\_NEXT\_BTN\_X}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{11}
+
+  \indexspace
+  \bigletter F
+  \item \spxentry{FONT\_COLOR}\spxextra{tetris.settings.Settings attribute}, \hyperpage{11}
+  \item \spxentry{FONT\_NAME}\spxextra{tetris.settings.Settings attribute}, \hyperpage{11}
+  \item \spxentry{FONT\_SIZE\_CONTROLS}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{11}
+  \item \spxentry{FONT\_SIZE\_CONTROLS\_TITLE}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{11}
+  \item \spxentry{FONT\_SIZE\_END\_OF\_GAME\_BTNS}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{11}
+  \item \spxentry{FONT\_SIZE\_GET\_USERNAME}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{11}
+  \item \spxentry{FONT\_SIZE\_INFO\_TITLES}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{11}
+  \item \spxentry{FONT\_SIZE\_LEADERBOARD}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{11}
+  \item \spxentry{FONT\_SIZE\_LEADERBOARD\_HEADER}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{11}
+  \item \spxentry{FONT\_SIZE\_LEADERBOARD\_TITLE}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{11}
+  \item \spxentry{FONT\_SIZE\_RULES}\spxextra{tetris.settings.Settings attribute}, \hyperpage{11}
+  \item \spxentry{FONT\_SIZE\_RULES\_TITLE}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{11}
+  \item \spxentry{FONT\_SIZE\_SCORE\_LVL}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{11}
+  \item \spxentry{FONT\_SIZE\_TETRIS\_TITLE}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{11}
+  \item \spxentry{FPS}\spxextra{tetris.settings.Settings attribute}, \hyperpage{11}
+
+  \indexspace
+  \bigletter G
+  \item \spxentry{Game}\spxextra{class in tetris.game}, \hyperpage{5}
+  \item \spxentry{GAME\_BORDER\_COLOR}\spxextra{tetris.settings.Settings attribute}, \hyperpage{11}
+  \item \spxentry{GAME\_CHOICE}\spxextra{tetris.menu.Menu attribute}, \hyperpage{9}
+  \item \spxentry{game\_window}\spxextra{tetris.game.Game attribute}, \hyperpage{7}
+  \item \spxentry{GAME\_WINDOW\_HEIGHT}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{11}
+  \item \spxentry{game\_window\_rect}\spxextra{tetris.game.Game attribute}, \hyperpage{7}
+  \item \spxentry{GAME\_WINDOW\_WIDTH}\spxextra{tetris.settings.Settings attribute}, \hyperpage{11}
+  \item \spxentry{games\_played}\spxextra{tetris.db.models.user.User attribute}, \hyperpage{1}
+  \item \spxentry{get\_username()}\spxextra{tetris.game.Game method}, \hyperpage{7}
+  \item \spxentry{GET\_USERNAME\_INPUT\_BOX\_HEIGHT}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{12}
+  \item \spxentry{GET\_USERNAME\_INPUT\_BOX\_WIDTH}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{12}
+  \item \spxentry{GET\_USERNAME\_INPUT\_BOX\_X}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{12}
+  \item \spxentry{GET\_USERNAME\_INPUT\_BOX\_Y}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{12}
+  \item \spxentry{GET\_USERNAME\_TEXT}\spxextra{tetris.settings.Settings attribute}, \hyperpage{12}
+  \item \spxentry{GO\_BACK\_BTN\_X}\spxextra{tetris.settings.Settings attribute}, \hyperpage{12}
+  \item \spxentry{GO\_BACK\_BTN\_Y}\spxextra{tetris.settings.Settings attribute}, \hyperpage{12}
+  \item \spxentry{GO\_BACK\_ICON\_FILENAME}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{12}
+  \item \spxentry{grid}\spxextra{tetris.game.Game attribute}, \hyperpage{7}
+  \item \spxentry{GRID\_CELL\_HEIGHT}\spxextra{tetris.settings.Settings attribute}, \hyperpage{12}
+  \item \spxentry{GRID\_CELL\_WIDTH}\spxextra{tetris.settings.Settings attribute}, \hyperpage{12}
+  \item \spxentry{GRID\_N\_OF\_COL}\spxextra{tetris.settings.Settings attribute}, \hyperpage{12}
+  \item \spxentry{GRID\_N\_OF\_ROWS}\spxextra{tetris.settings.Settings attribute}, \hyperpage{12}
+
+  \indexspace
+  \bigletter H
+  \item \spxentry{hard\_drop()}\spxextra{tetris.tetrominos.Tetromino method}, \hyperpage{18}
+  \item \spxentry{HARD\_DROP\_KEY\_FILENAME}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{12}
+  \item \spxentry{HARD\_DROP\_LOOP\_SLEEP\_TIME}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{12}
+  \item \spxentry{highest\_score}\spxextra{tetris.db.models.user.User attribute}, \hyperpage{1}
+
+  \indexspace
+  \bigletter I
+  \item \spxentry{I}\spxextra{tetris.settings.Settings attribute}, \hyperpage{12}
+  \item \spxentry{id}\spxextra{tetris.db.models.user.User attribute}, \hyperpage{1}
+  \item \spxentry{INFO\_WINDOW\_HEIGHT}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{12}
+  \item \spxentry{INFO\_WINDOW\_WIDTH}\spxextra{tetris.settings.Settings attribute}, \hyperpage{12}
+  \item \spxentry{init\_properties()}\spxextra{tetris.game.Game method}, \hyperpage{7}
+  \item \spxentry{Itetromino}\spxextra{class in tetris.tetrominos}, \hyperpage{15}
+
+  \indexspace
+  \bigletter J
+  \item \spxentry{J}\spxextra{tetris.settings.Settings attribute}, \hyperpage{12}
+  \item \spxentry{Jtetromino}\spxextra{class in tetris.tetrominos}, \hyperpage{15}
+
+  \indexspace
+  \bigletter L
+  \item \spxentry{L}\spxextra{tetris.settings.Settings attribute}, \hyperpage{12}
+  \item \spxentry{LAST\_COL\_IDX}\spxextra{tetris.tetrominos.Tetromino attribute}, \hyperpage{17}
+  \item \spxentry{Leaderboard}\spxextra{class in tetris.leaderboard}, \hyperpage{8}
+  \item \spxentry{LEADERBOARD\_BORDER\_COLOR}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{12}
+  \item \spxentry{LEADERBOARD\_BORDER\_WIDTH}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{12}
+  \item \spxentry{LEADERBOARD\_BORDER\_X}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{12}
+  \item \spxentry{LEADERBOARD\_CHOICE}\spxextra{tetris.menu.Menu attribute}, \hyperpage{9}
+  \item \spxentry{LEADERBOARD\_FIRST\_ROW\_Y}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{12}
+  \item \spxentry{LEADERBOARD\_HEADER\_BORDER\_WIDTH}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{12}
+  \item \spxentry{LEADERBOARD\_HEADER\_HEIGHT}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{12}
+  \item \spxentry{LEADERBOARD\_HEADER\_TEXT\_Y}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{12}
+  \item \spxentry{LEADERBOARD\_HEADER\_Y}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{12}
+  \item \spxentry{LEADERBOARD\_HEADERS\_TEXTS}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{12}
+  \item \spxentry{LEADERBOARD\_ROW\_HEIGHT}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{12}
+  \item \spxentry{LEADERBOARD\_TEXT\_WIDTH}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{13}
+  \item \spxentry{LEADERBOARD\_TEXT\_X}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{13}
+  \item \spxentry{LEADERBOARD\_TITLE}\spxextra{tetris.settings.Settings attribute}, \hyperpage{13}
+  \item \spxentry{LEADERBOARD\_TITLE\_Y}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{13}
+  \item \spxentry{LEADERBOARD\_WIDTH}\spxextra{tetris.settings.Settings attribute}, \hyperpage{13}
+  \item \spxentry{LEFT\_EDGE\_POS}\spxextra{tetris.tests.test\_tetrominos.TestTetromino attribute}, 
+		\hyperpage{4}
+  \item \spxentry{lines\_cleared}\spxextra{tetris.game.Game attribute}, \hyperpage{7}
+  \item \spxentry{Ltetromino}\spxextra{class in tetris.tetrominos}, \hyperpage{16}
+  \item \spxentry{lvl}\spxextra{tetris.db.models.user.User attribute}, \hyperpage{1}
+  \item \spxentry{lvl}\spxextra{tetris.game.Game attribute}, \hyperpage{7}
+  \item \spxentry{LVL\_TITLE}\spxextra{tetris.settings.Settings attribute}, \hyperpage{13}
+  \item \spxentry{LVL\_TITLE\_Y}\spxextra{tetris.settings.Settings attribute}, \hyperpage{13}
+  \item \spxentry{lvl\_up()}\spxextra{tetris.game.Game method}, \hyperpage{7}
+  \item \spxentry{lvl\_window}\spxextra{tetris.game.Game attribute}, \hyperpage{7}
+  \item \spxentry{lvl\_window\_rect}\spxextra{tetris.game.Game attribute}, \hyperpage{7}
+  \item \spxentry{LVL\_WINDOW\_X}\spxextra{tetris.settings.Settings attribute}, \hyperpage{13}
+  \item \spxentry{LVL\_WINDOW\_Y}\spxextra{tetris.settings.Settings attribute}, \hyperpage{13}
+
+  \indexspace
+  \bigletter M
+  \item \spxentry{main()}\spxextra{in module tetris.main}, \hyperpage{9}
+  \item \spxentry{main()}\spxextra{tetris.controls.Controls method}, \hyperpage{5}
+  \item \spxentry{main()}\spxextra{tetris.game.Game method}, \hyperpage{7}
+  \item \spxentry{main()}\spxextra{tetris.leaderboard.Leaderboard method}, \hyperpage{8}
+  \item \spxentry{main()}\spxextra{tetris.menu.Menu method}, \hyperpage{9}
+  \item \spxentry{main()}\spxextra{tetris.rules.Rules method}, \hyperpage{10}
+  \item \spxentry{Menu}\spxextra{class in tetris.menu}, \hyperpage{9}
+  \item \spxentry{MENU\_BTN\_GAP}\spxextra{tetris.settings.Settings attribute}, \hyperpage{13}
+  \item \spxentry{MENU\_BTNS\_FIRST\_Y}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{13}
+  \item \spxentry{MENU\_BTNS\_HEIGHT}\spxextra{tetris.settings.Settings attribute}, \hyperpage{13}
+  \item \spxentry{MENU\_CONTROLS\_TEXT}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{13}
+  \item \spxentry{MENU\_LEADERBOARD\_TEXT}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{13}
+  \item \spxentry{MENU\_QUIT\_TEXT}\spxextra{tetris.settings.Settings attribute}, \hyperpage{13}
+  \item \spxentry{MENU\_RULES\_TEXT}\spxextra{tetris.settings.Settings attribute}, \hyperpage{13}
+  \item \spxentry{MENU\_START\_GAME\_TEXT}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{13}
+  \item \spxentry{module}
+    \subitem \spxentry{tetris}, \hyperpage{19}
+    \subitem \spxentry{tetris.controls}, \hyperpage{5}
+    \subitem \spxentry{tetris.db}, \hyperpage{2}
+    \subitem \spxentry{tetris.db.models}, \hyperpage{2}
+    \subitem \spxentry{tetris.db.models.get\_base\_dir}, \hyperpage{1}
+    \subitem \spxentry{tetris.db.models.user}, \hyperpage{1}
+    \subitem \spxentry{tetris.db.scripts}, \hyperpage{2}
+    \subitem \spxentry{tetris.db.scripts.get\_base\_dir}, \hyperpage{2}
+    \subitem \spxentry{tetris.db.scripts.migration}, \hyperpage{2}
+    \subitem \spxentry{tetris.db.settings}, \hyperpage{2}
+    \subitem \spxentry{tetris.game}, \hyperpage{5}
+    \subitem \spxentry{tetris.leaderboard}, \hyperpage{8}
+    \subitem \spxentry{tetris.main}, \hyperpage{9}
+    \subitem \spxentry{tetris.menu}, \hyperpage{9}
+    \subitem \spxentry{tetris.rules}, \hyperpage{10}
+    \subitem \spxentry{tetris.settings}, \hyperpage{10}
+    \subitem \spxentry{tetris.tests}, \hyperpage{5}
+    \subitem \spxentry{tetris.tests.test\_game}, \hyperpage{2}
+    \subitem \spxentry{tetris.tests.test\_menu}, \hyperpage{4}
+    \subitem \spxentry{tetris.tests.test\_tetrominos}, \hyperpage{4}
+    \subitem \spxentry{tetris.tetrominos}, \hyperpage{15}
+  \item \spxentry{move\_down()}\spxextra{tetris.tetrominos.Tetromino method}, \hyperpage{18}
+  \item \spxentry{MOVE\_DOWN\_ACCELERATION\_PER\_LVL}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{13}
+  \item \spxentry{move\_down\_key\_pressed}\spxextra{tetris.game.Game attribute}, \hyperpage{7}
+  \item \spxentry{MOVE\_DOWN\_START\_TIME}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{13}
+  \item \spxentry{move\_left()}\spxextra{tetris.tetrominos.Tetromino method}, \hyperpage{18}
+  \item \spxentry{move\_right()}\spxextra{tetris.tetrominos.Tetromino method}, \hyperpage{18}
+  \item \spxentry{MOVING\_DOWN\_KEY\_1\_FILENAME}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{13}
+  \item \spxentry{MOVING\_DOWN\_KEY\_2\_FILENAME}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{13}
+  \item \spxentry{MOVING\_LEFT\_KEY\_1\_FILENAME}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{13}
+  \item \spxentry{MOVING\_LEFT\_KEY\_2\_FILENAME}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{13}
+  \item \spxentry{MOVING\_RIGHT\_KEY\_1\_FILENAME}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{13}
+  \item \spxentry{MOVING\_RIGHT\_KEY\_2\_FILENAME}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{13}
+
+  \indexspace
+  \bigletter N
+  \item \spxentry{N\_OF\_LINES\_TO\_LVL\_UP}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{14}
+  \item \spxentry{next\_game()}\spxextra{tetris.game.Game method}, \hyperpage{7}
+  \item \spxentry{NEXT\_TETROMINO\_CELL\_HEIGHT}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{13}
+  \item \spxentry{NEXT\_TETROMINO\_CELL\_WIDTH}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{14}
+  \item \spxentry{next\_tetromino\_grid}\spxextra{tetris.game.Game attribute}, \hyperpage{7}
+  \item \spxentry{NEXT\_TETROMINO\_GRID\_POS}\spxextra{tetris.tetrominos.Itetromino attribute}, 
+		\hyperpage{15}
+  \item \spxentry{NEXT\_TETROMINO\_GRID\_POS}\spxextra{tetris.tetrominos.Jtetromino attribute}, 
+		\hyperpage{15}
+  \item \spxentry{NEXT\_TETROMINO\_GRID\_POS}\spxextra{tetris.tetrominos.Ltetromino attribute}, 
+		\hyperpage{16}
+  \item \spxentry{NEXT\_TETROMINO\_GRID\_POS}\spxextra{tetris.tetrominos.Otetromino attribute}, 
+		\hyperpage{16}
+  \item \spxentry{NEXT\_TETROMINO\_GRID\_POS}\spxextra{tetris.tetrominos.Stetromino attribute}, 
+		\hyperpage{16}
+  \item \spxentry{NEXT\_TETROMINO\_GRID\_POS}\spxextra{tetris.tetrominos.Tetromino attribute}, 
+		\hyperpage{17}
+  \item \spxentry{NEXT\_TETROMINO\_GRID\_POS}\spxextra{tetris.tetrominos.Ttetromino attribute}, 
+		\hyperpage{19}
+  \item \spxentry{NEXT\_TETROMINO\_GRID\_POS}\spxextra{tetris.tetrominos.Ztetromino attribute}, 
+		\hyperpage{19}
+  \item \spxentry{NEXT\_TETROMINO\_N\_OF\_COL}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{14}
+  \item \spxentry{NEXT\_TETROMINO\_N\_OF\_ROWS}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{14}
+  \item \spxentry{NEXT\_TETROMINO\_TITLE}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{14}
+  \item \spxentry{next\_tetromino\_window}\spxextra{tetris.game.Game attribute}, \hyperpage{7}
+  \item \spxentry{next\_tetromino\_window\_rect}\spxextra{tetris.game.Game attribute}, 
+		\hyperpage{7}
+  \item \spxentry{NEXT\_WINDOW\_X}\spxextra{tetris.settings.Settings attribute}, \hyperpage{14}
+  \item \spxentry{NEXT\_WINDOW\_Y}\spxextra{tetris.settings.Settings attribute}, \hyperpage{14}
+
+  \indexspace
+  \bigletter O
+  \item \spxentry{O}\spxextra{tetris.settings.Settings attribute}, \hyperpage{14}
+  \item \spxentry{on\_save\_handler()}\spxextra{in module tetris.db.models.user}, \hyperpage{1}
+  \item \spxentry{Otetromino}\spxextra{class in tetris.tetrominos}, \hyperpage{16}
+
+  \indexspace
+  \bigletter P
+  \item \spxentry{POINTS\_FOR\_HARD\_DROP}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{14}
+  \item \spxentry{POINTS\_FOR\_SOFT\_DROP}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{14}
+  \item \spxentry{POINTS\_PER\_LINES}\spxextra{tetris.settings.Settings attribute}, \hyperpage{14}
+  \item \spxentry{pos}\spxextra{tetris.tetrominos.Tetromino attribute}, \hyperpage{18}
+  \item \spxentry{pos0()}\spxextra{tetris.tetrominos.Itetromino method}, \hyperpage{15}
+  \item \spxentry{pos0()}\spxextra{tetris.tetrominos.Jtetromino method}, \hyperpage{16}
+  \item \spxentry{pos0()}\spxextra{tetris.tetrominos.Ltetromino method}, \hyperpage{16}
+  \item \spxentry{pos0()}\spxextra{tetris.tetrominos.Stetromino method}, \hyperpage{17}
+  \item \spxentry{pos0()}\spxextra{tetris.tetrominos.Tetromino method}, \hyperpage{18}
+  \item \spxentry{pos0()}\spxextra{tetris.tetrominos.Ttetromino method}, \hyperpage{19}
+  \item \spxentry{pos0()}\spxextra{tetris.tetrominos.Ztetromino method}, \hyperpage{19}
+  \item \spxentry{pos1()}\spxextra{tetris.tetrominos.Itetromino method}, \hyperpage{15}
+  \item \spxentry{pos1()}\spxextra{tetris.tetrominos.Jtetromino method}, \hyperpage{16}
+  \item \spxentry{pos1()}\spxextra{tetris.tetrominos.Ltetromino method}, \hyperpage{16}
+  \item \spxentry{pos1()}\spxextra{tetris.tetrominos.Stetromino method}, \hyperpage{17}
+  \item \spxentry{pos1()}\spxextra{tetris.tetrominos.Tetromino method}, \hyperpage{18}
+  \item \spxentry{pos1()}\spxextra{tetris.tetrominos.Ttetromino method}, \hyperpage{19}
+  \item \spxentry{pos1()}\spxextra{tetris.tetrominos.Ztetromino method}, \hyperpage{19}
+  \item \spxentry{pos2()}\spxextra{tetris.tetrominos.Itetromino method}, \hyperpage{15}
+  \item \spxentry{pos2()}\spxextra{tetris.tetrominos.Jtetromino method}, \hyperpage{16}
+  \item \spxentry{pos2()}\spxextra{tetris.tetrominos.Ltetromino method}, \hyperpage{16}
+  \item \spxentry{pos2()}\spxextra{tetris.tetrominos.Stetromino method}, \hyperpage{17}
+  \item \spxentry{pos2()}\spxextra{tetris.tetrominos.Tetromino method}, \hyperpage{18}
+  \item \spxentry{pos2()}\spxextra{tetris.tetrominos.Ttetromino method}, \hyperpage{19}
+  \item \spxentry{pos2()}\spxextra{tetris.tetrominos.Ztetromino method}, \hyperpage{19}
+  \item \spxentry{pos3()}\spxextra{tetris.tetrominos.Itetromino method}, \hyperpage{15}
+  \item \spxentry{pos3()}\spxextra{tetris.tetrominos.Jtetromino method}, \hyperpage{16}
+  \item \spxentry{pos3()}\spxextra{tetris.tetrominos.Ltetromino method}, \hyperpage{16}
+  \item \spxentry{pos3()}\spxextra{tetris.tetrominos.Stetromino method}, \hyperpage{17}
+  \item \spxentry{pos3()}\spxextra{tetris.tetrominos.Tetromino method}, \hyperpage{18}
+  \item \spxentry{pos3()}\spxextra{tetris.tetrominos.Ttetromino method}, \hyperpage{19}
+  \item \spxentry{pos3()}\spxextra{tetris.tetrominos.Ztetromino method}, \hyperpage{19}
+  \item \spxentry{print\_grid()}\spxextra{tetris.game.Game method}, \hyperpage{7}
+  \item \spxentry{put\_on\_next\_tetromino\_window()}\spxextra{tetris.tetrominos.Tetromino method}, 
+		\hyperpage{18}
+
+  \indexspace
+  \bigletter Q
+  \item \spxentry{QUIT\_CHOICE}\spxextra{tetris.menu.Menu attribute}, \hyperpage{9}
+
+  \indexspace
+  \bigletter R
+  \item \spxentry{random\_tetromino()}\spxextra{tetris.game.Game method}, \hyperpage{7}
+  \item \spxentry{reset\_db()}\spxextra{in module tetris.db.scripts.migration}, \hyperpage{2}
+  \item \spxentry{RIGHT\_EDGE\_POS}\spxextra{tetris.tests.test\_tetrominos.TestTetromino attribute}, 
+		\hyperpage{4}
+  \item \spxentry{rotate\_left()}\spxextra{tetris.tetrominos.Itetromino method}, \hyperpage{15}
+  \item \spxentry{rotate\_left()}\spxextra{tetris.tetrominos.Otetromino method}, \hyperpage{16}
+  \item \spxentry{rotate\_left()}\spxextra{tetris.tetrominos.Tetromino method}, \hyperpage{18}
+  \item \spxentry{ROTATE\_LEFT\_KEY\_FILENAME}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{14}
+  \item \spxentry{rotate\_right()}\spxextra{tetris.tetrominos.Itetromino method}, \hyperpage{15}
+  \item \spxentry{rotate\_right()}\spxextra{tetris.tetrominos.Otetromino method}, \hyperpage{16}
+  \item \spxentry{rotate\_right()}\spxextra{tetris.tetrominos.Tetromino method}, \hyperpage{18}
+  \item \spxentry{ROTATE\_RIGHT\_KEY\_1\_FILENAME}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{14}
+  \item \spxentry{ROTATE\_RIGHT\_KEY\_2\_FILENAME}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{14}
+  \item \spxentry{Rules}\spxextra{class in tetris.rules}, \hyperpage{10}
+  \item \spxentry{RULES\_CHOICE}\spxextra{tetris.menu.Menu attribute}, \hyperpage{9}
+  \item \spxentry{RULES\_LINE\_HEIGHT}\spxextra{tetris.settings.Settings attribute}, \hyperpage{14}
+  \item \spxentry{RULES\_TEXT\_Y}\spxextra{tetris.settings.Settings attribute}, \hyperpage{14}
+  \item \spxentry{RULES\_TITLE}\spxextra{tetris.settings.Settings attribute}, \hyperpage{14}
+  \item \spxentry{RULES\_TITLE\_Y}\spxextra{tetris.settings.Settings attribute}, \hyperpage{14}
+
+  \indexspace
+  \bigletter S
+  \item \spxentry{S}\spxextra{tetris.settings.Settings attribute}, \hyperpage{14}
+  \item \spxentry{score}\spxextra{tetris.game.Game attribute}, \hyperpage{8}
+  \item \spxentry{SCORE\_NEXT\_TITLE\_Y}\spxextra{tetris.settings.Settings attribute}, 
+		\hyperpage{14}
+  \item \spxentry{SCORE\_TITLE}\spxextra{tetris.settings.Settings attribute}, \hyperpage{14}
+  \item \spxentry{score\_window}\spxextra{tetris.game.Game attribute}, \hyperpage{8}
+  \item \spxentry{score\_window\_rect}\spxextra{tetris.game.Game attribute}, \hyperpage{8}
+  \item \spxentry{SCORE\_WINDOW\_X}\spxextra{tetris.settings.Settings attribute}, \hyperpage{14}
+  \item \spxentry{SCORE\_WINDOW\_Y}\spxextra{tetris.settings.Settings attribute}, \hyperpage{14}
+  \item \spxentry{SCREEN\_HEIGHT}\spxextra{tetris.settings.Settings attribute}, \hyperpage{14}
+  \item \spxentry{SCREEN\_WIDTH}\spxextra{tetris.settings.Settings attribute}, \hyperpage{14}
+  \item \spxentry{SECOND\_BG\_COLOR}\spxextra{tetris.settings.Settings attribute}, \hyperpage{14}
+  \item \spxentry{Settings}\spxextra{class in tetris.settings}, \hyperpage{10}
+  \item \spxentry{setUp()}\spxextra{tetris.tests.test\_menu.TestMenu method}, \hyperpage{4}
+  \item \spxentry{setUpClass()}\spxextra{tetris.tests.test\_game.TestGame class method}, 
+		\hyperpage{4}
+  \item \spxentry{setUpClass()}\spxextra{tetris.tests.test\_tetrominos.TestTetromino class method}, 
+		\hyperpage{4}
+  \item \spxentry{space\_down}\spxextra{tetris.game.Game attribute}, \hyperpage{8}
+  \item \spxentry{spawn()}\spxextra{tetris.tetrominos.Tetromino method}, \hyperpage{18}
+  \item \spxentry{SPAWN\_POS}\spxextra{tetris.tetrominos.Itetromino attribute}, \hyperpage{15}
+  \item \spxentry{SPAWN\_POS}\spxextra{tetris.tetrominos.Jtetromino attribute}, \hyperpage{16}
+  \item \spxentry{SPAWN\_POS}\spxextra{tetris.tetrominos.Ltetromino attribute}, \hyperpage{16}
+  \item \spxentry{SPAWN\_POS}\spxextra{tetris.tetrominos.Otetromino attribute}, \hyperpage{16}
+  \item \spxentry{SPAWN\_POS}\spxextra{tetris.tetrominos.Stetromino attribute}, \hyperpage{16}
+  \item \spxentry{SPAWN\_POS}\spxextra{tetris.tetrominos.Tetromino attribute}, \hyperpage{17}
+  \item \spxentry{SPAWN\_POS}\spxextra{tetris.tetrominos.Ttetromino attribute}, \hyperpage{19}
+  \item \spxentry{SPAWN\_POS}\spxextra{tetris.tetrominos.Ztetromino attribute}, \hyperpage{19}
+  \item \spxentry{Stetromino}\spxextra{class in tetris.tetrominos}, \hyperpage{16}
+
+  \indexspace
+  \bigletter T
+  \item \spxentry{T}\spxextra{tetris.settings.Settings attribute}, \hyperpage{14}
+  \item \spxentry{TAG}\spxextra{tetris.tetrominos.Itetromino attribute}, \hyperpage{15}
+  \item \spxentry{TAG}\spxextra{tetris.tetrominos.Jtetromino attribute}, \hyperpage{16}
+  \item \spxentry{TAG}\spxextra{tetris.tetrominos.Ltetromino attribute}, \hyperpage{16}
+  \item \spxentry{TAG}\spxextra{tetris.tetrominos.Otetromino attribute}, \hyperpage{16}
+  \item \spxentry{TAG}\spxextra{tetris.tetrominos.Stetromino attribute}, \hyperpage{17}
+  \item \spxentry{TAG}\spxextra{tetris.tetrominos.Tetromino attribute}, \hyperpage{17}
+  \item \spxentry{TAG}\spxextra{tetris.tetrominos.Ttetromino attribute}, \hyperpage{19}
+  \item \spxentry{TAG}\spxextra{tetris.tetrominos.Ztetromino attribute}, \hyperpage{19}
+  \item \spxentry{test\_check\_down()}\spxextra{tetris.tests.test\_tetrominos.TestTetromino method}, 
+		\hyperpage{4}
+  \item \spxentry{test\_check\_line()}\spxextra{tetris.tests.test\_game.TestGame method}, 
+		\hyperpage{4}
+  \item \spxentry{test\_check\_move\_left()}\spxextra{tetris.tests.test\_tetrominos.TestTetromino method}, 
+		\hyperpage{4}
+  \item \spxentry{test\_check\_move\_right()}\spxextra{tetris.tests.test\_tetrominos.TestTetromino method}, 
+		\hyperpage{5}
+  \item \spxentry{test\_check\_tetromino\_above\_top()}\spxextra{tetris.tests.test\_game.TestGame method}, 
+		\hyperpage{4}
+  \item \spxentry{test\_check\_touch()}\spxextra{tetris.tests.test\_tetrominos.TestTetromino method}, 
+		\hyperpage{5}
+  \item \spxentry{test\_delete\_line()}\spxextra{tetris.tests.test\_game.TestGame method}, 
+		\hyperpage{4}
+  \item \spxentry{test\_init\_properties()}\spxextra{tetris.tests.test\_game.TestGame method}, 
+		\hyperpage{4}
+  \item \spxentry{test\_main()}\spxextra{tetris.tests.test\_menu.TestMenu method}, \hyperpage{4}
+  \item \spxentry{test\_random\_tetromino()}\spxextra{tetris.tests.test\_game.TestGame method}, 
+		\hyperpage{4}
+  \item \spxentry{TestGame}\spxextra{class in tetris.tests.test\_game}, \hyperpage{2}
+  \item \spxentry{TestMenu}\spxextra{class in tetris.tests.test\_menu}, \hyperpage{4}
+  \item \spxentry{TestTetromino}\spxextra{class in tetris.tests.test\_tetrominos}, \hyperpage{4}
+  \item \spxentry{tetris}
+    \subitem \spxentry{module}, \hyperpage{19}
+  \item \spxentry{tetris.controls}
+    \subitem \spxentry{module}, \hyperpage{5}
+  \item \spxentry{tetris.db}
+    \subitem \spxentry{module}, \hyperpage{2}
+  \item \spxentry{tetris.db.models}
+    \subitem \spxentry{module}, \hyperpage{2}
+  \item \spxentry{tetris.db.models.get\_base\_dir}
+    \subitem \spxentry{module}, \hyperpage{1}
+  \item \spxentry{tetris.db.models.user}
+    \subitem \spxentry{module}, \hyperpage{1}
+  \item \spxentry{tetris.db.scripts}
+    \subitem \spxentry{module}, \hyperpage{2}
+  \item \spxentry{tetris.db.scripts.get\_base\_dir}
+    \subitem \spxentry{module}, \hyperpage{2}
+  \item \spxentry{tetris.db.scripts.migration}
+    \subitem \spxentry{module}, \hyperpage{2}
+  \item \spxentry{tetris.db.settings}
+    \subitem \spxentry{module}, \hyperpage{2}
+  \item \spxentry{tetris.game}
+    \subitem \spxentry{module}, \hyperpage{5}
+  \item \spxentry{tetris.leaderboard}
+    \subitem \spxentry{module}, \hyperpage{8}
+  \item \spxentry{tetris.main}
+    \subitem \spxentry{module}, \hyperpage{9}
+  \item \spxentry{tetris.menu}
+    \subitem \spxentry{module}, \hyperpage{9}
+  \item \spxentry{tetris.rules}
+    \subitem \spxentry{module}, \hyperpage{10}
+  \item \spxentry{tetris.settings}
+    \subitem \spxentry{module}, \hyperpage{10}
+  \item \spxentry{tetris.tests}
+    \subitem \spxentry{module}, \hyperpage{5}
+  \item \spxentry{tetris.tests.test\_game}
+    \subitem \spxentry{module}, \hyperpage{2}
+  \item \spxentry{tetris.tests.test\_menu}
+    \subitem \spxentry{module}, \hyperpage{4}
+  \item \spxentry{tetris.tests.test\_tetrominos}
+    \subitem \spxentry{module}, \hyperpage{4}
+  \item \spxentry{tetris.tetrominos}
+    \subitem \spxentry{module}, \hyperpage{15}
+  \item \spxentry{TETRIS\_TITLE}\spxextra{tetris.settings.Settings attribute}, \hyperpage{14}
+  \item \spxentry{TETRIS\_TITLE\_Y}\spxextra{tetris.settings.Settings attribute}, \hyperpage{14}
+  \item \spxentry{Tetromino}\spxextra{class in tetris.tetrominos}, \hyperpage{17}
+  \item \spxentry{TEXT}\spxextra{tetris.rules.Rules attribute}, \hyperpage{10}
+  \item \spxentry{Ttetromino}\spxextra{class in tetris.tetrominos}, \hyperpage{19}
+
+  \indexspace
+  \bigletter U
+  \item \spxentry{update\_on\_grid()}\spxextra{tetris.tetrominos.Tetromino method}, \hyperpage{19}
+  \item \spxentry{User}\spxextra{class in tetris.db.models.user}, \hyperpage{1}
+  \item \spxentry{user\_exists()}\spxextra{in module tetris.db.models.user}, \hyperpage{1}
+  \item \spxentry{username}\spxextra{tetris.db.models.user.User attribute}, \hyperpage{1}
+  \item \spxentry{username}\spxextra{tetris.game.Game attribute}, \hyperpage{8}
+
+  \indexspace
+  \bigletter Z
+  \item \spxentry{Z}\spxextra{tetris.settings.Settings attribute}, \hyperpage{15}
+  \item \spxentry{Ztetromino}\spxextra{class in tetris.tetrominos}, \hyperpage{19}
+
+\end{sphinxtheindex}

@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>game module &#8212; tetris-pygame 0.0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/agogo.css?v=47acb022" />
+    <script src="_static/documentation_options.js?v=d45e8c67"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Welcome to tetris-pygame’s documentation!" href="index.html" /> 
+  </head><body>
+    <div class="header-wrapper" role="banner">
+      <div class="header">
+        <div class="headertitle"><a
+          href="index.html">tetris-pygame 0.0.1 documentation</a></div>
+        <div class="rel" role="navigation" aria-label="related navigation">
+          <a href="index.html" title="Welcome to tetris-pygame’s documentation!"
+             accesskey="P">previous</a> |
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a>
+        </div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="module-tetris.game">
+<span id="game-module"></span><h1>game module<a class="headerlink" href="#module-tetris.game" title="Link to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="tetris.game.Game">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tetris.game.</span></span><span class="sig-name descname"><span class="pre">Game</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">settings</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Settings</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tetris.game.Game" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class contains main game logic and methods to draw game elements</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="tetris.game.Game.add_score">
+<span class="sig-name descname"><span class="pre">add_score</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lines_cleared</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetris.game.Game.add_score" title="Link to this definition">¶</a></dt>
+<dd><p>Add score for cleared lines</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetris.game.Game.check_events">
+<span class="sig-name descname"><span class="pre">check_events</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetris.game.Game.check_events" title="Link to this definition">¶</a></dt>
+<dd><p>Check pygane events and react to them</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetris.game.Game.check_hover">
+<span class="sig-name descname"><span class="pre">check_hover</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetris.game.Game.check_hover" title="Link to this definition">¶</a></dt>
+<dd><p>Checks if mouse is hovering over the buttons and changes the cursor accordingly</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetris.game.Game.check_line">
+<span class="sig-name descname"><span class="pre">check_line</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#tetris.game.Game.check_line" title="Link to this definition">¶</a></dt>
+<dd><p>Check if there is a line of tetrominos and delete it</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if there is a line of tetrominos, False otherwise</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(bool)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetris.game.Game.check_lvl_up">
+<span class="sig-name descname"><span class="pre">check_lvl_up</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetris.game.Game.check_lvl_up" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetris.game.Game.check_pressed_down_movement">
+<span class="sig-name descname"><span class="pre">check_pressed_down_movement</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetris.game.Game.check_pressed_down_movement" title="Link to this definition">¶</a></dt>
+<dd><p>Check if down movement keys are pressed and react to them</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetris.game.Game.check_pressed_rotate">
+<span class="sig-name descname"><span class="pre">check_pressed_rotate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetris.game.Game.check_pressed_rotate" title="Link to this definition">¶</a></dt>
+<dd><p>Check if rotation keys are pressed and react to them</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetris.game.Game.check_pressed_side_movement">
+<span class="sig-name descname"><span class="pre">check_pressed_side_movement</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetris.game.Game.check_pressed_side_movement" title="Link to this definition">¶</a></dt>
+<dd><p>Check if side movement keys are pressed and react to them</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetris.game.Game.check_tetromino_above_top">
+<span class="sig-name descname"><span class="pre">check_tetromino_above_top</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#tetris.game.Game.check_tetromino_above_top" title="Link to this definition">¶</a></dt>
+<dd><p>Check if there is a tetromino above visible top of the grid</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetris.game.Game.create_game_windows">
+<span class="sig-name descname"><span class="pre">create_game_windows</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetris.game.Game.create_game_windows" title="Link to this definition">¶</a></dt>
+<dd><p>Create game windows</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetris.game.Game.db_insert_user">
+<span class="sig-name descname"><span class="pre">db_insert_user</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetris.game.Game.db_insert_user" title="Link to this definition">¶</a></dt>
+<dd><p>Insert user into database</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetris.game.Game.delete_line">
+<span class="sig-name descname"><span class="pre">delete_line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">row</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetris.game.Game.delete_line" title="Link to this definition">¶</a></dt>
+<dd><p>Delete line from grid and move all tetrominos above it down</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetris.game.Game.draw_end_of_game_btns">
+<span class="sig-name descname"><span class="pre">draw_end_of_game_btns</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetris.game.Game.draw_end_of_game_btns" title="Link to this definition">¶</a></dt>
+<dd><p>Draw buttons displayed at the end of the game, after loss</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetris.game.Game.draw_game_window">
+<span class="sig-name descname"><span class="pre">draw_game_window</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetris.game.Game.draw_game_window" title="Link to this definition">¶</a></dt>
+<dd><p>Draw game window on screen</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetris.game.Game.draw_grid">
+<span class="sig-name descname"><span class="pre">draw_grid</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetris.game.Game.draw_grid" title="Link to this definition">¶</a></dt>
+<dd><p>Draw grid with tetrominos on game window</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetris.game.Game.draw_lvl">
+<span class="sig-name descname"><span class="pre">draw_lvl</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetris.game.Game.draw_lvl" title="Link to this definition">¶</a></dt>
+<dd><p>Draw score window and score on</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetris.game.Game.draw_lvl_title">
+<span class="sig-name descname"><span class="pre">draw_lvl_title</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetris.game.Game.draw_lvl_title" title="Link to this definition">¶</a></dt>
+<dd><p>Draw score title on screen</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetris.game.Game.draw_lvl_window">
+<span class="sig-name descname"><span class="pre">draw_lvl_window</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetris.game.Game.draw_lvl_window" title="Link to this definition">¶</a></dt>
+<dd><p>Draw score window on screen</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetris.game.Game.draw_next_tetromino">
+<span class="sig-name descname"><span class="pre">draw_next_tetromino</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetris.game.Game.draw_next_tetromino" title="Link to this definition">¶</a></dt>
+<dd><p>Draw next tetromino on next tetromino window</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetris.game.Game.draw_next_tetromino_title">
+<span class="sig-name descname"><span class="pre">draw_next_tetromino_title</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetris.game.Game.draw_next_tetromino_title" title="Link to this definition">¶</a></dt>
+<dd><p>Draw next tetromino title on screen</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetris.game.Game.draw_next_tetromino_window">
+<span class="sig-name descname"><span class="pre">draw_next_tetromino_window</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetris.game.Game.draw_next_tetromino_window" title="Link to this definition">¶</a></dt>
+<dd><p>Draw next tetromino window on screen</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetris.game.Game.draw_score">
+<span class="sig-name descname"><span class="pre">draw_score</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetris.game.Game.draw_score" title="Link to this definition">¶</a></dt>
+<dd><p>Draw score window and score on</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetris.game.Game.draw_score_title">
+<span class="sig-name descname"><span class="pre">draw_score_title</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetris.game.Game.draw_score_title" title="Link to this definition">¶</a></dt>
+<dd><p>Draw score title on screen</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetris.game.Game.draw_score_window">
+<span class="sig-name descname"><span class="pre">draw_score_window</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetris.game.Game.draw_score_window" title="Link to this definition">¶</a></dt>
+<dd><p>Draw score window on screen</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tetris.game.Game.game_window">
+<span class="sig-name descname"><span class="pre">game_window</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Surface</span></em><a class="headerlink" href="#tetris.game.Game.game_window" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tetris.game.Game.game_window_rect">
+<span class="sig-name descname"><span class="pre">game_window_rect</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Rect</span></em><a class="headerlink" href="#tetris.game.Game.game_window_rect" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetris.game.Game.get_username">
+<span class="sig-name descname"><span class="pre">get_username</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetris.game.Game.get_username" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tetris.game.Game.grid">
+<span class="sig-name descname"><span class="pre">grid</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#tetris.game.Game.grid" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetris.game.Game.init_properties">
+<span class="sig-name descname"><span class="pre">init_properties</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetris.game.Game.init_properties" title="Link to this definition">¶</a></dt>
+<dd><p>Initialize game properties</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tetris.game.Game.lines_cleared">
+<span class="sig-name descname"><span class="pre">lines_cleared</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#tetris.game.Game.lines_cleared" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tetris.game.Game.lvl">
+<span class="sig-name descname"><span class="pre">lvl</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#tetris.game.Game.lvl" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetris.game.Game.lvl_up">
+<span class="sig-name descname"><span class="pre">lvl_up</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetris.game.Game.lvl_up" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tetris.game.Game.lvl_window">
+<span class="sig-name descname"><span class="pre">lvl_window</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Surface</span></em><a class="headerlink" href="#tetris.game.Game.lvl_window" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tetris.game.Game.lvl_window_rect">
+<span class="sig-name descname"><span class="pre">lvl_window_rect</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Rect</span></em><a class="headerlink" href="#tetris.game.Game.lvl_window_rect" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetris.game.Game.main">
+<span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetris.game.Game.main" title="Link to this definition">¶</a></dt>
+<dd><p>Main game loop</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tetris.game.Game.move_down_key_pressed">
+<span class="sig-name descname"><span class="pre">move_down_key_pressed</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#tetris.game.Game.move_down_key_pressed" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetris.game.Game.next_game">
+<span class="sig-name descname"><span class="pre">next_game</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#tetris.game.Game.next_game" title="Link to this definition">¶</a></dt>
+<dd><p>Check if user clicked on next game button or menu button</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tetris.game.Game.next_tetromino_grid">
+<span class="sig-name descname"><span class="pre">next_tetromino_grid</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#tetris.game.Game.next_tetromino_grid" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tetris.game.Game.next_tetromino_window">
+<span class="sig-name descname"><span class="pre">next_tetromino_window</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Surface</span></em><a class="headerlink" href="#tetris.game.Game.next_tetromino_window" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tetris.game.Game.next_tetromino_window_rect">
+<span class="sig-name descname"><span class="pre">next_tetromino_window_rect</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Rect</span></em><a class="headerlink" href="#tetris.game.Game.next_tetromino_window_rect" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetris.game.Game.print_grid">
+<span class="sig-name descname"><span class="pre">print_grid</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetris.game.Game.print_grid" title="Link to this definition">¶</a></dt>
+<dd><p>Print grid in console</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetris.game.Game.random_tetromino">
+<span class="sig-name descname"><span class="pre">random_tetromino</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tetromino</span></span></span><a class="headerlink" href="#tetris.game.Game.random_tetromino" title="Link to this definition">¶</a></dt>
+<dd><p>Return random tetromino</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Random tetromino</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>(Tetromino)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tetris.game.Game.score">
+<span class="sig-name descname"><span class="pre">score</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#tetris.game.Game.score" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tetris.game.Game.score_window">
+<span class="sig-name descname"><span class="pre">score_window</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Surface</span></em><a class="headerlink" href="#tetris.game.Game.score_window" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tetris.game.Game.score_window_rect">
+<span class="sig-name descname"><span class="pre">score_window_rect</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Rect</span></em><a class="headerlink" href="#tetris.game.Game.score_window_rect" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tetris.game.Game.space_down">
+<span class="sig-name descname"><span class="pre">space_down</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#tetris.game.Game.space_down" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tetris.game.Game.username">
+<span class="sig-name descname"><span class="pre">username</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#tetris.game.Game.username" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          
+          <h3>Table of Contents</h3>
+          <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">game module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#tetris.game.Game"><code class="docutils literal notranslate"><span class="pre">Game</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+          <div role="search">
+            <h3 style="margin-top: 1.5em;">Search</h3>
+            <form class="search" action="search.html" method="get">
+                <input type="text" name="q" />
+                <input type="submit" value="Go" />
+            </form>
+          </div>
+
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <div role="navigation" aria-label="related navigaton">
+            <a href="index.html" title="Welcome to tetris-pygame’s documentation!"
+              >previous</a> |
+            <a href="py-modindex.html" title="Python Module Index"
+              >modules</a> |
+            <a href="genindex.html" title="General Index"
+              >index</a>
+          </div>
+          <div role="note" aria-label="source link">
+              <br/>
+              <a href="_sources/game.rst.txt"
+                rel="nofollow">Show Source</a>
+          </div>
+        </div>
+
+        <div class="right">
+          
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2023, Łukasz Łukaszewski.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>
