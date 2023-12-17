@@ -7,3 +7,5 @@ venv/
 .idea
 .vscode/
 db.sqlite3*
+.pre-commit*
+*.code-workspace

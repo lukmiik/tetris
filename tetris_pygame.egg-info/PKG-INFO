@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: tetris-pygame
+Version: 0.0.1
+Summary: Tetris game made with pygame
+Author-email: Łukasz Łukaszewski <lulkaszmlukaszewski@gmail.com>
+Project-URL: Homepage, https://github.com/lukmiik/tetris
+Project-URL: Issues, https://github.com/lukmiik/tetris/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pygame>=2.5.2
+Requires-Dist: pygame_gui>=0.6.9
+Requires-Dist: peewee>=3.17.0
+Requires-Dist: peewee-migrate>=1.12.2
+Requires-Dist: setuptools>=61.0.0
+
+**TETRIS**
+<br>
+<br>
+Run:
+```
+$ tetris
+```
+
+Reset leaderboard:
+```
+$ leaderboard
+```
+
+Requirements:
+
+pygame>=2.5.2<br>
+pygame_gui>=0.6.9<br>
+peewee>=3.17.0<br>
+peewee-migrate>=1.12.2<br>
+setuptools>=61.0.0

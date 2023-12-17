@@ -1,7 +1,0 @@
-db settings module
-========================
-
-.. automodule:: db.settings
-   :members:
-   :undoc-members:
-   :show-inheritance:

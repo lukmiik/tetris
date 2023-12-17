@@ -1,7 +1,0 @@
-models user module
-=======================
-
-.. automodule:: db.models.user
-   :members:
-   :undoc-members:
-   :show-inheritance:

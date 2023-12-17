@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>tetris.leaderboard module &#8212; tetris-pygame 0.0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/agogo.css?v=47acb022" />
+    <script src="_static/documentation_options.js?v=d45e8c67"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head><body>
+    <div class="header-wrapper" role="banner">
+      <div class="header">
+        <div class="headertitle"><a
+          href="index.html">tetris-pygame 0.0.1 documentation</a></div>
+        <div class="rel" role="navigation" aria-label="related navigation">
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a>
+        </div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="module-tetris.leaderboard">
+<span id="tetris-leaderboard-module"></span><h1>tetris.leaderboard module<a class="headerlink" href="#module-tetris.leaderboard" title="Link to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="tetris.leaderboard.Leaderboard">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tetris.leaderboard.</span></span><span class="sig-name descname"><span class="pre">Leaderboard</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">settings</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="tetris.settings.html#tetris.settings.Settings" title="tetris.settings.Settings"><span class="pre">Settings</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tetris.leaderboard.Leaderboard" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class for the leaderboard screen</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="tetris.leaderboard.Leaderboard.check_events">
+<span class="sig-name descname"><span class="pre">check_events</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#tetris.leaderboard.Leaderboard.check_events" title="Link to this definition">¶</a></dt>
+<dd><p>Checks for events</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if go back button is pressed, None otherwise</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>(bool | None)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetris.leaderboard.Leaderboard.create_draw_row">
+<span class="sig-name descname"><span class="pre">create_draw_row</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rank</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="tetris.db.models.user.html#tetris.db.models.user.User" title="tetris.db.models.user.User"><span class="pre">User</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetris.leaderboard.Leaderboard.create_draw_row" title="Link to this definition">¶</a></dt>
+<dd><p>Creates and draws a row of the leaderboard</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetris.leaderboard.Leaderboard.create_header">
+<span class="sig-name descname"><span class="pre">create_header</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetris.leaderboard.Leaderboard.create_header" title="Link to this definition">¶</a></dt>
+<dd><p>Creates the header of the leaderboard</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetris.leaderboard.Leaderboard.create_leaderboard">
+<span class="sig-name descname"><span class="pre">create_leaderboard</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetris.leaderboard.Leaderboard.create_leaderboard" title="Link to this definition">¶</a></dt>
+<dd><p>Creates the leaderboard</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetris.leaderboard.Leaderboard.create_title">
+<span class="sig-name descname"><span class="pre">create_title</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetris.leaderboard.Leaderboard.create_title" title="Link to this definition">¶</a></dt>
+<dd><p>Creates the title of the leaderboard</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetris.leaderboard.Leaderboard.draw_header">
+<span class="sig-name descname"><span class="pre">draw_header</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetris.leaderboard.Leaderboard.draw_header" title="Link to this definition">¶</a></dt>
+<dd><p>Draws the leaderboard header</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetris.leaderboard.Leaderboard.draw_title">
+<span class="sig-name descname"><span class="pre">draw_title</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetris.leaderboard.Leaderboard.draw_title" title="Link to this definition">¶</a></dt>
+<dd><p>Draws the leaderboard title</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tetris.leaderboard.Leaderboard.main">
+<span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tetris.leaderboard.Leaderboard.main" title="Link to this definition">¶</a></dt>
+<dd><p>Main function of the leaderboard screen that draws everything and checks for events</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          
+          <h3>Table of Contents</h3>
+          
+          <div role="search">
+            <h3 style="margin-top: 1.5em;">Search</h3>
+            <form class="search" action="search.html" method="get">
+                <input type="text" name="q" />
+                <input type="submit" value="Go" />
+            </form>
+          </div>
+
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <div role="navigation" aria-label="related navigaton">
+            <a href="py-modindex.html" title="Python Module Index"
+              >modules</a> |
+            <a href="genindex.html" title="General Index"
+              >index</a>
+          </div>
+          <div role="note" aria-label="source link">
+              <br/>
+              <a href="_sources/tetris.leaderboard.rst.txt"
+                rel="nofollow">Show Source</a>
+          </div>
+        </div>
+
+        <div class="right">
+          
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2023, Łukasz Łukaszewski.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,9 @@
+LICENSE
+README.md
+pyproject.toml
+tetris/assets/tetris_pygame.egg-info/PKG-INFO
+tetris/assets/tetris_pygame.egg-info/SOURCES.txt
+tetris/assets/tetris_pygame.egg-info/dependency_links.txt
+tetris/assets/tetris_pygame.egg-info/entry_points.txt
+tetris/assets/tetris_pygame.egg-info/requires.txt
+tetris/assets/tetris_pygame.egg-info/top_level.txt
