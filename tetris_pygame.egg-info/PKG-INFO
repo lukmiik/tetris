@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: tetris-pygame
-Version: 0.0.1
+Version: 0.0.2
 Summary: Tetris game made with pygame
 Author-email: Łukasz Łukaszewski <lulkaszmlukaszewski@gmail.com>
 Project-URL: Homepage, https://github.com/lukmiik/tetris
