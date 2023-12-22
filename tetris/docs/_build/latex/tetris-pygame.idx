@@ -17,7 +17,7 @@
 \indexentry{tetris.db.scripts.get\_base\_dir@\spxentry{tetris.db.scripts.get\_base\_dir}!module@\spxentry{module}|hyperpage}{2}
 \indexentry{module@\spxentry{module}!tetris.db.scripts.migration@\spxentry{tetris.db.scripts.migration}|hyperpage}{2}
 \indexentry{tetris.db.scripts.migration@\spxentry{tetris.db.scripts.migration}!module@\spxentry{module}|hyperpage}{2}
-\indexentry{crete\_db() (in module tetris.db.scripts.migration)@\spxentry{crete\_db()}\spxextra{in module tetris.db.scripts.migration}|hyperpage}{2}
+\indexentry{create\_db() (in module tetris.db.scripts.migration)@\spxentry{create\_db()}\spxextra{in module tetris.db.scripts.migration}|hyperpage}{2}
 \indexentry{reset\_db() (in module tetris.db.scripts.migration)@\spxentry{reset\_db()}\spxextra{in module tetris.db.scripts.migration}|hyperpage}{2}
 \indexentry{module@\spxentry{module}!tetris.db.scripts@\spxentry{tetris.db.scripts}|hyperpage}{2}
 \indexentry{tetris.db.scripts@\spxentry{tetris.db.scripts}!module@\spxentry{module}|hyperpage}{2}
@@ -243,6 +243,7 @@
 \indexentry{MENU\_QUIT\_TEXT (tetris.settings.Settings attribute)@\spxentry{MENU\_QUIT\_TEXT}\spxextra{tetris.settings.Settings attribute}|hyperpage}{13}
 \indexentry{MENU\_RULES\_TEXT (tetris.settings.Settings attribute)@\spxentry{MENU\_RULES\_TEXT}\spxextra{tetris.settings.Settings attribute}|hyperpage}{13}
 \indexentry{MENU\_START\_GAME\_TEXT (tetris.settings.Settings attribute)@\spxentry{MENU\_START\_GAME\_TEXT}\spxextra{tetris.settings.Settings attribute}|hyperpage}{13}
+\indexentry{MIGRATION\_COMMAND (tetris.settings.Settings attribute)@\spxentry{MIGRATION\_COMMAND}\spxextra{tetris.settings.Settings attribute}|hyperpage}{13}
 \indexentry{MOVE\_DOWN\_ACCELERATION\_PER\_LVL (tetris.settings.Settings attribute)@\spxentry{MOVE\_DOWN\_ACCELERATION\_PER\_LVL}\spxextra{tetris.settings.Settings attribute}|hyperpage}{13}
 \indexentry{MOVE\_DOWN\_START\_TIME (tetris.settings.Settings attribute)@\spxentry{MOVE\_DOWN\_START\_TIME}\spxextra{tetris.settings.Settings attribute}|hyperpage}{13}
 \indexentry{MOVING\_DOWN\_KEY\_1\_FILENAME (tetris.settings.Settings attribute)@\spxentry{MOVING\_DOWN\_KEY\_1\_FILENAME}\spxextra{tetris.settings.Settings attribute}|hyperpage}{13}
@@ -251,7 +252,7 @@
 \indexentry{MOVING\_LEFT\_KEY\_2\_FILENAME (tetris.settings.Settings attribute)@\spxentry{MOVING\_LEFT\_KEY\_2\_FILENAME}\spxextra{tetris.settings.Settings attribute}|hyperpage}{13}
 \indexentry{MOVING\_RIGHT\_KEY\_1\_FILENAME (tetris.settings.Settings attribute)@\spxentry{MOVING\_RIGHT\_KEY\_1\_FILENAME}\spxextra{tetris.settings.Settings attribute}|hyperpage}{13}
 \indexentry{MOVING\_RIGHT\_KEY\_2\_FILENAME (tetris.settings.Settings attribute)@\spxentry{MOVING\_RIGHT\_KEY\_2\_FILENAME}\spxextra{tetris.settings.Settings attribute}|hyperpage}{13}
-\indexentry{NEXT\_TETROMINO\_CELL\_HEIGHT (tetris.settings.Settings attribute)@\spxentry{NEXT\_TETROMINO\_CELL\_HEIGHT}\spxextra{tetris.settings.Settings attribute}|hyperpage}{13}
+\indexentry{NEXT\_TETROMINO\_CELL\_HEIGHT (tetris.settings.Settings attribute)@\spxentry{NEXT\_TETROMINO\_CELL\_HEIGHT}\spxextra{tetris.settings.Settings attribute}|hyperpage}{14}
 \indexentry{NEXT\_TETROMINO\_CELL\_WIDTH (tetris.settings.Settings attribute)@\spxentry{NEXT\_TETROMINO\_CELL\_WIDTH}\spxextra{tetris.settings.Settings attribute}|hyperpage}{14}
 \indexentry{NEXT\_TETROMINO\_N\_OF\_COL (tetris.settings.Settings attribute)@\spxentry{NEXT\_TETROMINO\_N\_OF\_COL}\spxextra{tetris.settings.Settings attribute}|hyperpage}{14}
 \indexentry{NEXT\_TETROMINO\_N\_OF\_ROWS (tetris.settings.Settings attribute)@\spxentry{NEXT\_TETROMINO\_N\_OF\_ROWS}\spxextra{tetris.settings.Settings attribute}|hyperpage}{14}
@@ -279,8 +280,8 @@
 \indexentry{SCREEN\_WIDTH (tetris.settings.Settings attribute)@\spxentry{SCREEN\_WIDTH}\spxextra{tetris.settings.Settings attribute}|hyperpage}{14}
 \indexentry{SECOND\_BG\_COLOR (tetris.settings.Settings attribute)@\spxentry{SECOND\_BG\_COLOR}\spxextra{tetris.settings.Settings attribute}|hyperpage}{14}
 \indexentry{T (tetris.settings.Settings attribute)@\spxentry{T}\spxextra{tetris.settings.Settings attribute}|hyperpage}{14}
-\indexentry{TETRIS\_TITLE (tetris.settings.Settings attribute)@\spxentry{TETRIS\_TITLE}\spxextra{tetris.settings.Settings attribute}|hyperpage}{14}
-\indexentry{TETRIS\_TITLE\_Y (tetris.settings.Settings attribute)@\spxentry{TETRIS\_TITLE\_Y}\spxextra{tetris.settings.Settings attribute}|hyperpage}{14}
+\indexentry{TETRIS\_TITLE (tetris.settings.Settings attribute)@\spxentry{TETRIS\_TITLE}\spxextra{tetris.settings.Settings attribute}|hyperpage}{15}
+\indexentry{TETRIS\_TITLE\_Y (tetris.settings.Settings attribute)@\spxentry{TETRIS\_TITLE\_Y}\spxextra{tetris.settings.Settings attribute}|hyperpage}{15}
 \indexentry{Z (tetris.settings.Settings attribute)@\spxentry{Z}\spxextra{tetris.settings.Settings attribute}|hyperpage}{15}
 \indexentry{check\_go\_back\_btn\_hover() (tetris.settings.Settings method)@\spxentry{check\_go\_back\_btn\_hover()}\spxextra{tetris.settings.Settings method}|hyperpage}{15}
 \indexentry{create\_end\_of\_game\_btns() (tetris.settings.Settings method)@\spxentry{create\_end\_of\_game\_btns()}\spxextra{tetris.settings.Settings method}|hyperpage}{15}
@@ -302,7 +303,7 @@
 \indexentry{rotate\_left() (tetris.tetrominos.Itetromino method)@\spxentry{rotate\_left()}\spxextra{tetris.tetrominos.Itetromino method}|hyperpage}{15}
 \indexentry{rotate\_right() (tetris.tetrominos.Itetromino method)@\spxentry{rotate\_right()}\spxextra{tetris.tetrominos.Itetromino method}|hyperpage}{15}
 \indexentry{Jtetromino (class in tetris.tetrominos)@\spxentry{Jtetromino}\spxextra{class in tetris.tetrominos}|hyperpage}{15}
-\indexentry{NEXT\_TETROMINO\_GRID\_POS (tetris.tetrominos.Jtetromino attribute)@\spxentry{NEXT\_TETROMINO\_GRID\_POS}\spxextra{tetris.tetrominos.Jtetromino attribute}|hyperpage}{15}
+\indexentry{NEXT\_TETROMINO\_GRID\_POS (tetris.tetrominos.Jtetromino attribute)@\spxentry{NEXT\_TETROMINO\_GRID\_POS}\spxextra{tetris.tetrominos.Jtetromino attribute}|hyperpage}{16}
 \indexentry{SPAWN\_POS (tetris.tetrominos.Jtetromino attribute)@\spxentry{SPAWN\_POS}\spxextra{tetris.tetrominos.Jtetromino attribute}|hyperpage}{16}
 \indexentry{TAG (tetris.tetrominos.Jtetromino attribute)@\spxentry{TAG}\spxextra{tetris.tetrominos.Jtetromino attribute}|hyperpage}{16}
 \indexentry{pos0() (tetris.tetrominos.Jtetromino method)@\spxentry{pos0()}\spxextra{tetris.tetrominos.Jtetromino method}|hyperpage}{16}
@@ -325,7 +326,7 @@
 \indexentry{rotate\_right() (tetris.tetrominos.Otetromino method)@\spxentry{rotate\_right()}\spxextra{tetris.tetrominos.Otetromino method}|hyperpage}{16}
 \indexentry{Stetromino (class in tetris.tetrominos)@\spxentry{Stetromino}\spxextra{class in tetris.tetrominos}|hyperpage}{16}
 \indexentry{NEXT\_TETROMINO\_GRID\_POS (tetris.tetrominos.Stetromino attribute)@\spxentry{NEXT\_TETROMINO\_GRID\_POS}\spxextra{tetris.tetrominos.Stetromino attribute}|hyperpage}{16}
-\indexentry{SPAWN\_POS (tetris.tetrominos.Stetromino attribute)@\spxentry{SPAWN\_POS}\spxextra{tetris.tetrominos.Stetromino attribute}|hyperpage}{16}
+\indexentry{SPAWN\_POS (tetris.tetrominos.Stetromino attribute)@\spxentry{SPAWN\_POS}\spxextra{tetris.tetrominos.Stetromino attribute}|hyperpage}{17}
 \indexentry{TAG (tetris.tetrominos.Stetromino attribute)@\spxentry{TAG}\spxextra{tetris.tetrominos.Stetromino attribute}|hyperpage}{17}
 \indexentry{pos0() (tetris.tetrominos.Stetromino method)@\spxentry{pos0()}\spxextra{tetris.tetrominos.Stetromino method}|hyperpage}{17}
 \indexentry{pos1() (tetris.tetrominos.Stetromino method)@\spxentry{pos1()}\spxextra{tetris.tetrominos.Stetromino method}|hyperpage}{17}

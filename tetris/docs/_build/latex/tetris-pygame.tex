@@ -63,7 +63,7 @@
 
 
 \title{tetris\sphinxhyphen{}pygame}
-\date{Dec 17, 2023}
+\date{Dec 22, 2023}
 \release{0.0.1}
 \author{Łukasz Łukaszewski}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -234,12 +234,12 @@ Checks if a user exists in the database
 
 
 \subparagraph{tetris.db.scripts.migration module}
-\label{\detokenize{tetris.db.scripts.migration:module-tetris.db.scripts.migration}}\label{\detokenize{tetris.db.scripts.migration:tetris-db-scripts-migration-module}}\label{\detokenize{tetris.db.scripts.migration::doc}}\index{module@\spxentry{module}!tetris.db.scripts.migration@\spxentry{tetris.db.scripts.migration}}\index{tetris.db.scripts.migration@\spxentry{tetris.db.scripts.migration}!module@\spxentry{module}}\index{crete\_db() (in module tetris.db.scripts.migration)@\spxentry{crete\_db()}\spxextra{in module tetris.db.scripts.migration}}
+\label{\detokenize{tetris.db.scripts.migration:module-tetris.db.scripts.migration}}\label{\detokenize{tetris.db.scripts.migration:tetris-db-scripts-migration-module}}\label{\detokenize{tetris.db.scripts.migration::doc}}\index{module@\spxentry{module}!tetris.db.scripts.migration@\spxentry{tetris.db.scripts.migration}}\index{tetris.db.scripts.migration@\spxentry{tetris.db.scripts.migration}!module@\spxentry{module}}\index{create\_db() (in module tetris.db.scripts.migration)@\spxentry{create\_db()}\spxextra{in module tetris.db.scripts.migration}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{tetris.db.scripts.migration:tetris.db.scripts.migration.crete_db}}
+\phantomsection\label{\detokenize{tetris.db.scripts.migration:tetris.db.scripts.migration.create_db}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxcode{\sphinxupquote{tetris.db.scripts.migration.}}\sphinxbfcode{\sphinxupquote{crete\_db}}}{}{{ $\rightarrow$ None}}
+\pysiglinewithargsret{\sphinxcode{\sphinxupquote{tetris.db.scripts.migration.}}\sphinxbfcode{\sphinxupquote{create\_db}}}{}{{ $\rightarrow$ None}}
 \pysigstopsignatures
 \sphinxAtStartPar
 Migrates the database
@@ -2427,6 +2427,15 @@ Settings class for the game
 \phantomsection\label{\detokenize{tetris.settings:tetris.settings.Settings.MENU_START_GAME_TEXT}}
 \pysigstartsignatures
 \pysigline{\sphinxbfcode{\sphinxupquote{MENU\_START\_GAME\_TEXT}}\sphinxbfcode{\sphinxupquote{\DUrole{w}{ }\DUrole{p}{=}\DUrole{w}{ }\textquotesingle{}Start game\textquotesingle{}}}}
+\pysigstopsignatures
+\end{fulllineitems}
+
+\index{MIGRATION\_COMMAND (tetris.settings.Settings attribute)@\spxentry{MIGRATION\_COMMAND}\spxextra{tetris.settings.Settings attribute}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{tetris.settings:tetris.settings.Settings.MIGRATION_COMMAND}}
+\pysigstartsignatures
+\pysigline{\sphinxbfcode{\sphinxupquote{MIGRATION\_COMMAND}}\sphinxbfcode{\sphinxupquote{\DUrole{p}{:}\DUrole{w}{ }str}}\sphinxbfcode{\sphinxupquote{\DUrole{w}{ }\DUrole{p}{=}\DUrole{w}{ }\textquotesingle{}python db/scripts/migration.py migrate\textquotesingle{}}}}
 \pysigstopsignatures
 \end{fulllineitems}
 

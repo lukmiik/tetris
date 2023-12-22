@@ -72,6 +72,7 @@
 		\hyperpage{11}
   \item \spxentry{create\_buttons()}\spxextra{tetris.menu.Menu method}, \hyperpage{9}
   \item \spxentry{create\_controls()}\spxextra{tetris.controls.Controls method}, \hyperpage{5}
+  \item \spxentry{create\_db()}\spxextra{in module tetris.db.scripts.migration}, \hyperpage{2}
   \item \spxentry{create\_draw\_row()}\spxextra{tetris.leaderboard.Leaderboard method}, 
 		\hyperpage{8}
   \item \spxentry{create\_draw\_text()}\spxextra{tetris.rules.Rules method}, \hyperpage{10}
@@ -90,7 +91,6 @@
   \item \spxentry{create\_title()}\spxextra{tetris.rules.Rules method}, \hyperpage{10}
   \item \spxentry{create\_titles\_properties()}\spxextra{tetris.settings.Settings method}, 
 		\hyperpage{15}
-  \item \spxentry{crete\_db()}\spxextra{in module tetris.db.scripts.migration}, \hyperpage{2}
 
   \indexspace
   \bigletter D
@@ -295,6 +295,7 @@
   \item \spxentry{MENU\_RULES\_TEXT}\spxextra{tetris.settings.Settings attribute}, \hyperpage{13}
   \item \spxentry{MENU\_START\_GAME\_TEXT}\spxextra{tetris.settings.Settings attribute}, 
 		\hyperpage{13}
+  \item \spxentry{MIGRATION\_COMMAND}\spxextra{tetris.settings.Settings attribute}, \hyperpage{13}
   \item \spxentry{module}
     \subitem \spxentry{tetris}, \hyperpage{19}
     \subitem \spxentry{tetris.controls}, \hyperpage{5}
@@ -344,14 +345,14 @@
 		\hyperpage{14}
   \item \spxentry{next\_game()}\spxextra{tetris.game.Game method}, \hyperpage{7}
   \item \spxentry{NEXT\_TETROMINO\_CELL\_HEIGHT}\spxextra{tetris.settings.Settings attribute}, 
-		\hyperpage{13}
+		\hyperpage{14}
   \item \spxentry{NEXT\_TETROMINO\_CELL\_WIDTH}\spxextra{tetris.settings.Settings attribute}, 
 		\hyperpage{14}
   \item \spxentry{next\_tetromino\_grid}\spxextra{tetris.game.Game attribute}, \hyperpage{7}
   \item \spxentry{NEXT\_TETROMINO\_GRID\_POS}\spxextra{tetris.tetrominos.Itetromino attribute}, 
 		\hyperpage{15}
   \item \spxentry{NEXT\_TETROMINO\_GRID\_POS}\spxextra{tetris.tetrominos.Jtetromino attribute}, 
-		\hyperpage{15}
+		\hyperpage{16}
   \item \spxentry{NEXT\_TETROMINO\_GRID\_POS}\spxextra{tetris.tetrominos.Ltetromino attribute}, 
 		\hyperpage{16}
   \item \spxentry{NEXT\_TETROMINO\_GRID\_POS}\spxextra{tetris.tetrominos.Otetromino attribute}, 
@@ -477,7 +478,7 @@
   \item \spxentry{SPAWN\_POS}\spxextra{tetris.tetrominos.Jtetromino attribute}, \hyperpage{16}
   \item \spxentry{SPAWN\_POS}\spxextra{tetris.tetrominos.Ltetromino attribute}, \hyperpage{16}
   \item \spxentry{SPAWN\_POS}\spxextra{tetris.tetrominos.Otetromino attribute}, \hyperpage{16}
-  \item \spxentry{SPAWN\_POS}\spxextra{tetris.tetrominos.Stetromino attribute}, \hyperpage{16}
+  \item \spxentry{SPAWN\_POS}\spxextra{tetris.tetrominos.Stetromino attribute}, \hyperpage{17}
   \item \spxentry{SPAWN\_POS}\spxextra{tetris.tetrominos.Tetromino attribute}, \hyperpage{17}
   \item \spxentry{SPAWN\_POS}\spxextra{tetris.tetrominos.Ttetromino attribute}, \hyperpage{19}
   \item \spxentry{SPAWN\_POS}\spxextra{tetris.tetrominos.Ztetromino attribute}, \hyperpage{19}
@@ -558,8 +559,8 @@
     \subitem \spxentry{module}, \hyperpage{4}
   \item \spxentry{tetris.tetrominos}
     \subitem \spxentry{module}, \hyperpage{15}
-  \item \spxentry{TETRIS\_TITLE}\spxextra{tetris.settings.Settings attribute}, \hyperpage{14}
-  \item \spxentry{TETRIS\_TITLE\_Y}\spxextra{tetris.settings.Settings attribute}, \hyperpage{14}
+  \item \spxentry{TETRIS\_TITLE}\spxextra{tetris.settings.Settings attribute}, \hyperpage{15}
+  \item \spxentry{TETRIS\_TITLE\_Y}\spxextra{tetris.settings.Settings attribute}, \hyperpage{15}
   \item \spxentry{Tetromino}\spxextra{class in tetris.tetrominos}, \hyperpage{17}
   \item \spxentry{TEXT}\spxextra{tetris.rules.Rules attribute}, \hyperpage{10}
   \item \spxentry{Ttetromino}\spxextra{class in tetris.tetrominos}, \hyperpage{19}

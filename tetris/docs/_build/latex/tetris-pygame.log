@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.11)  17 DEC 2023 11:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.11)  22 DEC 2023 18:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -885,7 +885,7 @@ LaTeX Font Info:    Font shape `TS1/txtt/b/n' in size <10> not available
  [6] [7] [8] [9]
 [10] [11] [12] [13] [14]
 LaTeX Font Info:    Font shape `T1/txtt/m/it' in size <10> not available
-(Font)              Font shape `T1/txtt/m/sl' tried instead on input line 2884.
+(Font)              Font shape `T1/txtt/m/sl' tried instead on input line 2893.
 
  [15] [16] [17] [18] [19] [20
 
@@ -1017,13 +1017,13 @@ ttings.Settings at-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 75--77
+Underfull \hbox (badness 10000) in paragraph at lines 76--78
 []\T1/txtt/m/n/10 create_draw_row() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 tetris.lead
 erboard.Leaderboard
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 78--80
+Underfull \hbox (badness 10000) in paragraph at lines 79--81
 []\T1/txtt/m/n/10 create_end_of_game_btns() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 tet
 ris.settings.Settings
  []
@@ -1031,30 +1031,30 @@ ris.settings.Settings
 [25
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 83--85
+Underfull \hbox (badness 10000) in paragraph at lines 84--86
 []\T1/txtt/m/n/10 create_go_back_btn() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 tetris.s
 ettings.Settings
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 85--86
+Underfull \hbox (badness 10000) in paragraph at lines 86--87
 []\T1/txtt/m/n/10 create_header() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 tetris.leader
 board.Leaderboard
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 86--88
+Underfull \hbox (badness 10000) in paragraph at lines 87--89
 []\T1/txtt/m/n/10 create_leaderboard()
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 86--88
+Underfull \hbox (badness 10000) in paragraph at lines 87--89
 \T1/qtm/m/n/10 (\T1/qtm/m/it/10 tetris.leaderboard.Leaderboard method\T1/qtm/m/
 n/10 ),
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 89--90
+Underfull \hbox (badness 10000) in paragraph at lines 90--91
 []\T1/txtt/m/n/10 create_title() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 tetris.leaderb
 oard.Leaderboard
  []
@@ -1269,220 +1269,220 @@ ettings.Settings at-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 321--323
+Underfull \hbox (badness 10000) in paragraph at lines 322--324
 []\T1/txtt/m/n/10 MOVE_DOWN_ACCELERATION_PER_LVL
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 324--326
+Underfull \hbox (badness 10000) in paragraph at lines 325--327
 []\T1/txtt/m/n/10 MOVE_DOWN_START_TIME \T1/qtm/m/n/10 (\T1/qtm/m/it/10 tetris.s
 ettings.Settings at-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 336--338
+Underfull \hbox (badness 10000) in paragraph at lines 337--339
 []\T1/txtt/m/n/10 MOVING_RIGHT_KEY_1_FILENAME
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 338--340
+Underfull \hbox (badness 10000) in paragraph at lines 339--341
 []\T1/txtt/m/n/10 MOVING_RIGHT_KEY_2_FILENAME
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 343--345
+Underfull \hbox (badness 10000) in paragraph at lines 344--346
 []\T1/txtt/m/n/10 N_OF_LINES_TO_LVL_UP \T1/qtm/m/n/10 (\T1/qtm/m/it/10 tetris.s
 ettings.Settings at-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 348--350
+Underfull \hbox (badness 10000) in paragraph at lines 349--351
 []\T1/txtt/m/n/10 NEXT_TETROMINO_CELL_WIDTH \T1/qtm/m/n/10 (\T1/qtm/m/it/10 tet
 ris.settings.Settings
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 351--353
+Underfull \hbox (badness 10000) in paragraph at lines 352--354
 []\T1/txtt/m/n/10 NEXT_TETROMINO_GRID_POS
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 353--355
+Underfull \hbox (badness 10000) in paragraph at lines 354--356
 []\T1/txtt/m/n/10 NEXT_TETROMINO_GRID_POS
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 355--357
+Underfull \hbox (badness 10000) in paragraph at lines 356--358
 []\T1/txtt/m/n/10 NEXT_TETROMINO_GRID_POS
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 357--359
+Underfull \hbox (badness 10000) in paragraph at lines 358--360
 []\T1/txtt/m/n/10 NEXT_TETROMINO_GRID_POS
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 359--361
+Underfull \hbox (badness 10000) in paragraph at lines 360--362
 []\T1/txtt/m/n/10 NEXT_TETROMINO_GRID_POS
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 361--363
+Underfull \hbox (badness 10000) in paragraph at lines 362--364
 []\T1/txtt/m/n/10 NEXT_TETROMINO_GRID_POS
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 363--365
+Underfull \hbox (badness 10000) in paragraph at lines 364--366
 []\T1/txtt/m/n/10 NEXT_TETROMINO_GRID_POS
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 365--367
+Underfull \hbox (badness 10000) in paragraph at lines 366--368
 []\T1/txtt/m/n/10 NEXT_TETROMINO_GRID_POS
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 369--371
+Underfull \hbox (badness 10000) in paragraph at lines 370--372
 []\T1/txtt/m/n/10 NEXT_TETROMINO_N_OF_ROWS \T1/qtm/m/n/10 (\T1/qtm/m/it/10 tetr
 is.settings.Settings
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 371--373
+Underfull \hbox (badness 10000) in paragraph at lines 372--374
 []\T1/txtt/m/n/10 NEXT_TETROMINO_TITLE \T1/qtm/m/n/10 (\T1/qtm/m/it/10 tetris.s
 ettings.Settings at-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 387--389
+Underfull \hbox (badness 10000) in paragraph at lines 388--390
 []\T1/txtt/m/n/10 POINTS_FOR_HARD_DROP \T1/qtm/m/n/10 (\T1/qtm/m/it/10 tetris.s
 ettings.Settings at-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 389--391
+Underfull \hbox (badness 10000) in paragraph at lines 390--392
 []\T1/txtt/m/n/10 POINTS_FOR_SOFT_DROP \T1/qtm/m/n/10 (\T1/qtm/m/it/10 tetris.s
 ettings.Settings at-
  []
 
 [28]
-Underfull \hbox (badness 10000) in paragraph at lines 422--424
+Underfull \hbox (badness 10000) in paragraph at lines 423--425
 []\T1/txtt/m/n/10 put_on_next_tetromino_window()
  []
 
 
-Overfull \hbox (10.82149pt too wide) in paragraph at lines 433--435
+Overfull \hbox (10.82149pt too wide) in paragraph at lines 434--436
 []\T1/txtt/m/n/10 RIGHT_EDGE_POS \T1/qtm/m/n/10 (\T1/qtm/m/it/10 tetris.tests.t
 est_tetrominos.TestTetromino
  []
 
 
-Underfull \hbox (badness 6125) in paragraph at lines 437--438
+Underfull \hbox (badness 6125) in paragraph at lines 438--439
 []\T1/txtt/m/n/10 rotate_left() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 tetris.tetromin
 os.Tetromino method\T1/qtm/m/n/10 ),
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 438--440
+Underfull \hbox (badness 10000) in paragraph at lines 439--441
 []\T1/txtt/m/n/10 ROTATE_LEFT_KEY_FILENAME \T1/qtm/m/n/10 (\T1/qtm/m/it/10 tetr
 is.settings.Settings
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 443--445
+Underfull \hbox (badness 10000) in paragraph at lines 444--446
 []\T1/txtt/m/n/10 ROTATE_RIGHT_KEY_1_FILENAME
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 445--447
+Underfull \hbox (badness 10000) in paragraph at lines 446--448
 []\T1/txtt/m/n/10 ROTATE_RIGHT_KEY_2_FILENAME
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 470--472
+Underfull \hbox (badness 10000) in paragraph at lines 471--473
 []\T1/txtt/m/n/10 setUpClass() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 tetris.tests.tes
 t_game.TestGame class
  []
 
 
-Overfull \hbox (26.57227pt too wide) in paragraph at lines 497--499
+Overfull \hbox (26.57227pt too wide) in paragraph at lines 498--500
 []\T1/txtt/m/n/10 test_check_down() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 tetris.test
 s.test_tetrominos.TestTetromino
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 499--501
+[29]
+Underfull \hbox (badness 10000) in paragraph at lines 500--502
 []\T1/txtt/m/n/10 test_check_line() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 tetris.test
 s.test_game.TestGame
  []
 
-[29]
-Underfull \hbox (badness 10000) in paragraph at lines 501--503
+
+Underfull \hbox (badness 10000) in paragraph at lines 502--504
 []\T1/txtt/m/n/10 test_check_move_left()
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 501--503
+Underfull \hbox (badness 10000) in paragraph at lines 502--504
 \T1/qtm/m/n/10 (\T1/qtm/m/it/10 tetris.tests.test_tetrominos.TestTetromino
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 503--505
+Underfull \hbox (badness 10000) in paragraph at lines 504--506
 []\T1/txtt/m/n/10 test_check_move_right()
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 503--505
+Underfull \hbox (badness 10000) in paragraph at lines 504--506
 \T1/qtm/m/n/10 (\T1/qtm/m/it/10 tetris.tests.test_tetrominos.TestTetromino
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 505--507
+Underfull \hbox (badness 10000) in paragraph at lines 506--508
 []\T1/txtt/m/n/10 test_check_tetromino_above_top()
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 505--507
+Underfull \hbox (badness 10000) in paragraph at lines 506--508
 \T1/qtm/m/n/10 (\T1/qtm/m/it/10 tetris.tests.test_game.TestGame method\T1/qtm/m
 /n/10 ),
  []
 
 
-Overfull \hbox (31.82225pt too wide) in paragraph at lines 507--509
+Overfull \hbox (31.82225pt too wide) in paragraph at lines 508--510
 []\T1/txtt/m/n/10 test_check_touch() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 tetris.tes
 ts.test_tetrominos.TestTetromino
  []
 
 
-Underfull \hbox (badness 5681) in paragraph at lines 509--511
+Underfull \hbox (badness 5681) in paragraph at lines 510--512
 []\T1/txtt/m/n/10 test_delete_line() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 tetris.tes
 ts.test_game.TestGame
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 511--513
+Underfull \hbox (badness 10000) in paragraph at lines 512--514
 []\T1/txtt/m/n/10 test_init_properties()
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 511--513
+Underfull \hbox (badness 10000) in paragraph at lines 512--514
 \T1/qtm/m/n/10 (\T1/qtm/m/it/10 tetris.tests.test_game.TestGame method\T1/qtm/m
 /n/10 ),
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 514--516
+Underfull \hbox (badness 10000) in paragraph at lines 515--517
 []\T1/txtt/m/n/10 test_random_tetromino()
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 514--516
+Underfull \hbox (badness 10000) in paragraph at lines 515--517
 \T1/qtm/m/n/10 (\T1/qtm/m/it/10 tetris.tests.test_game.TestGame method\T1/qtm/m
 /n/10 ),
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 569--570
+Underfull \hbox (badness 10000) in paragraph at lines 570--571
 []\T1/txtt/m/n/10 update_on_grid() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 tetris.tetro
 minos.Tetromino
  []
@@ -1493,13 +1493,13 @@ LaTeX2e <2023-11-01>
 L3 programming layer <2023-11-01>
  ***********
 Package rerunfilecheck Info: File `tetris-pygame.out' has not changed.
-(rerunfilecheck)             Checksum: 6CFB8BDFCD62C76239D68C2FC9222F1E;5840.
+(rerunfilecheck)             Checksum: 091684B9493F5C867A87FDE32A597EB6;5840.
  ) 
 Here is how much of TeX's memory you used:
- 17101 strings out of 474272
- 293998 string characters out of 5751547
+ 17103 strings out of 474272
+ 294071 string characters out of 5751547
  1950533 words of memory out of 5000000
- 38516 multiletter control sequences out of 15000+600000
+ 38517 multiletter control sequences out of 15000+600000
  609743 words of font info for 78 fonts, out of 8000000 for 9000
  1142 hyphenation exceptions out of 8191
  72i,12n,79p,8031b,778s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1513,10 +1513,10 @@ e/2023/texmf-dist/fonts/type1/public/txfonts/t1xbtt.pfb><c:/texlive/2023/texmf-
 dist/fonts/type1/public/txfonts/t1xtt.pfb><c:/texlive/2023/texmf-dist/fonts/typ
 e1/public/txfonts/t1xtt.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/txfo
 nts/tcxbtt.pfb>
-Output written on tetris-pygame.pdf (34 pages, 239470 bytes).
+Output written on tetris-pygame.pdf (34 pages, 239759 bytes).
 PDF statistics:
- 1210 PDF objects out of 1440 (max. 8388607)
- 1143 compressed objects within 12 object streams
- 406 named destinations out of 1000 (max. 500000)
+ 1212 PDF objects out of 1440 (max. 8388607)
+ 1145 compressed objects within 12 object streams
+ 407 named destinations out of 1000 (max. 500000)
  309 words of extra memory for PDF output out of 10000 (max. 10000000)
 
