@@ -14,10 +14,10 @@ class TestMenu(TestCase):
         self.settings = Settings()
         self.menu = Menu(self.settings)
 
-    @patch('menu.Menu.check_events')
-    @patch('menu.Menu.check_hover')
-    @patch('menu.Menu.draw_buttons')
-    @patch('menu.pygame.display.update')
+    @patch('tetris.menu.Menu.check_events')
+    @patch('tetris.menu.Menu.check_hover')
+    @patch('tetris.menu.Menu.draw_buttons')
+    @patch('tetris.menu.pygame.display.update')
     def test_main(
         self,
         mock_display_update,
